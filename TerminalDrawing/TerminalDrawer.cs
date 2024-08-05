@@ -18,7 +18,6 @@ namespace TerminalDrawing
         {
             _fileName = DefaultFileName;
             _terminalCanvas = new(CanvasWidth, CanvasHeight);
-
         }
 
         public void Start() {
