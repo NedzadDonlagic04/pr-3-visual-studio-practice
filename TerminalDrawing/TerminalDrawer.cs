@@ -35,36 +35,59 @@ namespace TerminalDrawing
 
         private void EnterDrawingFileName()
         {
-            char option = 'n';
+            Console.Write("Enter the name of file where the drawing will be saved: ");
+            _fileName = Console.ReadLine() ?? DefaultFileName;
 
-            do {
-                Console.Write("Enter the name of file where the drawing will be saved: ");
-                _fileName = Console.ReadLine() ?? DefaultFileName;
+            if (!File.Exists(FilePath)) 
+            {
+                return;
+            }
 
-                if (File.Exists(FilePath)) {
-                    Console.WriteLine("The entered name already exists, which means saving will override what is currently inside the file");
-                    Console.Write("Do you wish to change the file name(y\\n): ");
-                    option = char.Parse(Console.ReadLine() ?? "n");
-                    Console.WriteLine();
-                }
-            } while (option != 'n');
+            char option;
+
+            Console.WriteLine("The entered file already exists");
+            Console.Write("Do you wish to load it's content, keep in mind not loading it will override the current content? (y\\n) :");
+            option = char.Parse(Console.ReadLine() ?? "n");
+            Console.WriteLine();
+
+            if (option == 'y') 
+            {
+                _terminalCanvas.LoadFromFile(FilePath);
+            }
         }
 
         private void StartDrawingProcess() {
+            Console.Clear();
+
+            RunCanvasDrawingLoop();
+            
+            Console.Clear();
+
+            char option;
+
+            Console.Write("Do you wish to save the changes made? (y\\n) :");
+            option = char.Parse(Console.ReadLine() ?? "n");
+            Console.WriteLine();
+
+            if (option == 'y')
+            {
+                _terminalCanvas.SaveToFile(FilePath);
+            }
+        }
+
+        private void RunCanvasDrawingLoop() {
             ConsoleKeyInfo enteredKeyInfo;
 
             var cursorPosition = new Point(0, 0);
             char keyChar = 'A';
 
-            Console.Clear();
-            
             do
             {
                 Console.CursorVisible = false;
                 Console.SetCursorPosition(0, 0);
-                
+
                 _terminalCanvas.PrintCanvas();
-                
+
                 Console.SetCursorPosition(cursorPosition.X + 1, cursorPosition.Y + 1);
                 Console.Write(keyChar);
                 Console.SetCursorPosition(cursorPosition.X + 1, cursorPosition.Y + 1);
@@ -73,10 +96,6 @@ namespace TerminalDrawing
                 enteredKeyInfo = Console.ReadKey(true);
                 HandleKeyInput(enteredKeyInfo, ref cursorPosition, ref keyChar);
             } while (enteredKeyInfo.Key != ConsoleKey.Escape);
-            
-            Console.Clear();
-            
-            _terminalCanvas.SaveToFile(FilePath);
         }
 
         private void HandleKeyInput(ConsoleKeyInfo consoleKeyInfo, ref Point cursorPosition, ref char keyChar) {
