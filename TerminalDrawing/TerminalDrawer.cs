@@ -46,7 +46,7 @@ namespace TerminalDrawing
             char option;
 
             Console.WriteLine("The entered file already exists");
-            Console.Write("Do you wish to load it's content, keep in mind not loading it will override the current content? (y\\n) :");
+            Console.Write("Do you wish to load it's content, keep in mind not loading it will override the current content?(y\\n): ");
             option = char.Parse(Console.ReadLine() ?? "n");
             Console.WriteLine();
 
@@ -65,7 +65,7 @@ namespace TerminalDrawing
 
             char option;
 
-            Console.Write("Do you wish to save the changes made? (y\\n) :");
+            Console.Write("Do you wish to save the changes made?(y\\n): ");
             option = char.Parse(Console.ReadLine() ?? "n");
             Console.WriteLine();
 
