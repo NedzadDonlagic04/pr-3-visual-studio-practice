@@ -49,14 +49,16 @@ namespace TerminalDrawing
                     streamWriter.Write(_matrix[i, ii]);
                 }
                 
-                if (i + 1 < _rows) {
+                if (i + 1 < _rows) 
+                {
                     streamWriter.WriteLine();
                 }
             }
         }
 
         public bool LoadFromFile(string filePath) {
-            if (!File.Exists(filePath)) {
+            if (!File.Exists(filePath)) 
+            {
                 return false;
             }
 
@@ -65,14 +67,19 @@ namespace TerminalDrawing
             using var streamReader = File.OpenText(filePath);
 
             string? line;
-            for (int i = 0; i < _rows; ++i) {
-                if ((line = streamReader.ReadLine()) == null) {
+            for (int i = 0; i < _rows; ++i) 
+            {
+                if ((line = streamReader.ReadLine()) == null) 
+                {
                     return false;
-                } else if (line.Length != _cols) {
+                } 
+                else if (line.Length != _cols) 
+                {
                     return false;
                 }
 
-                for (int ii = 0; ii < _cols; ++ii) {
+                for (int ii = 0; ii < _cols; ++ii) 
+                {
                     tempMatrix[i, ii] = line[ii];
                 }
             }
