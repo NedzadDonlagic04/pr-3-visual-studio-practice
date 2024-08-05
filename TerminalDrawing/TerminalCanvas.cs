@@ -1,11 +1,12 @@
 ﻿using System.Drawing;
+using System.Security.Principal;
 using CharMatrixExtensions;
 
 namespace TerminalDrawing
 {
     internal class TerminalCanvas
     {
-        private readonly char[,] _matrix;
+        private char[,] _matrix;
         private readonly string _borderTopBottom;
         private readonly int _rows; 
         private readonly int _cols; 
@@ -52,6 +53,32 @@ namespace TerminalDrawing
                     streamWriter.WriteLine();
                 }
             }
+        }
+
+        public bool LoadFromFile(string filePath) {
+            if (!File.Exists(filePath)) {
+                return false;
+            }
+
+            char[,] tempMatrix = new char[_rows, _cols];
+
+            using var streamReader = File.OpenText(filePath);
+
+            string? line;
+            for (int i = 0; i < _rows; ++i) {
+                if ((line = streamReader.ReadLine()) == null) {
+                    return false;
+                } else if (line.Length != _cols) {
+                    return false;
+                }
+
+                for (int ii = 0; ii < _cols; ++ii) {
+                    tempMatrix[i, ii] = line[ii];
+                }
+            }
+
+            _matrix = tempMatrix;
+            return true;
         }
     }
 }
