@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TerminalDrawing", "TerminalDrawing\TerminalDrawing.csproj", "{A3AF5A53-A314-41FD-9776-973EE9D60CEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsTodoList", "WinFormsTodoList\WinFormsTodoList.csproj", "{D02375CF-C8CF-40BF-BE7F-40B3D9D8BE63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsTodoList", "WinFormsTodoList\WinFormsTodoList.csproj", "{D02375CF-C8CF-40BF-BE7F-40B3D9D8BE63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{9B0D625F-C5F7-437F-BB1B-D5194818EBD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D02375CF-C8CF-40BF-BE7F-40B3D9D8BE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D02375CF-C8CF-40BF-BE7F-40B3D9D8BE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D02375CF-C8CF-40BF-BE7F-40B3D9D8BE63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B0D625F-C5F7-437F-BB1B-D5194818EBD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0D625F-C5F7-437F-BB1B-D5194818EBD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0D625F-C5F7-437F-BB1B-D5194818EBD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0D625F-C5F7-437F-BB1B-D5194818EBD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
