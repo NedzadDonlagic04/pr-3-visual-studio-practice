@@ -29,19 +29,25 @@
         private void InitializeComponent()
         {
             splitContainer = new SplitContainer();
-            todoActionsFlowLayoutPanel = new FlowLayoutPanel();
-            todoListActionButton1 = new TodoListActionButton();
-            todoListActionButton3 = new TodoListActionButton();
-            todoListActionButton4 = new TodoListActionButton();
-            todoListActionButton2 = new TodoListActionButton();
-            panel1 = new Panel();
+            filterTodosButtonPanel = new Panel();
+            filterTodosButton = new TodoListActionButton();
+            removeTodosButtonPanel = new Panel();
+            removeTodosButton = new TodoListActionButton();
+            updateTodosButtonPanel = new Panel();
+            updateTodosButton = new TodoListActionButton();
+            addTodoButtonPanel = new Panel();
+            addTodoButton = new TodoListActionButton();
+            todoListLabelPanel = new Panel();
             todoListLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
             splitContainer.Panel1.SuspendLayout();
             splitContainer.Panel2.SuspendLayout();
             splitContainer.SuspendLayout();
-            todoActionsFlowLayoutPanel.SuspendLayout();
-            panel1.SuspendLayout();
+            filterTodosButtonPanel.SuspendLayout();
+            removeTodosButtonPanel.SuspendLayout();
+            updateTodosButtonPanel.SuspendLayout();
+            addTodoButtonPanel.SuspendLayout();
+            todoListLabelPanel.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer
@@ -53,93 +59,132 @@
             // splitContainer.Panel1
             // 
             splitContainer.Panel1.BackColor = SystemColors.Control;
-            splitContainer.Panel1.Controls.Add(todoActionsFlowLayoutPanel);
+            splitContainer.Panel1.Controls.Add(filterTodosButtonPanel);
+            splitContainer.Panel1.Controls.Add(removeTodosButtonPanel);
+            splitContainer.Panel1.Controls.Add(updateTodosButtonPanel);
+            splitContainer.Panel1.Controls.Add(addTodoButtonPanel);
+            splitContainer.Panel1.Padding = new Padding(20, 15, 20, 15);
             // 
             // splitContainer.Panel2
             // 
             splitContainer.Panel2.BackColor = SystemColors.Control;
-            splitContainer.Panel2.Controls.Add(panel1);
+            splitContainer.Panel2.Controls.Add(todoListLabelPanel);
             splitContainer.Size = new Size(784, 461);
             splitContainer.SplitterDistance = 261;
             splitContainer.TabIndex = 0;
             // 
-            // todoActionsFlowLayoutPanel
+            // filterTodosButtonPanel
             // 
-            todoActionsFlowLayoutPanel.Controls.Add(todoListActionButton1);
-            todoActionsFlowLayoutPanel.Controls.Add(todoListActionButton3);
-            todoActionsFlowLayoutPanel.Controls.Add(todoListActionButton4);
-            todoActionsFlowLayoutPanel.Controls.Add(todoListActionButton2);
-            todoActionsFlowLayoutPanel.Dock = DockStyle.Fill;
-            todoActionsFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            todoActionsFlowLayoutPanel.Location = new Point(0, 0);
-            todoActionsFlowLayoutPanel.Margin = new Padding(0);
-            todoActionsFlowLayoutPanel.Name = "todoActionsFlowLayoutPanel";
-            todoActionsFlowLayoutPanel.Size = new Size(261, 461);
-            todoActionsFlowLayoutPanel.TabIndex = 0;
-            todoActionsFlowLayoutPanel.WrapContents = false;
+            filterTodosButtonPanel.AutoSize = true;
+            filterTodosButtonPanel.Controls.Add(filterTodosButton);
+            filterTodosButtonPanel.Dock = DockStyle.Top;
+            filterTodosButtonPanel.Location = new Point(20, 270);
+            filterTodosButtonPanel.Name = "filterTodosButtonPanel";
+            filterTodosButtonPanel.Padding = new Padding(10);
+            filterTodosButtonPanel.Size = new Size(221, 85);
+            filterTodosButtonPanel.TabIndex = 5;
             // 
-            // todoListActionButton1
+            // filterTodosButton
             // 
-            todoListActionButton1.AutoSize = true;
-            todoListActionButton1.Location = new Point(3, 3);
-            todoListActionButton1.Name = "todoListActionButton1";
-            todoListActionButton1.Padding = new Padding(20);
-            todoListActionButton1.Size = new Size(221, 65);
-            todoListActionButton1.TabIndex = 0;
-            todoListActionButton1.Text = "Add Todo";
-            todoListActionButton1.UseVisualStyleBackColor = true;
+            filterTodosButton.AutoSize = true;
+            filterTodosButton.Dock = DockStyle.Top;
+            filterTodosButton.Location = new Point(10, 10);
+            filterTodosButton.Margin = new Padding(0);
+            filterTodosButton.Name = "filterTodosButton";
+            filterTodosButton.Padding = new Padding(20);
+            filterTodosButton.Size = new Size(201, 65);
+            filterTodosButton.TabIndex = 1;
+            filterTodosButton.Text = "Filter Todos";
+            filterTodosButton.UseVisualStyleBackColor = true;
             // 
-            // todoListActionButton3
+            // removeTodosButtonPanel
             // 
-            todoListActionButton3.Anchor = AnchorStyles.Top;
-            todoListActionButton3.AutoSize = true;
-            todoListActionButton3.Location = new Point(3, 74);
-            todoListActionButton3.Name = "todoListActionButton3";
-            todoListActionButton3.Padding = new Padding(20);
-            todoListActionButton3.Size = new Size(221, 65);
-            todoListActionButton3.TabIndex = 2;
-            todoListActionButton3.Text = "Update Todos";
-            todoListActionButton3.UseVisualStyleBackColor = true;
+            removeTodosButtonPanel.AutoSize = true;
+            removeTodosButtonPanel.Controls.Add(removeTodosButton);
+            removeTodosButtonPanel.Dock = DockStyle.Top;
+            removeTodosButtonPanel.Location = new Point(20, 185);
+            removeTodosButtonPanel.Name = "removeTodosButtonPanel";
+            removeTodosButtonPanel.Padding = new Padding(10);
+            removeTodosButtonPanel.Size = new Size(221, 85);
+            removeTodosButtonPanel.TabIndex = 4;
             // 
-            // todoListActionButton4
+            // removeTodosButton
             // 
-            todoListActionButton4.Anchor = AnchorStyles.Top;
-            todoListActionButton4.AutoSize = true;
-            todoListActionButton4.Location = new Point(3, 145);
-            todoListActionButton4.Name = "todoListActionButton4";
-            todoListActionButton4.Padding = new Padding(20);
-            todoListActionButton4.Size = new Size(221, 65);
-            todoListActionButton4.TabIndex = 3;
-            todoListActionButton4.Text = "Filter Todos";
-            todoListActionButton4.UseVisualStyleBackColor = true;
+            removeTodosButton.AutoSize = true;
+            removeTodosButton.Dock = DockStyle.Top;
+            removeTodosButton.Location = new Point(10, 10);
+            removeTodosButton.Margin = new Padding(0);
+            removeTodosButton.Name = "removeTodosButton";
+            removeTodosButton.Padding = new Padding(20);
+            removeTodosButton.Size = new Size(201, 65);
+            removeTodosButton.TabIndex = 1;
+            removeTodosButton.Text = "Remove Todos";
+            removeTodosButton.UseVisualStyleBackColor = true;
             // 
-            // todoListActionButton2
+            // updateTodosButtonPanel
             // 
-            todoListActionButton2.Anchor = AnchorStyles.Top;
-            todoListActionButton2.AutoSize = true;
-            todoListActionButton2.Location = new Point(3, 216);
-            todoListActionButton2.Name = "todoListActionButton2";
-            todoListActionButton2.Padding = new Padding(20);
-            todoListActionButton2.Size = new Size(221, 65);
-            todoListActionButton2.TabIndex = 1;
-            todoListActionButton2.Text = "Remove Todos";
-            todoListActionButton2.UseVisualStyleBackColor = true;
+            updateTodosButtonPanel.AutoSize = true;
+            updateTodosButtonPanel.Controls.Add(updateTodosButton);
+            updateTodosButtonPanel.Dock = DockStyle.Top;
+            updateTodosButtonPanel.Location = new Point(20, 100);
+            updateTodosButtonPanel.Name = "updateTodosButtonPanel";
+            updateTodosButtonPanel.Padding = new Padding(10);
+            updateTodosButtonPanel.Size = new Size(221, 85);
+            updateTodosButtonPanel.TabIndex = 3;
             // 
-            // panel1
+            // updateTodosButton
             // 
-            panel1.Controls.Add(todoListLabel);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(519, 92);
-            panel1.TabIndex = 1;
+            updateTodosButton.AutoSize = true;
+            updateTodosButton.Dock = DockStyle.Top;
+            updateTodosButton.Location = new Point(10, 10);
+            updateTodosButton.Margin = new Padding(0);
+            updateTodosButton.Name = "updateTodosButton";
+            updateTodosButton.Padding = new Padding(20);
+            updateTodosButton.Size = new Size(201, 65);
+            updateTodosButton.TabIndex = 1;
+            updateTodosButton.Text = "Update Todos";
+            updateTodosButton.UseVisualStyleBackColor = true;
+            // 
+            // addTodoButtonPanel
+            // 
+            addTodoButtonPanel.AutoSize = true;
+            addTodoButtonPanel.Controls.Add(addTodoButton);
+            addTodoButtonPanel.Dock = DockStyle.Top;
+            addTodoButtonPanel.Location = new Point(20, 15);
+            addTodoButtonPanel.Name = "addTodoButtonPanel";
+            addTodoButtonPanel.Padding = new Padding(10);
+            addTodoButtonPanel.Size = new Size(221, 85);
+            addTodoButtonPanel.TabIndex = 2;
+            // 
+            // addTodoButton
+            // 
+            addTodoButton.AutoSize = true;
+            addTodoButton.Dock = DockStyle.Top;
+            addTodoButton.Location = new Point(10, 10);
+            addTodoButton.Margin = new Padding(0);
+            addTodoButton.Name = "addTodoButton";
+            addTodoButton.Padding = new Padding(20);
+            addTodoButton.Size = new Size(201, 65);
+            addTodoButton.TabIndex = 1;
+            addTodoButton.Text = "Add Todo";
+            addTodoButton.UseVisualStyleBackColor = true;
+            // 
+            // todoListLabelPanel
+            // 
+            todoListLabelPanel.Controls.Add(todoListLabel);
+            todoListLabelPanel.Dock = DockStyle.Top;
+            todoListLabelPanel.Location = new Point(0, 0);
+            todoListLabelPanel.Name = "todoListLabelPanel";
+            todoListLabelPanel.Padding = new Padding(30);
+            todoListLabelPanel.Size = new Size(519, 68);
+            todoListLabelPanel.TabIndex = 1;
             // 
             // todoListLabel
             // 
             todoListLabel.Anchor = AnchorStyles.None;
             todoListLabel.AutoSize = true;
             todoListLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            todoListLabel.Location = new Point(181, 24);
+            todoListLabel.Location = new Point(181, 12);
             todoListLabel.Name = "todoListLabel";
             todoListLabel.Size = new Size(156, 45);
             todoListLabel.TabIndex = 0;
@@ -158,25 +203,35 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Todo List Application";
             splitContainer.Panel1.ResumeLayout(false);
+            splitContainer.Panel1.PerformLayout();
             splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
             splitContainer.ResumeLayout(false);
-            todoActionsFlowLayoutPanel.ResumeLayout(false);
-            todoActionsFlowLayoutPanel.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            filterTodosButtonPanel.ResumeLayout(false);
+            filterTodosButtonPanel.PerformLayout();
+            removeTodosButtonPanel.ResumeLayout(false);
+            removeTodosButtonPanel.PerformLayout();
+            updateTodosButtonPanel.ResumeLayout(false);
+            updateTodosButtonPanel.PerformLayout();
+            addTodoButtonPanel.ResumeLayout(false);
+            addTodoButtonPanel.PerformLayout();
+            todoListLabelPanel.ResumeLayout(false);
+            todoListLabelPanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private SplitContainer splitContainer;
-        private TodoListActionButton todoListActionButton1;
-        private TodoListActionButton todoListActionButton4;
-        private TodoListActionButton todoListActionButton3;
-        private TodoListActionButton todoListActionButton2;
         private Label todoListLabel;
-        private FlowLayoutPanel todoActionsFlowLayoutPanel;
-        private Panel panel1;
+        private Panel todoListLabelPanel;
+        private Panel addTodoButtonPanel;
+        private TodoListActionButton addTodoButton;
+        private Panel filterTodosButtonPanel;
+        private TodoListActionButton filterTodosButton;
+        private Panel removeTodosButtonPanel;
+        private TodoListActionButton removeTodosButton;
+        private Panel updateTodosButtonPanel;
+        private TodoListActionButton updateTodosButton;
     }
 }
