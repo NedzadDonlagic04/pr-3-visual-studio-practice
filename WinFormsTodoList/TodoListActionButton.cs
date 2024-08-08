@@ -10,10 +10,7 @@ namespace WinFormsTodoList
     {
         public TodoListActionButton() { 
             AutoSize = true;
-
             Padding = new Padding(20);
-
-            Dock = DockStyle.Top;
         }
     }
 }
