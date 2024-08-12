@@ -1,6 +1,4 @@
-﻿using CustomDesigner;
-using System.Diagnostics;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace WinFormsTodoList
 {
@@ -11,6 +9,7 @@ namespace WinFormsTodoList
             InitializeComponent();
             ResizeAndRelocatedButton();
         }
+
         private void ResizeAndRelocatedButton()
         {
             button.Width = panel.Width - panel.Padding.Left - panel.Padding.Right;
@@ -52,6 +51,15 @@ namespace WinFormsTodoList
         private void PanelWithButtonInside_Load(object sender, EventArgs e)
         {
             ResizeAndRelocatedButton();
+        }
+
+        public new event EventHandler Click {
+            add {
+                button.Click += value;
+            }
+            remove {
+                button.Click -= value;
+            }
         }
     }
 }
