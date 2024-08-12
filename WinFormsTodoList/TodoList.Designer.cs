@@ -78,6 +78,7 @@ namespace WinFormsTodoList
             filterTodosPanelWithButtonInside.Size = new Size(221, 103);
             filterTodosPanelWithButtonInside.TabIndex = 3;
             filterTodosPanelWithButtonInside.Text = "Filter Todos";
+            filterTodosPanelWithButtonInside.Click += FilterTodosWindow;
             // 
             // removeTodosPanelWithButtonInside
             // 
@@ -90,6 +91,7 @@ namespace WinFormsTodoList
             removeTodosPanelWithButtonInside.Size = new Size(221, 103);
             removeTodosPanelWithButtonInside.TabIndex = 2;
             removeTodosPanelWithButtonInside.Text = "Remove Todos";
+            removeTodosPanelWithButtonInside.Click += RemoveTodosWindow;
             // 
             // updateTodosPanelWithButtonInside
             // 
@@ -102,6 +104,7 @@ namespace WinFormsTodoList
             updateTodosPanelWithButtonInside.Size = new Size(221, 103);
             updateTodosPanelWithButtonInside.TabIndex = 1;
             updateTodosPanelWithButtonInside.Text = "Update Todos";
+            updateTodosPanelWithButtonInside.Click += UpdateTodosWindow;
             // 
             // addTodoPanelWithButtonInside
             // 
@@ -115,6 +118,7 @@ namespace WinFormsTodoList
             addTodoPanelWithButtonInside.Size = new Size(221, 103);
             addTodoPanelWithButtonInside.TabIndex = 0;
             addTodoPanelWithButtonInside.Text = "Add Todo";
+            addTodoPanelWithButtonInside.Click += AddTodoWindow;
             // 
             // todoListLabelPanel
             // 
