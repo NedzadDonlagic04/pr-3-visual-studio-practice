@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WinFormsTodoList": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
