@@ -35,6 +35,7 @@ namespace WinFormsTodoList
             removeTodosPanelWithButtonInside = new PanelWithButtonInside();
             updateTodosPanelWithButtonInside = new PanelWithButtonInside();
             addTodoPanelWithButtonInside = new PanelWithButtonInside();
+            todosListBox = new ListBox();
             todoListLabelPanel = new Panel();
             todoListLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
@@ -62,6 +63,7 @@ namespace WinFormsTodoList
             // splitContainer.Panel2
             // 
             splitContainer.Panel2.BackColor = SystemColors.Control;
+            splitContainer.Panel2.Controls.Add(todosListBox);
             splitContainer.Panel2.Controls.Add(todoListLabelPanel);
             splitContainer.Size = new Size(784, 461);
             splitContainer.SplitterDistance = 261;
@@ -120,6 +122,16 @@ namespace WinFormsTodoList
             addTodoPanelWithButtonInside.Text = "Add Todo";
             addTodoPanelWithButtonInside.Click += AddTodoWindow;
             // 
+            // todosListBox
+            // 
+            todosListBox.Anchor = AnchorStyles.None;
+            todosListBox.FormattingEnabled = true;
+            todosListBox.ItemHeight = 15;
+            todosListBox.Location = new Point(49, 101);
+            todosListBox.Name = "todosListBox";
+            todosListBox.Size = new Size(420, 259);
+            todosListBox.TabIndex = 2;
+            // 
             // todoListLabelPanel
             // 
             todoListLabelPanel.Controls.Add(todoListLabel);
@@ -171,5 +183,6 @@ namespace WinFormsTodoList
         private PanelWithButtonInside filterTodosPanelWithButtonInside;
         private PanelWithButtonInside removeTodosPanelWithButtonInside;
         private PanelWithButtonInside updateTodosPanelWithButtonInside;
+        private ListBox todosListBox;
     }
 }
