@@ -165,6 +165,7 @@ namespace WinFormsTodoList
             Name = "TodoList";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Todo List Application";
+            Load += LoadForm;
             splitContainer.Panel1.ResumeLayout(false);
             splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
