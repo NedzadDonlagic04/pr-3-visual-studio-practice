@@ -28,54 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            enterTodoTextBox = new TextBox();
-            enterTodoLabel = new Label();
-            enterTodoPanel = new Panel();
             buttonsPanel = new Panel();
             cancelTodoButton = new Button();
             addTodoButton = new Button();
-            enterTodoPanel.SuspendLayout();
+            textBoxWithLabel1 = new TextBoxWithLabel();
             buttonsPanel.SuspendLayout();
             SuspendLayout();
-            // 
-            // enterTodoTextBox
-            // 
-            enterTodoTextBox.Dock = DockStyle.Fill;
-            enterTodoTextBox.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            enterTodoTextBox.Location = new Point(0, 30);
-            enterTodoTextBox.Name = "enterTodoTextBox";
-            enterTodoTextBox.Size = new Size(319, 35);
-            enterTodoTextBox.TabIndex = 0;
-            enterTodoTextBox.TextChanged += EnteredTodoChange;
-            // 
-            // enterTodoLabel
-            // 
-            enterTodoLabel.AutoSize = true;
-            enterTodoLabel.Dock = DockStyle.Top;
-            enterTodoLabel.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            enterTodoLabel.Location = new Point(0, 0);
-            enterTodoLabel.Name = "enterTodoLabel";
-            enterTodoLabel.Size = new Size(125, 30);
-            enterTodoLabel.TabIndex = 1;
-            enterTodoLabel.Text = "Enter Todo:";
-            // 
-            // enterTodoPanel
-            // 
-            enterTodoPanel.Controls.Add(enterTodoTextBox);
-            enterTodoPanel.Controls.Add(enterTodoLabel);
-            enterTodoPanel.Location = new Point(85, 29);
-            enterTodoPanel.Name = "enterTodoPanel";
-            enterTodoPanel.Size = new Size(319, 100);
-            enterTodoPanel.TabIndex = 2;
             // 
             // buttonsPanel
             // 
             buttonsPanel.Controls.Add(cancelTodoButton);
             buttonsPanel.Controls.Add(addTodoButton);
             buttonsPanel.Dock = DockStyle.Bottom;
-            buttonsPanel.Location = new Point(0, 150);
+            buttonsPanel.Location = new Point(0, 106);
             buttonsPanel.Name = "buttonsPanel";
-            buttonsPanel.Size = new Size(489, 77);
+            buttonsPanel.Size = new Size(489, 89);
             buttonsPanel.TabIndex = 3;
             // 
             // cancelTodoButton
@@ -104,30 +71,32 @@
             addTodoButton.UseVisualStyleBackColor = true;
             addTodoButton.Click += AddTodo;
             // 
+            // textBoxWithLabel1
+            // 
+            textBoxWithLabel1.Location = new Point(99, 12);
+            textBoxWithLabel1.Name = "textBoxWithLabel1";
+            textBoxWithLabel1.Size = new Size(291, 88);
+            textBoxWithLabel1.TabIndex = 4;
+            // 
             // AddTodoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(489, 227);
+            ClientSize = new Size(489, 195);
+            Controls.Add(textBoxWithLabel1);
             Controls.Add(buttonsPanel);
-            Controls.Add(enterTodoPanel);
             Name = "AddTodoForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Todo";
-            enterTodoPanel.ResumeLayout(false);
-            enterTodoPanel.PerformLayout();
             buttonsPanel.ResumeLayout(false);
             buttonsPanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private TextBox enterTodoTextBox;
-        private Label enterTodoLabel;
-        private Panel enterTodoPanel;
         private Panel buttonsPanel;
         private Button cancelTodoButton;
         private Button addTodoButton;
+        private TextBoxWithLabel textBoxWithLabel1;
     }
 }

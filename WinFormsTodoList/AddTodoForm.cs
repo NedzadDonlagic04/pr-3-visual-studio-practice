@@ -21,7 +21,7 @@ namespace WinFormsTodoList
 
         private void AddTodo(object sender, EventArgs e)
         {
-            EnteredTodo = enterTodoTextBox.Text;
+            //EnteredTodo = enterTodoTextBox.Text;
             DialogResult = DialogResult.OK;
             Close();
         }
