@@ -1,6 +1,6 @@
 ﻿namespace WinFormsTodoList
 {
-    partial class AddTodoForm
+    partial class PromptInputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            enterTodoTextBoxWithLabel = new TextBoxWithLabel();
             buttonsPanel = new Panel();
             cancelTodoButton = new Button();
-            addTodoButton = new Button();
-            textBoxWithLabel1 = new TextBoxWithLabel();
+            okTodoButton = new Button();
             buttonsPanel.SuspendLayout();
             SuspendLayout();
+            // 
+            // enterTodoTextBoxWithLabel
+            // 
+            enterTodoTextBoxWithLabel.LabelText = "Enter input:";
+            enterTodoTextBoxWithLabel.Location = new Point(85, 12);
+            enterTodoTextBoxWithLabel.MaxTextBoxInputLength = 6;
+            enterTodoTextBoxWithLabel.Name = "enterTodoTextBoxWithLabel";
+            enterTodoTextBoxWithLabel.Size = new Size(319, 88);
+            enterTodoTextBoxWithLabel.TabIndex = 5;
             // 
             // buttonsPanel
             // 
             buttonsPanel.Controls.Add(cancelTodoButton);
-            buttonsPanel.Controls.Add(addTodoButton);
+            buttonsPanel.Controls.Add(okTodoButton);
             buttonsPanel.Dock = DockStyle.Bottom;
             buttonsPanel.Location = new Point(0, 106);
             buttonsPanel.Name = "buttonsPanel";
             buttonsPanel.Size = new Size(489, 89);
-            buttonsPanel.TabIndex = 3;
+            buttonsPanel.TabIndex = 6;
             // 
             // cancelTodoButton
             // 
@@ -56,47 +65,43 @@
             cancelTodoButton.TabIndex = 1;
             cancelTodoButton.Text = "Cancel";
             cancelTodoButton.UseVisualStyleBackColor = true;
-            cancelTodoButton.Click += CancelAddingTodo;
+            cancelTodoButton.Click += CancelButtonClick;
             // 
-            // addTodoButton
+            // okTodoButton
             // 
-            addTodoButton.AutoSize = true;
-            addTodoButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            addTodoButton.Location = new Point(85, 13);
-            addTodoButton.Name = "addTodoButton";
-            addTodoButton.Padding = new Padding(5);
-            addTodoButton.Size = new Size(113, 50);
-            addTodoButton.TabIndex = 0;
-            addTodoButton.Text = "Add";
-            addTodoButton.UseVisualStyleBackColor = true;
-            addTodoButton.Click += AddTodo;
+            okTodoButton.AutoSize = true;
+            okTodoButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            okTodoButton.Location = new Point(85, 13);
+            okTodoButton.Name = "okTodoButton";
+            okTodoButton.Padding = new Padding(5);
+            okTodoButton.Size = new Size(113, 50);
+            okTodoButton.TabIndex = 0;
+            okTodoButton.Text = "Ok";
+            okTodoButton.UseVisualStyleBackColor = true;
+            okTodoButton.Click += OkButtonClick;
             // 
-            // textBoxWithLabel1
-            // 
-            textBoxWithLabel1.Location = new Point(99, 12);
-            textBoxWithLabel1.Name = "textBoxWithLabel1";
-            textBoxWithLabel1.Size = new Size(291, 88);
-            textBoxWithLabel1.TabIndex = 4;
-            // 
-            // AddTodoForm
+            // PromptInputForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(489, 195);
-            Controls.Add(textBoxWithLabel1);
             Controls.Add(buttonsPanel);
-            Name = "AddTodoForm";
+            Controls.Add(enterTodoTextBoxWithLabel);
+            MaximumSize = new Size(505, 234);
+            MinimumSize = new Size(505, 234);
+            Name = "PromptInputForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Add Todo";
+            Text = "Prompt Input Form";
             buttonsPanel.ResumeLayout(false);
             buttonsPanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private TextBoxWithLabel enterTodoTextBoxWithLabel;
         private Panel buttonsPanel;
         private Button cancelTodoButton;
-        private Button addTodoButton;
-        private TextBoxWithLabel textBoxWithLabel1;
+        private Button okTodoButton;
     }
 }
