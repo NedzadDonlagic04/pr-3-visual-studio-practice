@@ -54,6 +54,7 @@
             textBox.Name = "textBox";
             textBox.Size = new Size(291, 35);
             textBox.TabIndex = 1;
+            textBox.TextChanged += RestrictTextBoxInput;
             // 
             // characterCountLabel
             // 
