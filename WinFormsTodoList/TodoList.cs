@@ -8,26 +8,50 @@ namespace WinFormsTodoList
         public TodoList()
         {
             InitializeComponent();
-        }
+        }   
 
         private void LoadForm(object sender, EventArgs e)
         {
             todosListBox.DataSource = _todos;
         }
 
+        private static PromptInputForm CreateAddTodoForm() 
+        {
+            var addTodoForm = new PromptInputForm();
+
+            addTodoForm.TextBoxWithLabel.LabelText = "Entere todo: ";
+            addTodoForm.TextBoxWithLabel.MaxTextBoxInputLength = 30;
+            addTodoForm.OkTodoButtonText = "Add";
+
+            return addTodoForm;
+        }
+
         private void AddTodoWindow(object sender, EventArgs e)
         {
-            using var addTodoForm = new AddTodoForm();
+            using var addTodoForm = CreateAddTodoForm();
 
             if (addTodoForm.ShowDialog() == DialogResult.OK) {
-                string newTodo = addTodoForm.EnteredTodo;
-                _todos.Add(newTodo);
+                string newTodo = addTodoForm.EnteredText.Trim();
+
+                if (newTodo.Length > 0)
+                {
+                    _todos.Add(newTodo);
+                }
             }
         }
 
         private void UpdateTodosWindow(object sender, EventArgs e)
         {
-            MessageBox.Show("UpdateTodosWindow");
+            using var updateTodoForm = new PromptInputForm();
+
+            if (updateTodoForm.ShowDialog() == DialogResult.OK)
+            {
+                string newTodo = updateTodoForm.EnteredText.Trim();
+
+                if (newTodo.Length > 0) {
+                    _todos.Add(newTodo);
+                }
+            }
         }
 
         private void RemoveTodosWindow(object sender, EventArgs e)
