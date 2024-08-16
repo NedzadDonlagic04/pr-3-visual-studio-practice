@@ -2,11 +2,14 @@
 {
     public partial class PromptInputForm : Form
     {
-        public string EnteredText { get; set; } = "";
-
         public PromptInputForm()
         {
             InitializeComponent();
+        }
+
+        public string EnteredText {
+            get => TextBoxWithLabel.TextBoxText;
+            set => TextBoxWithLabel.TextBoxText = value;
         }
 
         public TextBoxWithLabel TextBoxWithLabel
@@ -29,7 +32,6 @@
 
         private void OkButtonClick(object sender, EventArgs e)
         {
-            EnteredText = enterTodoTextBoxWithLabel.TextBoxText;
             DialogResult = DialogResult.OK;
             Close();
         }
