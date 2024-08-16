@@ -122,10 +122,5 @@ namespace WinFormsTodoList
                 _todos.Remove(todo);
             }
         }
-
-        private void FilterTodosWindow(object sender, EventArgs e)
-        {
-            MessageBox.Show("FilterTodosWindow");
-        }
     }
 }
