@@ -31,7 +31,6 @@ namespace WinFormsTodoList
         private void InitializeComponent()
         {
             splitContainer = new SplitContainer();
-            filterTodosPanelWithButtonInside = new PanelWithButtonInside();
             removeTodosPanelWithButtonInside = new PanelWithButtonInside();
             updateTodosPanelWithButtonInside = new PanelWithButtonInside();
             addTodoPanelWithButtonInside = new PanelWithButtonInside();
@@ -54,7 +53,6 @@ namespace WinFormsTodoList
             // splitContainer.Panel1
             // 
             splitContainer.Panel1.BackColor = SystemColors.Control;
-            splitContainer.Panel1.Controls.Add(filterTodosPanelWithButtonInside);
             splitContainer.Panel1.Controls.Add(removeTodosPanelWithButtonInside);
             splitContainer.Panel1.Controls.Add(updateTodosPanelWithButtonInside);
             splitContainer.Panel1.Controls.Add(addTodoPanelWithButtonInside);
@@ -68,19 +66,6 @@ namespace WinFormsTodoList
             splitContainer.Size = new Size(784, 461);
             splitContainer.SplitterDistance = 261;
             splitContainer.TabIndex = 0;
-            // 
-            // filterTodosPanelWithButtonInside
-            // 
-            filterTodosPanelWithButtonInside.ButtonPadding = new Padding(20);
-            filterTodosPanelWithButtonInside.Dock = DockStyle.Top;
-            filterTodosPanelWithButtonInside.Location = new Point(20, 324);
-            filterTodosPanelWithButtonInside.Margin = new Padding(0);
-            filterTodosPanelWithButtonInside.Name = "filterTodosPanelWithButtonInside";
-            filterTodosPanelWithButtonInside.PanelPadding = new Padding(20);
-            filterTodosPanelWithButtonInside.Size = new Size(221, 103);
-            filterTodosPanelWithButtonInside.TabIndex = 3;
-            filterTodosPanelWithButtonInside.Text = "Filter Todos";
-            filterTodosPanelWithButtonInside.Click += FilterTodosWindow;
             // 
             // removeTodosPanelWithButtonInside
             // 
@@ -181,7 +166,6 @@ namespace WinFormsTodoList
         private Label todoListLabel;
         private Panel todoListLabelPanel;
         private PanelWithButtonInside addTodoPanelWithButtonInside;
-        private PanelWithButtonInside filterTodosPanelWithButtonInside;
         private PanelWithButtonInside removeTodosPanelWithButtonInside;
         private PanelWithButtonInside updateTodosPanelWithButtonInside;
         private ListBox todosListBox;

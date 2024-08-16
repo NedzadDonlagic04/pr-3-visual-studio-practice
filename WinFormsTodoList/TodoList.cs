@@ -24,7 +24,7 @@ namespace WinFormsTodoList
 
         private static PromptInputForm CreateAddTodoForm()
         {
-            var addTodoForm = new PromptInputForm{ Text = "Add Todo Form" };
+            var addTodoForm = new PromptInputForm { Text = "Add Todo Form" };
 
             addTodoForm.Text = "Add Todo Form";
             addTodoForm.TextBoxWithLabel.LabelText = "Entere todo: ";
@@ -63,7 +63,7 @@ namespace WinFormsTodoList
 
         private void UpdateTodosWindow(object sender, EventArgs e)
         {
-            if (todosListBox.SelectedItems.Count != 1) 
+            if (todosListBox.SelectedItems.Count != 1)
             {
                 return;
             }
@@ -72,7 +72,7 @@ namespace WinFormsTodoList
 
             using var updateTodoForm = CreateUpdateTodoForm(todoIndex);
 
-            if(updateTodoForm.ShowDialog() == DialogResult.OK)
+            if (updateTodoForm.ShowDialog() == DialogResult.OK)
             {
                 _todos[todoIndex] = updateTodoForm.EnteredText;
             }
@@ -97,11 +97,11 @@ namespace WinFormsTodoList
         {
             int selectedTodosCount = todosListBox.SelectedItems.Count;
 
-            if (selectedTodosCount == 0) 
+            if (selectedTodosCount == 0)
             {
                 return;
-            } 
-            else if (selectedTodosCount > 1) 
+            }
+            else if (selectedTodosCount > 1)
             {
                 var removalConfirmation = MessageBox.Show(
                     "Do you wish to remove the selected todos?",
@@ -117,7 +117,7 @@ namespace WinFormsTodoList
 
             var selectedTodos = GetSelectedItemsInList();
 
-            foreach (var todo in selectedTodos) 
+            foreach (var todo in selectedTodos)
             {
                 _todos.Remove(todo);
             }
