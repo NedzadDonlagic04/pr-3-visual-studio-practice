@@ -93,7 +93,7 @@ namespace WinFormsTodoList
             removeTodosPanelWithButtonInside.Size = new Size(221, 103);
             removeTodosPanelWithButtonInside.TabIndex = 2;
             removeTodosPanelWithButtonInside.Text = "Remove Todos";
-            removeTodosPanelWithButtonInside.Click += RemoveTodosWindow;
+            removeTodosPanelWithButtonInside.Click += RemoveSelectedTodos;
             // 
             // updateTodosPanelWithButtonInside
             // 
@@ -124,12 +124,12 @@ namespace WinFormsTodoList
             // 
             // todosListBox
             // 
-            todosListBox.Anchor = AnchorStyles.None;
             todosListBox.FormattingEnabled = true;
             todosListBox.ItemHeight = 15;
-            todosListBox.Location = new Point(49, 101);
+            todosListBox.Location = new Point(49, 108);
             todosListBox.Name = "todosListBox";
-            todosListBox.Size = new Size(420, 259);
+            todosListBox.SelectionMode = SelectionMode.MultiExtended;
+            todosListBox.Size = new Size(425, 319);
             todosListBox.TabIndex = 2;
             // 
             // todoListLabelPanel
