@@ -8,6 +8,13 @@ namespace WinFormsTodoList
         public TodoList()
         {
             InitializeComponent();
+
+            // Random todos added for testing sake
+            _todos.Add("Take out the trash");    
+            _todos.Add("Learn how to cook chicken");    
+            _todos.Add("Make dinner");    
+            _todos.Add("Take a shower");    
+            _todos.Add("Eat");    
         }   
 
         private void LoadForm(object sender, EventArgs e)
