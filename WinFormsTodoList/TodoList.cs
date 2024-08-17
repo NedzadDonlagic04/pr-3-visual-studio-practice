@@ -1,20 +1,35 @@
 using System.ComponentModel;
+using System.Text.Json;
 
 namespace WinFormsTodoList
 {
     public partial class TodoList : Form
     {
-        private readonly BindingList<string> _todos = new();
+        private const string TodosJSONPath = "./todos.json";
+        private BindingList<string> _todos = new();
         public TodoList()
         {
             InitializeComponent();
+            LoadExistingTodosFromJSON();
+        }
 
-            // Random todos added for testing sake
-            _todos.Add("Take out the trash");
-            _todos.Add("Learn how to cook chicken");
-            _todos.Add("Make dinner");
-            _todos.Add("Take a shower");
-            _todos.Add("Eat");
+        private void LoadExistingTodosFromJSON() {
+            if (!File.Exists(TodosJSONPath)) {
+                File.WriteAllText(TodosJSONPath, "[]");
+            }
+
+            using var streamReader = new StreamReader(TodosJSONPath);
+
+            try {
+                _todos = JsonSerializer.Deserialize<BindingList<string>>(streamReader.ReadToEnd()) ?? _todos;
+            } catch(Exception ex) {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private void SaveTodos() 
+        {
+            File.WriteAllText(TodosJSONPath, JsonSerializer.Serialize(_todos.ToArray()));
         }
 
         private void LoadForm(object sender, EventArgs e)
@@ -57,6 +72,7 @@ namespace WinFormsTodoList
                 if (newTodo.Length > 0)
                 {
                     _todos.Add(newTodo);
+                    SaveTodos();
                 }
             }
         }
@@ -75,6 +91,7 @@ namespace WinFormsTodoList
             if (updateTodoForm.ShowDialog() == DialogResult.OK)
             {
                 _todos[todoIndex] = updateTodoForm.EnteredText;
+                SaveTodos();
             }
         }
         private List<string> GetSelectedItemsInList()
@@ -121,6 +138,8 @@ namespace WinFormsTodoList
             {
                 _todos.Remove(todo);
             }
+
+            SaveTodos();
         }
     }
 }
