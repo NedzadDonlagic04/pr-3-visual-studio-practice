@@ -109,12 +109,13 @@ namespace WinFormsTodoList
             // 
             // todosListBox
             // 
+            todosListBox.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             todosListBox.FormattingEnabled = true;
-            todosListBox.ItemHeight = 15;
+            todosListBox.ItemHeight = 32;
             todosListBox.Location = new Point(49, 108);
             todosListBox.Name = "todosListBox";
             todosListBox.SelectionMode = SelectionMode.MultiExtended;
-            todosListBox.Size = new Size(425, 319);
+            todosListBox.Size = new Size(425, 292);
             todosListBox.TabIndex = 2;
             // 
             // todoListLabelPanel

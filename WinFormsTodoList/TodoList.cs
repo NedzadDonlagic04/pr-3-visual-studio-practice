@@ -13,21 +13,26 @@ namespace WinFormsTodoList
             LoadExistingTodosFromJSON();
         }
 
-        private void LoadExistingTodosFromJSON() {
-            if (!File.Exists(TodosJSONPath)) {
+        private void LoadExistingTodosFromJSON()
+        {
+            if (!File.Exists(TodosJSONPath))
+            {
                 File.WriteAllText(TodosJSONPath, "[]");
             }
 
             using var streamReader = new StreamReader(TodosJSONPath);
 
-            try {
+            try
+            {
                 _todos = JsonSerializer.Deserialize<BindingList<string>>(streamReader.ReadToEnd()) ?? _todos;
-            } catch(Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
 
-        private void SaveTodos() 
+        private void SaveTodos()
         {
             File.WriteAllText(TodosJSONPath, JsonSerializer.Serialize(_todos.ToArray()));
         }
