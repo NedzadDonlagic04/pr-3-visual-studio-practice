@@ -13,6 +13,29 @@ namespace WinFormsTodoList
             LoadExistingTodosFromJSON();
         }
 
+        private string GenerateNameForCorruptedTodos() {
+            var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(TodosJSONPath);
+            var fileExtension = Path.GetExtension(TodosJSONPath);
+
+            return $"./{fileNameWithoutExtension}-{Guid.NewGuid()}{fileExtension}";
+        }
+
+        private void AttemptToMoveCorruptedFileContentToNewFile() {
+            var corruptedTodosName = GenerateNameForCorruptedTodos();
+            
+            try {
+                File.Move(TodosJSONPath, corruptedTodosName);
+                MessageBox.Show("Your todos have been corrupted, if you wish to recover them the corrupted " +
+                $"file content is now located inside the file \"{corruptedTodosName}\"", 
+                "Todos JSON Corrupted");
+            } catch {
+                MessageBox.Show("Todos have been corrupted and an empty todo list will be loaded in it's place",
+                "Todos JSON Corrupted");
+            } finally {
+                File.WriteAllText(TodosJSONPath, "[]");
+            }
+        }
+
         private void LoadExistingTodosFromJSON()
         {
             if (!File.Exists(TodosJSONPath))
@@ -20,11 +43,15 @@ namespace WinFormsTodoList
                 File.WriteAllText(TodosJSONPath, "[]");
             }
 
-            using var streamReader = new StreamReader(TodosJSONPath);
+            var jsonStr = File.ReadAllText(TodosJSONPath);
 
             try
             {
-                _todos = JsonSerializer.Deserialize<BindingList<string>>(streamReader.ReadToEnd()) ?? _todos;
+                _todos = JsonSerializer.Deserialize<BindingList<string>>(jsonStr) ?? new();
+            }
+            catch (JsonException) 
+            {
+                AttemptToMoveCorruptedFileContentToNewFile();
             }
             catch (Exception ex)
             {
