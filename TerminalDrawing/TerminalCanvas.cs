@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Security.Principal;
 using CharMatrixExtensions;
 
 namespace TerminalDrawing
