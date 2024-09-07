@@ -1,8 +1,8 @@
 namespace WinFormsSnake
 {
-    public partial class SnakeForm : Form
+    public partial class SnakeMainMenuForm : Form
     {
-        public SnakeForm()
+        public SnakeMainMenuForm()
         {
             InitializeComponent();
         }
