@@ -86,7 +86,7 @@
             BackColor = SystemColors.Control;
             BackgroundImage = Properties.Resources.mainMenuBackgroundImage;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(799, 451);
             Controls.Add(quitSnakeButton);
             Controls.Add(highScoresSnakeButton);
             Controls.Add(playSnakeButton);
