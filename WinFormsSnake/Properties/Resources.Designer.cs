@@ -59,5 +59,33 @@ namespace WinFormsSnake.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GreenYellow.
+        /// </summary>
+        internal static string mainBackColor {
+            get {
+                return ResourceManager.GetString("mainBackColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ForestGreen.
+        /// </summary>
+        internal static string mainForeColor {
+            get {
+                return ResourceManager.GetString("mainForeColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mainMenuBackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("mainMenuBackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
