@@ -77,6 +77,7 @@
             quitSnakeButton.TabIndex = 2;
             quitSnakeButton.Text = "Quit";
             quitSnakeButton.UseVisualStyleBackColor = false;
+            quitSnakeButton.Click += QuitGame;
             // 
             // SnakeMainMenuForm
             // 
