@@ -28,52 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            playBtn = new Button();
-            checkGameHistoryBtn = new Button();
-            quitBtn = new Button();
+            playSnakeButton = new SnakeButton();
+            highScoresSnakeButton = new SnakeButton();
+            quitSnakeButton = new SnakeButton();
             SuspendLayout();
             // 
-            // playBtn
+            // playSnakeButton
             // 
-            playBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            playBtn.Location = new Point(310, 131);
-            playBtn.Margin = new Padding(3, 3, 3, 30);
-            playBtn.Name = "playBtn";
-            playBtn.Size = new Size(180, 60);
-            playBtn.TabIndex = 0;
-            playBtn.Text = "Play";
-            playBtn.UseVisualStyleBackColor = true;
+            playSnakeButton.BackColor = Color.GreenYellow;
+            playSnakeButton.FlatAppearance.BorderSize = 3;
+            playSnakeButton.FlatStyle = FlatStyle.Flat;
+            playSnakeButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            playSnakeButton.ForeColor = Color.ForestGreen;
+            playSnakeButton.Location = new Point(310, 172);
+            playSnakeButton.Margin = new Padding(3, 3, 3, 30);
+            playSnakeButton.Name = "playSnakeButton";
+            playSnakeButton.Size = new Size(180, 60);
+            playSnakeButton.TabIndex = 0;
+            playSnakeButton.Text = "Play";
+            playSnakeButton.UseVisualStyleBackColor = false;
             // 
-            // checkGameHistoryBtn
+            // highScoresSnakeButton
             // 
-            checkGameHistoryBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            checkGameHistoryBtn.Location = new Point(310, 224);
-            checkGameHistoryBtn.Margin = new Padding(3, 3, 3, 30);
-            checkGameHistoryBtn.Name = "checkGameHistoryBtn";
-            checkGameHistoryBtn.Size = new Size(180, 60);
-            checkGameHistoryBtn.TabIndex = 1;
-            checkGameHistoryBtn.Text = "Games History";
-            checkGameHistoryBtn.UseVisualStyleBackColor = true;
+            highScoresSnakeButton.BackColor = Color.GreenYellow;
+            highScoresSnakeButton.FlatAppearance.BorderSize = 3;
+            highScoresSnakeButton.FlatStyle = FlatStyle.Flat;
+            highScoresSnakeButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            highScoresSnakeButton.ForeColor = Color.ForestGreen;
+            highScoresSnakeButton.Location = new Point(310, 265);
+            highScoresSnakeButton.Margin = new Padding(3, 3, 3, 30);
+            highScoresSnakeButton.Name = "highScoresSnakeButton";
+            highScoresSnakeButton.Size = new Size(180, 60);
+            highScoresSnakeButton.TabIndex = 1;
+            highScoresSnakeButton.Text = "High Scores";
+            highScoresSnakeButton.UseVisualStyleBackColor = false;
             // 
-            // quitBtn
+            // quitSnakeButton
             // 
-            quitBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            quitBtn.Location = new Point(310, 317);
-            quitBtn.Margin = new Padding(3, 3, 3, 30);
-            quitBtn.Name = "quitBtn";
-            quitBtn.Size = new Size(180, 60);
-            quitBtn.TabIndex = 2;
-            quitBtn.Text = "Quit";
-            quitBtn.UseVisualStyleBackColor = true;
+            quitSnakeButton.BackColor = Color.GreenYellow;
+            quitSnakeButton.FlatAppearance.BorderSize = 3;
+            quitSnakeButton.FlatStyle = FlatStyle.Flat;
+            quitSnakeButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            quitSnakeButton.ForeColor = Color.ForestGreen;
+            quitSnakeButton.Location = new Point(310, 358);
+            quitSnakeButton.Margin = new Padding(3, 3, 3, 30);
+            quitSnakeButton.Name = "quitSnakeButton";
+            quitSnakeButton.Size = new Size(180, 60);
+            quitSnakeButton.TabIndex = 2;
+            quitSnakeButton.Text = "Quit";
+            quitSnakeButton.UseVisualStyleBackColor = false;
             // 
             // SnakeMainMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
+            BackgroundImage = Properties.Resources.mainMenuBackgroundImage;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(quitBtn);
-            Controls.Add(checkGameHistoryBtn);
-            Controls.Add(playBtn);
+            Controls.Add(quitSnakeButton);
+            Controls.Add(highScoresSnakeButton);
+            Controls.Add(playSnakeButton);
+            DoubleBuffered = true;
             MaximizeBox = false;
             Name = "SnakeMainMenuForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -83,8 +99,8 @@
 
         #endregion
 
-        private Button playBtn;
-        private Button checkGameHistoryBtn;
-        private Button quitBtn;
+        private SnakeButton playSnakeButton;
+        private SnakeButton highScoresSnakeButton;
+        private SnakeButton quitSnakeButton;
     }
 }
