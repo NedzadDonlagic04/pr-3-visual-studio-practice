@@ -91,7 +91,9 @@
             Controls.Add(highScoresSnakeButton);
             Controls.Add(playSnakeButton);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "SnakeMainMenuForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Snake Main Menu";
