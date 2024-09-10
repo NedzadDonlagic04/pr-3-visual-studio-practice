@@ -47,6 +47,7 @@
             playAgainSnakeButton.TabIndex = 0;
             playAgainSnakeButton.Text = "Play Again";
             playAgainSnakeButton.UseVisualStyleBackColor = false;
+            playAgainSnakeButton.Click += PlayAgain;
             // 
             // quitSnakeButton
             // 
@@ -78,6 +79,7 @@
             mainMenuSnakeButton.TabIndex = 2;
             mainMenuSnakeButton.Text = "Main Menu";
             mainMenuSnakeButton.UseVisualStyleBackColor = false;
+            mainMenuSnakeButton.Click += GoToMainMenu;
             // 
             // SnakeGameOverForm
             // 
@@ -96,6 +98,7 @@
             Name = "SnakeGameOverForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Snake Game Over";
+            Shown += FormShownEvent;
             ResumeLayout(false);
         }
 

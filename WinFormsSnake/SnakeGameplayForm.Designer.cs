@@ -53,8 +53,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(gameOverSnakeButton);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "SnakeGameplayForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Snake Gameplay";
+            Shown += FormShownEvent;
             ResumeLayout(false);
         }
 

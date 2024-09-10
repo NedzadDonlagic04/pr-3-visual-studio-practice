@@ -47,6 +47,7 @@
             playSnakeButton.TabIndex = 0;
             playSnakeButton.Text = "Play";
             playSnakeButton.UseVisualStyleBackColor = false;
+            playSnakeButton.Click += StartGame;
             // 
             // highScoresSnakeButton
             // 

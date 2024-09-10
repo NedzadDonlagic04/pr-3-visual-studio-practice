@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WinFormsSnake
+﻿namespace WinFormsSnake
 {
     public partial class SnakeGameplayForm : Form
     {
@@ -17,9 +7,36 @@ namespace WinFormsSnake
             InitializeComponent();
         }
 
+        public void RestartGame()
+        {
+
+        }
+
+        public SnakeGameAction NextAction { get; private set; }
+
         private void QuitGame(object sender, EventArgs e)
         {
-            Close();
+            Hide();
+
+            using (SnakeGameOverForm snakeGameOverForm = new())
+            {
+                snakeGameOverForm.ShowDialog();
+                NextAction = snakeGameOverForm.NextAction;
+
+                if (NextAction == SnakeGameAction.QuitGame || NextAction == SnakeGameAction.GoToMainMenu)
+                {
+                    Close();
+                    return;
+                }
+            }
+
+            RestartGame();
+            Show();
+        }
+
+        private void FormShownEvent(object sender, EventArgs e)
+        {
+            NextAction = SnakeGameAction.QuitGame;
         }
     }
 }
