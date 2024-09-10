@@ -30,6 +30,7 @@
         {
             playAgainSnakeButton = new SnakeButton();
             quitSnakeButton = new SnakeButton();
+            mainMenuSnakeButton = new SnakeButton();
             SuspendLayout();
             // 
             // playAgainSnakeButton
@@ -39,7 +40,7 @@
             playAgainSnakeButton.FlatStyle = FlatStyle.Flat;
             playAgainSnakeButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             playAgainSnakeButton.ForeColor = Color.ForestGreen;
-            playAgainSnakeButton.Location = new Point(217, 158);
+            playAgainSnakeButton.Location = new Point(262, 193);
             playAgainSnakeButton.Margin = new Padding(3, 3, 3, 30);
             playAgainSnakeButton.Name = "playAgainSnakeButton";
             playAgainSnakeButton.Size = new Size(180, 60);
@@ -54,7 +55,7 @@
             quitSnakeButton.FlatStyle = FlatStyle.Flat;
             quitSnakeButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             quitSnakeButton.ForeColor = Color.ForestGreen;
-            quitSnakeButton.Location = new Point(217, 251);
+            quitSnakeButton.Location = new Point(262, 379);
             quitSnakeButton.Margin = new Padding(3, 3, 3, 30);
             quitSnakeButton.Name = "quitSnakeButton";
             quitSnakeButton.Size = new Size(180, 60);
@@ -63,13 +64,29 @@
             quitSnakeButton.UseVisualStyleBackColor = false;
             quitSnakeButton.Click += QuitGame;
             // 
+            // mainMenuSnakeButton
+            // 
+            mainMenuSnakeButton.BackColor = Color.GreenYellow;
+            mainMenuSnakeButton.FlatAppearance.BorderSize = 3;
+            mainMenuSnakeButton.FlatStyle = FlatStyle.Flat;
+            mainMenuSnakeButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            mainMenuSnakeButton.ForeColor = Color.ForestGreen;
+            mainMenuSnakeButton.Location = new Point(262, 286);
+            mainMenuSnakeButton.Margin = new Padding(3, 3, 3, 30);
+            mainMenuSnakeButton.Name = "mainMenuSnakeButton";
+            mainMenuSnakeButton.Size = new Size(180, 60);
+            mainMenuSnakeButton.TabIndex = 2;
+            mainMenuSnakeButton.Text = "Main Menu";
+            mainMenuSnakeButton.UseVisualStyleBackColor = false;
+            // 
             // SnakeGameOverForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.gameOverBackgroundImage;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(614, 361);
+            ClientSize = new Size(704, 461);
+            Controls.Add(mainMenuSnakeButton);
             Controls.Add(quitSnakeButton);
             Controls.Add(playAgainSnakeButton);
             DoubleBuffered = true;
@@ -86,5 +103,6 @@
 
         private SnakeButton playAgainSnakeButton;
         private SnakeButton quitSnakeButton;
+        private SnakeButton mainMenuSnakeButton;
     }
 }
