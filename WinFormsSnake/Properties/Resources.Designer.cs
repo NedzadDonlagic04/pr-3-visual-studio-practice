@@ -63,6 +63,16 @@ namespace WinFormsSnake.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap appleBackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("appleBackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gameOverBackgroundImage {
             get {
                 object obj = ResourceManager.GetObject("gameOverBackgroundImage", resourceCulture);
@@ -94,6 +104,46 @@ namespace WinFormsSnake.Properties {
         internal static System.Drawing.Bitmap mainMenuBackgroundImage {
             get {
                 object obj = ResourceManager.GetObject("mainMenuBackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snakeHeadTurnedDown {
+            get {
+                object obj = ResourceManager.GetObject("snakeHeadTurnedDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snakeHeadTurnedLeft {
+            get {
+                object obj = ResourceManager.GetObject("snakeHeadTurnedLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snakeHeadTurnedRight {
+            get {
+                object obj = ResourceManager.GetObject("snakeHeadTurnedRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snakeHeadTurnedUp {
+            get {
+                object obj = ResourceManager.GetObject("snakeHeadTurnedUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
