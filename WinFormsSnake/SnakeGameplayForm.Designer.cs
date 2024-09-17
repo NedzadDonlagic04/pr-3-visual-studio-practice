@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             snakeTilesFlowLayoutPanel = new FlowLayoutPanel();
             snakeTile1 = new PictureBox();
             snakeTile2 = new PictureBox();
@@ -202,6 +203,7 @@
             snakeTile171 = new PictureBox();
             scoreLabel = new Label();
             scoreHelperLabel = new Label();
+            updateSnakePosTimer = new System.Windows.Forms.Timer(components);
             snakeTilesFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)snakeTile1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)snakeTile2).BeginInit();
@@ -379,6 +381,7 @@
             // snakeTilesFlowLayoutPanel
             // 
             snakeTilesFlowLayoutPanel.BackColor = Color.FromArgb(128, 64, 0);
+            snakeTilesFlowLayoutPanel.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTilesFlowLayoutPanel.Controls.Add(snakeTile1);
             snakeTilesFlowLayoutPanel.Controls.Add(snakeTile2);
             snakeTilesFlowLayoutPanel.Controls.Add(snakeTile3);
@@ -559,6 +562,7 @@
             // snakeTile1
             // 
             snakeTile1.BackColor = SystemColors.Menu;
+            snakeTile1.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile1.Location = new Point(10, 10);
             snakeTile1.Margin = new Padding(0);
             snakeTile1.Name = "snakeTile1";
@@ -569,6 +573,7 @@
             // snakeTile2
             // 
             snakeTile2.BackColor = SystemColors.Menu;
+            snakeTile2.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile2.Location = new Point(50, 10);
             snakeTile2.Margin = new Padding(0);
             snakeTile2.Name = "snakeTile2";
@@ -579,6 +584,7 @@
             // snakeTile3
             // 
             snakeTile3.BackColor = SystemColors.Menu;
+            snakeTile3.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile3.Location = new Point(90, 10);
             snakeTile3.Margin = new Padding(0);
             snakeTile3.Name = "snakeTile3";
@@ -589,6 +595,7 @@
             // snakeTile4
             // 
             snakeTile4.BackColor = SystemColors.Menu;
+            snakeTile4.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile4.Location = new Point(130, 10);
             snakeTile4.Margin = new Padding(0);
             snakeTile4.Name = "snakeTile4";
@@ -599,6 +606,7 @@
             // snakeTile5
             // 
             snakeTile5.BackColor = SystemColors.Menu;
+            snakeTile5.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile5.Location = new Point(170, 10);
             snakeTile5.Margin = new Padding(0);
             snakeTile5.Name = "snakeTile5";
@@ -609,6 +617,7 @@
             // snakeTile6
             // 
             snakeTile6.BackColor = SystemColors.Menu;
+            snakeTile6.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile6.Location = new Point(210, 10);
             snakeTile6.Margin = new Padding(0);
             snakeTile6.Name = "snakeTile6";
@@ -619,6 +628,7 @@
             // snakeTile7
             // 
             snakeTile7.BackColor = SystemColors.Menu;
+            snakeTile7.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile7.Location = new Point(250, 10);
             snakeTile7.Margin = new Padding(0);
             snakeTile7.Name = "snakeTile7";
@@ -629,6 +639,7 @@
             // snakeTile8
             // 
             snakeTile8.BackColor = SystemColors.Menu;
+            snakeTile8.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile8.Location = new Point(290, 10);
             snakeTile8.Margin = new Padding(0);
             snakeTile8.Name = "snakeTile8";
@@ -639,6 +650,7 @@
             // snakeTile9
             // 
             snakeTile9.BackColor = SystemColors.Menu;
+            snakeTile9.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile9.Location = new Point(330, 10);
             snakeTile9.Margin = new Padding(0);
             snakeTile9.Name = "snakeTile9";
@@ -649,6 +661,7 @@
             // snakeTile10
             // 
             snakeTile10.BackColor = SystemColors.Menu;
+            snakeTile10.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile10.Location = new Point(370, 10);
             snakeTile10.Margin = new Padding(0);
             snakeTile10.Name = "snakeTile10";
@@ -659,6 +672,7 @@
             // snakeTile11
             // 
             snakeTile11.BackColor = SystemColors.Menu;
+            snakeTile11.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile11.Location = new Point(410, 10);
             snakeTile11.Margin = new Padding(0);
             snakeTile11.Name = "snakeTile11";
@@ -669,6 +683,7 @@
             // snakeTile12
             // 
             snakeTile12.BackColor = SystemColors.Menu;
+            snakeTile12.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile12.Location = new Point(450, 10);
             snakeTile12.Margin = new Padding(0);
             snakeTile12.Name = "snakeTile12";
@@ -679,6 +694,7 @@
             // snakeTile13
             // 
             snakeTile13.BackColor = SystemColors.Menu;
+            snakeTile13.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile13.Location = new Point(490, 10);
             snakeTile13.Margin = new Padding(0);
             snakeTile13.Name = "snakeTile13";
@@ -689,6 +705,7 @@
             // snakeTile14
             // 
             snakeTile14.BackColor = SystemColors.Menu;
+            snakeTile14.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile14.Location = new Point(530, 10);
             snakeTile14.Margin = new Padding(0);
             snakeTile14.Name = "snakeTile14";
@@ -699,6 +716,7 @@
             // snakeTile15
             // 
             snakeTile15.BackColor = SystemColors.Menu;
+            snakeTile15.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile15.Location = new Point(570, 10);
             snakeTile15.Margin = new Padding(0);
             snakeTile15.Name = "snakeTile15";
@@ -709,6 +727,7 @@
             // snakeTile16
             // 
             snakeTile16.BackColor = SystemColors.Menu;
+            snakeTile16.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile16.Location = new Point(610, 10);
             snakeTile16.Margin = new Padding(0);
             snakeTile16.Name = "snakeTile16";
@@ -719,6 +738,7 @@
             // snakeTile17
             // 
             snakeTile17.BackColor = SystemColors.Menu;
+            snakeTile17.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile17.Location = new Point(650, 10);
             snakeTile17.Margin = new Padding(0);
             snakeTile17.Name = "snakeTile17";
@@ -729,6 +749,7 @@
             // snakeTile18
             // 
             snakeTile18.BackColor = SystemColors.Menu;
+            snakeTile18.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile18.Location = new Point(690, 10);
             snakeTile18.Margin = new Padding(0);
             snakeTile18.Name = "snakeTile18";
@@ -739,6 +760,7 @@
             // snakeTile19
             // 
             snakeTile19.BackColor = SystemColors.Menu;
+            snakeTile19.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile19.Location = new Point(730, 10);
             snakeTile19.Margin = new Padding(0);
             snakeTile19.Name = "snakeTile19";
@@ -749,6 +771,7 @@
             // snakeTile20
             // 
             snakeTile20.BackColor = SystemColors.Menu;
+            snakeTile20.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile20.Location = new Point(10, 50);
             snakeTile20.Margin = new Padding(0);
             snakeTile20.Name = "snakeTile20";
@@ -759,6 +782,7 @@
             // snakeTile21
             // 
             snakeTile21.BackColor = SystemColors.Menu;
+            snakeTile21.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile21.Location = new Point(50, 50);
             snakeTile21.Margin = new Padding(0);
             snakeTile21.Name = "snakeTile21";
@@ -769,6 +793,7 @@
             // snakeTile22
             // 
             snakeTile22.BackColor = SystemColors.Menu;
+            snakeTile22.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile22.Location = new Point(90, 50);
             snakeTile22.Margin = new Padding(0);
             snakeTile22.Name = "snakeTile22";
@@ -779,6 +804,7 @@
             // snakeTile23
             // 
             snakeTile23.BackColor = SystemColors.Menu;
+            snakeTile23.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile23.Location = new Point(130, 50);
             snakeTile23.Margin = new Padding(0);
             snakeTile23.Name = "snakeTile23";
@@ -789,6 +815,7 @@
             // snakeTile24
             // 
             snakeTile24.BackColor = SystemColors.Menu;
+            snakeTile24.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile24.Location = new Point(170, 50);
             snakeTile24.Margin = new Padding(0);
             snakeTile24.Name = "snakeTile24";
@@ -799,6 +826,7 @@
             // snakeTile25
             // 
             snakeTile25.BackColor = SystemColors.Menu;
+            snakeTile25.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile25.Location = new Point(210, 50);
             snakeTile25.Margin = new Padding(0);
             snakeTile25.Name = "snakeTile25";
@@ -809,6 +837,7 @@
             // snakeTile26
             // 
             snakeTile26.BackColor = SystemColors.Menu;
+            snakeTile26.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile26.Location = new Point(250, 50);
             snakeTile26.Margin = new Padding(0);
             snakeTile26.Name = "snakeTile26";
@@ -819,6 +848,7 @@
             // snakeTile27
             // 
             snakeTile27.BackColor = SystemColors.Menu;
+            snakeTile27.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile27.Location = new Point(290, 50);
             snakeTile27.Margin = new Padding(0);
             snakeTile27.Name = "snakeTile27";
@@ -829,6 +859,7 @@
             // snakeTile28
             // 
             snakeTile28.BackColor = SystemColors.Menu;
+            snakeTile28.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile28.Location = new Point(330, 50);
             snakeTile28.Margin = new Padding(0);
             snakeTile28.Name = "snakeTile28";
@@ -839,6 +870,7 @@
             // snakeTile29
             // 
             snakeTile29.BackColor = SystemColors.Menu;
+            snakeTile29.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile29.Location = new Point(370, 50);
             snakeTile29.Margin = new Padding(0);
             snakeTile29.Name = "snakeTile29";
@@ -849,6 +881,7 @@
             // snakeTile30
             // 
             snakeTile30.BackColor = SystemColors.Menu;
+            snakeTile30.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile30.Location = new Point(410, 50);
             snakeTile30.Margin = new Padding(0);
             snakeTile30.Name = "snakeTile30";
@@ -859,6 +892,7 @@
             // snakeTile31
             // 
             snakeTile31.BackColor = SystemColors.Menu;
+            snakeTile31.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile31.Location = new Point(450, 50);
             snakeTile31.Margin = new Padding(0);
             snakeTile31.Name = "snakeTile31";
@@ -869,6 +903,7 @@
             // snakeTile32
             // 
             snakeTile32.BackColor = SystemColors.Menu;
+            snakeTile32.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile32.Location = new Point(490, 50);
             snakeTile32.Margin = new Padding(0);
             snakeTile32.Name = "snakeTile32";
@@ -879,6 +914,7 @@
             // snakeTile33
             // 
             snakeTile33.BackColor = SystemColors.Menu;
+            snakeTile33.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile33.Location = new Point(530, 50);
             snakeTile33.Margin = new Padding(0);
             snakeTile33.Name = "snakeTile33";
@@ -889,6 +925,7 @@
             // snakeTile34
             // 
             snakeTile34.BackColor = SystemColors.Menu;
+            snakeTile34.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile34.Location = new Point(570, 50);
             snakeTile34.Margin = new Padding(0);
             snakeTile34.Name = "snakeTile34";
@@ -899,6 +936,7 @@
             // snakeTile35
             // 
             snakeTile35.BackColor = SystemColors.Menu;
+            snakeTile35.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile35.Location = new Point(610, 50);
             snakeTile35.Margin = new Padding(0);
             snakeTile35.Name = "snakeTile35";
@@ -909,6 +947,7 @@
             // snakeTile36
             // 
             snakeTile36.BackColor = SystemColors.Menu;
+            snakeTile36.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile36.Location = new Point(650, 50);
             snakeTile36.Margin = new Padding(0);
             snakeTile36.Name = "snakeTile36";
@@ -919,6 +958,7 @@
             // snakeTile37
             // 
             snakeTile37.BackColor = SystemColors.Menu;
+            snakeTile37.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile37.Location = new Point(690, 50);
             snakeTile37.Margin = new Padding(0);
             snakeTile37.Name = "snakeTile37";
@@ -929,6 +969,7 @@
             // snakeTile38
             // 
             snakeTile38.BackColor = SystemColors.Menu;
+            snakeTile38.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile38.Location = new Point(730, 50);
             snakeTile38.Margin = new Padding(0);
             snakeTile38.Name = "snakeTile38";
@@ -939,6 +980,7 @@
             // snakeTile39
             // 
             snakeTile39.BackColor = SystemColors.Menu;
+            snakeTile39.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile39.Location = new Point(10, 90);
             snakeTile39.Margin = new Padding(0);
             snakeTile39.Name = "snakeTile39";
@@ -949,6 +991,7 @@
             // snakeTile40
             // 
             snakeTile40.BackColor = SystemColors.Menu;
+            snakeTile40.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile40.Location = new Point(50, 90);
             snakeTile40.Margin = new Padding(0);
             snakeTile40.Name = "snakeTile40";
@@ -959,6 +1002,7 @@
             // snakeTile41
             // 
             snakeTile41.BackColor = SystemColors.Menu;
+            snakeTile41.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile41.Location = new Point(90, 90);
             snakeTile41.Margin = new Padding(0);
             snakeTile41.Name = "snakeTile41";
@@ -969,6 +1013,7 @@
             // snakeTile42
             // 
             snakeTile42.BackColor = SystemColors.Menu;
+            snakeTile42.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile42.Location = new Point(130, 90);
             snakeTile42.Margin = new Padding(0);
             snakeTile42.Name = "snakeTile42";
@@ -979,6 +1024,7 @@
             // snakeTile43
             // 
             snakeTile43.BackColor = SystemColors.Menu;
+            snakeTile43.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile43.Location = new Point(170, 90);
             snakeTile43.Margin = new Padding(0);
             snakeTile43.Name = "snakeTile43";
@@ -989,6 +1035,7 @@
             // snakeTile44
             // 
             snakeTile44.BackColor = SystemColors.Menu;
+            snakeTile44.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile44.Location = new Point(210, 90);
             snakeTile44.Margin = new Padding(0);
             snakeTile44.Name = "snakeTile44";
@@ -999,6 +1046,7 @@
             // snakeTile45
             // 
             snakeTile45.BackColor = SystemColors.Menu;
+            snakeTile45.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile45.Location = new Point(250, 90);
             snakeTile45.Margin = new Padding(0);
             snakeTile45.Name = "snakeTile45";
@@ -1009,6 +1057,7 @@
             // snakeTile46
             // 
             snakeTile46.BackColor = SystemColors.Menu;
+            snakeTile46.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile46.Location = new Point(290, 90);
             snakeTile46.Margin = new Padding(0);
             snakeTile46.Name = "snakeTile46";
@@ -1019,6 +1068,7 @@
             // snakeTile47
             // 
             snakeTile47.BackColor = SystemColors.Menu;
+            snakeTile47.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile47.Location = new Point(330, 90);
             snakeTile47.Margin = new Padding(0);
             snakeTile47.Name = "snakeTile47";
@@ -1029,6 +1079,7 @@
             // snakeTile48
             // 
             snakeTile48.BackColor = SystemColors.Menu;
+            snakeTile48.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile48.Location = new Point(370, 90);
             snakeTile48.Margin = new Padding(0);
             snakeTile48.Name = "snakeTile48";
@@ -1039,6 +1090,7 @@
             // snakeTile49
             // 
             snakeTile49.BackColor = SystemColors.Menu;
+            snakeTile49.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile49.Location = new Point(410, 90);
             snakeTile49.Margin = new Padding(0);
             snakeTile49.Name = "snakeTile49";
@@ -1049,6 +1101,7 @@
             // snakeTile50
             // 
             snakeTile50.BackColor = SystemColors.Menu;
+            snakeTile50.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile50.Location = new Point(450, 90);
             snakeTile50.Margin = new Padding(0);
             snakeTile50.Name = "snakeTile50";
@@ -1059,6 +1112,7 @@
             // snakeTile51
             // 
             snakeTile51.BackColor = SystemColors.Menu;
+            snakeTile51.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile51.Location = new Point(490, 90);
             snakeTile51.Margin = new Padding(0);
             snakeTile51.Name = "snakeTile51";
@@ -1069,6 +1123,7 @@
             // snakeTile52
             // 
             snakeTile52.BackColor = SystemColors.Menu;
+            snakeTile52.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile52.Location = new Point(530, 90);
             snakeTile52.Margin = new Padding(0);
             snakeTile52.Name = "snakeTile52";
@@ -1079,6 +1134,7 @@
             // snakeTile53
             // 
             snakeTile53.BackColor = SystemColors.Menu;
+            snakeTile53.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile53.Location = new Point(570, 90);
             snakeTile53.Margin = new Padding(0);
             snakeTile53.Name = "snakeTile53";
@@ -1089,6 +1145,7 @@
             // snakeTile54
             // 
             snakeTile54.BackColor = SystemColors.Menu;
+            snakeTile54.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile54.Location = new Point(610, 90);
             snakeTile54.Margin = new Padding(0);
             snakeTile54.Name = "snakeTile54";
@@ -1099,6 +1156,7 @@
             // snakeTile55
             // 
             snakeTile55.BackColor = SystemColors.Menu;
+            snakeTile55.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile55.Location = new Point(650, 90);
             snakeTile55.Margin = new Padding(0);
             snakeTile55.Name = "snakeTile55";
@@ -1109,6 +1167,7 @@
             // snakeTile56
             // 
             snakeTile56.BackColor = SystemColors.Menu;
+            snakeTile56.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile56.Location = new Point(690, 90);
             snakeTile56.Margin = new Padding(0);
             snakeTile56.Name = "snakeTile56";
@@ -1119,6 +1178,7 @@
             // snakeTile57
             // 
             snakeTile57.BackColor = SystemColors.Menu;
+            snakeTile57.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile57.Location = new Point(730, 90);
             snakeTile57.Margin = new Padding(0);
             snakeTile57.Name = "snakeTile57";
@@ -1129,6 +1189,7 @@
             // snakeTile58
             // 
             snakeTile58.BackColor = SystemColors.Menu;
+            snakeTile58.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile58.Location = new Point(10, 130);
             snakeTile58.Margin = new Padding(0);
             snakeTile58.Name = "snakeTile58";
@@ -1139,6 +1200,7 @@
             // snakeTile59
             // 
             snakeTile59.BackColor = SystemColors.Menu;
+            snakeTile59.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile59.Location = new Point(50, 130);
             snakeTile59.Margin = new Padding(0);
             snakeTile59.Name = "snakeTile59";
@@ -1149,6 +1211,7 @@
             // snakeTile60
             // 
             snakeTile60.BackColor = SystemColors.Menu;
+            snakeTile60.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile60.Location = new Point(90, 130);
             snakeTile60.Margin = new Padding(0);
             snakeTile60.Name = "snakeTile60";
@@ -1159,6 +1222,7 @@
             // snakeTile61
             // 
             snakeTile61.BackColor = SystemColors.Menu;
+            snakeTile61.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile61.Location = new Point(130, 130);
             snakeTile61.Margin = new Padding(0);
             snakeTile61.Name = "snakeTile61";
@@ -1169,6 +1233,7 @@
             // snakeTile62
             // 
             snakeTile62.BackColor = SystemColors.Menu;
+            snakeTile62.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile62.Location = new Point(170, 130);
             snakeTile62.Margin = new Padding(0);
             snakeTile62.Name = "snakeTile62";
@@ -1179,6 +1244,7 @@
             // snakeTile63
             // 
             snakeTile63.BackColor = SystemColors.Menu;
+            snakeTile63.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile63.Location = new Point(210, 130);
             snakeTile63.Margin = new Padding(0);
             snakeTile63.Name = "snakeTile63";
@@ -1189,6 +1255,7 @@
             // snakeTile64
             // 
             snakeTile64.BackColor = SystemColors.Menu;
+            snakeTile64.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile64.Location = new Point(250, 130);
             snakeTile64.Margin = new Padding(0);
             snakeTile64.Name = "snakeTile64";
@@ -1199,6 +1266,7 @@
             // snakeTile65
             // 
             snakeTile65.BackColor = SystemColors.Menu;
+            snakeTile65.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile65.Location = new Point(290, 130);
             snakeTile65.Margin = new Padding(0);
             snakeTile65.Name = "snakeTile65";
@@ -1209,6 +1277,7 @@
             // snakeTile66
             // 
             snakeTile66.BackColor = SystemColors.Menu;
+            snakeTile66.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile66.Location = new Point(330, 130);
             snakeTile66.Margin = new Padding(0);
             snakeTile66.Name = "snakeTile66";
@@ -1219,6 +1288,7 @@
             // snakeTile67
             // 
             snakeTile67.BackColor = SystemColors.Menu;
+            snakeTile67.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile67.Location = new Point(370, 130);
             snakeTile67.Margin = new Padding(0);
             snakeTile67.Name = "snakeTile67";
@@ -1229,6 +1299,7 @@
             // snakeTile68
             // 
             snakeTile68.BackColor = SystemColors.Menu;
+            snakeTile68.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile68.Location = new Point(410, 130);
             snakeTile68.Margin = new Padding(0);
             snakeTile68.Name = "snakeTile68";
@@ -1239,6 +1310,7 @@
             // snakeTile69
             // 
             snakeTile69.BackColor = SystemColors.Menu;
+            snakeTile69.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile69.Location = new Point(450, 130);
             snakeTile69.Margin = new Padding(0);
             snakeTile69.Name = "snakeTile69";
@@ -1249,6 +1321,7 @@
             // snakeTile70
             // 
             snakeTile70.BackColor = SystemColors.Menu;
+            snakeTile70.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile70.Location = new Point(490, 130);
             snakeTile70.Margin = new Padding(0);
             snakeTile70.Name = "snakeTile70";
@@ -1259,6 +1332,7 @@
             // snakeTile71
             // 
             snakeTile71.BackColor = SystemColors.Menu;
+            snakeTile71.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile71.Location = new Point(530, 130);
             snakeTile71.Margin = new Padding(0);
             snakeTile71.Name = "snakeTile71";
@@ -1269,6 +1343,7 @@
             // snakeTile72
             // 
             snakeTile72.BackColor = SystemColors.Menu;
+            snakeTile72.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile72.Location = new Point(570, 130);
             snakeTile72.Margin = new Padding(0);
             snakeTile72.Name = "snakeTile72";
@@ -1279,6 +1354,7 @@
             // snakeTile73
             // 
             snakeTile73.BackColor = SystemColors.Menu;
+            snakeTile73.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile73.Location = new Point(610, 130);
             snakeTile73.Margin = new Padding(0);
             snakeTile73.Name = "snakeTile73";
@@ -1289,6 +1365,7 @@
             // snakeTile74
             // 
             snakeTile74.BackColor = SystemColors.Menu;
+            snakeTile74.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile74.Location = new Point(650, 130);
             snakeTile74.Margin = new Padding(0);
             snakeTile74.Name = "snakeTile74";
@@ -1299,6 +1376,7 @@
             // snakeTile75
             // 
             snakeTile75.BackColor = SystemColors.Menu;
+            snakeTile75.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile75.Location = new Point(690, 130);
             snakeTile75.Margin = new Padding(0);
             snakeTile75.Name = "snakeTile75";
@@ -1309,6 +1387,7 @@
             // snakeTile76
             // 
             snakeTile76.BackColor = SystemColors.Menu;
+            snakeTile76.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile76.Location = new Point(730, 130);
             snakeTile76.Margin = new Padding(0);
             snakeTile76.Name = "snakeTile76";
@@ -1319,6 +1398,7 @@
             // snakeTile77
             // 
             snakeTile77.BackColor = SystemColors.Menu;
+            snakeTile77.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile77.Location = new Point(10, 170);
             snakeTile77.Margin = new Padding(0);
             snakeTile77.Name = "snakeTile77";
@@ -1329,6 +1409,7 @@
             // snakeTile78
             // 
             snakeTile78.BackColor = SystemColors.Menu;
+            snakeTile78.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile78.Location = new Point(50, 170);
             snakeTile78.Margin = new Padding(0);
             snakeTile78.Name = "snakeTile78";
@@ -1339,6 +1420,7 @@
             // snakeTile79
             // 
             snakeTile79.BackColor = SystemColors.Menu;
+            snakeTile79.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile79.Location = new Point(90, 170);
             snakeTile79.Margin = new Padding(0);
             snakeTile79.Name = "snakeTile79";
@@ -1349,6 +1431,7 @@
             // snakeTile80
             // 
             snakeTile80.BackColor = SystemColors.Menu;
+            snakeTile80.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile80.Location = new Point(130, 170);
             snakeTile80.Margin = new Padding(0);
             snakeTile80.Name = "snakeTile80";
@@ -1359,6 +1442,7 @@
             // snakeTile81
             // 
             snakeTile81.BackColor = SystemColors.Menu;
+            snakeTile81.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile81.Location = new Point(170, 170);
             snakeTile81.Margin = new Padding(0);
             snakeTile81.Name = "snakeTile81";
@@ -1369,6 +1453,7 @@
             // snakeTile82
             // 
             snakeTile82.BackColor = SystemColors.Menu;
+            snakeTile82.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile82.Location = new Point(210, 170);
             snakeTile82.Margin = new Padding(0);
             snakeTile82.Name = "snakeTile82";
@@ -1379,6 +1464,7 @@
             // snakeTile83
             // 
             snakeTile83.BackColor = SystemColors.Menu;
+            snakeTile83.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile83.Location = new Point(250, 170);
             snakeTile83.Margin = new Padding(0);
             snakeTile83.Name = "snakeTile83";
@@ -1389,6 +1475,7 @@
             // snakeTile84
             // 
             snakeTile84.BackColor = SystemColors.Menu;
+            snakeTile84.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile84.Location = new Point(290, 170);
             snakeTile84.Margin = new Padding(0);
             snakeTile84.Name = "snakeTile84";
@@ -1399,6 +1486,7 @@
             // snakeTile85
             // 
             snakeTile85.BackColor = SystemColors.Menu;
+            snakeTile85.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile85.Location = new Point(330, 170);
             snakeTile85.Margin = new Padding(0);
             snakeTile85.Name = "snakeTile85";
@@ -1409,6 +1497,7 @@
             // snakeTile86
             // 
             snakeTile86.BackColor = SystemColors.Menu;
+            snakeTile86.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile86.Location = new Point(370, 170);
             snakeTile86.Margin = new Padding(0);
             snakeTile86.Name = "snakeTile86";
@@ -1419,6 +1508,7 @@
             // snakeTile87
             // 
             snakeTile87.BackColor = SystemColors.Menu;
+            snakeTile87.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile87.Location = new Point(410, 170);
             snakeTile87.Margin = new Padding(0);
             snakeTile87.Name = "snakeTile87";
@@ -1429,6 +1519,7 @@
             // snakeTile88
             // 
             snakeTile88.BackColor = SystemColors.Menu;
+            snakeTile88.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile88.Location = new Point(450, 170);
             snakeTile88.Margin = new Padding(0);
             snakeTile88.Name = "snakeTile88";
@@ -1439,6 +1530,7 @@
             // snakeTile89
             // 
             snakeTile89.BackColor = SystemColors.Menu;
+            snakeTile89.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile89.Location = new Point(490, 170);
             snakeTile89.Margin = new Padding(0);
             snakeTile89.Name = "snakeTile89";
@@ -1449,6 +1541,7 @@
             // snakeTile90
             // 
             snakeTile90.BackColor = SystemColors.Menu;
+            snakeTile90.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile90.Location = new Point(530, 170);
             snakeTile90.Margin = new Padding(0);
             snakeTile90.Name = "snakeTile90";
@@ -1459,6 +1552,7 @@
             // snakeTile91
             // 
             snakeTile91.BackColor = SystemColors.Menu;
+            snakeTile91.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile91.Location = new Point(570, 170);
             snakeTile91.Margin = new Padding(0);
             snakeTile91.Name = "snakeTile91";
@@ -1469,6 +1563,7 @@
             // snakeTile92
             // 
             snakeTile92.BackColor = SystemColors.Menu;
+            snakeTile92.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile92.Location = new Point(610, 170);
             snakeTile92.Margin = new Padding(0);
             snakeTile92.Name = "snakeTile92";
@@ -1479,6 +1574,7 @@
             // snakeTile93
             // 
             snakeTile93.BackColor = SystemColors.Menu;
+            snakeTile93.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile93.Location = new Point(650, 170);
             snakeTile93.Margin = new Padding(0);
             snakeTile93.Name = "snakeTile93";
@@ -1489,6 +1585,7 @@
             // snakeTile94
             // 
             snakeTile94.BackColor = SystemColors.Menu;
+            snakeTile94.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile94.Location = new Point(690, 170);
             snakeTile94.Margin = new Padding(0);
             snakeTile94.Name = "snakeTile94";
@@ -1499,6 +1596,7 @@
             // snakeTile95
             // 
             snakeTile95.BackColor = SystemColors.Menu;
+            snakeTile95.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile95.Location = new Point(730, 170);
             snakeTile95.Margin = new Padding(0);
             snakeTile95.Name = "snakeTile95";
@@ -1509,6 +1607,7 @@
             // snakeTile96
             // 
             snakeTile96.BackColor = SystemColors.Menu;
+            snakeTile96.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile96.Location = new Point(10, 210);
             snakeTile96.Margin = new Padding(0);
             snakeTile96.Name = "snakeTile96";
@@ -1519,6 +1618,7 @@
             // snakeTile97
             // 
             snakeTile97.BackColor = SystemColors.Menu;
+            snakeTile97.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile97.Location = new Point(50, 210);
             snakeTile97.Margin = new Padding(0);
             snakeTile97.Name = "snakeTile97";
@@ -1529,6 +1629,7 @@
             // snakeTile98
             // 
             snakeTile98.BackColor = SystemColors.Menu;
+            snakeTile98.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile98.Location = new Point(90, 210);
             snakeTile98.Margin = new Padding(0);
             snakeTile98.Name = "snakeTile98";
@@ -1539,6 +1640,7 @@
             // snakeTile99
             // 
             snakeTile99.BackColor = SystemColors.Menu;
+            snakeTile99.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile99.Location = new Point(130, 210);
             snakeTile99.Margin = new Padding(0);
             snakeTile99.Name = "snakeTile99";
@@ -1549,6 +1651,7 @@
             // snakeTile100
             // 
             snakeTile100.BackColor = SystemColors.Menu;
+            snakeTile100.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile100.Location = new Point(170, 210);
             snakeTile100.Margin = new Padding(0);
             snakeTile100.Name = "snakeTile100";
@@ -1559,6 +1662,7 @@
             // snakeTile101
             // 
             snakeTile101.BackColor = SystemColors.Menu;
+            snakeTile101.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile101.Location = new Point(210, 210);
             snakeTile101.Margin = new Padding(0);
             snakeTile101.Name = "snakeTile101";
@@ -1569,6 +1673,7 @@
             // snakeTile102
             // 
             snakeTile102.BackColor = SystemColors.Menu;
+            snakeTile102.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile102.Location = new Point(250, 210);
             snakeTile102.Margin = new Padding(0);
             snakeTile102.Name = "snakeTile102";
@@ -1579,6 +1684,7 @@
             // snakeTile103
             // 
             snakeTile103.BackColor = SystemColors.Menu;
+            snakeTile103.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile103.Location = new Point(290, 210);
             snakeTile103.Margin = new Padding(0);
             snakeTile103.Name = "snakeTile103";
@@ -1589,6 +1695,7 @@
             // snakeTile104
             // 
             snakeTile104.BackColor = SystemColors.Menu;
+            snakeTile104.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile104.Location = new Point(330, 210);
             snakeTile104.Margin = new Padding(0);
             snakeTile104.Name = "snakeTile104";
@@ -1599,6 +1706,7 @@
             // snakeTile105
             // 
             snakeTile105.BackColor = SystemColors.Menu;
+            snakeTile105.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile105.Location = new Point(370, 210);
             snakeTile105.Margin = new Padding(0);
             snakeTile105.Name = "snakeTile105";
@@ -1609,6 +1717,7 @@
             // snakeTile106
             // 
             snakeTile106.BackColor = SystemColors.Menu;
+            snakeTile106.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile106.Location = new Point(410, 210);
             snakeTile106.Margin = new Padding(0);
             snakeTile106.Name = "snakeTile106";
@@ -1619,6 +1728,7 @@
             // snakeTile107
             // 
             snakeTile107.BackColor = SystemColors.Menu;
+            snakeTile107.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile107.Location = new Point(450, 210);
             snakeTile107.Margin = new Padding(0);
             snakeTile107.Name = "snakeTile107";
@@ -1629,6 +1739,7 @@
             // snakeTile108
             // 
             snakeTile108.BackColor = SystemColors.Menu;
+            snakeTile108.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile108.Location = new Point(490, 210);
             snakeTile108.Margin = new Padding(0);
             snakeTile108.Name = "snakeTile108";
@@ -1639,6 +1750,7 @@
             // snakeTile109
             // 
             snakeTile109.BackColor = SystemColors.Menu;
+            snakeTile109.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile109.Location = new Point(530, 210);
             snakeTile109.Margin = new Padding(0);
             snakeTile109.Name = "snakeTile109";
@@ -1649,6 +1761,7 @@
             // snakeTile110
             // 
             snakeTile110.BackColor = SystemColors.Menu;
+            snakeTile110.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile110.Location = new Point(570, 210);
             snakeTile110.Margin = new Padding(0);
             snakeTile110.Name = "snakeTile110";
@@ -1659,6 +1772,7 @@
             // snakeTile111
             // 
             snakeTile111.BackColor = SystemColors.Menu;
+            snakeTile111.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile111.Location = new Point(610, 210);
             snakeTile111.Margin = new Padding(0);
             snakeTile111.Name = "snakeTile111";
@@ -1669,6 +1783,7 @@
             // snakeTile112
             // 
             snakeTile112.BackColor = SystemColors.Menu;
+            snakeTile112.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile112.Location = new Point(650, 210);
             snakeTile112.Margin = new Padding(0);
             snakeTile112.Name = "snakeTile112";
@@ -1679,6 +1794,7 @@
             // snakeTile113
             // 
             snakeTile113.BackColor = SystemColors.Menu;
+            snakeTile113.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile113.Location = new Point(690, 210);
             snakeTile113.Margin = new Padding(0);
             snakeTile113.Name = "snakeTile113";
@@ -1689,6 +1805,7 @@
             // snakeTile114
             // 
             snakeTile114.BackColor = SystemColors.Menu;
+            snakeTile114.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile114.Location = new Point(730, 210);
             snakeTile114.Margin = new Padding(0);
             snakeTile114.Name = "snakeTile114";
@@ -1699,6 +1816,7 @@
             // snakeTile115
             // 
             snakeTile115.BackColor = SystemColors.Menu;
+            snakeTile115.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile115.Location = new Point(10, 250);
             snakeTile115.Margin = new Padding(0);
             snakeTile115.Name = "snakeTile115";
@@ -1709,6 +1827,7 @@
             // snakeTile116
             // 
             snakeTile116.BackColor = SystemColors.Menu;
+            snakeTile116.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile116.Location = new Point(50, 250);
             snakeTile116.Margin = new Padding(0);
             snakeTile116.Name = "snakeTile116";
@@ -1719,6 +1838,7 @@
             // snakeTile117
             // 
             snakeTile117.BackColor = SystemColors.Menu;
+            snakeTile117.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile117.Location = new Point(90, 250);
             snakeTile117.Margin = new Padding(0);
             snakeTile117.Name = "snakeTile117";
@@ -1729,6 +1849,7 @@
             // snakeTile118
             // 
             snakeTile118.BackColor = SystemColors.Menu;
+            snakeTile118.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile118.Location = new Point(130, 250);
             snakeTile118.Margin = new Padding(0);
             snakeTile118.Name = "snakeTile118";
@@ -1739,6 +1860,7 @@
             // snakeTile119
             // 
             snakeTile119.BackColor = SystemColors.Menu;
+            snakeTile119.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile119.Location = new Point(170, 250);
             snakeTile119.Margin = new Padding(0);
             snakeTile119.Name = "snakeTile119";
@@ -1749,6 +1871,7 @@
             // snakeTile120
             // 
             snakeTile120.BackColor = SystemColors.Menu;
+            snakeTile120.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile120.Location = new Point(210, 250);
             snakeTile120.Margin = new Padding(0);
             snakeTile120.Name = "snakeTile120";
@@ -1759,6 +1882,7 @@
             // snakeTile121
             // 
             snakeTile121.BackColor = SystemColors.Menu;
+            snakeTile121.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile121.Location = new Point(250, 250);
             snakeTile121.Margin = new Padding(0);
             snakeTile121.Name = "snakeTile121";
@@ -1769,6 +1893,7 @@
             // snakeTile122
             // 
             snakeTile122.BackColor = SystemColors.Menu;
+            snakeTile122.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile122.Location = new Point(290, 250);
             snakeTile122.Margin = new Padding(0);
             snakeTile122.Name = "snakeTile122";
@@ -1779,6 +1904,7 @@
             // snakeTile123
             // 
             snakeTile123.BackColor = SystemColors.Menu;
+            snakeTile123.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile123.Location = new Point(330, 250);
             snakeTile123.Margin = new Padding(0);
             snakeTile123.Name = "snakeTile123";
@@ -1789,6 +1915,7 @@
             // snakeTile124
             // 
             snakeTile124.BackColor = SystemColors.Menu;
+            snakeTile124.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile124.Location = new Point(370, 250);
             snakeTile124.Margin = new Padding(0);
             snakeTile124.Name = "snakeTile124";
@@ -1799,6 +1926,7 @@
             // snakeTile125
             // 
             snakeTile125.BackColor = SystemColors.Menu;
+            snakeTile125.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile125.Location = new Point(410, 250);
             snakeTile125.Margin = new Padding(0);
             snakeTile125.Name = "snakeTile125";
@@ -1809,6 +1937,7 @@
             // snakeTile126
             // 
             snakeTile126.BackColor = SystemColors.Menu;
+            snakeTile126.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile126.Location = new Point(450, 250);
             snakeTile126.Margin = new Padding(0);
             snakeTile126.Name = "snakeTile126";
@@ -1819,6 +1948,7 @@
             // snakeTile127
             // 
             snakeTile127.BackColor = SystemColors.Menu;
+            snakeTile127.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile127.Location = new Point(490, 250);
             snakeTile127.Margin = new Padding(0);
             snakeTile127.Name = "snakeTile127";
@@ -1829,6 +1959,7 @@
             // snakeTile128
             // 
             snakeTile128.BackColor = SystemColors.Menu;
+            snakeTile128.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile128.Location = new Point(530, 250);
             snakeTile128.Margin = new Padding(0);
             snakeTile128.Name = "snakeTile128";
@@ -1839,6 +1970,7 @@
             // snakeTile129
             // 
             snakeTile129.BackColor = SystemColors.Menu;
+            snakeTile129.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile129.Location = new Point(570, 250);
             snakeTile129.Margin = new Padding(0);
             snakeTile129.Name = "snakeTile129";
@@ -1849,6 +1981,7 @@
             // snakeTile130
             // 
             snakeTile130.BackColor = SystemColors.Menu;
+            snakeTile130.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile130.Location = new Point(610, 250);
             snakeTile130.Margin = new Padding(0);
             snakeTile130.Name = "snakeTile130";
@@ -1859,6 +1992,7 @@
             // snakeTile131
             // 
             snakeTile131.BackColor = SystemColors.Menu;
+            snakeTile131.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile131.Location = new Point(650, 250);
             snakeTile131.Margin = new Padding(0);
             snakeTile131.Name = "snakeTile131";
@@ -1869,6 +2003,7 @@
             // snakeTile132
             // 
             snakeTile132.BackColor = SystemColors.Menu;
+            snakeTile132.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile132.Location = new Point(690, 250);
             snakeTile132.Margin = new Padding(0);
             snakeTile132.Name = "snakeTile132";
@@ -1879,6 +2014,7 @@
             // snakeTile133
             // 
             snakeTile133.BackColor = SystemColors.Menu;
+            snakeTile133.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile133.Location = new Point(730, 250);
             snakeTile133.Margin = new Padding(0);
             snakeTile133.Name = "snakeTile133";
@@ -1889,6 +2025,7 @@
             // snakeTile134
             // 
             snakeTile134.BackColor = SystemColors.Menu;
+            snakeTile134.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile134.Location = new Point(10, 290);
             snakeTile134.Margin = new Padding(0);
             snakeTile134.Name = "snakeTile134";
@@ -1899,6 +2036,7 @@
             // snakeTile135
             // 
             snakeTile135.BackColor = SystemColors.Menu;
+            snakeTile135.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile135.Location = new Point(50, 290);
             snakeTile135.Margin = new Padding(0);
             snakeTile135.Name = "snakeTile135";
@@ -1909,6 +2047,7 @@
             // snakeTile136
             // 
             snakeTile136.BackColor = SystemColors.Menu;
+            snakeTile136.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile136.Location = new Point(90, 290);
             snakeTile136.Margin = new Padding(0);
             snakeTile136.Name = "snakeTile136";
@@ -1919,6 +2058,7 @@
             // snakeTile137
             // 
             snakeTile137.BackColor = SystemColors.Menu;
+            snakeTile137.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile137.Location = new Point(130, 290);
             snakeTile137.Margin = new Padding(0);
             snakeTile137.Name = "snakeTile137";
@@ -1929,6 +2069,7 @@
             // snakeTile138
             // 
             snakeTile138.BackColor = SystemColors.Menu;
+            snakeTile138.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile138.Location = new Point(170, 290);
             snakeTile138.Margin = new Padding(0);
             snakeTile138.Name = "snakeTile138";
@@ -1939,6 +2080,7 @@
             // snakeTile139
             // 
             snakeTile139.BackColor = SystemColors.Menu;
+            snakeTile139.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile139.Location = new Point(210, 290);
             snakeTile139.Margin = new Padding(0);
             snakeTile139.Name = "snakeTile139";
@@ -1949,6 +2091,7 @@
             // snakeTile140
             // 
             snakeTile140.BackColor = SystemColors.Menu;
+            snakeTile140.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile140.Location = new Point(250, 290);
             snakeTile140.Margin = new Padding(0);
             snakeTile140.Name = "snakeTile140";
@@ -1959,6 +2102,7 @@
             // snakeTile141
             // 
             snakeTile141.BackColor = SystemColors.Menu;
+            snakeTile141.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile141.Location = new Point(290, 290);
             snakeTile141.Margin = new Padding(0);
             snakeTile141.Name = "snakeTile141";
@@ -1969,6 +2113,7 @@
             // snakeTile142
             // 
             snakeTile142.BackColor = SystemColors.Menu;
+            snakeTile142.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile142.Location = new Point(330, 290);
             snakeTile142.Margin = new Padding(0);
             snakeTile142.Name = "snakeTile142";
@@ -1979,6 +2124,7 @@
             // snakeTile143
             // 
             snakeTile143.BackColor = SystemColors.Menu;
+            snakeTile143.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile143.Location = new Point(370, 290);
             snakeTile143.Margin = new Padding(0);
             snakeTile143.Name = "snakeTile143";
@@ -1989,6 +2135,7 @@
             // snakeTile144
             // 
             snakeTile144.BackColor = SystemColors.Menu;
+            snakeTile144.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile144.Location = new Point(410, 290);
             snakeTile144.Margin = new Padding(0);
             snakeTile144.Name = "snakeTile144";
@@ -1999,6 +2146,7 @@
             // snakeTile145
             // 
             snakeTile145.BackColor = SystemColors.Menu;
+            snakeTile145.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile145.Location = new Point(450, 290);
             snakeTile145.Margin = new Padding(0);
             snakeTile145.Name = "snakeTile145";
@@ -2009,6 +2157,7 @@
             // snakeTile146
             // 
             snakeTile146.BackColor = SystemColors.Menu;
+            snakeTile146.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile146.Location = new Point(490, 290);
             snakeTile146.Margin = new Padding(0);
             snakeTile146.Name = "snakeTile146";
@@ -2019,6 +2168,7 @@
             // snakeTile147
             // 
             snakeTile147.BackColor = SystemColors.Menu;
+            snakeTile147.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile147.Location = new Point(530, 290);
             snakeTile147.Margin = new Padding(0);
             snakeTile147.Name = "snakeTile147";
@@ -2029,6 +2179,7 @@
             // snakeTile148
             // 
             snakeTile148.BackColor = SystemColors.Menu;
+            snakeTile148.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile148.Location = new Point(570, 290);
             snakeTile148.Margin = new Padding(0);
             snakeTile148.Name = "snakeTile148";
@@ -2039,6 +2190,7 @@
             // snakeTile149
             // 
             snakeTile149.BackColor = SystemColors.Menu;
+            snakeTile149.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile149.Location = new Point(610, 290);
             snakeTile149.Margin = new Padding(0);
             snakeTile149.Name = "snakeTile149";
@@ -2049,6 +2201,7 @@
             // snakeTile150
             // 
             snakeTile150.BackColor = SystemColors.Menu;
+            snakeTile150.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile150.Location = new Point(650, 290);
             snakeTile150.Margin = new Padding(0);
             snakeTile150.Name = "snakeTile150";
@@ -2059,6 +2212,7 @@
             // snakeTile151
             // 
             snakeTile151.BackColor = SystemColors.Menu;
+            snakeTile151.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile151.Location = new Point(690, 290);
             snakeTile151.Margin = new Padding(0);
             snakeTile151.Name = "snakeTile151";
@@ -2069,6 +2223,7 @@
             // snakeTile152
             // 
             snakeTile152.BackColor = SystemColors.Menu;
+            snakeTile152.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile152.Location = new Point(730, 290);
             snakeTile152.Margin = new Padding(0);
             snakeTile152.Name = "snakeTile152";
@@ -2079,6 +2234,7 @@
             // snakeTile153
             // 
             snakeTile153.BackColor = SystemColors.Menu;
+            snakeTile153.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile153.Location = new Point(10, 330);
             snakeTile153.Margin = new Padding(0);
             snakeTile153.Name = "snakeTile153";
@@ -2089,6 +2245,7 @@
             // snakeTile154
             // 
             snakeTile154.BackColor = SystemColors.Menu;
+            snakeTile154.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile154.Location = new Point(50, 330);
             snakeTile154.Margin = new Padding(0);
             snakeTile154.Name = "snakeTile154";
@@ -2099,6 +2256,7 @@
             // snakeTile155
             // 
             snakeTile155.BackColor = SystemColors.Menu;
+            snakeTile155.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile155.Location = new Point(90, 330);
             snakeTile155.Margin = new Padding(0);
             snakeTile155.Name = "snakeTile155";
@@ -2109,6 +2267,7 @@
             // snakeTile156
             // 
             snakeTile156.BackColor = SystemColors.Menu;
+            snakeTile156.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile156.Location = new Point(130, 330);
             snakeTile156.Margin = new Padding(0);
             snakeTile156.Name = "snakeTile156";
@@ -2119,6 +2278,7 @@
             // snakeTile157
             // 
             snakeTile157.BackColor = SystemColors.Menu;
+            snakeTile157.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile157.Location = new Point(170, 330);
             snakeTile157.Margin = new Padding(0);
             snakeTile157.Name = "snakeTile157";
@@ -2129,6 +2289,7 @@
             // snakeTile158
             // 
             snakeTile158.BackColor = SystemColors.Menu;
+            snakeTile158.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile158.Location = new Point(210, 330);
             snakeTile158.Margin = new Padding(0);
             snakeTile158.Name = "snakeTile158";
@@ -2139,6 +2300,7 @@
             // snakeTile159
             // 
             snakeTile159.BackColor = SystemColors.Menu;
+            snakeTile159.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile159.Location = new Point(250, 330);
             snakeTile159.Margin = new Padding(0);
             snakeTile159.Name = "snakeTile159";
@@ -2149,6 +2311,7 @@
             // snakeTile160
             // 
             snakeTile160.BackColor = SystemColors.Menu;
+            snakeTile160.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile160.Location = new Point(290, 330);
             snakeTile160.Margin = new Padding(0);
             snakeTile160.Name = "snakeTile160";
@@ -2159,6 +2322,7 @@
             // snakeTile161
             // 
             snakeTile161.BackColor = SystemColors.Menu;
+            snakeTile161.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile161.Location = new Point(330, 330);
             snakeTile161.Margin = new Padding(0);
             snakeTile161.Name = "snakeTile161";
@@ -2169,6 +2333,7 @@
             // snakeTile162
             // 
             snakeTile162.BackColor = SystemColors.Menu;
+            snakeTile162.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile162.Location = new Point(370, 330);
             snakeTile162.Margin = new Padding(0);
             snakeTile162.Name = "snakeTile162";
@@ -2179,6 +2344,7 @@
             // snakeTile163
             // 
             snakeTile163.BackColor = SystemColors.Menu;
+            snakeTile163.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile163.Location = new Point(410, 330);
             snakeTile163.Margin = new Padding(0);
             snakeTile163.Name = "snakeTile163";
@@ -2189,6 +2355,7 @@
             // snakeTile164
             // 
             snakeTile164.BackColor = SystemColors.Menu;
+            snakeTile164.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile164.Location = new Point(450, 330);
             snakeTile164.Margin = new Padding(0);
             snakeTile164.Name = "snakeTile164";
@@ -2199,6 +2366,7 @@
             // snakeTile165
             // 
             snakeTile165.BackColor = SystemColors.Menu;
+            snakeTile165.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile165.Location = new Point(490, 330);
             snakeTile165.Margin = new Padding(0);
             snakeTile165.Name = "snakeTile165";
@@ -2209,6 +2377,7 @@
             // snakeTile166
             // 
             snakeTile166.BackColor = SystemColors.Menu;
+            snakeTile166.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile166.Location = new Point(530, 330);
             snakeTile166.Margin = new Padding(0);
             snakeTile166.Name = "snakeTile166";
@@ -2219,6 +2388,7 @@
             // snakeTile167
             // 
             snakeTile167.BackColor = SystemColors.Menu;
+            snakeTile167.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile167.Location = new Point(570, 330);
             snakeTile167.Margin = new Padding(0);
             snakeTile167.Name = "snakeTile167";
@@ -2229,6 +2399,7 @@
             // snakeTile168
             // 
             snakeTile168.BackColor = SystemColors.Menu;
+            snakeTile168.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile168.Location = new Point(610, 330);
             snakeTile168.Margin = new Padding(0);
             snakeTile168.Name = "snakeTile168";
@@ -2239,6 +2410,7 @@
             // snakeTile169
             // 
             snakeTile169.BackColor = SystemColors.Menu;
+            snakeTile169.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile169.Location = new Point(650, 330);
             snakeTile169.Margin = new Padding(0);
             snakeTile169.Name = "snakeTile169";
@@ -2249,6 +2421,7 @@
             // snakeTile170
             // 
             snakeTile170.BackColor = SystemColors.Menu;
+            snakeTile170.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile170.Location = new Point(690, 330);
             snakeTile170.Margin = new Padding(0);
             snakeTile170.Name = "snakeTile170";
@@ -2259,6 +2432,7 @@
             // snakeTile171
             // 
             snakeTile171.BackColor = SystemColors.Menu;
+            snakeTile171.BackgroundImageLayout = ImageLayout.Stretch;
             snakeTile171.Location = new Point(730, 330);
             snakeTile171.Margin = new Padding(0);
             snakeTile171.Name = "snakeTile171";
@@ -2286,10 +2460,16 @@
             scoreHelperLabel.TabIndex = 4;
             scoreHelperLabel.Text = "Score:";
             // 
+            // updateSnakePosTimer
+            // 
+            updateSnakePosTimer.Interval = 1000;
+            updateSnakePosTimer.Tick += UpdateGameField;
+            // 
             // SnakeGameplayForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(807, 478);
             Controls.Add(scoreHelperLabel);
             Controls.Add(scoreLabel);
@@ -2651,5 +2831,6 @@
         private PictureBox snakeTile171;
         private Label scoreLabel;
         private Label scoreHelperLabel;
+        private System.Windows.Forms.Timer updateSnakePosTimer;
     }
 }
