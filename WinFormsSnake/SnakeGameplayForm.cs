@@ -186,6 +186,7 @@ namespace WinFormsSnake
                 }
             }
 
+            NextAction = SnakeGameAction.QuitGame;
             RestartGame();
             Show();
         }
