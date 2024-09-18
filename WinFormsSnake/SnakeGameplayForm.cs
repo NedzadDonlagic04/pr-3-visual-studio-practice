@@ -6,10 +6,10 @@ namespace WinFormsSnake
     {
         public enum Direction
         {
-            UP,
-            DOWN,
-            LEFT,
-            RIGHT
+            UP = 2,
+            DOWN = -2,
+            LEFT = -1,
+            RIGHT = 1
         }
 
         private const int GameFieldRows = 9;
@@ -61,7 +61,7 @@ namespace WinFormsSnake
             return new()
             {
                 X = random.Next(0, GameFieldCols),
-                Y = random.Next(0, GameFieldRows) 
+                Y = random.Next(0, GameFieldRows)
             };
         }
 
@@ -76,6 +76,17 @@ namespace WinFormsSnake
             };
         }
 
+        private static Direction GetDirectionForKeyChar(char keyChar)
+        {
+            return keyChar switch
+            {
+                'w' => Direction.UP,
+                's' => Direction.DOWN,
+                'a' => Direction.LEFT,
+                _ => Direction.RIGHT,
+            };
+        }
+
         private static Point GetPointOffsetForDirection(Direction direction)
         {
             return direction switch
@@ -87,19 +98,20 @@ namespace WinFormsSnake
             };
         }
 
-        private Point GetNextHeadPoint() 
+        private Point GetNextHeadPoint()
         {
             Point headPoint = _snakePoints.First();
 
             return headPoint.Sum(GetPointOffsetForDirection(_currentDirection));
         }
 
-        private void ClearPreviouslyDrawnOnPoints() 
+        private void ClearPreviouslyDrawnOnPoints()
         {
             _grassTiles[_applePoint.Y, _applePoint.X].BackColor = Color.FromName(Properties.Resources.mainBackColor);
             _applePoint = InitialApplePoint;
 
-            foreach (Point snakePoint in _snakePoints) {
+            foreach (Point snakePoint in _snakePoints)
+            {
                 _grassTiles[snakePoint.Y, snakePoint.X].BackColor = Color.FromName(Properties.Resources.mainBackColor);
             }
 
@@ -136,7 +148,7 @@ namespace WinFormsSnake
             _snakePoints.RemoveLast();
         }
 
-        private void MoveSnake() 
+        private void MoveSnake()
         {
             _snakePoints.AddFirst(GetNextHeadPoint());
         }
@@ -153,7 +165,7 @@ namespace WinFormsSnake
             return _snakePoints.Find(GetNextHeadPoint()) != null;
         }
 
-        private bool IsGameOver() 
+        private bool IsGameOver()
         {
             return IsSnakeHeadOutOfBounds() || DidSnakeBiteItself();
         }
@@ -200,17 +212,30 @@ namespace WinFormsSnake
         {
             updateSnakePosTimer.Stop();
 
-            if (IsGameOver()) 
+            if (IsGameOver())
             {
                 StartPlayerDiedEvent();
-            } 
-            else 
+            }
+            else
             {
                 MoveSnake();
                 DrawSnake();
             }
 
             updateSnakePosTimer.Start();
+        }
+
+        private void KeyPressEvent(object sender, KeyPressEventArgs e)
+        {
+            var nextDirection = GetDirectionForKeyChar(char.ToLower(e.KeyChar));
+
+            System.Diagnostics.Debug.WriteLine((int)nextDirection + (int)_currentDirection);
+
+            if ((int)nextDirection + (int)_currentDirection == 0) {
+                return;
+            }
+
+            _currentDirection = nextDirection;
         }
     }
 }

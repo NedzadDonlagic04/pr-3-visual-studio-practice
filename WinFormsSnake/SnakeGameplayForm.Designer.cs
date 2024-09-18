@@ -2480,6 +2480,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Snake Gameplay";
             Shown += FormShownEvent;
+            KeyPress += KeyPressEvent;
             snakeTilesFlowLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)snakeTile1).EndInit();
             ((System.ComponentModel.ISupportInitialize)snakeTile2).EndInit();
