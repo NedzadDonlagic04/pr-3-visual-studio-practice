@@ -27,9 +27,6 @@
             Close();
         }
 
-        private void FormShownEvent(object sender, EventArgs e)
-        {
-            NextAction = SnakeGameAction.QuitGame;
-        }
+        private void FormShownEvent(object sender, EventArgs e) => NextAction = SnakeGameAction.QuitGame;
     }
 }

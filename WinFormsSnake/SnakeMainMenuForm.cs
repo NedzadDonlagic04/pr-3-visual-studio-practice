@@ -14,10 +14,7 @@ namespace WinFormsSnake
             InitializeComponent();
         }
 
-        private void QuitGame(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void QuitGame(object sender, EventArgs e) => Close();
 
         private void StartGame(object sender, EventArgs e)
         {
