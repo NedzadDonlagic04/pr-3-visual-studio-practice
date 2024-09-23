@@ -2462,8 +2462,8 @@
             // 
             // updateSnakePosTimer
             // 
-            updateSnakePosTimer.Interval = 1000;
-            updateSnakePosTimer.Tick += UpdateGameField;
+            updateSnakePosTimer.Interval = 500;
+            updateSnakePosTimer.Tick += UpdateGame;
             // 
             // SnakeGameplayForm
             // 
