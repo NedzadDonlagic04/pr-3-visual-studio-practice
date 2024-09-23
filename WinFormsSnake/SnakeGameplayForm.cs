@@ -254,6 +254,7 @@ namespace WinFormsSnake
             UpdateSnakeHead();
             if (HasAppleBeenEaten())
             {
+                RespawnApple();
                 return;
             }
             UpdateSnakeTail();
