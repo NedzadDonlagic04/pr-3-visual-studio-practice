@@ -32,6 +32,7 @@ namespace WinFormsSnake
         private readonly PictureBox[,] _grassTiles = new PictureBox[GameFieldRows, GameFieldCols];
 
         private Point _applePos;
+        private int _applesEaten = 0;
         private readonly Point InitialApplePos = new(5, 4);
         
         private readonly LinkedList<Point> _snakeParts = new();
@@ -161,6 +162,7 @@ namespace WinFormsSnake
         private void ResetSnakeParts()
         {
             _snakeParts.Clear();
+            _applesEaten = 0;
 
             for (int i = 0; i < InitialSnakeSize; ++i)
             {
@@ -194,10 +196,16 @@ namespace WinFormsSnake
 
         private bool HasAppleBeenEaten() => _snakeParts.First() == _applePos;
 
-        public void RespawnApple()
+        private void RespawnApple()
         {
             _applePos.X = -10;
             _applePos.Y = -10;
+        }
+
+        private void IncrementApplesEatenCounter()
+        {
+            ++_applesEaten;
+            scoreLabel.Text = _applesEaten.ToString();
         }
 
         private bool IsSnakeHeadOutOfBounds()
@@ -254,6 +262,7 @@ namespace WinFormsSnake
             UpdateSnakeHead();
             if (HasAppleBeenEaten())
             {
+                IncrementApplesEatenCounter();
                 RespawnApple();
                 return;
             }
