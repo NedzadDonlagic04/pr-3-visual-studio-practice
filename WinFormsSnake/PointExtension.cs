@@ -2,6 +2,12 @@
 {
     public static class PointExtension
     {
-        public static Point Sum(this Point lhs, Point rhs) => new() { X = lhs.X + rhs.X, Y = lhs.Y + rhs.Y };
+        public static ref Point Sum(this ref Point lhs, Point rhs)
+        {
+            lhs.X += rhs.X;
+            lhs.Y += rhs.Y;
+
+            return ref lhs;
+        }
     }
 }
