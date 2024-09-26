@@ -34,10 +34,11 @@ namespace WinFormsSnake
         private Point _applePos;
         private int _applesEaten = 0;
         private readonly Point InitialApplePos = new(5, 4);
+        private readonly LinkedList<Point> _availableApplePoints = new();
         
         private readonly LinkedList<Point> _snakeParts = new();
         private readonly Point InitialSnakeHeadPos = new(11, 4);
-        private const int InitialSnakeSize = 4;
+        private const int InitialSnakeSize = 3;
 
         private Direction _currentDirection = Direction.Left;
         private Direction _nextDirection = Direction.Left;
@@ -97,6 +98,9 @@ namespace WinFormsSnake
 
                     _grassTiles[i, ii] = currentPictureBox;
                     _grassTiles[i, ii].BackColor = GetGrassTileColor();
+
+                    // Temporary
+                    _availableApplePoints.AddLast(new Point(ii, i));
                 }
             }
         }
@@ -169,6 +173,9 @@ namespace WinFormsSnake
                 Point snakePos = new() { X = InitialSnakeHeadPos.X + i, Y = InitialSnakeHeadPos.Y };
                 _snakeParts.AddLast(snakePos);
                 _grassTiles[snakePos.Y, snakePos.X].BackColor = GetSnakeBodyColor();
+
+                // Temporary
+                _availableApplePoints.Remove(snakePos);
             }
 
             Point headPos = _snakeParts.First();
@@ -177,8 +184,17 @@ namespace WinFormsSnake
 
         private void ResetApple()
         {
+            _grassTiles[_applePos.Y, _applePos.X].BackgroundImage = null;
             _applePos = InitialApplePos;
             _grassTiles[_applePos.Y, _applePos.X].BackgroundImage = GetAppleImage();
+        }
+
+        private void ResetAvailableApplePoints()
+        {
+            foreach (Point snakePoint in _snakeParts)
+            {
+                _availableApplePoints.AddLast(snakePoint);
+            }
         }
 
         public void RestartGame()
@@ -188,6 +204,7 @@ namespace WinFormsSnake
             _nextDirection = Direction.Left;
             _currentDirection = _nextDirection;
 
+            ResetAvailableApplePoints();
             ResetSnakeParts();
             ResetApple();
 
@@ -198,8 +215,11 @@ namespace WinFormsSnake
 
         private void RespawnApple()
         {
-            _applePos.X = -10;
-            _applePos.Y = -10;
+            Random random = new();
+            int index = random.Next(0, _availableApplePoints.Count);
+
+            _applePos = _availableApplePoints.ElementAt(index);
+            _grassTiles[_applePos.Y, _applePos.X].BackgroundImage = GetAppleImage();
         }
 
         private void IncrementApplesEatenCounter()
@@ -240,6 +260,9 @@ namespace WinFormsSnake
             }
 
             _grassTiles[headPos.Y, headPos.X].BackgroundImage = GetSnakeHeadImageForCurrentDirection();
+
+            // Temporary
+            _availableApplePoints.Remove(headPos);
         }
 
         public void UpdateSnakeTail()
@@ -255,6 +278,9 @@ namespace WinFormsSnake
             }
 
             _grassTiles[tailPos.Y, tailPos.X].BackColor = GetGrassTileColor();
+
+            // Temporary
+            _availableApplePoints.AddLast(tailPos);
         }
 
         private void UpdateSnake()
@@ -279,14 +305,10 @@ namespace WinFormsSnake
             {
                 UpdateSnake();
             } 
-            catch(SnakeOutOfBoundsException) 
+            catch(SnakeException) 
             {
                 StartPlayerDiedEvent();
-            } 
-            catch(SnakeBitItselfException) 
-            {
-                StartPlayerDiedEvent();
-            } 
+            }
             catch(Exception ex) 
             {
                 System.Diagnostics.Debug.WriteLine($"Unexpected error: {ex}");
