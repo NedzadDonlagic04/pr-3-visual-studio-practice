@@ -99,7 +99,6 @@ namespace WinFormsSnake
                     _grassTiles[i, ii] = currentPictureBox;
                     _grassTiles[i, ii].BackColor = GetGrassTileColor();
 
-                    // Temporary
                     _availableApplePoints.AddLast(new Point(ii, i));
                 }
             }
@@ -174,7 +173,6 @@ namespace WinFormsSnake
                 _snakeParts.AddLast(snakePos);
                 _grassTiles[snakePos.Y, snakePos.X].BackColor = GetSnakeBodyColor();
 
-                // Temporary
                 _availableApplePoints.Remove(snakePos);
             }
 
@@ -261,7 +259,6 @@ namespace WinFormsSnake
 
             _grassTiles[headPos.Y, headPos.X].BackgroundImage = GetSnakeHeadImageForCurrentDirection();
 
-            // Temporary
             _availableApplePoints.Remove(headPos);
         }
 
@@ -279,7 +276,6 @@ namespace WinFormsSnake
 
             _grassTiles[tailPos.Y, tailPos.X].BackColor = GetGrassTileColor();
 
-            // Temporary
             _availableApplePoints.AddLast(tailPos);
         }
 
@@ -311,7 +307,7 @@ namespace WinFormsSnake
             }
             catch(Exception ex) 
             {
-                System.Diagnostics.Debug.WriteLine($"Unexpected error: {ex}");
+                System.Diagnostics.Debug.WriteLine($"Unexpected exception: {ex}");
             }
 
             updateSnakePosTimer.Start();
