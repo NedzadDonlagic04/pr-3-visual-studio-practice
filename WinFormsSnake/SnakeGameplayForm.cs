@@ -31,14 +31,14 @@ namespace WinFormsSnake
         private const int GameFieldCols = 19;
         private readonly PictureBox[,] _grassTiles = new PictureBox[GameFieldRows, GameFieldCols];
 
-        private Point _applePos;
-        private int _applesEaten = 0;
         private readonly Point InitialApplePos = new(5, 4);
-        private readonly LinkedList<Point> _availableApplePoints = new();
+        private PictureBox _appleTile;
+        private readonly LinkedList<PictureBox> _availableAppleTiles = new();
         
-        private readonly LinkedList<Point> _snakeParts = new();
-        private readonly Point InitialSnakeHeadPos = new(11, 4);
         private const int InitialSnakeSize = 3;
+        private readonly Point InitialSnakeHeadPos = new(11, 4);
+        private Point _snakeHeadPos;
+        private readonly LinkedList<PictureBox> _snakeTiles = new();
 
         private Direction _currentDirection = Direction.Left;
         private Direction _nextDirection = Direction.Left;
@@ -50,6 +50,10 @@ namespace WinFormsSnake
             InitializeComponent();
             ApplySharedTheme();
             InitializeGrassTilesAndSetThemToMainBGColor();
+
+            // Lines below are added to shush the warnings about
+            // existing constructor as null up
+            _appleTile = _grassTiles[InitialApplePos.Y, InitialApplePos.X];
         }
 
         private void ApplySharedTheme()
@@ -83,23 +87,23 @@ namespace WinFormsSnake
         {
             int rows = _grassTiles.GetLength(0);
             int cols = _grassTiles.GetLength(1);
-            PictureBox? currentPictureBox;
+            PictureBox? grassTile;
 
             for (int i = 0; i < rows; ++i)
             {
                 for (int ii = 0; ii < cols; ++ii)
                 {
-                    currentPictureBox = snakeTilesFlowLayoutPanel.Controls[i * cols + ii] as PictureBox;
+                    grassTile = snakeTilesFlowLayoutPanel.Controls[i * cols + ii] as PictureBox;
 
-                    if (currentPictureBox == null)
+                    if (grassTile == null)
                     {
                         continue;
                     }
 
-                    _grassTiles[i, ii] = currentPictureBox;
+                    _grassTiles[i, ii] = grassTile;
                     _grassTiles[i, ii].BackColor = GetGrassTileColor();
 
-                    _availableApplePoints.AddLast(new Point(ii, i));
+                    _availableAppleTiles.AddLast(grassTile);
                 }
             }
         }
@@ -139,59 +143,49 @@ namespace WinFormsSnake
 
         private void ClearGrassTiles()
         {
-            _grassTiles[_applePos.Y, _applePos.X].BackColor = GetGrassTileColor();
+            _appleTile.BackColor = GetGrassTileColor();
 
-            for (int i = 1; i < _snakeParts.Count; ++i)
+            for (int i = 1; i < _snakeTiles.Count; ++i)
             {
-                Point snakePos = _snakeParts.ElementAt(i);
-                _grassTiles[snakePos.Y, snakePos.X].BackColor = GetGrassTileColor();
+                _snakeTiles.ElementAt(i).BackColor = GetGrassTileColor();
             }
 
-            if (_snakeParts.Count != 0 && !IsSnakeHeadOutOfBounds())
+            if (_snakeTiles.Count != 0 && !IsSnakeHeadOutOfBounds())
             {
-                Point headPos = _snakeParts.First();
-                _grassTiles[headPos.Y, headPos.X].BackgroundImage = null;
+                _snakeTiles.First().BackgroundImage = null;
             }
         }
 
-        private Point GetNextHeadPos()
+        private void ResetSnakeTiles()
         {
-            Point headPos = _snakeParts.First();
-            Point offset = GetPointOffsetForDirection(_currentDirection);
+            _snakeTiles.Clear();
 
-            return headPos.Sum(offset);
-        }
-
-        private void ResetSnakeParts()
-        {
-            _snakeParts.Clear();
-            _applesEaten = 0;
+            _snakeHeadPos = InitialSnakeHeadPos;
 
             for (int i = 0; i < InitialSnakeSize; ++i)
             {
-                Point snakePos = new() { X = InitialSnakeHeadPos.X + i, Y = InitialSnakeHeadPos.Y };
-                _snakeParts.AddLast(snakePos);
-                _grassTiles[snakePos.Y, snakePos.X].BackColor = GetSnakeBodyColor();
+                PictureBox snakeTile = _grassTiles[InitialSnakeHeadPos.Y, InitialSnakeHeadPos.X + i];
+                snakeTile.BackColor = GetSnakeBodyColor();
+                _snakeTiles.AddLast(snakeTile);
 
-                _availableApplePoints.Remove(snakePos);
+                _availableAppleTiles.Remove(snakeTile);
             }
 
-            Point headPos = _snakeParts.First();
-            _grassTiles[headPos.Y, headPos.X].BackgroundImage = GetSnakeHeadImageForCurrentDirection();
+            _snakeTiles.First().BackgroundImage = GetSnakeHeadImageForCurrentDirection();
         }
 
         private void ResetApple()
         {
-            _grassTiles[_applePos.Y, _applePos.X].BackgroundImage = null;
-            _applePos = InitialApplePos;
-            _grassTiles[_applePos.Y, _applePos.X].BackgroundImage = GetAppleImage();
+            _appleTile.BackgroundImage = null;
+            _appleTile = _grassTiles[InitialApplePos.Y, InitialApplePos.X];
+            _appleTile.BackgroundImage = GetAppleImage();
         }
 
         private void ResetAvailableApplePoints()
         {
-            foreach (Point snakePoint in _snakeParts)
+            foreach (PictureBox snakeTile in _snakeTiles)
             {
-                _availableApplePoints.AddLast(snakePoint);
+                _availableAppleTiles.AddLast(snakeTile);
             }
         }
 
@@ -203,80 +197,74 @@ namespace WinFormsSnake
             _currentDirection = _nextDirection;
 
             ResetAvailableApplePoints();
-            ResetSnakeParts();
+            ResetSnakeTiles();
             ResetApple();
 
             updateSnakePosTimer.Start();
         }
 
-        private bool HasAppleBeenEaten() => _snakeParts.First() == _applePos;
+        private bool HasAppleBeenEaten() => _snakeTiles.First() == _appleTile;
 
         private void RespawnApple()
         {
             Random random = new();
-            int index = random.Next(0, _availableApplePoints.Count);
+            int index = random.Next(0, _availableAppleTiles.Count);
 
-            _applePos = _availableApplePoints.ElementAt(index);
-            _grassTiles[_applePos.Y, _applePos.X].BackgroundImage = GetAppleImage();
+            _appleTile = _availableAppleTiles.ElementAt(index);
+            _appleTile.BackgroundImage = GetAppleImage();
         }
 
         private void IncrementApplesEatenCounter()
         {
-            ++_applesEaten;
-            scoreLabel.Text = _applesEaten.ToString();
+            scoreLabel.Text = (_snakeTiles.Count - InitialSnakeSize).ToString();
         }
 
         private bool IsSnakeHeadOutOfBounds()
-        {
-            Point headPoint = _snakeParts.First();
-            return headPoint.X < 0 || headPoint.X >= GameFieldCols
-                || headPoint.Y < 0 || headPoint.Y >= GameFieldRows;
-        }
+            =>  _snakeHeadPos.X < 0 || _snakeHeadPos.X >= GameFieldCols
+             || _snakeHeadPos.Y < 0 || _snakeHeadPos.Y >= GameFieldRows;
 
         private bool DidSnakeBiteItself() 
         {
-            Point headPoint = _snakeParts.First();
+            PictureBox headTile = _snakeTiles.First();
 
-            return _snakeParts.Where(snakePoint => snakePoint == headPoint).Count() == 2;
+            return _snakeTiles.Where(snakeTile => snakeTile == headTile).Count() == 2;
         }
             
         private void FormShownEvent(object sender, EventArgs e) => NextAction = SnakeGameAction.QuitGame;
 
         private void UpdateSnakeHead()
         {
-            Point headPos = GetNextHeadPos();
-            Point previousHeadPos = _snakeParts.First();
+            _snakeHeadPos.Sum(GetPointOffsetForDirection(_currentDirection));
 
-            _snakeParts.AddFirst(headPos);
-
-            _grassTiles[previousHeadPos.Y, previousHeadPos.X].BackgroundImage = null;
-            _grassTiles[previousHeadPos.Y, previousHeadPos.X].BackColor = GetSnakeBodyColor();
+            PictureBox previousSnakeHeadTile = _snakeTiles.First();
+            previousSnakeHeadTile.BackgroundImage = null;
+            previousSnakeHeadTile.BackColor = GetSnakeBodyColor();
 
             if (IsSnakeHeadOutOfBounds())
             {
                 throw new SnakeOutOfBoundsException();
             }
 
-            _grassTiles[headPos.Y, headPos.X].BackgroundImage = GetSnakeHeadImageForCurrentDirection();
+            PictureBox newSnakeHeadTile = _grassTiles[_snakeHeadPos.Y, _snakeHeadPos.X];
+            newSnakeHeadTile.BackgroundImage = GetSnakeHeadImageForCurrentDirection();
 
-            _availableApplePoints.Remove(headPos);
+            _snakeTiles.AddFirst(newSnakeHeadTile);
+            _availableAppleTiles.Remove(newSnakeHeadTile);
         }
 
         public void UpdateSnakeTail()
         {
-            Point tailPos = _snakeParts.Last();
+            PictureBox snakeTailTile = _snakeTiles.Last();
 
-            _snakeParts.RemoveLast();
-            _grassTiles[tailPos.Y, tailPos.X].BackColor = GetGrassTileColor();
+            _snakeTiles.RemoveLast();
+            snakeTailTile.BackColor = GetGrassTileColor();
 
             if (DidSnakeBiteItself())
             {
                 throw new SnakeBitItselfException();
             }
 
-            _grassTiles[tailPos.Y, tailPos.X].BackColor = GetGrassTileColor();
-
-            _availableApplePoints.AddLast(tailPos);
+            _availableAppleTiles.AddLast(snakeTailTile);
         }
 
         private void UpdateSnake()
@@ -318,11 +306,18 @@ namespace WinFormsSnake
 
         private void KeyPressEvent(object sender, KeyPressEventArgs e)
         {
-            var direction = GetDirectionForKeyChar(char.ToLower(e.KeyChar));
-
-            if (!AreOppositeDirections(_currentDirection, direction)) 
+            try
             {
-                _nextDirection = direction;
+                var direction = GetDirectionForKeyChar(char.ToLower(e.KeyChar));
+
+                if (!AreOppositeDirections(_currentDirection, direction))
+                {
+                    _nextDirection = direction;
+                }
+            }
+            catch(NotImplementedException ex) 
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
             }
         }
     }
