@@ -1,8 +1,8 @@
 ﻿namespace WinFormsSnake
 {
-    public partial class SnakeButton : Button
+    internal partial class SnakeButton : Button
     {
-        public SnakeButton()
+        internal SnakeButton()
         {
             InitializeComponent();
             ApplyCustomSettings();

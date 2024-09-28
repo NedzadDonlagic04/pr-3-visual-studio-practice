@@ -1,13 +1,13 @@
 ﻿namespace WinFormsSnake
 {
-    public partial class SnakeGameOverForm : Form
+    internal partial class SnakeGameOverForm : Form
     {
-        public SnakeGameOverForm()
+        internal SnakeGameOverForm()
         {
             InitializeComponent();
         }
 
-        public SnakeGameAction NextAction { get; private set; }
+        internal SnakeGameAction NextAction { get; private set; }
 
         private void PlayAgain(object sender, EventArgs e)
         {
