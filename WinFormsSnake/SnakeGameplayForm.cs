@@ -1,5 +1,6 @@
 ﻿using Extensions;
 using WinFormsSnake.SnakeExceptions;
+using WinFormsSnake.SnakeHighScoresManager;
 
 namespace WinFormsSnake
 {
@@ -17,7 +18,7 @@ namespace WinFormsSnake
      * Choosing sbyte as the type felt right because I won't be needing
      * more than 1 single bite for this
      */
-    public enum Direction : sbyte
+    internal enum Direction : sbyte
     {
         Up = 2,
         Down = -2,
@@ -25,7 +26,7 @@ namespace WinFormsSnake
         Right = 1
     }
 
-    public partial class SnakeGameplayForm : Form
+    internal partial class SnakeGameplayForm : Form
     {
         private const int GameFieldRows = 9;
         private const int GameFieldCols = 19;
@@ -40,17 +41,23 @@ namespace WinFormsSnake
         private Point _snakeHeadPos;
         private readonly LinkedList<PictureBox> _snakeTiles = new();
 
+        private int Score { get => _snakeTiles.Count - InitialSnakeSize; }
+
         private Direction _currentDirection = Direction.Left;
         private Direction _nextDirection = Direction.Left;
         
-        public SnakeGameAction NextAction { get; private set; }
+        private readonly HighScoresManager _highScoresManager;
 
-        public SnakeGameplayForm()
+        internal SnakeGameAction NextAction { get; private set; }
+
+        internal SnakeGameplayForm(HighScoresManager highScoresManager)
         {
             InitializeComponent();
             ApplySharedTheme();
             InitializeGrassTilesAndSetThemToMainBGColor();
 
+            _highScoresManager = highScoresManager;
+            
             // Lines below are added to shush the warnings about
             // existing constructor as null up
             _appleTile = _grassTiles[InitialApplePos.Y, InitialApplePos.X];
@@ -65,6 +72,11 @@ namespace WinFormsSnake
         private void StartPlayerDiedEvent()
         {
             Hide();
+
+            if (Score != 0) 
+            {
+                _highScoresManager.AddScore(Score);
+            }
 
             using (SnakeGameOverForm snakeGameOverForm = new())
             {
@@ -145,14 +157,10 @@ namespace WinFormsSnake
         {
             _appleTile.BackColor = GetGrassTileColor();
 
-            for (int i = 1; i < _snakeTiles.Count; ++i)
+            foreach (PictureBox snakeTile in _snakeTiles)
             {
-                _snakeTiles.ElementAt(i).BackColor = GetGrassTileColor();
-            }
-
-            if (_snakeTiles.Count != 0 && !IsSnakeHeadOutOfBounds())
-            {
-                _snakeTiles.First().BackgroundImage = null;
+                snakeTile.BackColor = GetGrassTileColor();
+                snakeTile.BackgroundImage = null;
             }
         }
 
@@ -189,7 +197,7 @@ namespace WinFormsSnake
             }
         }
 
-        public void RestartGame()
+        internal void RestartGame()
         {
             ClearGrassTiles();
 
@@ -199,6 +207,7 @@ namespace WinFormsSnake
             ResetAvailableApplePoints();
             ResetSnakeTiles();
             ResetApple();
+            UpdateScore();
 
             updateSnakePosTimer.Start();
         }
@@ -214,9 +223,9 @@ namespace WinFormsSnake
             _appleTile.BackgroundImage = GetAppleImage();
         }
 
-        private void IncrementApplesEatenCounter()
+        private void UpdateScore()
         {
-            scoreLabel.Text = (_snakeTiles.Count - InitialSnakeSize).ToString();
+            scoreLabel.Text = Score.ToString();
         }
 
         private bool IsSnakeHeadOutOfBounds()
@@ -252,7 +261,7 @@ namespace WinFormsSnake
             _availableAppleTiles.Remove(newSnakeHeadTile);
         }
 
-        public void UpdateSnakeTail()
+        private void UpdateSnakeTail()
         {
             PictureBox snakeTailTile = _snakeTiles.Last();
 
@@ -272,7 +281,7 @@ namespace WinFormsSnake
             UpdateSnakeHead();
             if (HasAppleBeenEaten())
             {
-                IncrementApplesEatenCounter();
+                UpdateScore();
                 RespawnApple();
                 return;
             }

@@ -1,15 +1,20 @@
+using WinFormsSnake.SnakeHighScoresManager;
+
 namespace WinFormsSnake
 {
-    public enum SnakeGameAction 
+    internal enum SnakeGameAction
     {
         RestartGame,
         QuitGame,
         GoToMainMenu
     }
 
-    public partial class SnakeMainMenuForm : Form
+    internal partial class SnakeMainMenuForm : Form
     {
-        public SnakeMainMenuForm()
+        private const int MaxHighScores = 10;
+        private readonly HighScoresManager _highScoresManager = new(MaxHighScores);
+
+        internal SnakeMainMenuForm()
         {
             InitializeComponent();
         }
@@ -20,15 +25,15 @@ namespace WinFormsSnake
         {
             Hide();
 
-            using (SnakeGameplayForm snakeGameplayForm = new()) 
+            using (SnakeGameplayForm snakeGameplayForm = new(_highScoresManager))
             {
-                do 
+                do
                 {
                     snakeGameplayForm.RestartGame();
                     snakeGameplayForm.ShowDialog();
                 } while (snakeGameplayForm.NextAction == SnakeGameAction.RestartGame);
 
-                if (snakeGameplayForm.NextAction == SnakeGameAction.QuitGame) 
+                if (snakeGameplayForm.NextAction == SnakeGameAction.QuitGame)
                 {
                     Close();
                     return;
@@ -36,6 +41,11 @@ namespace WinFormsSnake
             }
 
             Show();
+        }
+
+        private void ShowHighScores(object sender, EventArgs e)
+        {
+            MessageBox.Show(_highScoresManager.ToString());
         }
     }
 }

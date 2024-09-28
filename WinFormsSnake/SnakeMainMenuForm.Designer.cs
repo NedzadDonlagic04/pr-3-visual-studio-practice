@@ -63,6 +63,7 @@
             highScoresSnakeButton.TabIndex = 1;
             highScoresSnakeButton.Text = "High Scores";
             highScoresSnakeButton.UseVisualStyleBackColor = false;
+            highScoresSnakeButton.Click += ShowHighScores;
             // 
             // quitSnakeButton
             // 
