@@ -45,7 +45,20 @@ namespace WinFormsSnake
 
         private void ShowHighScores(object sender, EventArgs e)
         {
-            MessageBox.Show(_highScoresManager.ToString());
+            Hide();
+
+            using (SnakeHighScoresForm snakeHighScoresForm = new(_highScoresManager))
+            {
+                snakeHighScoresForm.ShowDialog();
+
+                if (snakeHighScoresForm.NextAction == SnakeGameAction.QuitGame)
+                {
+                    Close();
+                    return;
+                }
+            }
+
+            Show();
         }
     }
 }
