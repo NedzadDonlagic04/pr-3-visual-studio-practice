@@ -1,8 +1,8 @@
 ﻿namespace Extensions
 {
-    public static class PointExtension
+    internal static class PointExtension
     {
-        public static ref Point Sum(this ref Point lhs, Point rhs)
+        internal static ref Point Sum(this ref Point lhs, Point rhs)
         {
             lhs.X += rhs.X;
             lhs.Y += rhs.Y;
