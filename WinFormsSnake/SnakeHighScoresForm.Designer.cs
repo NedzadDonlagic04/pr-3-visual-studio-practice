@@ -28,13 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            goToMainMenuSnakeButton = new SnakeButton();
             SuspendLayout();
+            // 
+            // goToMainMenuSnakeButton
+            // 
+            goToMainMenuSnakeButton.BackColor = Color.GreenYellow;
+            goToMainMenuSnakeButton.FlatAppearance.BorderSize = 3;
+            goToMainMenuSnakeButton.FlatStyle = FlatStyle.Flat;
+            goToMainMenuSnakeButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            goToMainMenuSnakeButton.ForeColor = Color.ForestGreen;
+            goToMainMenuSnakeButton.Location = new Point(310, 351);
+            goToMainMenuSnakeButton.Margin = new Padding(3, 3, 3, 30);
+            goToMainMenuSnakeButton.Name = "goToMainMenuSnakeButton";
+            goToMainMenuSnakeButton.Size = new Size(180, 60);
+            goToMainMenuSnakeButton.TabIndex = 0;
+            goToMainMenuSnakeButton.Text = "Main Menu";
+            goToMainMenuSnakeButton.UseVisualStyleBackColor = false;
+            goToMainMenuSnakeButton.Click += GoToMainMenu;
             // 
             // SnakeHighScoresForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(goToMainMenuSnakeButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -45,5 +63,7 @@
         }
 
         #endregion
+
+        private SnakeButton goToMainMenuSnakeButton;
     }
 }
