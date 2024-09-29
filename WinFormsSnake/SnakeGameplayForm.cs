@@ -223,10 +223,7 @@ namespace WinFormsSnake
             _appleTile.BackgroundImage = GetAppleImage();
         }
 
-        private void UpdateScore()
-        {
-            scoreLabel.Text = Score.ToString();
-        }
+        private void UpdateScore() => scoreLabel.Text = Score.ToString();
 
         private bool IsSnakeHeadOutOfBounds()
             =>  _snakeHeadPos.X < 0 || _snakeHeadPos.X >= GameFieldCols
