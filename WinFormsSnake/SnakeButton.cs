@@ -1,14 +1,15 @@
 ﻿namespace WinFormsSnake
 {
-    internal partial class SnakeButton : Button
+    public partial class SnakeButton : Button
     {
-        internal SnakeButton()
+        public SnakeButton()
         {
             InitializeComponent();
             ApplyCustomSettings();
         }
 
-        private void ApplyCustomSettings() {
+        private void ApplyCustomSettings() 
+        {
             FlatAppearance.BorderSize = 3;
             Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             FlatStyle = FlatStyle.Flat;
