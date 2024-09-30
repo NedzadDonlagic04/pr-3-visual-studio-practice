@@ -14,6 +14,16 @@ namespace WinFormsSnake.SnakeHighScoresManager
             _maxHighScores = maxHighScores;
         }
 
+        private void GenerateRandomHighScores()
+        {
+            Random random = new();
+
+            for (int i = 0; i < _maxHighScores; i++)
+            {
+                AddScore(random.Next(0, 100));
+            }
+        }
+
         public void AddScore(int score)
         {
             _highScores.Add(new HighScore(score));
