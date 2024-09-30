@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             goToMainMenuSnakeButton = new SnakeButton();
+            highScoresListBox = new ListBox();
             SuspendLayout();
             // 
             // goToMainMenuSnakeButton
@@ -38,7 +39,7 @@
             goToMainMenuSnakeButton.FlatStyle = FlatStyle.Flat;
             goToMainMenuSnakeButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             goToMainMenuSnakeButton.ForeColor = Color.ForestGreen;
-            goToMainMenuSnakeButton.Location = new Point(310, 351);
+            goToMainMenuSnakeButton.Location = new Point(312, 389);
             goToMainMenuSnakeButton.Margin = new Padding(3, 3, 3, 30);
             goToMainMenuSnakeButton.Name = "goToMainMenuSnakeButton";
             goToMainMenuSnakeButton.Size = new Size(180, 60);
@@ -47,12 +48,29 @@
             goToMainMenuSnakeButton.UseVisualStyleBackColor = false;
             goToMainMenuSnakeButton.Click += GoToMainMenu;
             // 
+            // highScoresListBox
+            // 
+            highScoresListBox.BackColor = Color.GreenYellow;
+            highScoresListBox.BorderStyle = BorderStyle.FixedSingle;
+            highScoresListBox.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            highScoresListBox.ForeColor = Color.ForestGreen;
+            highScoresListBox.FormattingEnabled = true;
+            highScoresListBox.ItemHeight = 30;
+            highScoresListBox.Location = new Point(90, 157);
+            highScoresListBox.Name = "highScoresListBox";
+            highScoresListBox.Size = new Size(624, 212);
+            highScoresListBox.TabIndex = 1;
+            // 
             // SnakeHighScoresForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.highScoresBackgroundImage;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(804, 461);
+            Controls.Add(highScoresListBox);
             Controls.Add(goToMainMenuSnakeButton);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -65,5 +83,6 @@
         #endregion
 
         private SnakeButton goToMainMenuSnakeButton;
+        private ListBox highScoresListBox;
     }
 }
