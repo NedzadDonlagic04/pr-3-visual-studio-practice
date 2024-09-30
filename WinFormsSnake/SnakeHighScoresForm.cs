@@ -20,10 +20,10 @@ namespace WinFormsSnake
         private void InitializeHighScoresListBox()
         {
             var highScores = _highScoresManager.HighScores;
-
+               
             for (int i = highScores.Count - 1; i >= 0; --i)
             {
-                highScoresListBox.Items.Add($"{highScores.Count - i}. {highScores.ElementAt(i)}");
+                highScoresListBox.Items.Add($"{highScores.Count - i, 2}. {highScores.ElementAt(i)}");
             }
         }
 
