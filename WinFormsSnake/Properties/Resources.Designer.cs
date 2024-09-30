@@ -81,6 +81,16 @@ namespace WinFormsSnake.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap highScoresBackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("highScoresBackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GreenYellow.
         /// </summary>
         internal static string mainBackColor {
