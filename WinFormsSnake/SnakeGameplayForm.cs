@@ -1,4 +1,5 @@
 ﻿using Extensions;
+using System.Media;
 using WinFormsSnake.SnakeExceptions;
 using WinFormsSnake.SnakeHighScoresManager;
 
@@ -49,6 +50,8 @@ namespace WinFormsSnake
         private readonly HighScoresManager _highScoresManager;
 
         internal SnakeGameAction NextAction { get; private set; }
+
+        private readonly SoundPlayer _appleChewedSoundPlayer = new(Properties.Resources.appleBiteNChewSoundEffect);
 
         internal SnakeGameplayForm(HighScoresManager highScoresManager)
         {
@@ -280,6 +283,7 @@ namespace WinFormsSnake
             {
                 UpdateScore();
                 RespawnApple();
+                _appleChewedSoundPlayer.Play();
                 return;
             }
             UpdateSnakeTail();
