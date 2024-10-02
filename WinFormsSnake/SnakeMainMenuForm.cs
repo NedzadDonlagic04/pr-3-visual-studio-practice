@@ -17,6 +17,8 @@ namespace WinFormsSnake
         internal SnakeMainMenuForm()
         {
             InitializeComponent();
+
+            _highScoresManager.LoadHighScoresFromJSON();
         }
 
         private void QuitGame(object sender, EventArgs e) => Close();

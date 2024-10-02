@@ -80,6 +80,7 @@ namespace WinFormsSnake
             {
                 _highScoresManager.AddScore(Score);
             }
+            _highScoresManager.SaveHighScoresToJSON();
 
             using (SnakeGameOverForm snakeGameOverForm = new())
             {
@@ -303,9 +304,9 @@ namespace WinFormsSnake
             {
                 StartPlayerDiedEvent();
             }
-            catch(Exception ex) 
+            catch(Exception exception) 
             {
-                System.Diagnostics.Debug.WriteLine($"Unexpected exception: {ex}");
+                System.Diagnostics.Debug.WriteLine($"Unexpected exception: {exception}");
             }
 
             updateSnakePosTimer.Start();
