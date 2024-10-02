@@ -65,12 +65,12 @@ namespace WinFormsSnake.SnakeHighScoresManager
                 File.Move(HighScoresJSONPath, tempFilePath);
                 MessageBox.Show("Your high scores have been corrupted, if you wish to recover" + 
                 " the corrupted file it's content is now located inside the file " +
-                tempFilePath, "High Scores JSON Corrupted");
+                tempFilePath, "High Scores JSON Corrupted", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch
             {
                 MessageBox.Show("Your high scores have been corrupted and can't be recovered", 
-                "High Scores JSON Corrupted");
+                "High Scores JSON Corrupted", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
