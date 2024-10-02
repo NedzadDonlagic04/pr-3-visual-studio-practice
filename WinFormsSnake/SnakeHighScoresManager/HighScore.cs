@@ -1,14 +1,16 @@
-﻿namespace WinFormsSnake.SnakeHighScoresManager
+﻿using System.Text.Json.Serialization;
+
+namespace WinFormsSnake.SnakeHighScoresManager
 {
     internal readonly struct HighScore : IComparable
     {
         public int Score { get; }
         public DateTime DateTimeOfScore { get; } = DateTime.Now;
 
-        public HighScore(int score)
-        {
-            Score = score;
-        }
+        public HighScore(int score) => Score = score;
+
+        [JsonConstructor]
+        public HighScore(int score, DateTime dateTimeOfScore) => (Score, DateTimeOfScore) = (score, dateTimeOfScore);
 
         public override string ToString() => $"Score: {Score} - DateTime: {DateTimeOfScore}";
 
