@@ -6,14 +6,14 @@ namespace WinFormsSnake.SnakeHighScoresManager
     internal class HighScoresManager
     {
         private readonly int _maxHighScores;
-        private SortedSet<HighScore> _highScores = new();
-        public SortedSet<HighScore> HighScores { get => _highScores; }
+        public SortedSet<HighScore> HighScores { get; private set; } = new();
 
         private const string HighScoresJSONPath = "./highScores.json"; 
 
         public HighScoresManager(int maxHighScores)
         {
             _maxHighScores = maxHighScores;
+            LoadHighScoresFromJSON();
         }
 
         private void GenerateRandomHighScores()
@@ -28,11 +28,11 @@ namespace WinFormsSnake.SnakeHighScoresManager
 
         internal void AddScore(int score)
         {
-            _highScores.Add(new HighScore(score));
+            HighScores.Add(new HighScore(score));
 
-            if (_highScores.Count > _maxHighScores)
+            if (HighScores.Count > _maxHighScores)
             {
-                _highScores.Remove(_highScores.First());
+                HighScores.Remove(HighScores.First());
             }
         }
 
@@ -40,7 +40,7 @@ namespace WinFormsSnake.SnakeHighScoresManager
         {
             StringBuilder stringBuilder = new();
 
-            foreach (HighScore highScore in _highScores)
+            foreach (HighScore highScore in HighScores)
             {
                 stringBuilder.AppendLine(highScore.ToString());
             }
@@ -95,7 +95,7 @@ namespace WinFormsSnake.SnakeHighScoresManager
 
             try
             {
-                _highScores = JsonSerializer.Deserialize<SortedSet<HighScore>>(highScoresJsonStr) ?? new();
+                HighScores = JsonSerializer.Deserialize<SortedSet<HighScore>>(highScoresJsonStr) ?? new();
             }
             catch (JsonException)
             {
@@ -110,7 +110,7 @@ namespace WinFormsSnake.SnakeHighScoresManager
 
         internal void SaveHighScoresToJSON()
         {
-            File.WriteAllText(HighScoresJSONPath, JsonSerializer.Serialize(_highScores));
+            File.WriteAllText(HighScoresJSONPath, JsonSerializer.Serialize(HighScores));
         }
     }
 }
