@@ -4,7 +4,10 @@
     {
         static void Main()
         {
-            Console.WriteLine("Hello, World!");
+            Console.Write("Enter a basic math expression: ");
+            string mathExpression = Console.ReadLine() ?? "";
+
+            Console.WriteLine(mathExpression);
         }
     }
 }
