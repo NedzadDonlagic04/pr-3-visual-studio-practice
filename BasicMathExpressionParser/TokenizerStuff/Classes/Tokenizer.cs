@@ -20,6 +20,8 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
             { @"^-", TokenType.Dash },
             { @"^\*", TokenType.Asterix },
             { @"^\/", TokenType.Divide },
+            { @"^\(", TokenType.OpenParenthesis },
+            { @"^\)", TokenType.CloseParenthesis },
 
             // Patterns below have a null value for TokenType
             // Because these patterns are intended to just be eaten

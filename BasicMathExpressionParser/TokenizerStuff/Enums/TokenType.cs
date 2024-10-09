@@ -7,5 +7,7 @@
         Dash,
         Asterix,
         Divide,
+        OpenParenthesis,
+        CloseParenthesis,
     }
 }
