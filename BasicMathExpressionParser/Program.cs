@@ -12,7 +12,7 @@ namespace BasicMathExpressionParser
             Console.WriteLine(mathExpression);
 
             Tokenizer tokenizer = new(mathExpression);
-            Console.WriteLine(tokenizer.Tokenize());
+            tokenizer.Tokenize().ForEach(token => Console.WriteLine(token));
         }
     }
 }
