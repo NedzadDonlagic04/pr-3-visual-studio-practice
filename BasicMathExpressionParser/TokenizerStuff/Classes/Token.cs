@@ -1,14 +1,7 @@
-﻿namespace BasicMathExpressionParser.TokenizerStuff
-{
-    internal enum TokenType
-    {
-        Number,
-        Plus,
-        Dash,
-        Asterix,
-        Divide,
-    }
+﻿using BasicMathExpressionParser.TokenizerStuff.Enums;
 
+namespace BasicMathExpressionParser.TokenizerStuff.Classes
+{
     internal class Token
     {
         internal string Value { get; private set; }

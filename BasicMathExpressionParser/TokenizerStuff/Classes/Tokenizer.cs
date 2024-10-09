@@ -1,7 +1,11 @@
-﻿using System.Text;
+﻿using BasicMathExpressionParser.TokenizerStuff.Enums;
+using BasicMathExpressionParser.TokenizerStuff.Exceptions;
+using BasicMathExpressionParser.TokenizerStuff.Interfaces;
+
+using System.Text;
 using System.Text.RegularExpressions;
 
-namespace BasicMathExpressionParser.TokenizerStuff
+namespace BasicMathExpressionParser.TokenizerStuff.Classes
 {
     internal class Tokenizer : ITokenizer
     {
@@ -34,6 +38,8 @@ namespace BasicMathExpressionParser.TokenizerStuff
         {
             while (_source.Length != 0)
             {
+                string sourceBefore = _source.ToString();
+
                 foreach (var (pattern, tokenType) in _tokenPatterns)
                 {
                     var matchResult = Regex.Match(_source.ToString(), pattern);
@@ -48,6 +54,13 @@ namespace BasicMathExpressionParser.TokenizerStuff
                     }
 
                     _source.Remove(0, matchResult.Value.Length);
+                }
+
+                if (sourceBefore == _source.ToString())
+                {
+                    throw new TokenizerUnhandledPatternException(
+                        $"Unhandled pattern \"{sourceBefore}\" encountered in expression"
+                    );
                 }
             }
 

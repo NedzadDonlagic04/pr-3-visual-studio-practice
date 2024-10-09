@@ -1,4 +1,6 @@
-﻿namespace BasicMathExpressionParser.TokenizerStuff
+﻿using BasicMathExpressionParser.TokenizerStuff.Classes;
+
+namespace BasicMathExpressionParser.TokenizerStuff.Interfaces
 {
     internal interface ITokenizer
     {
