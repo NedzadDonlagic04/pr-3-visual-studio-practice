@@ -8,7 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ParserStuff\Classes\" />
+    <Folder Include="ParserStuff\Enums\" />
+    <Folder Include="ParserStuff\Exceptions\" />
   </ItemGroup>
 
 </Project>

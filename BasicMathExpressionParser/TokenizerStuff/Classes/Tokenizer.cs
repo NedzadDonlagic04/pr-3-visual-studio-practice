@@ -1,4 +1,5 @@
-﻿using BasicMathExpressionParser.TokenizerStuff.Enums;
+﻿using BasicMathExpressionParser.Extensions;
+using BasicMathExpressionParser.TokenizerStuff.Enums;
 using BasicMathExpressionParser.TokenizerStuff.Exceptions;
 using BasicMathExpressionParser.TokenizerStuff.Interfaces;
 
@@ -13,20 +14,27 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
 
         private StringBuilder _source = new();
 
-        private readonly Dictionary<string, TokenType?> _tokenPatterns = new()
-        {
-            { @"^\d+(.\d+)?", TokenType.Number },
-            { @"^\+", TokenType.Plus },
-            { @"^-", TokenType.Dash },
-            { @"^\*", TokenType.Asterix },
-            { @"^\/", TokenType.Divide },
-            { @"^\(", TokenType.OpenParenthesis },
-            { @"^\)", TokenType.CloseParenthesis },
+        private static readonly IReadOnlyDictionary<string, TokenType?> _tokenPatterns;
 
-            // Patterns below have a null value for TokenType
-            // Because these patterns are intended to just be eaten
-            { @"^\s+", null },
-        };
+        static Tokenizer()
+        {
+            Dictionary<string, TokenType?> dictionary = new()
+            {
+                { @"^\d+(.\d+)?", TokenType.Number },
+                { @"^\+", TokenType.Plus },
+                { @"^-", TokenType.Dash },
+                { @"^\*", TokenType.Asterix },
+                { @"^\/", TokenType.Divide },
+                { @"^\(", TokenType.OpenParenthesis },
+                { @"^\)", TokenType.CloseParenthesis },
+
+                // Patterns below have a null value for TokenType
+                // Because these patterns are intended to just be eaten
+                { @"^\s+", null },
+            };
+
+            _tokenPatterns = dictionary.AsReadOnly();
+        }
 
         private void ResetTokenizer(string source)
         {
