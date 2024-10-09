@@ -1,4 +1,6 @@
-﻿namespace BasicMathExpressionParser
+﻿using BasicMathExpressionParser.TokenizerStuff;
+
+namespace BasicMathExpressionParser
 {
     internal class Program
     {
@@ -8,6 +10,9 @@
             string mathExpression = Console.ReadLine() ?? "";
 
             Console.WriteLine(mathExpression);
+
+            Tokenizer tokenizer = new(mathExpression);
+            Console.WriteLine(tokenizer.Tokenize());
         }
     }
 }
