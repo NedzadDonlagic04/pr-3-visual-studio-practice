@@ -11,7 +11,7 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
     {
         private readonly List<Token> _tokens = new();
 
-        private StringBuilder _source;
+        private StringBuilder _source = new();
 
         private readonly Dictionary<string, TokenType?> _tokenPatterns = new()
         {
@@ -28,16 +28,16 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
             { @"^\s+", null },
         };
 
-        internal Tokenizer(string source) => _source = new(source);
-
-        public void ResetTokenizer(string source)
+        private void ResetTokenizer(string source)
         {
             _source = new(source);
             _tokens.Clear();
         }
 
-        public List<Token> Tokenize()
+        public List<Token> Tokenize(string source)
         {
+            ResetTokenizer(source);
+
             while (_source.Length != 0)
             {
                 string sourceBefore = _source.ToString();
