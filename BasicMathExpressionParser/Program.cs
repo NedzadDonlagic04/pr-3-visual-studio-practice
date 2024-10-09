@@ -1,4 +1,5 @@
-﻿using BasicMathExpressionParser.TokenizerStuff;
+﻿using BasicMathExpressionParser.TokenizerStuff.Classes;
+using BasicMathExpressionParser.TokenizerStuff.Exceptions;
 
 namespace BasicMathExpressionParser
 {
@@ -9,10 +10,17 @@ namespace BasicMathExpressionParser
             Console.Write("Enter a basic math expression: ");
             string mathExpression = Console.ReadLine() ?? "";
 
-            Console.WriteLine(mathExpression);
-
             Tokenizer tokenizer = new(mathExpression);
-            tokenizer.Tokenize().ForEach(token => Console.WriteLine(token));
+
+            try
+            {
+                tokenizer.Tokenize().ForEach(token => Console.WriteLine(token));
+            }
+            catch(TokenizerException ex)
+            {
+                Console.Write("Error encountered -> ");
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
