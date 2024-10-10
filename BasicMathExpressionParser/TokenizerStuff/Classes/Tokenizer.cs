@@ -2,7 +2,7 @@
 using BasicMathExpressionParser.TokenizerStuff.Enums;
 using BasicMathExpressionParser.TokenizerStuff.Exceptions;
 using BasicMathExpressionParser.TokenizerStuff.Interfaces;
-
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -14,7 +14,7 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
 
         private StringBuilder _source = new();
 
-        private static readonly IReadOnlyDictionary<string, TokenType?> _tokenPatterns;
+        private static readonly ReadOnlyDictionary<string, TokenType?> _tokenPatterns;
 
         static Tokenizer()
         {
