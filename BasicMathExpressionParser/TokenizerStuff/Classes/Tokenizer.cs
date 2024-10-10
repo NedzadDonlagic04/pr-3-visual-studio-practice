@@ -18,13 +18,16 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
 
         static Tokenizer()
         {
-            Dictionary<string, TokenType?> dictionary = new()
+            Dictionary<string, TokenType?> tokenPatterns = new()
             {
                 { @"^\d+(.\d+)?", TokenType.Number },
+                
                 { @"^\+", TokenType.Plus },
                 { @"^-", TokenType.Dash },
+
                 { @"^\*", TokenType.Asterix },
                 { @"^\/", TokenType.Divide },
+                
                 { @"^\(", TokenType.OpenParenthesis },
                 { @"^\)", TokenType.CloseParenthesis },
 
@@ -33,7 +36,7 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
                 { @"^\s+", null },
             };
 
-            _tokenPatterns = dictionary.AsReadOnly();
+            _tokenPatterns = tokenPatterns.AsReadOnly();
         }
 
         private void ResetTokenizer(string source)
