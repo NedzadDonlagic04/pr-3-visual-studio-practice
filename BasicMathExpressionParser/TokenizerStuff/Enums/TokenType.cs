@@ -1,6 +1,6 @@
 ﻿namespace BasicMathExpressionParser.TokenizerStuff.Enums
 {
-    internal enum TokenType
+    internal enum TokenType : byte
     {
         Number,
         Plus,
