@@ -6,11 +6,13 @@ namespace BasicMathExpressionParser
     {
         internal static void Main()
         {
+            Console.Write("Enter a basic math expression: ");
+            string mathExpression = Console.ReadLine() ?? "";
+
             Parser parser = new();
+            Expression expression = parser.Parse(mathExpression);
 
-            Expression expression = parser.Parse("Random giberish does nothing");
-
-            Console.WriteLine(expression.Eval());
+            Console.WriteLine($"Result of evaluation the expression -> {expression.Eval()}");
         }
     }
 }
