@@ -1,8 +1,11 @@
 ﻿using BasicMathExpressionParser.Extensions;
+
 using BasicMathExpressionParser.TokenizerStuff.Enums;
 using BasicMathExpressionParser.TokenizerStuff.Exceptions;
 using BasicMathExpressionParser.TokenizerStuff.Interfaces;
+
 using System.Collections.ObjectModel;
+
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -10,7 +13,7 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
 {
     internal class Tokenizer : ITokenizer
     {
-        private readonly List<Token> _tokens = new();
+        private readonly Queue<Token> _tokens = new();
 
         private StringBuilder _source = new();
 
@@ -45,7 +48,13 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
             _tokens.Clear();
         }
 
-        public List<Token> Tokenize(string source)
+        /// <summary>
+        ///     Tokenizes source using pre defined token patterns
+        /// </summary>
+        /// <exception cref="TokenizerUnhandledPatternException">
+        ///     Thrown when a token pattern isn't recognized by the tokenizer
+        /// </exception>
+        public Queue<Token> Tokenize(string source)
         {
             ResetTokenizer(source);
 
@@ -63,7 +72,7 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
                     }
                     else if (tokenType != null)
                     {
-                        _tokens.Add(new(matchResult.Value, (TokenType)tokenType));
+                        _tokens.Enqueue(new(matchResult.Value, (TokenType)tokenType));
                     }
 
                     _source.Remove(0, matchResult.Value.Length);
