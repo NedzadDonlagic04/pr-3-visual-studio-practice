@@ -10,6 +10,10 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
 
         internal UnaryExpression(Expression expression, TokenType prefix) => (_expression, _prefix) = (expression, prefix);
 
+        /// <exception cref="NotImplementedException">
+        ///     Thrown when given a prefix that isn't defined as a part of
+        ///     any unary expression
+        /// </exception>
         protected override double EvaluateExpression() => _prefix switch
         {
             TokenType.Plus => _expression.Eval(),

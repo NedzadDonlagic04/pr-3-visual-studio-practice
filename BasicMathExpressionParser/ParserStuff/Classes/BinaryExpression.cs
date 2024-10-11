@@ -10,6 +10,13 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
 
         private readonly TokenType _operation;
 
+        internal BinaryExpression(Expression lhs, Expression rhs, TokenType operation) 
+            => (_lhs, _rhs, _operation) = (lhs, rhs, operation);
+
+        /// <exception cref="NotImplementedException">
+        ///     Thrown when given an operation that isn't defined as a
+        ///     valid binary expression
+        /// </exception>
         protected override double EvaluateExpression() => _operation switch
         {
             TokenType.Plus => _lhs.Eval() + _rhs.Eval(),
@@ -18,8 +25,5 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             TokenType.Divide => _lhs.Eval() / _rhs.Eval(),
             _ => throw new NotImplementedException($"Operation \"{_operation}\" is not implemented as a binary expression")
         };
-
-        internal BinaryExpression(Expression lhs, Expression rhs, TokenType operation) 
-            => (_lhs, _rhs, _operation) = (lhs, rhs, operation);
     }
 }
