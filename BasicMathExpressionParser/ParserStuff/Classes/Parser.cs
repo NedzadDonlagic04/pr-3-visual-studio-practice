@@ -17,7 +17,9 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         ///     Returns the precedence of each token type which helps when parsing
         ///     to make sure the order is correct
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="NotImplementedException">
+        ///     Thrown when the given token type doesn't have a binding power defined for it
+        /// </exception>
         private TokenBindingPower GetTokenBindingPower(TokenType tokenType) => tokenType switch
         {
             TokenType.Number => TokenBindingPower.Literal,
@@ -32,7 +34,9 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         private NumberExpression ParserNumberToken(Token token) => new(double.Parse(token.Value));
 
         /// <inheritdoc cref="ParseExpression"/>
-        /// <exception cref="ExpectedTokenMissingException"></exception>
+        /// <exception cref="ExpectedTokenMissingException">
+        ///     Thrown when the close parenthesis is missing from the exception
+        /// </exception>
         private Expression ParseParenthesisExpression(Token _)
         {
             Expression expression = ParseExpression();
@@ -40,7 +44,9 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
 
             if (expectedToken.Type != TokenType.CloseParenthesis)
             {
-                throw new ExpectedTokenMissingException($"Expected {expectedToken.Value} when evaluating expression but is missing");
+                throw new ExpectedTokenMissingException(
+                    $"Expected \")\" when evaluating expression but got \"{expectedToken.Value}\" instead"
+                );
             }
 
             return expression;
@@ -54,10 +60,14 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         ///     NUD -> NUll Denotation
         ///     If it returns a function, it should be able to parse a token and expect nothing
         ///     to the left of it
-        ///     Some examples of operations like that are sign operators plus (+) and minus (-)
-        ///     Not to be confused with their LED counterparts which expect an operator to the left
+        ///     Number expressions would all have a NUD (in my case it just returns that number)
+        ///     but it can also be used with unary expressions, do note even then it doesn't expect
+        ///     anything to the left of it, take the expression -5, the - expects nothing to the left
+        ///     of it. At least in this context.
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="NotImplementedException">
+        ///     Thrown when given a token type that doesn't have a defined value for it's NUD handler
+        /// </exception>
         private Func<Token, Expression>? GetNUDHandler(TokenType tokenType) => tokenType switch
         {
             TokenType.Number => ParserNumberToken,
@@ -77,11 +87,13 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
 
         /// <summary>
         ///     LED -> LEft Denotation
-        ///     If it returns a function, it should be able to parse a token and expect something
-        ///     to the left of it
-        ///     Some examples of operations like that are multiplication (*) and division (/)
+        ///     Generally used for binary operations like multiplication (*) and division (/).
+        ///     Where if you have an expression * 8 it doesn't work because * expects something
+        ///     to the left of it.
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="NotImplementedException">
+        ///     Thrown when given a token type that doesn't have a defined value for it's LED handler
+        /// </exception>
         private Func<Expression, Expression>? GetLEDHandler(TokenType tokenType) => tokenType switch
         {
             TokenType.Number or TokenType.OpenParenthesis or TokenType.CloseParenthesis => null,
@@ -89,7 +101,14 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             _ => throw new NotImplementedException($"Led handler doesn't exist for TokenType -> {tokenType}")
         };
 
-        /// <exception cref="ExpectedTokenMissingException"></exception>
+        /// <exception cref="ExpectedTokenMissingException">
+        ///     Throws this exception when there are no more tokens to eat.
+        ///     Generally if this exception is thrown it means the expression
+        ///     is not well formed.
+        ///     An example of a situation like that could be with the expression
+        ///     5 + 2 *
+        ///     Where we are clearly missing a token at the end.
+        /// </exception>
         private Token EatToken()
         {
             if (_tokens.Count == 0)
@@ -100,7 +119,14 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             return _tokens.Dequeue();
         }
 
-        /// <exception cref="ExpectedTokenMissingException"></exception>
+        /// <exception cref="ExpectedTokenMissingException">
+        ///     Throws this exception when there are no more tokens to peek.
+        ///     Generally if this exception is thrown it means the expression
+        ///     is not well formed.
+        ///     An example of a situation like that could be with the expression
+        ///     5 + 2 4
+        ///     Where we are clearly missing a token between 2 and 4.
+        /// </exception>
         private Token PeekToken()
         {
             if (_tokens.Count == 0)
@@ -116,8 +142,14 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
 
         /// <inheritdoc cref="EatToken"/>
         /// <inheritdoc cref="PeekToken"/>
-        /// <exception cref="NUDHandlerNullException"></exception>
-        /// <exception cref="LEDHandlerNullException"></exception>
+        /// <exception cref="NUDHandlerNullException">
+        ///     Thrown when a NUD handler is null. This is an indicator that the expression
+        ///     is not well formed.
+        /// </exception>
+        /// <exception cref="LEDHandlerNullException">
+        ///     Thrown when a LED handler is null. This is an indicator that the expression
+        ///     is not well formed.
+        /// </exception>
         private Expression ParseExpression(TokenBindingPower bindingPower = TokenBindingPower.Minimum)
         {
             Token currentToken = EatToken();
@@ -145,11 +177,11 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             return lhs;
         }
 
-        /// <inheritdoc cref="Tokenizer.Tokenize"/>
-        /// <inheritdoc cref="ParseExpression"/>
         /// <summary>
         ///     Parses given math expression using the Pratt Parsing algorithm
         /// </summary>
+        /// <inheritdoc cref="Tokenizer.Tokenize"/>
+        /// <inheritdoc cref="ParseExpression"/>
         /// <exception cref="ParsingExpressionEmptyException">
         ///     Thrown when the parser receives as empty expression to parse
         /// </exception>
