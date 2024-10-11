@@ -23,7 +23,7 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
         {
             Dictionary<string, TokenType?> tokenPatterns = new()
             {
-                { @"^\d+(.\d+)?", TokenType.Number },
+                { @"^\d+(\.\d+)?", TokenType.Number },
                 
                 { @"^\+", TokenType.Plus },
                 { @"^-", TokenType.Dash },
