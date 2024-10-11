@@ -4,6 +4,6 @@ namespace BasicMathExpressionParser.TokenizerStuff.Interfaces
 {
     internal interface ITokenizer
     {
-        public List<Token> Tokenize(string source);
+        public Queue<Token> Tokenize(string source);
     }
 }
