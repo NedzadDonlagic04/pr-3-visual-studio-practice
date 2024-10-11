@@ -1,13 +1,11 @@
-﻿using BasicMathExpressionParser.ParserStuff.Interfaces;
-
-namespace BasicMathExpressionParser.ParserStuff.Classes
+﻿namespace BasicMathExpressionParser.ParserStuff.Classes
 {
-    internal class NumberExpression : IExpression
+    internal class NumberExpression : Expression
     {
         private readonly double _value;
 
         internal NumberExpression(double value) => _value = value;
 
-        public double Eval() => _value;
+        protected override double EvaluateExpression() => _value;
     }
 }

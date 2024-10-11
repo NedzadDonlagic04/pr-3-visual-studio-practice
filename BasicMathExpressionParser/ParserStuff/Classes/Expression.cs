@@ -1,23 +1,30 @@
-﻿using BasicMathExpressionParser.ParserStuff.Interfaces;
-
-namespace BasicMathExpressionParser.ParserStuff.Classes
+﻿namespace BasicMathExpressionParser.ParserStuff.Classes
 {
-    internal class Expression : IExpression
+    internal abstract class Expression
     {
-        private readonly IExpression _expression;
-
-        /*
-         * This might not be needed but I decided to add
-         * a field to store the value of Eval after it's evaluated
-         * once in case the expression is really big
-        */
+        /// <summary>
+        ///     Field used to store the value after it evaluates once
+        ///     to prevent multiple evaluations
+        /// </summary>
         private double? _expressionValue = null;
 
-        internal Expression(IExpression expression) => _expression = expression;
+        /// <summary>
+        ///     Intended to actually evaluate the expression by going through
+        ///     the whole thing, unlike Eval which will store it's value to
+        ///     prevent calculating multiple times for the same value
+        /// </summary>
+        /// <returns>Value from the evaluated expression</returns>
+        protected abstract double EvaluateExpression();
 
+        /// <summary>
+        ///     The idea for this method was to have whoever uses any derived class
+        ///     call this one which would try to ensure that the evaluation doesn't
+        ///     happen more than once by storing it in a field
+        /// </summary>
+        /// <returns>Value from the evaluated expression</returns>
         public double Eval()
         {
-            _expressionValue ??= _expression.Eval();
+            _expressionValue ??= EvaluateExpression();
 
             return (double)_expressionValue;
         }
