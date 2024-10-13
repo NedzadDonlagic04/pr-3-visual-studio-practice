@@ -86,6 +86,8 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
                 }
             }
 
+            _tokens.Enqueue(new("", TokenType.EndOfExpression));
+
             return _tokens;
         }
     }
