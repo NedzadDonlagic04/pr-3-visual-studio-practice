@@ -72,7 +72,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             TokenType.Number => ParserNumberToken,
             TokenType.Plus or TokenType.Dash => ParseUnaryExpression,
             TokenType.OpenParenthesis => ParseParenthesisExpression,
-            TokenType.Asterix or TokenType.Divide or 
+            TokenType.Asterix or TokenType.Divide or
             TokenType.CloseParenthesis or TokenType.EndOfExpression => null,
             _ => throw new NotImplementedException($"Nud handler doesn't exist for TokenType -> {tokenType}")
         };
@@ -96,7 +96,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         /// </exception>
         private Func<Expression, Expression>? GetLEDHandler(TokenType tokenType) => tokenType switch
         {
-            TokenType.Number or TokenType.OpenParenthesis or 
+            TokenType.Number or TokenType.OpenParenthesis or
             TokenType.CloseParenthesis or TokenType.EndOfExpression => null,
             TokenType.Plus or TokenType.Dash or TokenType.Asterix or TokenType.Divide => ParseBinaryExpression,
             _ => throw new NotImplementedException($"Led handler doesn't exist for TokenType -> {tokenType}")
@@ -138,7 +138,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             return _tokens.Peek();
         }
 
-        private bool ContinueParsingTokens(TokenBindingPower bindingPower) 
+        private bool ContinueParsingTokens(TokenBindingPower bindingPower)
             => _tokens.Count != 0 && GetTokenBindingPower(PeekToken().Type) > bindingPower;
 
         /// <inheritdoc cref="EatToken"/>

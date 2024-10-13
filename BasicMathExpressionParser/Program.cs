@@ -4,42 +4,15 @@ namespace BasicMathExpressionParser
 {
     internal class Program
     {
-        private static readonly string[] _quitStrOptions = new string[] { "quit", "exit" };
-
-        private static readonly Parser _parser = new();
-
-        private static void ParseMathExpressionAndPrintResult(string mathExpressionStr)
-        {
-            try
-            {
-                Expression expression = _parser.Parse(mathExpressionStr);
-
-                Console.WriteLine($"Result of evaluation the expression {expression} -> {expression.Eval()}");
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-
         internal static void Main()
         {
-            string mathExpressionStr;
+            Console.Write("Enter a basic math expression: ");
+            string mathExpression = Console.ReadLine() ?? "";
 
-            while (true)
-            {
-                Console.Write("Enter a basic math expression: ");
-                mathExpressionStr = Console.ReadLine() ?? "";
+            Parser parser = new();
+            Expression expression = parser.Parse(mathExpression);
 
-                if (_quitStrOptions.Contains(mathExpressionStr.ToLower()))
-                {
-                    break;
-                }
-
-                ParseMathExpressionAndPrintResult(mathExpressionStr);
-                
-                Console.WriteLine();
-            }
+            Console.WriteLine($"Result of evaluation the expression -> {expression.Eval()}");
         }
     }
 }
