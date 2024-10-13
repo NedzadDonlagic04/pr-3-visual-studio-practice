@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsSnake", "WinFormsSn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicMathExpressionParser", "BasicMathExpressionParser\BasicMathExpressionParser.csproj", "{7564CA90-4563-40F7-8F2D-93ACE88774C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{E1402C41-9EE8-424D-AAA9-F6EB2C595095}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7564CA90-4563-40F7-8F2D-93ACE88774C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7564CA90-4563-40F7-8F2D-93ACE88774C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7564CA90-4563-40F7-8F2D-93ACE88774C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1402C41-9EE8-424D-AAA9-F6EB2C595095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1402C41-9EE8-424D-AAA9-F6EB2C595095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1402C41-9EE8-424D-AAA9-F6EB2C595095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1402C41-9EE8-424D-AAA9-F6EB2C595095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
