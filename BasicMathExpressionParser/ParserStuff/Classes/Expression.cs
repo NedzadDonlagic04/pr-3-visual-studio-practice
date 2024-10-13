@@ -3,10 +3,32 @@
     internal abstract class Expression
     {
         /// <summary>
-        ///     Field used to store the value after it evaluates once
-        ///     to prevent multiple evaluations
+        ///     Field used to store the value after calling EvalImplementation
+        ///     doing this to prevent uneccessary calculations since whatever
+        ///     inherits Expression should not be mutable (for the value at least)
         /// </summary>
-        private double? _expressionValue = null;
+        private double? _evalValueCache = null;
+
+        /// <summary>
+        ///     Similar case to _evalValueCache just for the string version
+        ///     of the expression
+        /// </summary>
+        private string? _toStringValueCache = null;
+
+        private bool _expressionInsideParanthesis = false;
+        public bool ExpressionInsideParanthesis 
+        { 
+            get => _expressionInsideParanthesis; 
+            set {
+                if (_expressionInsideParanthesis == value)
+                {
+                    return;
+                }
+
+                _expressionInsideParanthesis = value;
+                _toStringValueCache = null;
+            } 
+        }
 
         /// <summary>
         ///     Intended to actually evaluate the expression by going through
@@ -14,7 +36,7 @@
         ///     prevent calculating multiple times for the same value
         /// </summary>
         /// <returns>Value from the evaluated expression</returns>
-        protected abstract double EvaluateExpression();
+        protected abstract double EvalImplementation();
 
         /// <summary>
         ///     The idea for this method was to have whoever uses any derived class
@@ -24,9 +46,18 @@
         /// <returns>Value from the evaluated expression</returns>
         public double Eval()
         {
-            _expressionValue ??= EvaluateExpression();
+            _evalValueCache ??= EvalImplementation();
 
-            return (double)_expressionValue;
+            return (double)_evalValueCache;
+        }
+
+        protected abstract string ToStringImplementation();
+
+        public sealed override string ToString() 
+        {
+            _toStringValueCache ??= (ExpressionInsideParanthesis ? $"({ToStringImplementation()})" : ToStringImplementation());
+
+            return _toStringValueCache;
         }
     }
 }
