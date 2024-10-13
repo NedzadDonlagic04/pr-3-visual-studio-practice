@@ -12,5 +12,7 @@
         
         OpenParenthesis,
         CloseParenthesis,
+
+        EndOfExpression,
     }
 }
