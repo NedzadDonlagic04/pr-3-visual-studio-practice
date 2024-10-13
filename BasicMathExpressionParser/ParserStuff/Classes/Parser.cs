@@ -26,7 +26,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             TokenType.Plus or TokenType.Dash => TokenBindingPower.Additive,
             TokenType.Asterix or TokenType.Divide => TokenBindingPower.Multiplicative,
             TokenType.OpenParenthesis => TokenBindingPower.Parenthesis,
-            TokenType.CloseParenthesis => TokenBindingPower.Minimum,
+            TokenType.CloseParenthesis or TokenType.EndOfExpression => TokenBindingPower.Minimum,
             _ => throw new NotImplementedException($"Token binding power doesn't exist for TokenType -> {tokenType}")
         };
 
@@ -44,11 +44,10 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
 
             if (expectedToken.Type != TokenType.CloseParenthesis)
             {
-                throw new ExpectedTokenMissingException(
-                    $"Expected \")\" when evaluating expression but got \"{expectedToken.Value}\" instead"
-                );
+                throw new ExpectedTokenMissingException($"Missing \")\" at the end of the expression \"{expression}\"");
             }
 
+            expression.ExpressionInsideParanthesis = true;
             return expression;
         }
 
@@ -73,7 +72,8 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             TokenType.Number => ParserNumberToken,
             TokenType.Plus or TokenType.Dash => ParseUnaryExpression,
             TokenType.OpenParenthesis => ParseParenthesisExpression,
-            TokenType.Asterix or TokenType.Divide or TokenType.CloseParenthesis => null,
+            TokenType.Asterix or TokenType.Divide or 
+            TokenType.CloseParenthesis or TokenType.EndOfExpression => null,
             _ => throw new NotImplementedException($"Nud handler doesn't exist for TokenType -> {tokenType}")
         };
 
@@ -96,7 +96,8 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         /// </exception>
         private Func<Expression, Expression>? GetLEDHandler(TokenType tokenType) => tokenType switch
         {
-            TokenType.Number or TokenType.OpenParenthesis or TokenType.CloseParenthesis => null,
+            TokenType.Number or TokenType.OpenParenthesis or 
+            TokenType.CloseParenthesis or TokenType.EndOfExpression => null,
             TokenType.Plus or TokenType.Dash or TokenType.Asterix or TokenType.Divide => ParseBinaryExpression,
             _ => throw new NotImplementedException($"Led handler doesn't exist for TokenType -> {tokenType}")
         };
@@ -157,7 +158,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
 
             if (currentNUDHandler == null)
             {
-                throw new NUDHandlerNullException($"Expected NUD handler for {currentToken}");
+                throw new NUDHandlerNullException($"Expected number but got \"{currentToken.Value}\"");
             }
 
             var lhs = currentNUDHandler(currentToken);
@@ -168,7 +169,9 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
 
                 if (currentLEDHandler == null)
                 {
-                    throw new LEDHandlerNullException($"Expected LED handler for {PeekToken()}");
+                    throw new LEDHandlerNullException(
+                        $"Expected operator after expression \"{lhs}\" but got \"{PeekToken().Value}\" instead"
+                    );
                 }
 
                 lhs = currentLEDHandler(lhs);
@@ -189,12 +192,18 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         {
             if (source == "")
             {
-                throw new ParsingExpressionEmptyException($"The expression to parse is empty");
+                throw new ParsingExpressionEmptyException("The expression to parse is empty");
             }
 
             _tokens = _tokenizer.Tokenize(source);
+            Expression expression = ParseExpression();
 
-            return ParseExpression();
+            if (_tokens.Count != 1)
+            {
+                throw new ParserException("Expression didn't parse correctly, possibly due to unpaired \")\" bracket");
+            }
+
+            return expression;
         }
     }
 }
