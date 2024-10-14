@@ -20,7 +20,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         /// <exception cref="NotImplementedException">
         ///     Thrown when the given token type doesn't have a binding power defined for it
         /// </exception>
-        private TokenBindingPower GetTokenBindingPower(TokenType tokenType) => tokenType switch
+        private static TokenBindingPower GetTokenBindingPower(TokenType tokenType) => tokenType switch
         {
             TokenType.Number => TokenBindingPower.Literal,
             TokenType.Plus or TokenType.Dash => TokenBindingPower.Additive,
