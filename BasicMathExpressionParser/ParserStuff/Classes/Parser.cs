@@ -22,16 +22,20 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         /// </exception>
         private static TokenBindingPower GetTokenBindingPower(TokenType tokenType) => tokenType switch
         {
-            TokenType.Number => TokenBindingPower.Literal,
-            TokenType.Plus or TokenType.Dash => TokenBindingPower.Additive,
-            TokenType.Asterix or TokenType.Divide => TokenBindingPower.Multiplicative,
-            TokenType.OpenParenthesis => TokenBindingPower.Parenthesis,
             TokenType.CloseParenthesis or TokenType.EndOfExpression => TokenBindingPower.Minimum,
+            TokenType.Number or TokenType.MathConstant => TokenBindingPower.Literal,
+            TokenType.Plus or TokenType.Dash => TokenBindingPower.Additive,
+            TokenType.Asterix or TokenType.Divide or TokenType.Percent => TokenBindingPower.Multiplicative,
+            TokenType.ArrowUp => TokenBindingPower.Exponential,
+            TokenType.OpenParenthesis => TokenBindingPower.Parenthesis,
             _ => throw new NotImplementedException($"Token binding power doesn't exist for TokenType -> {tokenType}")
         };
 
 
-        private NumberExpression ParserNumberToken(Token token) => new(double.Parse(token.Value));
+        private static NumberExpression ParserNumberExpression(Token token) => new(double.Parse(token.Value));
+
+        /// <inheritdoc cref="MathConstantExpression(string)"/>
+        private static MathConstantExpression ParseMathConstantExpression(Token token) => new(token.Value);
 
         /// <inheritdoc cref="ParseExpression"/>
         /// <exception cref="ExpectedTokenMissingException">
@@ -55,6 +59,9 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         private UnaryExpression ParseUnaryExpression(Token prefix)
             => new(ParseExpression(GetTokenBindingPower(prefix.Type)), prefix.Type);
 
+        /// <inheritdoc cref="ParseMathConstantExpression"/>
+        /// <inheritdoc cref="ParseUnaryExpression"/>
+        /// <inheritdoc cref="ParseParenthesisExpression"/>
         /// <summary>
         ///     NUD -> NUll Denotation
         ///     If it returns a function, it should be able to parse a token and expect nothing
@@ -69,11 +76,13 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         /// </exception>
         private Func<Token, Expression>? GetNUDHandler(TokenType tokenType) => tokenType switch
         {
-            TokenType.Number => ParserNumberToken,
+            TokenType.Number => ParserNumberExpression,
+            TokenType.MathConstant => ParseMathConstantExpression,
             TokenType.Plus or TokenType.Dash => ParseUnaryExpression,
             TokenType.OpenParenthesis => ParseParenthesisExpression,
             TokenType.Asterix or TokenType.Divide or
-            TokenType.CloseParenthesis or TokenType.EndOfExpression => null,
+            TokenType.CloseParenthesis or TokenType.EndOfExpression or
+            TokenType.ArrowUp or TokenType.Percent => null,
             _ => throw new NotImplementedException($"Nud handler doesn't exist for TokenType -> {tokenType}")
         };
 
@@ -85,6 +94,16 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             return new(lhs, ParseExpression(GetTokenBindingPower(operationType)), operationType);
         }
 
+        /// <inheritdoc cref="ParseExpression"/>
+        private ExponentExpression ParseExponentExpression(Expression lhs)
+        {
+            TokenType operationType = EatToken().Type;
+
+            return new(lhs, ParseExpression(GetTokenBindingPower(operationType)));
+        }
+
+        /// <inheritdoc cref="ParseBinaryExpression"/>
+        /// <inheritdoc cref="ParseExponentExpression"/>
         /// <summary>
         ///     LED -> LEft Denotation
         ///     Generally used for binary operations like multiplication (*) and division (/).
@@ -96,9 +115,12 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         /// </exception>
         private Func<Expression, Expression>? GetLEDHandler(TokenType tokenType) => tokenType switch
         {
-            TokenType.Number or TokenType.OpenParenthesis or
-            TokenType.CloseParenthesis or TokenType.EndOfExpression => null,
-            TokenType.Plus or TokenType.Dash or TokenType.Asterix or TokenType.Divide => ParseBinaryExpression,
+            TokenType.Number or TokenType.MathConstant or 
+            TokenType.OpenParenthesis or TokenType.CloseParenthesis or 
+            TokenType.EndOfExpression => null,
+            TokenType.Plus or TokenType.Dash or TokenType.Asterix or 
+            TokenType.Divide or TokenType.Percent => ParseBinaryExpression,
+            TokenType.ArrowUp => ParseExponentExpression,
             _ => throw new NotImplementedException($"Led handler doesn't exist for TokenType -> {tokenType}")
         };
 
