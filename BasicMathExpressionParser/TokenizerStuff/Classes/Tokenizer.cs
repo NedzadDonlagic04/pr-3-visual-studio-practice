@@ -24,13 +24,17 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
             Dictionary<string, TokenType?> tokenPatterns = new()
             {
                 { @"^\d+(\.\d+)?", TokenType.Number },
+                { @"^[a-zA-Z]+", TokenType.MathConstant },
                 
                 { @"^\+", TokenType.Plus },
                 { @"^-", TokenType.Dash },
 
                 { @"^\*", TokenType.Asterix },
                 { @"^\/", TokenType.Divide },
+                { @"^%", TokenType.Percent },
                 
+                { @"^\^", TokenType.ArrowUp },
+
                 { @"^\(", TokenType.OpenParenthesis },
                 { @"^\)", TokenType.CloseParenthesis },
 
