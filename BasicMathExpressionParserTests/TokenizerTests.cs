@@ -39,7 +39,7 @@ namespace BasicMathExpressionParserTests
         }
 
         [TestMethod]
-        public void Tokenize_ExpressionWithAllAvailablePatterns()
+        public void Tokenize_ValidExpressions1()
         {
             // Arrange
             Queue<Token> expectedTokens = new();
@@ -66,6 +66,29 @@ namespace BasicMathExpressionParserTests
 
             // Act
             var actualTokens = _tokenizer.Tokenize("((11 / (-1)) + (3 * 6)) / +2");
+
+            // Assert
+            Assert.That(actualTokens, Is.EqualTo(expectedTokens));
+        }
+
+        [TestMethod]
+        public void Tokenize_ValidExpressions2()
+        {
+            // Arrange
+            Queue<Token> expectedTokens = new();
+            expectedTokens.Enqueue(new Token("2", TokenType.Number));
+            expectedTokens.Enqueue(new Token("^", TokenType.ArrowUp));
+            expectedTokens.Enqueue(new Token("2", TokenType.Number));
+            expectedTokens.Enqueue(new Token("+", TokenType.Plus));
+            expectedTokens.Enqueue(new Token("6", TokenType.Number));
+            expectedTokens.Enqueue(new Token("%", TokenType.Percent));
+            expectedTokens.Enqueue(new Token("3", TokenType.Number));
+            expectedTokens.Enqueue(new Token("-", TokenType.Dash));
+            expectedTokens.Enqueue(new Token("PI", TokenType.MathConstant));
+            expectedTokens.Enqueue(new Token("", TokenType.EndOfExpression));
+
+            // Act
+            var actualTokens = _tokenizer.Tokenize("2^2 + 6 % 3 - PI");
 
             // Assert
             Assert.That(actualTokens, Is.EqualTo(expectedTokens));
