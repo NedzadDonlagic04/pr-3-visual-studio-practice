@@ -2,7 +2,7 @@
 
 namespace BasicMathExpressionParser.TokenizerStuff.Classes
 {
-    internal class Token
+    internal struct Token
     {
         internal string Value { get; private set; }
 
