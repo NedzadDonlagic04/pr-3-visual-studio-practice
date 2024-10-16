@@ -29,7 +29,7 @@ namespace BasicMathExpressionParser.TokenizerStuff.Classes
                 { @"^\+", TokenType.Plus },
                 { @"^-", TokenType.Dash },
 
-                { @"^\*", TokenType.Asterix },
+                { @"^\*", TokenType.Asterisk },
                 { @"^\/", TokenType.Divide },
                 { @"^%", TokenType.Percent },
                 

@@ -15,7 +15,6 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         static MathConstantExpression()
         {
             Dictionary<string, double> supportedMathConstants = new();
-
             // Attempt to get all constants from the Math class since
             // I wanna support just those
             foreach (var field in typeof(Math).GetFields())

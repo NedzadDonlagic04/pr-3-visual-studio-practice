@@ -1,6 +1,10 @@
 # BasicMathExpressionParser
 
-As the name says, a console app which can take user input and if it's a valid math expression it will evaluate it.
+As the name says, a console app which can take user input for a math expression and evaluates it.
+After a really good code review I have decided to redo the project in it's own solution here:
+https://github.com/NedzadDonlagic04/MathParser
+
+To hopefully fix a lot of the issues I had with it here.
 
 Resources I used to figure this out:
 - https://en.wikipedia.org/wiki/Operator-precedence_parser#Pratt_parsing

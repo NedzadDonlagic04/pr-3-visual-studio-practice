@@ -2,6 +2,7 @@ using BasicMathExpressionParser.TokenizerStuff.Classes;
 using BasicMathExpressionParser.TokenizerStuff.Enums;
 using BasicMathExpressionParser.TokenizerStuff.Exceptions;
 using BasicMathExpressionParser.TokenizerStuff.Interfaces;
+
 using NUnit.Framework;
 using Assert = NUnit.Framework.Assert;
 
@@ -18,7 +19,7 @@ namespace BasicMathExpressionParserTests
             // Arrange
             Queue<Token> expectedTokens = new();
             expectedTokens.Enqueue(new Token("3", TokenType.Number));
-            expectedTokens.Enqueue(new Token("*", TokenType.Asterix));
+            expectedTokens.Enqueue(new Token("*", TokenType.Asterisk));
             expectedTokens.Enqueue(new Token("(", TokenType.OpenParenthesis));
             expectedTokens.Enqueue(new Token("-", TokenType.Dash));
             expectedTokens.Enqueue(new Token("4", TokenType.Number));
@@ -26,7 +27,7 @@ namespace BasicMathExpressionParserTests
             expectedTokens.Enqueue(new Token("+", TokenType.Plus));
             expectedTokens.Enqueue(new Token("(", TokenType.OpenParenthesis));
             expectedTokens.Enqueue(new Token("5", TokenType.Number));
-            expectedTokens.Enqueue(new Token("*", TokenType.Asterix));
+            expectedTokens.Enqueue(new Token("*", TokenType.Asterisk));
             expectedTokens.Enqueue(new Token("12", TokenType.Number));
             expectedTokens.Enqueue(new Token(")", TokenType.CloseParenthesis));
             expectedTokens.Enqueue(new Token("", TokenType.EndOfExpression));
@@ -55,7 +56,7 @@ namespace BasicMathExpressionParserTests
             expectedTokens.Enqueue(new Token("+", TokenType.Plus));
             expectedTokens.Enqueue(new Token("(", TokenType.OpenParenthesis));
             expectedTokens.Enqueue(new Token("3", TokenType.Number));
-            expectedTokens.Enqueue(new Token("*", TokenType.Asterix));
+            expectedTokens.Enqueue(new Token("*", TokenType.Asterisk));
             expectedTokens.Enqueue(new Token("6", TokenType.Number));
             expectedTokens.Enqueue(new Token(")", TokenType.CloseParenthesis));
             expectedTokens.Enqueue(new Token(")", TokenType.CloseParenthesis));

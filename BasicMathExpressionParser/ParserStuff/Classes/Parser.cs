@@ -25,7 +25,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             TokenType.CloseParenthesis or TokenType.EndOfExpression => TokenBindingPower.Minimum,
             TokenType.Number or TokenType.MathConstant => TokenBindingPower.Literal,
             TokenType.Plus or TokenType.Dash => TokenBindingPower.Additive,
-            TokenType.Asterix or TokenType.Divide or TokenType.Percent => TokenBindingPower.Multiplicative,
+            TokenType.Asterisk or TokenType.Divide or TokenType.Percent => TokenBindingPower.Multiplicative,
             TokenType.ArrowUp => TokenBindingPower.Exponential,
             TokenType.OpenParenthesis => TokenBindingPower.Parenthesis,
             _ => throw new NotImplementedException($"Token binding power doesn't exist for TokenType -> {tokenType}")
@@ -80,7 +80,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             TokenType.MathConstant => ParseMathConstantExpression,
             TokenType.Plus or TokenType.Dash => ParseUnaryExpression,
             TokenType.OpenParenthesis => ParseParenthesisExpression,
-            TokenType.Asterix or TokenType.Divide or
+            TokenType.Asterisk or TokenType.Divide or
             TokenType.CloseParenthesis or TokenType.EndOfExpression or
             TokenType.ArrowUp or TokenType.Percent => null,
             _ => throw new NotImplementedException($"Nud handler doesn't exist for TokenType -> {tokenType}")
@@ -118,7 +118,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
             TokenType.Number or TokenType.MathConstant or 
             TokenType.OpenParenthesis or TokenType.CloseParenthesis or 
             TokenType.EndOfExpression => null,
-            TokenType.Plus or TokenType.Dash or TokenType.Asterix or 
+            TokenType.Plus or TokenType.Dash or TokenType.Asterisk or 
             TokenType.Divide or TokenType.Percent => ParseBinaryExpression,
             TokenType.ArrowUp => ParseExponentExpression,
             _ => throw new NotImplementedException($"Led handler doesn't exist for TokenType -> {tokenType}")

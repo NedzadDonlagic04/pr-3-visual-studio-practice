@@ -21,7 +21,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         {
             TokenType.Plus => _lhs.Eval() + _rhs.Eval(),
             TokenType.Dash => _lhs.Eval() - _rhs.Eval(),
-            TokenType.Asterix => _lhs.Eval() * _rhs.Eval(),
+            TokenType.Asterisk => _lhs.Eval() * _rhs.Eval(),
             TokenType.Divide => _lhs.Eval() / _rhs.Eval(),
             TokenType.Percent => _lhs.Eval() % _rhs.Eval(),
             _ => throw new NotImplementedException($"Operation \"{_operation}\" is not implemented as a binary expression")
@@ -35,7 +35,7 @@ namespace BasicMathExpressionParser.ParserStuff.Classes
         {
             TokenType.Plus => $"{_lhs} + {_rhs}",
             TokenType.Dash => $"{_lhs} - {_rhs}",
-            TokenType.Asterix => $"{_lhs} * {_rhs}",
+            TokenType.Asterisk => $"{_lhs} * {_rhs}",
             TokenType.Divide => $"{_lhs} / {_rhs}",
             TokenType.Percent => $"{_lhs} % {_rhs}",
             _ => throw new NotImplementedException($"Operation \"{_operation}\" is not implemented as a binary expression")

@@ -8,7 +8,7 @@
         ///     inherits Expression should not be mutable (for the value at least)
         /// </summary>
         private double? _evalValueCache = null;
-
+        
         /// <summary>
         ///     Similar case to _evalValueCache just for the string version
         ///     of the expression

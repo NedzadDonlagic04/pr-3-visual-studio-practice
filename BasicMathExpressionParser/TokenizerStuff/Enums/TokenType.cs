@@ -1,6 +1,7 @@
 ﻿namespace BasicMathExpressionParser.TokenizerStuff.Enums
 {
-    internal enum TokenType : byte
+    //[Flags] bitmasking //C# annotations/attributes
+    internal enum TokenType
     {
         Number,
         MathConstant,
@@ -8,7 +9,7 @@
         Plus,
         Dash,
         
-        Asterix,
+        Asterisk,
         Divide,
         Percent,
 

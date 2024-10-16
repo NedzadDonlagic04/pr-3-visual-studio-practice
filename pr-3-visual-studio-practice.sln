@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicMathExpressionParser",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{E1402C41-9EE8-424D-AAA9-F6EB2C595095}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicMathExpressionParserTests", "BasicMathExpressionParserTests\BasicMathExpressionParserTests.csproj", "{12A523AC-A4B9-476D-A207-60F2F54E686E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicMathExpressionParserTests", "BasicMathExpressionParserTests\BasicMathExpressionParserTests.csproj", "{12A523AC-A4B9-476D-A207-60F2F54E686E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
