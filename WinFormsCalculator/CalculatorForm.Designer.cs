@@ -54,8 +54,8 @@
             floatingPointBtn = new Button();
             resultBtn = new Button();
             resultLabelsPanel = new Panel();
-            lastOperationTxtBox = new TextBox();
-            currentOperationTxtBox = new TextBox();
+            lastOperationLbl = new Label();
+            resultLbl = new Label();
             viewHistoryBtn = new Button();
             btnsFlowLayoutPanel.SuspendLayout();
             resultLabelsPanel.SuspendLayout();
@@ -104,7 +104,6 @@
             remainderBtn.TabIndex = 2;
             remainderBtn.Text = "%";
             remainderBtn.UseVisualStyleBackColor = true;
-            remainderBtn.Click += CalculatorButtonClick;
             // 
             // clearEntryBtn
             // 
@@ -117,7 +116,7 @@
             clearEntryBtn.TabIndex = 3;
             clearEntryBtn.Text = "CE";
             clearEntryBtn.UseVisualStyleBackColor = true;
-            clearEntryBtn.Click += CalculatorButtonClick;
+            clearEntryBtn.Click += ClearEntryBtnClick;
             // 
             // clearEverythingBtn
             // 
@@ -133,7 +132,7 @@
             clearEverythingBtn.TabIndex = 4;
             clearEverythingBtn.Text = "C";
             clearEverythingBtn.UseVisualStyleBackColor = false;
-            clearEverythingBtn.Click += CalculatorButtonClick;
+            clearEverythingBtn.Click += ClearBtnClick;
             // 
             // undoPreviousActionBtn
             // 
@@ -146,7 +145,7 @@
             undoPreviousActionBtn.TabIndex = 5;
             undoPreviousActionBtn.Text = "⌫";
             undoPreviousActionBtn.UseVisualStyleBackColor = true;
-            undoPreviousActionBtn.Click += CalculatorButtonClick;
+            undoPreviousActionBtn.Click += UndoPreviousActionBtnClick;
             // 
             // reciprocationBtn
             // 
@@ -159,7 +158,7 @@
             reciprocationBtn.TabIndex = 6;
             reciprocationBtn.Text = "x⁻¹";
             reciprocationBtn.UseVisualStyleBackColor = true;
-            reciprocationBtn.Click += CalculatorButtonClick;
+            reciprocationBtn.Click += SpecialOperationBtnClick;
             // 
             // squareBtn
             // 
@@ -170,9 +169,10 @@
             squareBtn.Name = "squareBtn";
             squareBtn.Size = new Size(90, 50);
             squareBtn.TabIndex = 7;
+            squareBtn.Tag = "";
             squareBtn.Text = "x²";
             squareBtn.UseVisualStyleBackColor = true;
-            squareBtn.Click += CalculatorButtonClick;
+            squareBtn.Click += SpecialOperationBtnClick;
             // 
             // rootBtn
             // 
@@ -185,7 +185,7 @@
             rootBtn.TabIndex = 8;
             rootBtn.Text = "√";
             rootBtn.UseVisualStyleBackColor = true;
-            rootBtn.Click += CalculatorButtonClick;
+            rootBtn.Click += SpecialOperationBtnClick;
             // 
             // divisionBtn
             // 
@@ -198,7 +198,7 @@
             divisionBtn.TabIndex = 9;
             divisionBtn.Text = "÷";
             divisionBtn.UseVisualStyleBackColor = true;
-            divisionBtn.Click += CalculatorButtonClick;
+            divisionBtn.Click += OperationBtnClick;
             // 
             // sevenBtn
             // 
@@ -211,7 +211,7 @@
             sevenBtn.TabIndex = 10;
             sevenBtn.Text = "7";
             sevenBtn.UseVisualStyleBackColor = true;
-            sevenBtn.Click += CalculatorButtonClick;
+            sevenBtn.Click += NumberBtnClick;
             // 
             // eightBtn
             // 
@@ -224,7 +224,7 @@
             eightBtn.TabIndex = 11;
             eightBtn.Text = "8";
             eightBtn.UseVisualStyleBackColor = true;
-            eightBtn.Click += CalculatorButtonClick;
+            eightBtn.Click += NumberBtnClick;
             // 
             // nineBtn
             // 
@@ -237,7 +237,7 @@
             nineBtn.TabIndex = 12;
             nineBtn.Text = "9";
             nineBtn.UseVisualStyleBackColor = true;
-            nineBtn.Click += CalculatorButtonClick;
+            nineBtn.Click += NumberBtnClick;
             // 
             // multiplyBtn
             // 
@@ -250,7 +250,7 @@
             multiplyBtn.TabIndex = 13;
             multiplyBtn.Text = "×";
             multiplyBtn.UseVisualStyleBackColor = true;
-            multiplyBtn.Click += CalculatorButtonClick;
+            multiplyBtn.Click += OperationBtnClick;
             // 
             // fourBtn
             // 
@@ -263,7 +263,7 @@
             fourBtn.TabIndex = 14;
             fourBtn.Text = "4";
             fourBtn.UseVisualStyleBackColor = true;
-            fourBtn.Click += CalculatorButtonClick;
+            fourBtn.Click += NumberBtnClick;
             // 
             // fiveBtn
             // 
@@ -276,7 +276,7 @@
             fiveBtn.TabIndex = 15;
             fiveBtn.Text = "5";
             fiveBtn.UseVisualStyleBackColor = true;
-            fiveBtn.Click += CalculatorButtonClick;
+            fiveBtn.Click += NumberBtnClick;
             // 
             // sixBtn
             // 
@@ -289,7 +289,7 @@
             sixBtn.TabIndex = 16;
             sixBtn.Text = "6";
             sixBtn.UseVisualStyleBackColor = true;
-            sixBtn.Click += CalculatorButtonClick;
+            sixBtn.Click += NumberBtnClick;
             // 
             // minusBtn
             // 
@@ -302,7 +302,7 @@
             minusBtn.TabIndex = 17;
             minusBtn.Text = "-";
             minusBtn.UseVisualStyleBackColor = true;
-            minusBtn.Click += CalculatorButtonClick;
+            minusBtn.Click += OperationBtnClick;
             // 
             // oneBtn
             // 
@@ -315,7 +315,7 @@
             oneBtn.TabIndex = 18;
             oneBtn.Text = "1";
             oneBtn.UseVisualStyleBackColor = true;
-            oneBtn.Click += CalculatorButtonClick;
+            oneBtn.Click += NumberBtnClick;
             // 
             // twoBtn
             // 
@@ -328,7 +328,7 @@
             twoBtn.TabIndex = 19;
             twoBtn.Text = "2";
             twoBtn.UseVisualStyleBackColor = true;
-            twoBtn.Click += CalculatorButtonClick;
+            twoBtn.Click += NumberBtnClick;
             // 
             // threeBtn
             // 
@@ -341,7 +341,7 @@
             threeBtn.TabIndex = 20;
             threeBtn.Text = "3";
             threeBtn.UseVisualStyleBackColor = true;
-            threeBtn.Click += CalculatorButtonClick;
+            threeBtn.Click += NumberBtnClick;
             // 
             // plusBtn
             // 
@@ -354,7 +354,7 @@
             plusBtn.TabIndex = 21;
             plusBtn.Text = "+";
             plusBtn.UseVisualStyleBackColor = true;
-            plusBtn.Click += CalculatorButtonClick;
+            plusBtn.Click += OperationBtnClick;
             // 
             // changeSignBtn
             // 
@@ -367,7 +367,7 @@
             changeSignBtn.TabIndex = 22;
             changeSignBtn.Text = "±";
             changeSignBtn.UseVisualStyleBackColor = true;
-            changeSignBtn.Click += CalculatorButtonClick;
+            changeSignBtn.Click += SwitchSignBtnClick;
             // 
             // zeroBtn
             // 
@@ -380,7 +380,7 @@
             zeroBtn.TabIndex = 23;
             zeroBtn.Text = "0";
             zeroBtn.UseVisualStyleBackColor = true;
-            zeroBtn.Click += CalculatorButtonClick;
+            zeroBtn.Click += NumberBtnClick;
             // 
             // floatingPointBtn
             // 
@@ -393,7 +393,7 @@
             floatingPointBtn.TabIndex = 24;
             floatingPointBtn.Text = ".";
             floatingPointBtn.UseVisualStyleBackColor = true;
-            floatingPointBtn.Click += CalculatorButtonClick;
+            floatingPointBtn.Click += FloatingPointBtnClick;
             // 
             // resultBtn
             // 
@@ -406,38 +406,40 @@
             resultBtn.TabIndex = 25;
             resultBtn.Text = "=";
             resultBtn.UseVisualStyleBackColor = true;
-            resultBtn.Click += CalculatorButtonClick;
+            resultBtn.Click += EqualsBtnClick;
             // 
             // resultLabelsPanel
             // 
-            resultLabelsPanel.Controls.Add(lastOperationTxtBox);
-            resultLabelsPanel.Controls.Add(currentOperationTxtBox);
+            resultLabelsPanel.Controls.Add(lastOperationLbl);
+            resultLabelsPanel.Controls.Add(resultLbl);
             resultLabelsPanel.Location = new Point(12, 36);
             resultLabelsPanel.Name = "resultLabelsPanel";
             resultLabelsPanel.Size = new Size(366, 100);
             resultLabelsPanel.TabIndex = 1;
             // 
-            // lastOperationTxtBox
+            // lastOperationLbl
             // 
-            lastOperationTxtBox.BackColor = SystemColors.Control;
-            lastOperationTxtBox.Enabled = false;
-            lastOperationTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lastOperationTxtBox.Location = new Point(0, 1);
-            lastOperationTxtBox.Name = "lastOperationTxtBox";
-            lastOperationTxtBox.RightToLeft = RightToLeft.Yes;
-            lastOperationTxtBox.Size = new Size(365, 43);
-            lastOperationTxtBox.TabIndex = 2;
+            lastOperationLbl.BackColor = Color.White;
+            lastOperationLbl.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lastOperationLbl.Location = new Point(0, 0);
+            lastOperationLbl.Name = "lastOperationLbl";
+            lastOperationLbl.RightToLeft = RightToLeft.No;
+            lastOperationLbl.Size = new Size(365, 43);
+            lastOperationLbl.TabIndex = 4;
+            lastOperationLbl.TextAlign = ContentAlignment.BottomRight;
+            lastOperationLbl.Click += OperationBtnClick;
             // 
-            // currentOperationTxtBox
+            // resultLbl
             // 
-            currentOperationTxtBox.BackColor = SystemColors.Control;
-            currentOperationTxtBox.Enabled = false;
-            currentOperationTxtBox.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            currentOperationTxtBox.Location = new Point(0, 49);
-            currentOperationTxtBox.Name = "currentOperationTxtBox";
-            currentOperationTxtBox.RightToLeft = RightToLeft.Yes;
-            currentOperationTxtBox.Size = new Size(366, 50);
-            currentOperationTxtBox.TabIndex = 1;
+            resultLbl.BackColor = Color.White;
+            resultLbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            resultLbl.Location = new Point(0, 50);
+            resultLbl.Name = "resultLbl";
+            resultLbl.RightToLeft = RightToLeft.No;
+            resultLbl.Size = new Size(365, 50);
+            resultLbl.TabIndex = 3;
+            resultLbl.Text = "0";
+            resultLbl.TextAlign = ContentAlignment.BottomRight;
             // 
             // viewHistoryBtn
             // 
@@ -453,7 +455,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 32, 32);
-            ClientSize = new Size(389, 454);
+            ClientSize = new Size(390, 454);
             Controls.Add(viewHistoryBtn);
             Controls.Add(resultLabelsPanel);
             Controls.Add(btnsFlowLayoutPanel);
@@ -467,7 +469,6 @@
             btnsFlowLayoutPanel.ResumeLayout(false);
             btnsFlowLayoutPanel.PerformLayout();
             resultLabelsPanel.ResumeLayout(false);
-            resultLabelsPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -500,7 +501,7 @@
         private Button resultBtn;
         private Panel resultLabelsPanel;
         private Button viewHistoryBtn;
-        private TextBox currentOperationTxtBox;
-        private TextBox lastOperationTxtBox;
+        private Label resultLbl;
+        private Label lastOperationLbl;
     }
 }
