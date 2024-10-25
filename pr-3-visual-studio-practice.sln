@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicMathExpressionParserTests", "BasicMathExpressionParserTests\BasicMathExpressionParserTests.csproj", "{12A523AC-A4B9-476D-A207-60F2F54E686E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsTicTacToe", "WinFormsTicTacToe\WinFormsTicTacToe.csproj", "{B234C120-3F48-4AE1-AB0B-CFF84170BE5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsCalculator", "WinFormsCalculator\WinFormsCalculator.csproj", "{860AA316-EF46-4F53-B7C7-4F2EEA8DBC13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{12A523AC-A4B9-476D-A207-60F2F54E686E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12A523AC-A4B9-476D-A207-60F2F54E686E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12A523AC-A4B9-476D-A207-60F2F54E686E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B234C120-3F48-4AE1-AB0B-CFF84170BE5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B234C120-3F48-4AE1-AB0B-CFF84170BE5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B234C120-3F48-4AE1-AB0B-CFF84170BE5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B234C120-3F48-4AE1-AB0B-CFF84170BE5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{860AA316-EF46-4F53-B7C7-4F2EEA8DBC13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{860AA316-EF46-4F53-B7C7-4F2EEA8DBC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{860AA316-EF46-4F53-B7C7-4F2EEA8DBC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{860AA316-EF46-4F53-B7C7-4F2EEA8DBC13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
