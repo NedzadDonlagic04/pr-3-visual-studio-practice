@@ -87,7 +87,7 @@
             btnsFlowLayoutPanel.Controls.Add(zeroBtn);
             btnsFlowLayoutPanel.Controls.Add(floatingPointBtn);
             btnsFlowLayoutPanel.Controls.Add(resultBtn);
-            btnsFlowLayoutPanel.Location = new Point(11, 139);
+            btnsFlowLayoutPanel.Location = new Point(12, 156);
             btnsFlowLayoutPanel.Margin = new Padding(1);
             btnsFlowLayoutPanel.Name = "btnsFlowLayoutPanel";
             btnsFlowLayoutPanel.Size = new Size(368, 312);
@@ -96,27 +96,37 @@
             // remainderBtn
             // 
             remainderBtn.AutoSize = true;
+            remainderBtn.BackColor = Color.FromArgb(59, 59, 59);
+            remainderBtn.FlatStyle = FlatStyle.Flat;
             remainderBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            remainderBtn.ForeColor = Color.FromArgb(226, 226, 226);
             remainderBtn.Location = new Point(1, 1);
             remainderBtn.Margin = new Padding(1);
             remainderBtn.Name = "remainderBtn";
             remainderBtn.Size = new Size(90, 50);
             remainderBtn.TabIndex = 2;
             remainderBtn.Text = "%";
-            remainderBtn.UseVisualStyleBackColor = true;
+            remainderBtn.UseVisualStyleBackColor = false;
+            remainderBtn.Enter += CalcBtnsEnterFocus;
+            remainderBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // clearEntryBtn
             // 
             clearEntryBtn.AutoSize = true;
+            clearEntryBtn.BackColor = Color.FromArgb(59, 59, 59);
+            clearEntryBtn.FlatStyle = FlatStyle.Flat;
             clearEntryBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            clearEntryBtn.ForeColor = Color.FromArgb(226, 226, 226);
             clearEntryBtn.Location = new Point(93, 1);
             clearEntryBtn.Margin = new Padding(1);
             clearEntryBtn.Name = "clearEntryBtn";
             clearEntryBtn.Size = new Size(90, 50);
             clearEntryBtn.TabIndex = 3;
             clearEntryBtn.Text = "CE";
-            clearEntryBtn.UseVisualStyleBackColor = true;
+            clearEntryBtn.UseVisualStyleBackColor = false;
             clearEntryBtn.Click += ClearEntryBtnClick;
+            clearEntryBtn.Enter += CalcBtnsEnterFocus;
+            clearEntryBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // clearEverythingBtn
             // 
@@ -133,37 +143,52 @@
             clearEverythingBtn.Text = "C";
             clearEverythingBtn.UseVisualStyleBackColor = false;
             clearEverythingBtn.Click += ClearBtnClick;
+            clearEverythingBtn.Enter += CalcBtnsEnterFocus;
+            clearEverythingBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // undoPreviousActionBtn
             // 
             undoPreviousActionBtn.AutoSize = true;
+            undoPreviousActionBtn.BackColor = Color.FromArgb(59, 59, 59);
+            undoPreviousActionBtn.FlatStyle = FlatStyle.Flat;
             undoPreviousActionBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            undoPreviousActionBtn.ForeColor = Color.FromArgb(226, 226, 226);
             undoPreviousActionBtn.Location = new Point(277, 1);
             undoPreviousActionBtn.Margin = new Padding(1);
             undoPreviousActionBtn.Name = "undoPreviousActionBtn";
             undoPreviousActionBtn.Size = new Size(90, 50);
             undoPreviousActionBtn.TabIndex = 5;
             undoPreviousActionBtn.Text = "⌫";
-            undoPreviousActionBtn.UseVisualStyleBackColor = true;
+            undoPreviousActionBtn.UseVisualStyleBackColor = false;
             undoPreviousActionBtn.Click += UndoPreviousActionBtnClick;
+            undoPreviousActionBtn.Enter += CalcBtnsEnterFocus;
+            undoPreviousActionBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // reciprocationBtn
             // 
             reciprocationBtn.AutoSize = true;
+            reciprocationBtn.BackColor = Color.FromArgb(59, 59, 59);
+            reciprocationBtn.FlatStyle = FlatStyle.Flat;
             reciprocationBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            reciprocationBtn.ForeColor = Color.FromArgb(226, 226, 226);
             reciprocationBtn.Location = new Point(1, 53);
             reciprocationBtn.Margin = new Padding(1);
             reciprocationBtn.Name = "reciprocationBtn";
             reciprocationBtn.Size = new Size(90, 50);
             reciprocationBtn.TabIndex = 6;
             reciprocationBtn.Text = "x⁻¹";
-            reciprocationBtn.UseVisualStyleBackColor = true;
+            reciprocationBtn.UseVisualStyleBackColor = false;
             reciprocationBtn.Click += SpecialOperationBtnClick;
+            reciprocationBtn.Enter += CalcBtnsEnterFocus;
+            reciprocationBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // squareBtn
             // 
             squareBtn.AutoSize = true;
+            squareBtn.BackColor = Color.FromArgb(59, 59, 59);
+            squareBtn.FlatStyle = FlatStyle.Flat;
             squareBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            squareBtn.ForeColor = Color.FromArgb(226, 226, 226);
             squareBtn.Location = new Point(93, 53);
             squareBtn.Margin = new Padding(1);
             squareBtn.Name = "squareBtn";
@@ -171,256 +196,349 @@
             squareBtn.TabIndex = 7;
             squareBtn.Tag = "";
             squareBtn.Text = "x²";
-            squareBtn.UseVisualStyleBackColor = true;
+            squareBtn.UseVisualStyleBackColor = false;
             squareBtn.Click += SpecialOperationBtnClick;
+            squareBtn.Enter += CalcBtnsEnterFocus;
+            squareBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // rootBtn
             // 
             rootBtn.AutoSize = true;
+            rootBtn.BackColor = Color.FromArgb(59, 59, 59);
+            rootBtn.FlatStyle = FlatStyle.Flat;
             rootBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            rootBtn.ForeColor = Color.FromArgb(226, 226, 226);
             rootBtn.Location = new Point(185, 53);
             rootBtn.Margin = new Padding(1);
             rootBtn.Name = "rootBtn";
             rootBtn.Size = new Size(90, 50);
             rootBtn.TabIndex = 8;
             rootBtn.Text = "√";
-            rootBtn.UseVisualStyleBackColor = true;
+            rootBtn.UseVisualStyleBackColor = false;
             rootBtn.Click += SpecialOperationBtnClick;
+            rootBtn.Enter += CalcBtnsEnterFocus;
+            rootBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // divisionBtn
             // 
             divisionBtn.AutoSize = true;
+            divisionBtn.BackColor = Color.FromArgb(59, 59, 59);
+            divisionBtn.FlatStyle = FlatStyle.Flat;
             divisionBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            divisionBtn.ForeColor = Color.FromArgb(226, 226, 226);
             divisionBtn.Location = new Point(277, 53);
             divisionBtn.Margin = new Padding(1);
             divisionBtn.Name = "divisionBtn";
             divisionBtn.Size = new Size(90, 50);
             divisionBtn.TabIndex = 9;
             divisionBtn.Text = "÷";
-            divisionBtn.UseVisualStyleBackColor = true;
+            divisionBtn.UseVisualStyleBackColor = false;
             divisionBtn.Click += OperationBtnClick;
+            divisionBtn.Enter += CalcBtnsEnterFocus;
+            divisionBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // sevenBtn
             // 
             sevenBtn.AutoSize = true;
+            sevenBtn.BackColor = Color.FromArgb(59, 59, 59);
+            sevenBtn.FlatStyle = FlatStyle.Flat;
             sevenBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            sevenBtn.ForeColor = Color.FromArgb(226, 226, 226);
             sevenBtn.Location = new Point(1, 105);
             sevenBtn.Margin = new Padding(1);
             sevenBtn.Name = "sevenBtn";
             sevenBtn.Size = new Size(90, 50);
             sevenBtn.TabIndex = 10;
             sevenBtn.Text = "7";
-            sevenBtn.UseVisualStyleBackColor = true;
+            sevenBtn.UseVisualStyleBackColor = false;
             sevenBtn.Click += NumberBtnClick;
+            sevenBtn.Enter += CalcBtnsEnterFocus;
+            sevenBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // eightBtn
             // 
             eightBtn.AutoSize = true;
+            eightBtn.BackColor = Color.FromArgb(59, 59, 59);
+            eightBtn.FlatStyle = FlatStyle.Flat;
             eightBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            eightBtn.ForeColor = Color.FromArgb(226, 226, 226);
             eightBtn.Location = new Point(93, 105);
             eightBtn.Margin = new Padding(1);
             eightBtn.Name = "eightBtn";
             eightBtn.Size = new Size(90, 50);
             eightBtn.TabIndex = 11;
             eightBtn.Text = "8";
-            eightBtn.UseVisualStyleBackColor = true;
+            eightBtn.UseVisualStyleBackColor = false;
             eightBtn.Click += NumberBtnClick;
+            eightBtn.Enter += CalcBtnsEnterFocus;
+            eightBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // nineBtn
             // 
             nineBtn.AutoSize = true;
+            nineBtn.BackColor = Color.FromArgb(59, 59, 59);
+            nineBtn.FlatStyle = FlatStyle.Flat;
             nineBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            nineBtn.ForeColor = Color.FromArgb(226, 226, 226);
             nineBtn.Location = new Point(185, 105);
             nineBtn.Margin = new Padding(1);
             nineBtn.Name = "nineBtn";
             nineBtn.Size = new Size(90, 50);
             nineBtn.TabIndex = 12;
             nineBtn.Text = "9";
-            nineBtn.UseVisualStyleBackColor = true;
+            nineBtn.UseVisualStyleBackColor = false;
             nineBtn.Click += NumberBtnClick;
+            nineBtn.Enter += CalcBtnsEnterFocus;
+            nineBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // multiplyBtn
             // 
             multiplyBtn.AutoSize = true;
+            multiplyBtn.BackColor = Color.FromArgb(59, 59, 59);
+            multiplyBtn.FlatStyle = FlatStyle.Flat;
             multiplyBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            multiplyBtn.ForeColor = Color.FromArgb(226, 226, 226);
             multiplyBtn.Location = new Point(277, 105);
             multiplyBtn.Margin = new Padding(1);
             multiplyBtn.Name = "multiplyBtn";
             multiplyBtn.Size = new Size(90, 50);
             multiplyBtn.TabIndex = 13;
             multiplyBtn.Text = "×";
-            multiplyBtn.UseVisualStyleBackColor = true;
+            multiplyBtn.UseVisualStyleBackColor = false;
             multiplyBtn.Click += OperationBtnClick;
+            multiplyBtn.Enter += CalcBtnsEnterFocus;
+            multiplyBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // fourBtn
             // 
             fourBtn.AutoSize = true;
+            fourBtn.BackColor = Color.FromArgb(59, 59, 59);
+            fourBtn.FlatStyle = FlatStyle.Flat;
             fourBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            fourBtn.ForeColor = Color.FromArgb(226, 226, 226);
             fourBtn.Location = new Point(1, 157);
             fourBtn.Margin = new Padding(1);
             fourBtn.Name = "fourBtn";
             fourBtn.Size = new Size(90, 50);
             fourBtn.TabIndex = 14;
             fourBtn.Text = "4";
-            fourBtn.UseVisualStyleBackColor = true;
+            fourBtn.UseVisualStyleBackColor = false;
             fourBtn.Click += NumberBtnClick;
+            fourBtn.Enter += CalcBtnsEnterFocus;
+            fourBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // fiveBtn
             // 
             fiveBtn.AutoSize = true;
+            fiveBtn.BackColor = Color.FromArgb(59, 59, 59);
+            fiveBtn.FlatStyle = FlatStyle.Flat;
             fiveBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            fiveBtn.ForeColor = Color.FromArgb(226, 226, 226);
             fiveBtn.Location = new Point(93, 157);
             fiveBtn.Margin = new Padding(1);
             fiveBtn.Name = "fiveBtn";
             fiveBtn.Size = new Size(90, 50);
             fiveBtn.TabIndex = 15;
             fiveBtn.Text = "5";
-            fiveBtn.UseVisualStyleBackColor = true;
+            fiveBtn.UseVisualStyleBackColor = false;
             fiveBtn.Click += NumberBtnClick;
+            fiveBtn.Enter += CalcBtnsEnterFocus;
+            fiveBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // sixBtn
             // 
             sixBtn.AutoSize = true;
+            sixBtn.BackColor = Color.FromArgb(59, 59, 59);
+            sixBtn.FlatStyle = FlatStyle.Flat;
             sixBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            sixBtn.ForeColor = Color.FromArgb(226, 226, 226);
             sixBtn.Location = new Point(185, 157);
             sixBtn.Margin = new Padding(1);
             sixBtn.Name = "sixBtn";
             sixBtn.Size = new Size(90, 50);
             sixBtn.TabIndex = 16;
             sixBtn.Text = "6";
-            sixBtn.UseVisualStyleBackColor = true;
+            sixBtn.UseVisualStyleBackColor = false;
             sixBtn.Click += NumberBtnClick;
+            sixBtn.Enter += CalcBtnsEnterFocus;
+            sixBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // minusBtn
             // 
             minusBtn.AutoSize = true;
+            minusBtn.BackColor = Color.FromArgb(59, 59, 59);
+            minusBtn.FlatStyle = FlatStyle.Flat;
             minusBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            minusBtn.ForeColor = Color.FromArgb(226, 226, 226);
             minusBtn.Location = new Point(277, 157);
             minusBtn.Margin = new Padding(1);
             minusBtn.Name = "minusBtn";
             minusBtn.Size = new Size(90, 50);
             minusBtn.TabIndex = 17;
             minusBtn.Text = "-";
-            minusBtn.UseVisualStyleBackColor = true;
+            minusBtn.UseVisualStyleBackColor = false;
             minusBtn.Click += OperationBtnClick;
+            minusBtn.Enter += CalcBtnsEnterFocus;
+            minusBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // oneBtn
             // 
             oneBtn.AutoSize = true;
+            oneBtn.BackColor = Color.FromArgb(59, 59, 59);
+            oneBtn.FlatStyle = FlatStyle.Flat;
             oneBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            oneBtn.ForeColor = Color.FromArgb(226, 226, 226);
             oneBtn.Location = new Point(1, 209);
             oneBtn.Margin = new Padding(1);
             oneBtn.Name = "oneBtn";
             oneBtn.Size = new Size(90, 50);
             oneBtn.TabIndex = 18;
             oneBtn.Text = "1";
-            oneBtn.UseVisualStyleBackColor = true;
+            oneBtn.UseVisualStyleBackColor = false;
             oneBtn.Click += NumberBtnClick;
+            oneBtn.Enter += CalcBtnsEnterFocus;
+            oneBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // twoBtn
             // 
             twoBtn.AutoSize = true;
+            twoBtn.BackColor = Color.FromArgb(59, 59, 59);
+            twoBtn.FlatStyle = FlatStyle.Flat;
             twoBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            twoBtn.ForeColor = Color.FromArgb(226, 226, 226);
             twoBtn.Location = new Point(93, 209);
             twoBtn.Margin = new Padding(1);
             twoBtn.Name = "twoBtn";
             twoBtn.Size = new Size(90, 50);
             twoBtn.TabIndex = 19;
             twoBtn.Text = "2";
-            twoBtn.UseVisualStyleBackColor = true;
+            twoBtn.UseVisualStyleBackColor = false;
             twoBtn.Click += NumberBtnClick;
+            twoBtn.Enter += CalcBtnsEnterFocus;
+            twoBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // threeBtn
             // 
             threeBtn.AutoSize = true;
+            threeBtn.BackColor = Color.FromArgb(59, 59, 59);
+            threeBtn.FlatStyle = FlatStyle.Flat;
             threeBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            threeBtn.ForeColor = Color.FromArgb(226, 226, 226);
             threeBtn.Location = new Point(185, 209);
             threeBtn.Margin = new Padding(1);
             threeBtn.Name = "threeBtn";
             threeBtn.Size = new Size(90, 50);
             threeBtn.TabIndex = 20;
             threeBtn.Text = "3";
-            threeBtn.UseVisualStyleBackColor = true;
+            threeBtn.UseVisualStyleBackColor = false;
             threeBtn.Click += NumberBtnClick;
+            threeBtn.Enter += CalcBtnsEnterFocus;
+            threeBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // plusBtn
             // 
             plusBtn.AutoSize = true;
+            plusBtn.BackColor = Color.FromArgb(59, 59, 59);
+            plusBtn.FlatStyle = FlatStyle.Flat;
             plusBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            plusBtn.ForeColor = Color.FromArgb(226, 226, 226);
             plusBtn.Location = new Point(277, 209);
             plusBtn.Margin = new Padding(1);
             plusBtn.Name = "plusBtn";
             plusBtn.Size = new Size(90, 50);
             plusBtn.TabIndex = 21;
             plusBtn.Text = "+";
-            plusBtn.UseVisualStyleBackColor = true;
+            plusBtn.UseVisualStyleBackColor = false;
             plusBtn.Click += OperationBtnClick;
+            plusBtn.Enter += CalcBtnsEnterFocus;
+            plusBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // changeSignBtn
             // 
             changeSignBtn.AutoSize = true;
+            changeSignBtn.BackColor = Color.FromArgb(59, 59, 59);
+            changeSignBtn.FlatStyle = FlatStyle.Flat;
             changeSignBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            changeSignBtn.ForeColor = Color.FromArgb(226, 226, 226);
             changeSignBtn.Location = new Point(1, 261);
             changeSignBtn.Margin = new Padding(1);
             changeSignBtn.Name = "changeSignBtn";
             changeSignBtn.Size = new Size(90, 50);
             changeSignBtn.TabIndex = 22;
             changeSignBtn.Text = "±";
-            changeSignBtn.UseVisualStyleBackColor = true;
+            changeSignBtn.UseVisualStyleBackColor = false;
             changeSignBtn.Click += SwitchSignBtnClick;
+            changeSignBtn.Enter += CalcBtnsEnterFocus;
+            changeSignBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // zeroBtn
             // 
             zeroBtn.AutoSize = true;
+            zeroBtn.BackColor = Color.FromArgb(59, 59, 59);
+            zeroBtn.FlatStyle = FlatStyle.Flat;
             zeroBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            zeroBtn.ForeColor = Color.FromArgb(226, 226, 226);
             zeroBtn.Location = new Point(93, 261);
             zeroBtn.Margin = new Padding(1);
             zeroBtn.Name = "zeroBtn";
             zeroBtn.Size = new Size(90, 50);
             zeroBtn.TabIndex = 23;
             zeroBtn.Text = "0";
-            zeroBtn.UseVisualStyleBackColor = true;
+            zeroBtn.UseVisualStyleBackColor = false;
             zeroBtn.Click += NumberBtnClick;
+            zeroBtn.Enter += CalcBtnsEnterFocus;
+            zeroBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // floatingPointBtn
             // 
             floatingPointBtn.AutoSize = true;
+            floatingPointBtn.BackColor = Color.FromArgb(59, 59, 59);
+            floatingPointBtn.FlatStyle = FlatStyle.Flat;
             floatingPointBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            floatingPointBtn.ForeColor = Color.FromArgb(226, 226, 226);
             floatingPointBtn.Location = new Point(185, 261);
             floatingPointBtn.Margin = new Padding(1);
             floatingPointBtn.Name = "floatingPointBtn";
             floatingPointBtn.Size = new Size(90, 50);
             floatingPointBtn.TabIndex = 24;
             floatingPointBtn.Text = ".";
-            floatingPointBtn.UseVisualStyleBackColor = true;
+            floatingPointBtn.UseVisualStyleBackColor = false;
             floatingPointBtn.Click += FloatingPointBtnClick;
+            floatingPointBtn.Enter += CalcBtnsEnterFocus;
+            floatingPointBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // resultBtn
             // 
             resultBtn.AutoSize = true;
+            resultBtn.BackColor = Color.FromArgb(59, 59, 59);
+            resultBtn.FlatStyle = FlatStyle.Flat;
             resultBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            resultBtn.ForeColor = Color.FromArgb(226, 226, 226);
             resultBtn.Location = new Point(277, 261);
             resultBtn.Margin = new Padding(1);
             resultBtn.Name = "resultBtn";
             resultBtn.Size = new Size(90, 50);
             resultBtn.TabIndex = 25;
             resultBtn.Text = "=";
-            resultBtn.UseVisualStyleBackColor = true;
+            resultBtn.UseVisualStyleBackColor = false;
             resultBtn.Click += EqualsBtnClick;
+            resultBtn.Enter += CalcBtnsEnterFocus;
+            resultBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // resultLabelsPanel
             // 
             resultLabelsPanel.Controls.Add(lastOperationLbl);
             resultLabelsPanel.Controls.Add(resultLbl);
-            resultLabelsPanel.Location = new Point(12, 36);
+            resultLabelsPanel.Location = new Point(12, 53);
             resultLabelsPanel.Name = "resultLabelsPanel";
             resultLabelsPanel.Size = new Size(366, 100);
             resultLabelsPanel.TabIndex = 1;
             // 
             // lastOperationLbl
             // 
-            lastOperationLbl.BackColor = Color.White;
+            lastOperationLbl.BackColor = Color.FromArgb(226, 226, 226);
             lastOperationLbl.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lastOperationLbl.ForeColor = Color.FromArgb(59, 59, 59);
             lastOperationLbl.Location = new Point(0, 0);
             lastOperationLbl.Name = "lastOperationLbl";
             lastOperationLbl.RightToLeft = RightToLeft.No;
@@ -431,8 +549,9 @@
             // 
             // resultLbl
             // 
-            resultLbl.BackColor = Color.White;
+            resultLbl.BackColor = Color.FromArgb(226, 226, 226);
             resultLbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            resultLbl.ForeColor = Color.FromArgb(59, 59, 59);
             resultLbl.Location = new Point(0, 50);
             resultLbl.Name = "resultLbl";
             resultLbl.RightToLeft = RightToLeft.No;
@@ -443,19 +562,26 @@
             // 
             // viewHistoryBtn
             // 
+            viewHistoryBtn.AutoSize = true;
+            viewHistoryBtn.BackColor = Color.FromArgb(59, 59, 59);
+            viewHistoryBtn.FlatStyle = FlatStyle.Flat;
+            viewHistoryBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            viewHistoryBtn.ForeColor = Color.FromArgb(226, 226, 226);
             viewHistoryBtn.Location = new Point(199, 5);
             viewHistoryBtn.Name = "viewHistoryBtn";
-            viewHistoryBtn.Size = new Size(179, 26);
+            viewHistoryBtn.Size = new Size(179, 42);
             viewHistoryBtn.TabIndex = 2;
             viewHistoryBtn.Text = "View History";
-            viewHistoryBtn.UseVisualStyleBackColor = true;
+            viewHistoryBtn.UseVisualStyleBackColor = false;
+            viewHistoryBtn.Enter += CalcBtnsEnterFocus;
+            viewHistoryBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // CalculatorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 32, 32);
-            ClientSize = new Size(390, 454);
+            ClientSize = new Size(390, 471);
             Controls.Add(viewHistoryBtn);
             Controls.Add(resultLabelsPanel);
             Controls.Add(btnsFlowLayoutPanel);
@@ -470,6 +596,7 @@
             btnsFlowLayoutPanel.PerformLayout();
             resultLabelsPanel.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

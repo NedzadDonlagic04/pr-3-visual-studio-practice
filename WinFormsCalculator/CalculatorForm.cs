@@ -119,7 +119,7 @@
             UpdateDisplay();
         }
 
-        private void SwitchSignBtnClick(object sender, EventArgs e)
+        private void SwitchSignBtnClick(object? sender, EventArgs e)
         {
             if (_resultLblNum != 0)
             {
@@ -128,7 +128,7 @@
             UpdateDisplay();
         }
 
-        private void EqualsBtnClick(object sender, EventArgs e)
+        private void EqualsBtnClick(object? sender, EventArgs e)
         {
             if (_operation != "")
             {
@@ -139,17 +139,17 @@
             UpdateDisplay();
         }
 
-        private void ClearBtnClick(object sender, EventArgs e) => ResetResultLabelsPanel();
+        private void ClearBtnClick(object? sender, EventArgs e) => ResetResultLabelsPanel();
 
-        private void ClearEntryBtnClick(object sender, EventArgs e) => ResetResultLbl();
+        private void ClearEntryBtnClick(object? sender, EventArgs e) => ResetResultLbl();
 
-        private void UndoPreviousActionBtnClick(object sender, EventArgs e)
+        private void UndoPreviousActionBtnClick(object? sender, EventArgs e)
         {
             if (_decimalsAfterResult != 0)
             {
                 --_decimalsAfterResult;
             }
-            else 
+            else
             {
                 floatingPointBtn.Enabled = true;
                 _resultLblNum = (int)(_resultLblNum / 10);
@@ -158,10 +158,34 @@
             UpdateDisplay();
         }
 
-        private void FloatingPointBtnClick(object sender, EventArgs e)
+        private void FloatingPointBtnClick(object? sender, EventArgs e)
         {
             floatingPointBtn.Enabled = false;
             _decimalsAfterResult = 0;
+        }
+
+        private void CalcBtnsEnterFocus(object? sender, EventArgs e)
+        {
+            if (sender == null)
+            {
+                return;
+            }
+
+            Button btn = (Button)sender;
+
+            btn.FlatAppearance.BorderSize = 4;
+        }
+
+        private void CalcBtnsLeaveFocus(object? sender, EventArgs e)
+        {
+            if (sender == null)
+            {
+                return;
+            }
+
+            Button btn = (Button)sender;
+
+            btn.FlatAppearance.BorderSize = 1;
         }
     }
 }
