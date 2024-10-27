@@ -1,51 +1,52 @@
-﻿namespace WinFormsCalculator
+﻿using System.Text;
+
+using WinFormsCalculator.Classes;
+
+namespace WinFormsCalculator
 {
-    public partial class CalculatorForm : Form
+    internal partial class CalculatorForm : Form
     {
-        public CalculatorForm()
+        private double _result;
+
+        private readonly StringBuilder _currentOperand = new("0");
+
+        private double CurrentOperand { get => double.Parse(_currentOperand.ToString()); }
+
+        private string _operation = "";
+
+        private readonly CalculatorHistory _calculatorHistory = new();
+
+        internal CalculatorForm()
         {
             InitializeComponent();
         }
 
-        private double _resultLblNum = 0;
-
-        private double _decimalsAfterResult = 0;
-
-        private double ResultLblNum { get => _resultLblNum / Math.Pow(10, _decimalsAfterResult); }
-
-        private double _lastResultLblNum = 0;
-
-        private string _operation = "";
-
-        private void UpdateDisplay()
+        private void SetEnableForSpecialButtons(bool state)
         {
-            if (_operation != "")
-            {
-                lastOperationLbl.Text = $"{_lastResultLblNum} {_operation}";
-            }
-
-            resultLbl.Text = ResultLblNum.ToString();
+            floatingPointBtn.Enabled = state;
+            changeSignBtn.Enabled = state;
+            undoPreviousActionBtn.Enabled = state;
+            equalsBtn.Enabled = state;
         }
 
-        private void ResetLastOperationLbl()
+        private void ResetResultUpperLbl()
         {
+            resultUpperLbl.Text = "";
             _operation = "";
-            _lastResultLblNum = 0;
-            lastOperationLbl.Text = "";
         }
 
-        private void ResetResultLbl()
+        private void ResetResultLowerLbl()
         {
-            _resultLblNum = 0;
-            _decimalsAfterResult = 0;
-            floatingPointBtn.Enabled = true;
-            resultLbl.Text = "";
+            _currentOperand.Clear();
+            _currentOperand.Append(0);
+            resultLowerLbl.Text = _currentOperand.ToString();
+            SetEnableForSpecialButtons(true);
         }
 
-        private void ResetResultLabelsPanel()
+        private void ResetResultLbls()
         {
-            ResetLastOperationLbl();
-            ResetResultLbl();
+            ResetResultUpperLbl();
+            ResetResultLowerLbl();
         }
 
         private void NumberBtnClick(object? sender, EventArgs e)
@@ -54,27 +55,73 @@
             {
                 return;
             }
+            else if (_operation == "=")
+            {
+                ResetResultLbls();
+            }
 
             Button btn = (Button)sender;
 
-            _resultLblNum = _resultLblNum * 10 + double.Parse(btn.Text);
-
-            if (floatingPointBtn.Enabled == false)
+            if (_currentOperand.ToString() == "0")
             {
-                ++_decimalsAfterResult;
+                _currentOperand.Remove(0, 1);
             }
+            _currentOperand.Append(btn.Text);
 
-            UpdateDisplay();
+            resultLowerLbl.Text = _currentOperand.ToString();
+        }
+
+        private void FloatingPointBtnClick(object? sender, EventArgs e)
+        {
+            _currentOperand.Append('.');
+            floatingPointBtn.Enabled = false;
         }
 
         private double GetResultOfOperation(string operation) => operation switch
         {
-            "+" => _lastResultLblNum + ResultLblNum,
-            "-" => _lastResultLblNum - ResultLblNum,
-            "×" => _lastResultLblNum * ResultLblNum,
-            "÷" => _lastResultLblNum / ResultLblNum,
-            "%" => _lastResultLblNum % ResultLblNum,
-            "" => ResultLblNum,
+            "+" => _result + CurrentOperand,
+            "-" => _result - CurrentOperand,
+            "×" => _result * CurrentOperand,
+            "÷" => _result / CurrentOperand,
+            "%" => _result % CurrentOperand,
+            "√" => Math.Sqrt(CurrentOperand),
+            "x²" => CurrentOperand * CurrentOperand,
+            "x⁻¹" => 1 / CurrentOperand,
+            _ => throw new NotImplementedException($"Operation \"{_operation}\" is not a supported operation")
+        };
+
+        private string GetEndOfExpressionFormat(string operation) => operation switch
+        {
+            "√" => $"√{_currentOperand}",
+            "x²" => $"{_currentOperand}²",
+            "x⁻¹" => $"{_currentOperand}⁻¹",
+            "+" or "-" or "×" or "÷" or "%" => $"{_currentOperand}",
+            _ => throw new NotImplementedException($"Operation \"{_operation}\" is not a supported operation")
+        };
+
+        private void EqualsBtnClick(object? sender, EventArgs e)
+        {
+            _result = GetResultOfOperation(_operation);
+            string endOfExpressionFormat = GetEndOfExpressionFormat(_operation);
+
+            resultUpperLbl.Text += (CurrentOperand < 0) ? $"({endOfExpressionFormat})" : $"{endOfExpressionFormat}";
+            resultUpperLbl.Text += " =";
+
+            _calculatorHistory.Add(resultUpperLbl.Text, _result);
+
+            _currentOperand.Clear();
+            _currentOperand.Append(_result);
+            resultLowerLbl.Text = _currentOperand.ToString();
+
+            _operation = "=";
+
+            SetEnableForSpecialButtons(false);
+        }
+
+        private bool IsOperationForSingleOperand(string operation) => operation switch
+        {
+            "√" or "x²" or "x⁻¹" => true,
+            "+" or "-" or "×" or "÷" or "%" or "" => false,
             _ => throw new NotImplementedException($"Operation \"{_operation}\" is not a supported operation")
         };
 
@@ -87,105 +134,98 @@
 
             Button btn = (Button)sender;
 
-            _lastResultLblNum = GetResultOfOperation(_operation);
+            if (_operation != "" && _operation != "=")
+            {
+                equalsBtn.PerformClick();
+            }
+
+            _result = CurrentOperand;
             _operation = btn.Text;
 
-            ResetResultLbl();
-            UpdateDisplay();
-        }
-
-        private double GetResultOfSpecialOperation(string operation) => operation switch
-        {
-            "√" => Math.Sqrt(ResultLblNum),
-            "x²" => ResultLblNum * ResultLblNum,
-            "x⁻¹" => 1 / ResultLblNum,
-            _ => throw new NotImplementedException($"Operation \"{_operation}\" is not a supported special operation")
-        };
-
-        private void SpecialOperationBtnClick(object? sender, EventArgs e)
-        {
-            if (sender == null)
+            if (IsOperationForSingleOperand(_operation))
             {
+                resultUpperLbl.Text = "";
+                equalsBtn.Enabled = true;
+                equalsBtn.PerformClick();
                 return;
             }
 
-            Button btn = (Button)sender;
-
-            _resultLblNum = GetResultOfSpecialOperation(btn.Text);
-
-            floatingPointBtn.Enabled = double.IsInteger(_resultLblNum);
-            _decimalsAfterResult = 0;
-
-            UpdateDisplay();
+            resultUpperLbl.Text = $"{_result} {_operation} ";
+            ResetResultLowerLbl();
         }
 
         private void SwitchSignBtnClick(object? sender, EventArgs e)
         {
-            if (_resultLblNum != 0)
+            if (_currentOperand.ToString() == "0")
             {
-                _resultLblNum *= -1;
+                return;
             }
-            UpdateDisplay();
-        }
-
-        private void EqualsBtnClick(object? sender, EventArgs e)
-        {
-            if (_operation != "")
+            else if (_currentOperand[0] == '-')
             {
-                _resultLblNum = GetResultOfOperation(_operation);
-                ResetLastOperationLbl();
-            }
-
-            UpdateDisplay();
-        }
-
-        private void ClearBtnClick(object? sender, EventArgs e) => ResetResultLabelsPanel();
-
-        private void ClearEntryBtnClick(object? sender, EventArgs e) => ResetResultLbl();
-
-        private void UndoPreviousActionBtnClick(object? sender, EventArgs e)
-        {
-            if (_decimalsAfterResult != 0)
-            {
-                --_decimalsAfterResult;
+                _currentOperand.Remove(0, 1);
             }
             else
             {
+                _currentOperand.Insert(0, '-');
+            }
+
+            resultLowerLbl.Text = _currentOperand.ToString();
+        }
+
+        private void ClearBtnClick(object? sender, EventArgs e) => ResetResultLbls();
+
+        private void ClearEntryBtnClick(object? sender, EventArgs e)
+        {
+            if (resultUpperLbl.Text.EndsWith('='))
+            {
+                ResetResultUpperLbl();
+            }
+            ResetResultLowerLbl();
+        }
+
+        private void UndoPreviousActionBtnClick(object? sender, EventArgs e)
+        {
+            if (_currentOperand.ToString() == "0")
+            {
+                return;
+            }
+            else if (_currentOperand[^1] == '.')
+            {
                 floatingPointBtn.Enabled = true;
-                _resultLblNum = (int)(_resultLblNum / 10);
             }
 
-            UpdateDisplay();
-        }
+            _currentOperand.Remove(_currentOperand.Length - 1, 1);
 
-        private void FloatingPointBtnClick(object? sender, EventArgs e)
-        {
-            floatingPointBtn.Enabled = false;
-            _decimalsAfterResult = 0;
-        }
-
-        private void CalcBtnsEnterFocus(object? sender, EventArgs e)
-        {
-            if (sender == null)
+            if (_currentOperand.Length == 1 && _currentOperand[0] == '-')
             {
-                return;
+                _currentOperand.Clear();
+                _currentOperand.Append(0);
             }
 
-            Button btn = (Button)sender;
-
-            btn.FlatAppearance.BorderSize = 4;
+            resultLowerLbl.Text = _currentOperand.ToString();
         }
 
-        private void CalcBtnsLeaveFocus(object? sender, EventArgs e)
+        private void ViewHistoryBtn(object sender, EventArgs e)
         {
-            if (sender == null)
+            using CalculatorHistoryForm calculatorHistoryForm = new(_calculatorHistory);
+
+            var dialogResult = calculatorHistoryForm.ShowDialog();
+
+            if (dialogResult == DialogResult.Yes)
             {
-                return;
+                Expression selectedExpression = calculatorHistoryForm.SelectedExpression;
+
+                _result = selectedExpression.Result;
+                resultUpperLbl.Text = selectedExpression.ToString();
+
+                _currentOperand.Clear();
+                _currentOperand.Append(_result);
+
+                resultLowerLbl.Text = _currentOperand.ToString();
+                _operation = "=";
+
+                SetEnableForSpecialButtons(false);
             }
-
-            Button btn = (Button)sender;
-
-            btn.FlatAppearance.BorderSize = 1;
         }
     }
 }

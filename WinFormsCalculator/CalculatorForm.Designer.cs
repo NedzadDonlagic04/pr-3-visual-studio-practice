@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorForm));
             btnsFlowLayoutPanel = new FlowLayoutPanel();
-            remainderBtn = new Button();
-            clearEntryBtn = new Button();
-            clearEverythingBtn = new Button();
-            undoPreviousActionBtn = new Button();
-            reciprocationBtn = new Button();
-            squareBtn = new Button();
-            rootBtn = new Button();
-            divisionBtn = new Button();
-            sevenBtn = new Button();
-            eightBtn = new Button();
-            nineBtn = new Button();
-            multiplyBtn = new Button();
-            fourBtn = new Button();
-            fiveBtn = new Button();
-            sixBtn = new Button();
-            minusBtn = new Button();
-            oneBtn = new Button();
-            twoBtn = new Button();
-            threeBtn = new Button();
-            plusBtn = new Button();
-            changeSignBtn = new Button();
-            zeroBtn = new Button();
-            floatingPointBtn = new Button();
-            resultBtn = new Button();
+            remainderBtn = new CalculatorButton();
+            clearEntryBtn = new CalculatorButton();
+            clearEverythingBtn = new CalculatorButton();
+            undoPreviousActionBtn = new CalculatorButton();
+            reciprocationBtn = new CalculatorButton();
+            squareBtn = new CalculatorButton();
+            rootBtn = new CalculatorButton();
+            divisionBtn = new CalculatorButton();
+            sevenBtn = new CalculatorButton();
+            eightBtn = new CalculatorButton();
+            nineBtn = new CalculatorButton();
+            multiplyBtn = new CalculatorButton();
+            fourBtn = new CalculatorButton();
+            fiveBtn = new CalculatorButton();
+            sixBtn = new CalculatorButton();
+            minusBtn = new CalculatorButton();
+            oneBtn = new CalculatorButton();
+            twoBtn = new CalculatorButton();
+            threeBtn = new CalculatorButton();
+            plusBtn = new CalculatorButton();
+            changeSignBtn = new CalculatorButton();
+            zeroBtn = new CalculatorButton();
+            floatingPointBtn = new CalculatorButton();
+            equalsBtn = new CalculatorButton();
             resultLabelsPanel = new Panel();
-            lastOperationLbl = new Label();
-            resultLbl = new Label();
-            viewHistoryBtn = new Button();
+            resultUpperLbl = new Label();
+            resultLowerLbl = new Label();
+            viewHistoryBtn = new CalculatorButton();
             btnsFlowLayoutPanel.SuspendLayout();
             resultLabelsPanel.SuspendLayout();
             SuspendLayout();
@@ -86,7 +87,7 @@
             btnsFlowLayoutPanel.Controls.Add(changeSignBtn);
             btnsFlowLayoutPanel.Controls.Add(zeroBtn);
             btnsFlowLayoutPanel.Controls.Add(floatingPointBtn);
-            btnsFlowLayoutPanel.Controls.Add(resultBtn);
+            btnsFlowLayoutPanel.Controls.Add(equalsBtn);
             btnsFlowLayoutPanel.Location = new Point(12, 156);
             btnsFlowLayoutPanel.Margin = new Padding(1);
             btnsFlowLayoutPanel.Name = "btnsFlowLayoutPanel";
@@ -107,8 +108,7 @@
             remainderBtn.TabIndex = 2;
             remainderBtn.Text = "%";
             remainderBtn.UseVisualStyleBackColor = false;
-            remainderBtn.Enter += CalcBtnsEnterFocus;
-            remainderBtn.Leave += CalcBtnsLeaveFocus;
+            remainderBtn.Click += OperationBtnClick;
             // 
             // clearEntryBtn
             // 
@@ -125,8 +125,6 @@
             clearEntryBtn.Text = "CE";
             clearEntryBtn.UseVisualStyleBackColor = false;
             clearEntryBtn.Click += ClearEntryBtnClick;
-            clearEntryBtn.Enter += CalcBtnsEnterFocus;
-            clearEntryBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // clearEverythingBtn
             // 
@@ -143,8 +141,6 @@
             clearEverythingBtn.Text = "C";
             clearEverythingBtn.UseVisualStyleBackColor = false;
             clearEverythingBtn.Click += ClearBtnClick;
-            clearEverythingBtn.Enter += CalcBtnsEnterFocus;
-            clearEverythingBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // undoPreviousActionBtn
             // 
@@ -161,8 +157,6 @@
             undoPreviousActionBtn.Text = "⌫";
             undoPreviousActionBtn.UseVisualStyleBackColor = false;
             undoPreviousActionBtn.Click += UndoPreviousActionBtnClick;
-            undoPreviousActionBtn.Enter += CalcBtnsEnterFocus;
-            undoPreviousActionBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // reciprocationBtn
             // 
@@ -178,9 +172,7 @@
             reciprocationBtn.TabIndex = 6;
             reciprocationBtn.Text = "x⁻¹";
             reciprocationBtn.UseVisualStyleBackColor = false;
-            reciprocationBtn.Click += SpecialOperationBtnClick;
-            reciprocationBtn.Enter += CalcBtnsEnterFocus;
-            reciprocationBtn.Leave += CalcBtnsLeaveFocus;
+            reciprocationBtn.Click += OperationBtnClick;
             // 
             // squareBtn
             // 
@@ -197,9 +189,7 @@
             squareBtn.Tag = "";
             squareBtn.Text = "x²";
             squareBtn.UseVisualStyleBackColor = false;
-            squareBtn.Click += SpecialOperationBtnClick;
-            squareBtn.Enter += CalcBtnsEnterFocus;
-            squareBtn.Leave += CalcBtnsLeaveFocus;
+            squareBtn.Click += OperationBtnClick;
             // 
             // rootBtn
             // 
@@ -215,9 +205,7 @@
             rootBtn.TabIndex = 8;
             rootBtn.Text = "√";
             rootBtn.UseVisualStyleBackColor = false;
-            rootBtn.Click += SpecialOperationBtnClick;
-            rootBtn.Enter += CalcBtnsEnterFocus;
-            rootBtn.Leave += CalcBtnsLeaveFocus;
+            rootBtn.Click += OperationBtnClick;
             // 
             // divisionBtn
             // 
@@ -234,8 +222,6 @@
             divisionBtn.Text = "÷";
             divisionBtn.UseVisualStyleBackColor = false;
             divisionBtn.Click += OperationBtnClick;
-            divisionBtn.Enter += CalcBtnsEnterFocus;
-            divisionBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // sevenBtn
             // 
@@ -252,8 +238,6 @@
             sevenBtn.Text = "7";
             sevenBtn.UseVisualStyleBackColor = false;
             sevenBtn.Click += NumberBtnClick;
-            sevenBtn.Enter += CalcBtnsEnterFocus;
-            sevenBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // eightBtn
             // 
@@ -270,8 +254,6 @@
             eightBtn.Text = "8";
             eightBtn.UseVisualStyleBackColor = false;
             eightBtn.Click += NumberBtnClick;
-            eightBtn.Enter += CalcBtnsEnterFocus;
-            eightBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // nineBtn
             // 
@@ -288,8 +270,6 @@
             nineBtn.Text = "9";
             nineBtn.UseVisualStyleBackColor = false;
             nineBtn.Click += NumberBtnClick;
-            nineBtn.Enter += CalcBtnsEnterFocus;
-            nineBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // multiplyBtn
             // 
@@ -306,8 +286,6 @@
             multiplyBtn.Text = "×";
             multiplyBtn.UseVisualStyleBackColor = false;
             multiplyBtn.Click += OperationBtnClick;
-            multiplyBtn.Enter += CalcBtnsEnterFocus;
-            multiplyBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // fourBtn
             // 
@@ -324,8 +302,6 @@
             fourBtn.Text = "4";
             fourBtn.UseVisualStyleBackColor = false;
             fourBtn.Click += NumberBtnClick;
-            fourBtn.Enter += CalcBtnsEnterFocus;
-            fourBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // fiveBtn
             // 
@@ -342,8 +318,6 @@
             fiveBtn.Text = "5";
             fiveBtn.UseVisualStyleBackColor = false;
             fiveBtn.Click += NumberBtnClick;
-            fiveBtn.Enter += CalcBtnsEnterFocus;
-            fiveBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // sixBtn
             // 
@@ -360,8 +334,6 @@
             sixBtn.Text = "6";
             sixBtn.UseVisualStyleBackColor = false;
             sixBtn.Click += NumberBtnClick;
-            sixBtn.Enter += CalcBtnsEnterFocus;
-            sixBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // minusBtn
             // 
@@ -378,8 +350,6 @@
             minusBtn.Text = "-";
             minusBtn.UseVisualStyleBackColor = false;
             minusBtn.Click += OperationBtnClick;
-            minusBtn.Enter += CalcBtnsEnterFocus;
-            minusBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // oneBtn
             // 
@@ -396,8 +366,6 @@
             oneBtn.Text = "1";
             oneBtn.UseVisualStyleBackColor = false;
             oneBtn.Click += NumberBtnClick;
-            oneBtn.Enter += CalcBtnsEnterFocus;
-            oneBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // twoBtn
             // 
@@ -414,8 +382,6 @@
             twoBtn.Text = "2";
             twoBtn.UseVisualStyleBackColor = false;
             twoBtn.Click += NumberBtnClick;
-            twoBtn.Enter += CalcBtnsEnterFocus;
-            twoBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // threeBtn
             // 
@@ -432,8 +398,6 @@
             threeBtn.Text = "3";
             threeBtn.UseVisualStyleBackColor = false;
             threeBtn.Click += NumberBtnClick;
-            threeBtn.Enter += CalcBtnsEnterFocus;
-            threeBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // plusBtn
             // 
@@ -450,8 +414,6 @@
             plusBtn.Text = "+";
             plusBtn.UseVisualStyleBackColor = false;
             plusBtn.Click += OperationBtnClick;
-            plusBtn.Enter += CalcBtnsEnterFocus;
-            plusBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // changeSignBtn
             // 
@@ -468,8 +430,6 @@
             changeSignBtn.Text = "±";
             changeSignBtn.UseVisualStyleBackColor = false;
             changeSignBtn.Click += SwitchSignBtnClick;
-            changeSignBtn.Enter += CalcBtnsEnterFocus;
-            changeSignBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // zeroBtn
             // 
@@ -486,8 +446,6 @@
             zeroBtn.Text = "0";
             zeroBtn.UseVisualStyleBackColor = false;
             zeroBtn.Click += NumberBtnClick;
-            zeroBtn.Enter += CalcBtnsEnterFocus;
-            zeroBtn.Leave += CalcBtnsLeaveFocus;
             // 
             // floatingPointBtn
             // 
@@ -504,61 +462,56 @@
             floatingPointBtn.Text = ".";
             floatingPointBtn.UseVisualStyleBackColor = false;
             floatingPointBtn.Click += FloatingPointBtnClick;
-            floatingPointBtn.Enter += CalcBtnsEnterFocus;
-            floatingPointBtn.Leave += CalcBtnsLeaveFocus;
             // 
-            // resultBtn
+            // equalsBtn
             // 
-            resultBtn.AutoSize = true;
-            resultBtn.BackColor = Color.FromArgb(59, 59, 59);
-            resultBtn.FlatStyle = FlatStyle.Flat;
-            resultBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            resultBtn.ForeColor = Color.FromArgb(226, 226, 226);
-            resultBtn.Location = new Point(277, 261);
-            resultBtn.Margin = new Padding(1);
-            resultBtn.Name = "resultBtn";
-            resultBtn.Size = new Size(90, 50);
-            resultBtn.TabIndex = 25;
-            resultBtn.Text = "=";
-            resultBtn.UseVisualStyleBackColor = false;
-            resultBtn.Click += EqualsBtnClick;
-            resultBtn.Enter += CalcBtnsEnterFocus;
-            resultBtn.Leave += CalcBtnsLeaveFocus;
+            equalsBtn.AutoSize = true;
+            equalsBtn.BackColor = Color.FromArgb(59, 59, 59);
+            equalsBtn.FlatStyle = FlatStyle.Flat;
+            equalsBtn.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            equalsBtn.ForeColor = Color.FromArgb(226, 226, 226);
+            equalsBtn.Location = new Point(277, 261);
+            equalsBtn.Margin = new Padding(1);
+            equalsBtn.Name = "equalsBtn";
+            equalsBtn.Size = new Size(90, 50);
+            equalsBtn.TabIndex = 25;
+            equalsBtn.Text = "=";
+            equalsBtn.UseVisualStyleBackColor = false;
+            equalsBtn.Click += EqualsBtnClick;
             // 
             // resultLabelsPanel
             // 
-            resultLabelsPanel.Controls.Add(lastOperationLbl);
-            resultLabelsPanel.Controls.Add(resultLbl);
+            resultLabelsPanel.Controls.Add(resultUpperLbl);
+            resultLabelsPanel.Controls.Add(resultLowerLbl);
             resultLabelsPanel.Location = new Point(12, 53);
             resultLabelsPanel.Name = "resultLabelsPanel";
             resultLabelsPanel.Size = new Size(366, 100);
             resultLabelsPanel.TabIndex = 1;
             // 
-            // lastOperationLbl
+            // resultUpperLbl
             // 
-            lastOperationLbl.BackColor = Color.FromArgb(226, 226, 226);
-            lastOperationLbl.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lastOperationLbl.ForeColor = Color.FromArgb(59, 59, 59);
-            lastOperationLbl.Location = new Point(0, 0);
-            lastOperationLbl.Name = "lastOperationLbl";
-            lastOperationLbl.RightToLeft = RightToLeft.No;
-            lastOperationLbl.Size = new Size(365, 43);
-            lastOperationLbl.TabIndex = 4;
-            lastOperationLbl.TextAlign = ContentAlignment.BottomRight;
-            lastOperationLbl.Click += OperationBtnClick;
+            resultUpperLbl.BackColor = Color.FromArgb(226, 226, 226);
+            resultUpperLbl.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            resultUpperLbl.ForeColor = Color.FromArgb(59, 59, 59);
+            resultUpperLbl.Location = new Point(0, 0);
+            resultUpperLbl.Name = "resultUpperLbl";
+            resultUpperLbl.RightToLeft = RightToLeft.No;
+            resultUpperLbl.Size = new Size(365, 43);
+            resultUpperLbl.TabIndex = 4;
+            resultUpperLbl.TextAlign = ContentAlignment.BottomRight;
             // 
-            // resultLbl
+            // resultLowerLbl
             // 
-            resultLbl.BackColor = Color.FromArgb(226, 226, 226);
-            resultLbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            resultLbl.ForeColor = Color.FromArgb(59, 59, 59);
-            resultLbl.Location = new Point(0, 50);
-            resultLbl.Name = "resultLbl";
-            resultLbl.RightToLeft = RightToLeft.No;
-            resultLbl.Size = new Size(365, 50);
-            resultLbl.TabIndex = 3;
-            resultLbl.Text = "0";
-            resultLbl.TextAlign = ContentAlignment.BottomRight;
+            resultLowerLbl.BackColor = Color.FromArgb(226, 226, 226);
+            resultLowerLbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            resultLowerLbl.ForeColor = Color.FromArgb(59, 59, 59);
+            resultLowerLbl.Location = new Point(0, 50);
+            resultLowerLbl.Name = "resultLowerLbl";
+            resultLowerLbl.RightToLeft = RightToLeft.No;
+            resultLowerLbl.Size = new Size(365, 50);
+            resultLowerLbl.TabIndex = 3;
+            resultLowerLbl.Text = "0";
+            resultLowerLbl.TextAlign = ContentAlignment.BottomRight;
             // 
             // viewHistoryBtn
             // 
@@ -573,8 +526,7 @@
             viewHistoryBtn.TabIndex = 2;
             viewHistoryBtn.Text = "View History";
             viewHistoryBtn.UseVisualStyleBackColor = false;
-            viewHistoryBtn.Enter += CalcBtnsEnterFocus;
-            viewHistoryBtn.Leave += CalcBtnsLeaveFocus;
+            viewHistoryBtn.Click += ViewHistoryBtn;
             // 
             // CalculatorForm
             // 
@@ -586,6 +538,7 @@
             Controls.Add(resultLabelsPanel);
             Controls.Add(btnsFlowLayoutPanel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "CalculatorForm";
@@ -602,33 +555,33 @@
         #endregion
 
         private FlowLayoutPanel btnsFlowLayoutPanel;
-        private Button remainderBtn;
-        private Button clearEntryBtn;
-        private Button clearEverythingBtn;
-        private Button undoPreviousActionBtn;
-        private Button reciprocationBtn;
-        private Button squareBtn;
-        private Button rootBtn;
-        private Button divisionBtn;
-        private Button sevenBtn;
-        private Button eightBtn;
-        private Button nineBtn;
-        private Button multiplyBtn;
-        private Button fourBtn;
-        private Button fiveBtn;
-        private Button sixBtn;
-        private Button minusBtn;
-        private Button oneBtn;
-        private Button twoBtn;
-        private Button threeBtn;
-        private Button plusBtn;
-        private Button changeSignBtn;
-        private Button zeroBtn;
-        private Button floatingPointBtn;
-        private Button resultBtn;
+        private CalculatorButton remainderBtn;
+        private CalculatorButton clearEntryBtn;
+        private CalculatorButton clearEverythingBtn;
+        private CalculatorButton undoPreviousActionBtn;
+        private CalculatorButton reciprocationBtn;
+        private CalculatorButton squareBtn;
+        private CalculatorButton rootBtn;
+        private CalculatorButton divisionBtn;
+        private CalculatorButton sevenBtn;
+        private CalculatorButton eightBtn;
+        private CalculatorButton nineBtn;
+        private CalculatorButton multiplyBtn;
+        private CalculatorButton fourBtn;
+        private CalculatorButton fiveBtn;
+        private CalculatorButton sixBtn;
+        private CalculatorButton minusBtn;
+        private CalculatorButton oneBtn;
+        private CalculatorButton twoBtn;
+        private CalculatorButton threeBtn;
+        private CalculatorButton plusBtn;
+        private CalculatorButton changeSignBtn;
+        private CalculatorButton zeroBtn;
+        private CalculatorButton floatingPointBtn;
+        private CalculatorButton equalsBtn;
         private Panel resultLabelsPanel;
-        private Button viewHistoryBtn;
-        private Label resultLbl;
-        private Label lastOperationLbl;
+        private CalculatorButton viewHistoryBtn;
+        private Label resultLowerLbl;
+        private Label resultUpperLbl;
     }
 }
