@@ -61,6 +61,9 @@
             ClientSize = new Size(390, 471);
             Controls.Add(calculatorHistoryLbl);
             Controls.Add(calculatorHistoryPnl);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "CalculatorHistoryForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculator History";
