@@ -87,6 +87,7 @@ namespace WinFormsCalculator
             "√" => Math.Sqrt(CurrentOperand),
             "x²" => CurrentOperand * CurrentOperand,
             "x⁻¹" => 1 / CurrentOperand,
+            "" => CurrentOperand,
             _ => throw new NotImplementedException($"Operation \"{_operation}\" is not a supported operation")
         };
 
@@ -95,7 +96,7 @@ namespace WinFormsCalculator
             "√" => $"√{_currentOperand}",
             "x²" => $"{_currentOperand}²",
             "x⁻¹" => $"{_currentOperand}⁻¹",
-            "+" or "-" or "×" or "÷" or "%" => $"{_currentOperand}",
+            "+" or "-" or "×" or "÷" or "%" or "" => $"{_currentOperand}",
             _ => throw new NotImplementedException($"Operation \"{_operation}\" is not a supported operation")
         };
 
