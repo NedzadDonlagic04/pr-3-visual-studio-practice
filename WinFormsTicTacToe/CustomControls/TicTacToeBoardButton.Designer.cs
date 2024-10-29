@@ -34,6 +34,11 @@
             FlatAppearance.BorderSize = 0;
             ForeColor = Color.Black;
             TabStop = false;
+            // Might be useful for the line below
+            // https://stackoverflow.com/questions/8283631/graphics-drawstring-vs-textrenderer-drawtextwhich-can-deliver-better-quality#23230570
+            // TL;DR I had to make this true so that when a vertical victory was achieved in the game
+            // the line drawn would go through the middle of the characters, leaving this as false
+            // would make it so they're a bit more to the left than they should be
             UseCompatibleTextRendering = true;
         }
 

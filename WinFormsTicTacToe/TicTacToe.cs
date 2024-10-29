@@ -33,7 +33,12 @@ namespace WinFormsTicTacToe
 
             ResetTicTacToeBoard();
 
-            _lineDrawnSoundPlayer.Load();
+            /*
+             * Seems like LoadAsync removes the initial delay that playing the sound used to have
+             * I assume it's because of what the docs say below
+             * https://learn.microsoft.com/en-us/dotnet/api/system.media.soundplayer.load?view=net-8.0#remarks
+             */
+            _lineDrawnSoundPlayer.LoadAsync();
 
             playAgainBtn.Hide();
         }
