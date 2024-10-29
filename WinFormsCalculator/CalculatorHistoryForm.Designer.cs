@@ -62,12 +62,14 @@
             Controls.Add(calculatorHistoryLbl);
             Controls.Add(calculatorHistoryPnl);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            KeyPreview = true;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "CalculatorHistoryForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculator History";
             Shown += CalculatorHistoryFormShown;
+            KeyPress += HandleCalcHistoryFormKeyPress;
             ResumeLayout(false);
             PerformLayout();
         }

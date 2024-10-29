@@ -63,5 +63,18 @@ namespace WinFormsCalculator
                 ActiveControl = calculatorHistoryPnl.Controls[^1];
             }
         }
+
+        private void HandleCalcHistoryFormKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (sender == null)
+            {
+                return;
+            }
+
+            if (e.KeyChar == (char)27)
+            {
+                Close();
+            }
+        }
     }
 }

@@ -14,6 +14,7 @@ You can see the mappings below if you are curious:
 - N or n => Is mapped to x⁻¹
 - F or f => Is mapped to ±
 - H or h => Is mapped to View History
+- ESC => Will close either the main calculator window / form or the calculator history one depending on which one is opened
 - Backspace => ⌫
 
 (Last one was the most useful I imagine)

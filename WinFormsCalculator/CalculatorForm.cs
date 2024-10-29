@@ -312,9 +312,12 @@ namespace WinFormsCalculator
                 case 'H' or 'h':
                     btn = viewHistoryBtn;
                     break;
-                case (char)8:
+                case (char)8:   // Backspace
                     btn = undoPreviousActionBtn;
                     break;
+                case (char)27:  // ESC
+                    Close();    
+                    return;
                 default:
                     return;
             }
