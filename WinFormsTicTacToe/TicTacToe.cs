@@ -92,7 +92,7 @@ namespace WinFormsTicTacToe
         private void PlaceSymbol(object sender, EventArgs e)
         {
             ++_timesClicked;
-            
+
             if (sender == null)
             {
                 return;
@@ -112,7 +112,7 @@ namespace WinFormsTicTacToe
             }
         }
 
-        private void UpdatePlayerScores(string symbol) 
+        private void UpdatePlayerScores(string symbol)
         {
             // Could have also kept track of the scores as fields here
             Label scoreLbl = (symbol == "X") ? playerXScoreLbl : playerYScoreLbl;

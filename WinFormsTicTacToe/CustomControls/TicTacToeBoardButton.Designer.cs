@@ -30,7 +30,8 @@
         {
             components = new System.ComponentModel.Container();
 
-            Font = new Font("Segoe UI", 36, FontStyle.Bold);
+            Font = new Font("Segoe UI", 36, FontStyle.Regular);
+            FlatStyle = FlatStyle.Flat;
             FlatAppearance.BorderSize = 0;
             ForeColor = Color.Black;
             TabStop = false;
