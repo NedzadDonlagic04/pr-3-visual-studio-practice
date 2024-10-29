@@ -539,12 +539,14 @@
             Controls.Add(btnsFlowLayoutPanel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "CalculatorForm";
             Padding = new Padding(2);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculator";
+            KeyPress += HandleCalcFormKeyPress;
             btnsFlowLayoutPanel.ResumeLayout(false);
             btnsFlowLayoutPanel.PerformLayout();
             resultLabelsPanel.ResumeLayout(false);

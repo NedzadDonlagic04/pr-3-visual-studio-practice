@@ -228,5 +228,99 @@ namespace WinFormsCalculator
                 SetEnableForSpecialButtons(false);
             }
         }
+
+        private void HandleCalcFormKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (sender == null)
+            {
+                return;
+            }
+
+            Button btn;
+
+            switch (e.KeyChar)
+            {
+                case '0':
+                    btn = zeroBtn;
+                    break;                
+                case '1':
+                    btn = oneBtn;
+                    break;
+                case '2':
+                    btn = twoBtn;
+                    break;
+                case '3':
+                    btn = threeBtn;
+                    break;
+                case '4':
+                    btn = fourBtn;
+                    break;
+                case '5':
+                    btn = fiveBtn;
+                    break;
+                case '6':
+                    btn = sixBtn;
+                    break;
+                case '7':
+                    btn = sevenBtn;
+                    break;
+                case '8':
+                    btn = eightBtn;
+                    break;
+                case '9':
+                    btn = nineBtn;
+                    break;
+                case '+':
+                    btn = plusBtn;
+                    break;
+                case '-':
+                    btn = minusBtn;
+                    break;
+                case '*':
+                    btn = multiplyBtn;
+                    break;
+                case '/':
+                    btn = divisionBtn;
+                    break;
+                case '%':
+                    btn = remainderBtn;
+                    break;
+                case '=':
+                    btn = equalsBtn;
+                    break;
+                case '.':
+                    btn = floatingPointBtn;
+                    break;
+                case 'E' or 'e':
+                    btn = clearEntryBtn;
+                    break;
+                case 'C' or 'c':
+                    btn = clearEverythingBtn;
+                    break;
+                case 'S' or 's':
+                    btn = squareBtn;
+                    break;
+                case 'R' or 'r':
+                    btn = rootBtn;
+                    break;
+                case 'N' or 'n':
+                    btn = reciprocationBtn;
+                    break;
+                case 'F' or 'f':
+                    btn = changeSignBtn;
+                    break;
+                case 'H' or 'h':
+                    btn = viewHistoryBtn;
+                    break;
+                case (char)8:
+                    btn = undoPreviousActionBtn;
+                    break;
+                default:
+                    return;
+            }
+
+            btn.PerformClick();
+            btn.Focus();
+        }
     }
 }
