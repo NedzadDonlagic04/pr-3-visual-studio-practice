@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 
 using WinFormsCalculator.Classes;
 
@@ -10,7 +11,7 @@ namespace WinFormsCalculator
 
         private readonly StringBuilder _currentOperand = new("0");
 
-        private double CurrentOperand { get => double.Parse(_currentOperand.ToString()); }
+        private double CurrentOperand { get => double.Parse(_currentOperand.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture); }
 
         private string _operation = "";
 
