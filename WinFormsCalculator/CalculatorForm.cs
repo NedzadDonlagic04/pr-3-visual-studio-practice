@@ -239,8 +239,6 @@ namespace WinFormsCalculator
 
             Button btn;
 
-            System.Diagnostics.Debug.WriteLine((int)e.KeyChar);
-
             switch (e.KeyChar)
             {
                 case '0':
@@ -327,7 +325,6 @@ namespace WinFormsCalculator
             }
 
             btn.PerformClick();
-            btn.Focus();
         }
     }
 }
