@@ -523,7 +523,7 @@
             viewHistoryBtn.Location = new Point(199, 5);
             viewHistoryBtn.Name = "viewHistoryBtn";
             viewHistoryBtn.Size = new Size(179, 42);
-            viewHistoryBtn.TabIndex = 2;
+            viewHistoryBtn.TabIndex = 0;
             viewHistoryBtn.Text = "View History";
             viewHistoryBtn.UseVisualStyleBackColor = false;
             viewHistoryBtn.Click += ViewHistoryBtn;

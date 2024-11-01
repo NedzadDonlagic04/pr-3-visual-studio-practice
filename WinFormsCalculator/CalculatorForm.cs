@@ -20,8 +20,6 @@ namespace WinFormsCalculator
         internal CalculatorForm()
         {
             InitializeComponent();
-
-            ActiveControl = null;
         }
 
         private void SetEnableForSpecialButtons(bool state)
@@ -248,7 +246,7 @@ namespace WinFormsCalculator
             {
                 case '0':
                     btn = zeroBtn;
-                    break;                
+                    break;
                 case '1':
                     btn = oneBtn;
                     break;
@@ -319,11 +317,11 @@ namespace WinFormsCalculator
                 case 'H' or 'h':
                     btn = viewHistoryBtn;
                     break;
-                case (char)Keys.Back:     
+                case (char)Keys.Back:
                     btn = undoPreviousActionBtn;
                     break;
-                case (char)Keys.Escape:     
-                    ActiveControl = null;   
+                case (char)Keys.Escape:
+                    ActiveControl = null;
                     return;
                 default:
                     return;
