@@ -6,6 +6,7 @@ Keyboard is supported (unless something breaks then that means I didn't do somet
 You can see the mappings below if you are curious:
 - 0 - 9 => Good ol' numbers
 - +, -, \*, /, %, = => Speak for themselves I feel
+- Enter => Is mapped to perform the same as the = button
 - . => Makes every new number be after the decimal point
 - E or e => Is mapped to CE
 - C or c => Is mapped to C
@@ -14,7 +15,7 @@ You can see the mappings below if you are curious:
 - N or n => Is mapped to x⁻¹
 - F or f => Is mapped to ±
 - H or h => Is mapped to View History
-- ESC => Will close either the main calculator window / form or the calculator history one depending on which one is opened
+- ESC => Will close either the calculator history form or make whatever is focused lose focus on the main calculator form
 - Backspace => ⌫
 
 (Last one was the most useful I imagine)

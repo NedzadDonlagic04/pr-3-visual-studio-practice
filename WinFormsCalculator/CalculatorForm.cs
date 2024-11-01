@@ -239,6 +239,8 @@ namespace WinFormsCalculator
 
             Button btn;
 
+            System.Diagnostics.Debug.WriteLine((int)e.KeyChar);
+
             switch (e.KeyChar)
             {
                 case '0':
@@ -286,6 +288,7 @@ namespace WinFormsCalculator
                 case '%':
                     btn = remainderBtn;
                     break;
+                case (char)Keys.Enter:
                 case '=':
                     btn = equalsBtn;
                     break;
@@ -313,11 +316,11 @@ namespace WinFormsCalculator
                 case 'H' or 'h':
                     btn = viewHistoryBtn;
                     break;
-                case (char)8:   // Backspace
+                case (char)Keys.Back:     
                     btn = undoPreviousActionBtn;
                     break;
-                case (char)27:  // ESC
-                    Close();    
+                case (char)Keys.Escape:     
+                    ActiveControl = null;   
                     return;
                 default:
                     return;
