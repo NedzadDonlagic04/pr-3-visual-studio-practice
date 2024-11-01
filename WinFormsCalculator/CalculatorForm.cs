@@ -20,6 +20,8 @@ namespace WinFormsCalculator
         internal CalculatorForm()
         {
             InitializeComponent();
+
+            ActiveControl = null;
         }
 
         private void SetEnableForSpecialButtons(bool state)
@@ -201,6 +203,9 @@ namespace WinFormsCalculator
             if (_currentOperand.Length == 1 && _currentOperand[0] == '-')
             {
                 _currentOperand.Clear();
+            }
+            if (_currentOperand.Length == 0)
+            {
                 _currentOperand.Append(0);
             }
 
