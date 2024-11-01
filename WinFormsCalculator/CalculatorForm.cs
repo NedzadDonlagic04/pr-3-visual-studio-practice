@@ -216,21 +216,23 @@ namespace WinFormsCalculator
 
             var dialogResult = calculatorHistoryForm.ShowDialog();
 
-            if (dialogResult == DialogResult.Yes)
+            if (dialogResult != DialogResult.Yes)
             {
-                Expression selectedExpression = calculatorHistoryForm.SelectedExpression;
-
-                _result = selectedExpression.Result;
-                resultUpperLbl.Text = selectedExpression.ToString();
-
-                _currentOperand.Clear();
-                _currentOperand.Append(_result);
-
-                resultLowerLbl.Text = _currentOperand.ToString();
-                _operation = "=";
-
-                SetEnableForSpecialButtons(false);
+                return;
             }
+
+            Expression selectedExpression = calculatorHistoryForm.SelectedExpression;
+
+            _result = selectedExpression.Result;
+            resultUpperLbl.Text = selectedExpression.ToString();
+
+            _currentOperand.Clear();
+            _currentOperand.Append(_result);
+
+            resultLowerLbl.Text = _currentOperand.ToString();
+            _operation = "=";
+
+            SetEnableForSpecialButtons(false);
         }
 
         private void HandleCalcFormKeyPress(object sender, KeyPressEventArgs e)
