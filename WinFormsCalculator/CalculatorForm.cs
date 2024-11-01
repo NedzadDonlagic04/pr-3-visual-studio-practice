@@ -22,6 +22,11 @@ namespace WinFormsCalculator
             InitializeComponent();
         }
 
+        private void CalculatorShow(object? sender, EventArgs e)
+        {
+            ActiveControl = null;
+        }
+
         private void SetEnableForSpecialButtons(bool state)
         {
             floatingPointBtn.Enabled = state;

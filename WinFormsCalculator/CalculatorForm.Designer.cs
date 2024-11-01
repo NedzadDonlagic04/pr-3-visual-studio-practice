@@ -546,6 +546,7 @@
             Padding = new Padding(2);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculator";
+            Shown += CalculatorShow;
             KeyPress += HandleCalcFormKeyPress;
             btnsFlowLayoutPanel.ResumeLayout(false);
             btnsFlowLayoutPanel.PerformLayout();
