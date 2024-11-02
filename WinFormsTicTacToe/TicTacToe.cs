@@ -119,6 +119,9 @@ namespace WinFormsTicTacToe
             }
         }
 
+        // The reason I went with the for loops for the following checks
+        // was mostly because I wanted to make my life easier in case
+        // I ever decided to expand from the 3x3 grid
         private bool HandleGameOverInRow(int targetRow)
         {
             TicTacToeBoardButton firstBtn = _ticTacToeBoardBtns[targetRow, 0];
