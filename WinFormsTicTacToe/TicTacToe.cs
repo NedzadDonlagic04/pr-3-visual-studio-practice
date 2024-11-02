@@ -1,4 +1,3 @@
-using System.Media;
 using WinFormsTicTacToe.CustomControls;
 
 namespace WinFormsTicTacToe
@@ -6,11 +5,10 @@ namespace WinFormsTicTacToe
     public partial class TicTacToeForm : Form
     {
         private string _symbol = "X";
+        private string NextSymbol { get => _symbol = (_symbol == "X") ? "O" : "X"; }
 
         private const int TicTacToeBoardSize = 3;
         private readonly TicTacToeBoardButton[,] _ticTacToeBoardBtns = new TicTacToeBoardButton[TicTacToeBoardSize, TicTacToeBoardSize];
-
-        private readonly SoundPlayer _lineDrawnSoundPlayer = new(Resources.SharpieLineDrawnSfx);
 
         private int _timesClicked = 0;
 
@@ -20,7 +18,7 @@ namespace WinFormsTicTacToe
         private Point _to;
         private Point _increment;
         private const int _step = 2;
-        private readonly SolidBrush _ellipseBrush = new(Color.Red);
+        private readonly SolidBrush _ellipseBrush = new(Color.Black);
         private const int _ellipseRadius = 16;
 
         public TicTacToeForm()
@@ -28,19 +26,12 @@ namespace WinFormsTicTacToe
             InitializeComponent();
 
             SetTicTacToeBoardBtns();
-            _ticTacToeBoardGraphics = ticTacToeBoardAnimationPanel.CreateGraphics();
-            ticTacToeBoardAnimationPanel.Hide();
-
             ResetTicTacToeBoard();
 
-            /*
-             * Seems like LoadAsync removes the initial delay that playing the sound used to have
-             * I assume it's because of what the docs say below
-             * https://learn.microsoft.com/en-us/dotnet/api/system.media.soundplayer.load?view=net-8.0#remarks
-             */
-            _lineDrawnSoundPlayer.LoadAsync();
-
             playAgainBtn.Hide();
+
+            _ticTacToeBoardGraphics = ticTacToeBoardAnimationPanel.CreateGraphics();
+            ticTacToeBoardAnimationPanel.Hide();
         }
 
         private void SetTicTacToeBoardBtns()
@@ -69,7 +60,7 @@ namespace WinFormsTicTacToe
             }
         }
 
-        private void ResetGameClick(object sender, EventArgs e)
+        private void ResetGameClick(object? sender, EventArgs e)
         {
             if (sender == null)
             {
@@ -80,19 +71,11 @@ namespace WinFormsTicTacToe
 
             ticTacToeBoardAnimationPanel.Hide();
             playAgainBtn.Hide();
+            _timesClicked = 0;
         }
 
-        private string GetNextSymbol()
+        private void PlaceSymbol(object? sender, EventArgs e)
         {
-            string temp = _symbol;
-            _symbol = (_symbol == "X") ? "O" : "X";
-            return temp;
-        }
-
-        private void PlaceSymbol(object sender, EventArgs e)
-        {
-            ++_timesClicked;
-
             if (sender == null)
             {
                 return;
@@ -100,15 +83,15 @@ namespace WinFormsTicTacToe
 
             TicTacToeBoardButton btn = (TicTacToeBoardButton)sender;
 
-            btn.Text = GetNextSymbol();
             btn.Enabled = false;
+            btn.Text = NextSymbol;
 
             HandleGameOver();
 
+            ++_timesClicked;
             if (_timesClicked == 9)
             {
                 playAgainBtn.Show();
-                _timesClicked = 0;
             }
         }
 
@@ -266,13 +249,14 @@ namespace WinFormsTicTacToe
 
             ticTacToeBoardAnimationPanel.Show();
             lineAnimationTimer.Start();
-            _lineDrawnSoundPlayer.Play();
         }
 
         private void DrawFilledEllipse()
         {
             _ticTacToeBoardGraphics.FillEllipse(_ellipseBrush, new Rectangle(_from.X, _from.Y, _ellipseRadius, _ellipseRadius));
         }
+
+        private bool LineFinishedDrawing() => _from.X == _to.X && _from.Y == _to.Y;
 
         /// <summary>
         ///     Here we are essentially drawing a bunch of ellipses very close to one
@@ -285,7 +269,7 @@ namespace WinFormsTicTacToe
             _from.X += (_from.X != _to.X) ? _increment.X : 0;
             _from.Y += (_from.Y != _to.Y) ? _increment.Y : 0;
 
-            if (_from.X == _to.X && _from.Y == _to.Y)
+            if (LineFinishedDrawing())
             {
                 lineAnimationTimer.Stop();
                 playAgainBtn.Show();
@@ -293,13 +277,13 @@ namespace WinFormsTicTacToe
             }
         }
 
-        private void AnimationFrame(object sender, EventArgs e)
+        private void AnimationFrame(object? sender, EventArgs e)
         {
-            // Why is the 15 here?
+            // Why is the 20 here?
             // I just put a random number off the top of my head
             // and the speed at which the line was drawn fit what I wanted
             // so I left it there
-            for (int i = 0; i < 15; ++i)
+            for (int i = 0; i < 20; ++i)
             {
                 DrawPartOfLine();
             }
