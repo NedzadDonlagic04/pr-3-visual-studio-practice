@@ -4,7 +4,8 @@ namespace WinFormsTicTacToe
 {
     public partial class TicTacToeForm : Form
     {
-        private string _symbol = "X";
+        private const string InitialSymbol = "O";
+        private string _symbol = InitialSymbol;
         private string NextSymbol { get => _symbol = (_symbol == "X") ? "O" : "X"; }
 
         private const int TicTacToeBoardSize = 3;
@@ -49,7 +50,7 @@ namespace WinFormsTicTacToe
 
         private void ResetTicTacToeBoard()
         {
-            _symbol = "X";
+            _symbol = InitialSymbol;
             for (int i = 0; i < TicTacToeBoardSize; ++i)
             {
                 for (int j = 0; j < TicTacToeBoardSize; ++j)
