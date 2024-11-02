@@ -1,4 +1,5 @@
 ﻿using Extensions;
+using NAudio.Wave;
 using System.Media;
 using WinFormsSnake.SnakeExceptions;
 using WinFormsSnake.SnakeHighScoresManager;
@@ -51,7 +52,8 @@ namespace WinFormsSnake
 
         internal SnakeGameAction NextAction { get; private set; }
 
-        private readonly SoundPlayer _appleChewedSoundPlayer = new(Properties.Resources.appleBiteNChewSoundEffect);
+        private readonly AudioFileReader _appleChewSfxReader = new("./Resources/appleBiteNChewSoundEffect.wav");
+        private readonly WaveOutEvent _waveOutDevice = new();
 
         internal SnakeGameplayForm(HighScoresManager highScoresManager)
         {
@@ -64,6 +66,8 @@ namespace WinFormsSnake
             // Lines below are added to shush the warnings about
             // existing constructor as null up
             _appleTile = _grassTiles[InitialApplePos.Y, InitialApplePos.X];
+
+            _waveOutDevice.Init(_appleChewSfxReader);
         }
 
         private void ApplySharedTheme()
@@ -284,7 +288,8 @@ namespace WinFormsSnake
             {
                 UpdateScore();
                 RespawnApple();
-                _appleChewedSoundPlayer.Play();
+                _appleChewSfxReader.Position = 0;
+                _waveOutDevice.Play();
                 return;
             }
             UpdateSnakeTail();
