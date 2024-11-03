@@ -30,316 +30,113 @@ namespace WinFormsTicTacToe
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            ticTacToeBoardFlowLayoutPnl = new FlowLayoutPanel();
-            button1 = new TicTacToeBoardButton();
-            button2 = new TicTacToeBoardButton();
-            button3 = new TicTacToeBoardButton();
-            button4 = new TicTacToeBoardButton();
-            button5 = new TicTacToeBoardButton();
-            button6 = new TicTacToeBoardButton();
-            button7 = new TicTacToeBoardButton();
-            button8 = new TicTacToeBoardButton();
-            button9 = new TicTacToeBoardButton();
-            playAgainBtn = new Button();
-            lineAnimationTimer = new System.Windows.Forms.Timer(components);
-            ticTacToeBoardAnimationPanel = new TransparentPanel();
-            playerXScorePnl = new Panel();
-            playerXScoreLbl = new Label();
-            playerXLbl = new Label();
-            playerYScorePnl = new Panel();
-            playerYScoreLbl = new Label();
-            playerYLbl = new Label();
-            ticTacToeBoardFlowLayoutPnl.SuspendLayout();
-            playerXScorePnl.SuspendLayout();
-            playerYScorePnl.SuspendLayout();
+            ticTacToeBoard = new UserControls.TicTacToeBoard();
+            resetGameBtn = new Button();
+            gameConfigPnl = new Panel();
+            ticTacToePlayerScoresTracker = new UserControls.TicTacToePlayerScoresTracker();
+            optionsBtn = new Button();
+            resultLbl = new Label();
+            resultPnl = new Panel();
+            gameConfigPnl.SuspendLayout();
+            resultPnl.SuspendLayout();
             SuspendLayout();
             // 
-            // ticTacToeBoardFlowLayoutPnl
+            // ticTacToeBoard
             // 
-            ticTacToeBoardFlowLayoutPnl.BackColor = Color.FromArgb(64, 64, 64);
-            ticTacToeBoardFlowLayoutPnl.Controls.Add(button1);
-            ticTacToeBoardFlowLayoutPnl.Controls.Add(button2);
-            ticTacToeBoardFlowLayoutPnl.Controls.Add(button3);
-            ticTacToeBoardFlowLayoutPnl.Controls.Add(button4);
-            ticTacToeBoardFlowLayoutPnl.Controls.Add(button5);
-            ticTacToeBoardFlowLayoutPnl.Controls.Add(button6);
-            ticTacToeBoardFlowLayoutPnl.Controls.Add(button7);
-            ticTacToeBoardFlowLayoutPnl.Controls.Add(button8);
-            ticTacToeBoardFlowLayoutPnl.Controls.Add(button9);
-            ticTacToeBoardFlowLayoutPnl.Location = new Point(115, 211);
-            ticTacToeBoardFlowLayoutPnl.Name = "ticTacToeBoardFlowLayoutPnl";
-            ticTacToeBoardFlowLayoutPnl.Size = new Size(390, 390);
-            ticTacToeBoardFlowLayoutPnl.TabIndex = 0;
+            ticTacToeBoard.BackColor = Color.Black;
+            ticTacToeBoard.Location = new Point(12, 12);
+            ticTacToeBoard.Name = "ticTacToeBoard";
+            ticTacToeBoard.Size = new Size(390, 390);
+            ticTacToeBoard.TabIndex = 0;
+            ticTacToeBoard.OnGameOver += UpdatePlayerScore;
             // 
-            // button1
+            // resetGameBtn
             // 
-            button1.BackColor = SystemColors.Control;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(0, 0);
-            button1.Margin = new Padding(0, 0, 3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(128, 128);
-            button1.TabIndex = 0;
-            button1.TabStop = false;
-            button1.UseCompatibleTextRendering = true;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += PlaceSymbol;
+            resetGameBtn.AutoSize = true;
+            resetGameBtn.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            resetGameBtn.Location = new Point(81, 3);
+            resetGameBtn.Name = "resetGameBtn";
+            resetGameBtn.Size = new Size(250, 50);
+            resetGameBtn.TabIndex = 1;
+            resetGameBtn.Text = "Reset Game";
+            resetGameBtn.UseVisualStyleBackColor = true;
+            resetGameBtn.Click += ResetGameClick;
             // 
-            // button2
+            // gameConfigPnl
             // 
-            button2.BackColor = SystemColors.Control;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = Color.Black;
-            button2.Location = new Point(131, 0);
-            button2.Margin = new Padding(0, 0, 3, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(128, 128);
-            button2.TabIndex = 1;
-            button2.TabStop = false;
-            button2.UseCompatibleTextRendering = true;
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += PlaceSymbol;
+            gameConfigPnl.Controls.Add(resultPnl);
+            gameConfigPnl.Controls.Add(optionsBtn);
+            gameConfigPnl.Controls.Add(ticTacToePlayerScoresTracker);
+            gameConfigPnl.Controls.Add(resetGameBtn);
+            gameConfigPnl.Location = new Point(408, 12);
+            gameConfigPnl.Name = "gameConfigPnl";
+            gameConfigPnl.Size = new Size(390, 390);
+            gameConfigPnl.TabIndex = 2;
             // 
-            // button3
+            // ticTacToePlayerScoresTracker
             // 
-            button3.BackColor = SystemColors.Control;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(262, 0);
-            button3.Margin = new Padding(0);
-            button3.Name = "button3";
-            button3.Size = new Size(128, 128);
-            button3.TabIndex = 2;
-            button3.TabStop = false;
-            button3.UseCompatibleTextRendering = true;
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += PlaceSymbol;
+            ticTacToePlayerScoresTracker.Location = new Point(81, 187);
+            ticTacToePlayerScoresTracker.Name = "ticTacToePlayerScoresTracker";
+            ticTacToePlayerScoresTracker.Size = new Size(250, 200);
+            ticTacToePlayerScoresTracker.TabIndex = 2;
             // 
-            // button4
+            // optionsBtn
             // 
-            button4.BackColor = SystemColors.Control;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.ForeColor = Color.Black;
-            button4.Location = new Point(0, 131);
-            button4.Margin = new Padding(0, 0, 3, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(128, 128);
-            button4.TabIndex = 3;
-            button4.TabStop = false;
-            button4.UseCompatibleTextRendering = true;
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += PlaceSymbol;
+            optionsBtn.AutoSize = true;
+            optionsBtn.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            optionsBtn.Location = new Point(81, 69);
+            optionsBtn.Name = "optionsBtn";
+            optionsBtn.Size = new Size(252, 50);
+            optionsBtn.TabIndex = 3;
+            optionsBtn.Text = "Options";
+            optionsBtn.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // resultLbl
             // 
-            button5.BackColor = SystemColors.Control;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.ForeColor = Color.Black;
-            button5.Location = new Point(131, 131);
-            button5.Margin = new Padding(0, 0, 3, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(128, 128);
-            button5.TabIndex = 4;
-            button5.TabStop = false;
-            button5.UseCompatibleTextRendering = true;
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += PlaceSymbol;
+            resultLbl.Dock = DockStyle.Fill;
+            resultLbl.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            resultLbl.Location = new Point(0, 0);
+            resultLbl.Name = "resultLbl";
+            resultLbl.Size = new Size(252, 50);
+            resultLbl.TabIndex = 4;
+            resultLbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button6
+            // resultPnl
             // 
-            button6.BackColor = SystemColors.Control;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            button6.ForeColor = Color.Black;
-            button6.Location = new Point(262, 131);
-            button6.Margin = new Padding(0);
-            button6.Name = "button6";
-            button6.Size = new Size(128, 128);
-            button6.TabIndex = 5;
-            button6.TabStop = false;
-            button6.UseCompatibleTextRendering = true;
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += PlaceSymbol;
-            // 
-            // button7
-            // 
-            button7.BackColor = SystemColors.Control;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            button7.ForeColor = Color.Black;
-            button7.Location = new Point(0, 262);
-            button7.Margin = new Padding(0, 0, 3, 0);
-            button7.Name = "button7";
-            button7.Size = new Size(128, 128);
-            button7.TabIndex = 6;
-            button7.TabStop = false;
-            button7.UseCompatibleTextRendering = true;
-            button7.UseVisualStyleBackColor = false;
-            button7.Click += PlaceSymbol;
-            // 
-            // button8
-            // 
-            button8.BackColor = SystemColors.Control;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.ForeColor = Color.Black;
-            button8.Location = new Point(131, 262);
-            button8.Margin = new Padding(0, 0, 3, 0);
-            button8.Name = "button8";
-            button8.Size = new Size(128, 128);
-            button8.TabIndex = 7;
-            button8.TabStop = false;
-            button8.UseCompatibleTextRendering = true;
-            button8.UseVisualStyleBackColor = false;
-            button8.Click += PlaceSymbol;
-            // 
-            // button9
-            // 
-            button9.BackColor = SystemColors.Control;
-            button9.FlatStyle = FlatStyle.Flat;
-            button9.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
-            button9.ForeColor = Color.Black;
-            button9.Location = new Point(262, 262);
-            button9.Margin = new Padding(0);
-            button9.Name = "button9";
-            button9.Size = new Size(128, 128);
-            button9.TabIndex = 8;
-            button9.TabStop = false;
-            button9.UseCompatibleTextRendering = true;
-            button9.UseVisualStyleBackColor = false;
-            button9.Click += PlaceSymbol;
-            // 
-            // playAgainBtn
-            // 
-            playAgainBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            playAgainBtn.Location = new Point(213, 134);
-            playAgainBtn.Name = "playAgainBtn";
-            playAgainBtn.Size = new Size(195, 50);
-            playAgainBtn.TabIndex = 1;
-            playAgainBtn.Text = "Play Again";
-            playAgainBtn.UseVisualStyleBackColor = true;
-            playAgainBtn.Click += ResetGameClick;
-            // 
-            // lineAnimationTimer
-            // 
-            lineAnimationTimer.Interval = 10;
-            lineAnimationTimer.Tick += AnimationFrame;
-            // 
-            // ticTacToeBoardAnimationPanel
-            // 
-            ticTacToeBoardAnimationPanel.Location = new Point(115, 211);
-            ticTacToeBoardAnimationPanel.Name = "ticTacToeBoardAnimationPanel";
-            ticTacToeBoardAnimationPanel.Size = new Size(390, 390);
-            ticTacToeBoardAnimationPanel.TabIndex = 3;
-            // 
-            // playerXScorePnl
-            // 
-            playerXScorePnl.Controls.Add(playerXScoreLbl);
-            playerXScorePnl.Controls.Add(playerXLbl);
-            playerXScorePnl.Location = new Point(43, 12);
-            playerXScorePnl.Name = "playerXScorePnl";
-            playerXScorePnl.Size = new Size(200, 100);
-            playerXScorePnl.TabIndex = 4;
-            // 
-            // playerXScoreLbl
-            // 
-            playerXScoreLbl.AutoSize = true;
-            playerXScoreLbl.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            playerXScoreLbl.Location = new Point(86, 49);
-            playerXScoreLbl.Name = "playerXScoreLbl";
-            playerXScoreLbl.Size = new Size(28, 32);
-            playerXScoreLbl.TabIndex = 6;
-            playerXScoreLbl.Text = "0";
-            // 
-            // playerXLbl
-            // 
-            playerXLbl.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            playerXLbl.Location = new Point(8, 0);
-            playerXLbl.Name = "playerXLbl";
-            playerXLbl.Size = new Size(185, 32);
-            playerXLbl.TabIndex = 5;
-            playerXLbl.Text = "Player X Score:";
-            // 
-            // playerYScorePnl
-            // 
-            playerYScorePnl.Controls.Add(playerYScoreLbl);
-            playerYScorePnl.Controls.Add(playerYLbl);
-            playerYScorePnl.Location = new Point(377, 12);
-            playerYScorePnl.Name = "playerYScorePnl";
-            playerYScorePnl.Size = new Size(200, 100);
-            playerYScorePnl.TabIndex = 7;
-            // 
-            // playerYScoreLbl
-            // 
-            playerYScoreLbl.AutoSize = true;
-            playerYScoreLbl.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            playerYScoreLbl.Location = new Point(86, 49);
-            playerYScoreLbl.Name = "playerYScoreLbl";
-            playerYScoreLbl.Size = new Size(28, 32);
-            playerYScoreLbl.TabIndex = 6;
-            playerYScoreLbl.Text = "0";
-            // 
-            // playerYLbl
-            // 
-            playerYLbl.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            playerYLbl.Location = new Point(8, 0);
-            playerYLbl.Name = "playerYLbl";
-            playerYLbl.Size = new Size(185, 32);
-            playerYLbl.TabIndex = 5;
-            playerYLbl.Text = "Player Y Score:";
+            resultPnl.Controls.Add(resultLbl);
+            resultPnl.Location = new Point(81, 131);
+            resultPnl.Name = "resultPnl";
+            resultPnl.Size = new Size(252, 50);
+            resultPnl.TabIndex = 5;
             // 
             // TicTacToeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(620, 642);
-            Controls.Add(playerYScorePnl);
-            Controls.Add(playerXScorePnl);
-            Controls.Add(ticTacToeBoardAnimationPanel);
-            Controls.Add(playAgainBtn);
-            Controls.Add(ticTacToeBoardFlowLayoutPnl);
+            ClientSize = new Size(810, 414);
+            Controls.Add(gameConfigPnl);
+            Controls.Add(ticTacToeBoard);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "TicTacToeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tic Tac Toe";
-            ticTacToeBoardFlowLayoutPnl.ResumeLayout(false);
-            playerXScorePnl.ResumeLayout(false);
-            playerXScorePnl.PerformLayout();
-            playerYScorePnl.ResumeLayout(false);
-            playerYScorePnl.PerformLayout();
+            gameConfigPnl.ResumeLayout(false);
+            gameConfigPnl.PerformLayout();
+            resultPnl.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private FlowLayoutPanel ticTacToeBoardFlowLayoutPnl;
-        private TicTacToeBoardButton button1;
-        private TicTacToeBoardButton button2;
-        private TicTacToeBoardButton button3;
-        private TicTacToeBoardButton button4;
-        private TicTacToeBoardButton button5;
-        private TicTacToeBoardButton button6;
-        private TicTacToeBoardButton button7;
-        private TicTacToeBoardButton button8;
-        private TicTacToeBoardButton button9;
-        private Button playAgainBtn;
-        private System.Windows.Forms.Timer lineAnimationTimer;
-        private TransparentPanel ticTacToeBoardAnimationPanel;
-        private Panel playerXScorePnl;
-        private Label playerXLbl;
-        private Label playerXScoreLbl;
-        private Panel playerYScorePnl;
-        private Label playerYScoreLbl;
-        private Label playerYLbl;
+        private UserControls.TicTacToeBoard ticTacToeBoard;
+        private Button resetGameBtn;
+        private Panel gameConfigPnl;
+        private UserControls.TicTacToePlayerScoresTracker ticTacToePlayerScoresTracker;
+        private Panel resultPnl;
+        private Label resultLbl;
+        private Button optionsBtn;
     }
 }
