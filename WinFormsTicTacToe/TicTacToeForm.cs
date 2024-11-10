@@ -1,5 +1,4 @@
 using WinFormsTicTacToe.Classes;
-
 using WinFormsTicTacToe.Enums;
 using WinFormsTicTacToe.Forms;
 
