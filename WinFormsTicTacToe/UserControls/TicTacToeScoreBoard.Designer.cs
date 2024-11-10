@@ -1,6 +1,6 @@
 ﻿namespace WinFormsTicTacToe.UserControls
 {
-    partial class TicTacToePlayerScoresTracker
+    partial class TicTacToeScoreBoard
     {
         /// <summary> 
         /// Required designer variable.

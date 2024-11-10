@@ -30,13 +30,14 @@ namespace WinFormsTicTacToe
         /// </summary>
         private void InitializeComponent()
         {
-            ticTacToeBoard = new UserControls.TicTacToeBoard();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicTacToeForm));
+            ticTacToeBoard = new UserControls.TicTacToeBoardDisplay();
+            ticTacToeScoreBoard = new UserControls.TicTacToeScoreBoard();
             resetGameBtn = new Button();
             gameConfigPnl = new Panel();
-            ticTacToePlayerScoresTracker = new UserControls.TicTacToePlayerScoresTracker();
-            optionsBtn = new Button();
-            resultLbl = new Label();
             resultPnl = new Panel();
+            resultLbl = new Label();
+            settingsBtn = new Button();
             gameConfigPnl.SuspendLayout();
             resultPnl.SuspendLayout();
             SuspendLayout();
@@ -64,32 +65,22 @@ namespace WinFormsTicTacToe
             // 
             // gameConfigPnl
             // 
+            gameConfigPnl.Controls.Add(ticTacToeScoreBoard);
             gameConfigPnl.Controls.Add(resultPnl);
-            gameConfigPnl.Controls.Add(optionsBtn);
-            gameConfigPnl.Controls.Add(ticTacToePlayerScoresTracker);
+            gameConfigPnl.Controls.Add(settingsBtn);
             gameConfigPnl.Controls.Add(resetGameBtn);
             gameConfigPnl.Location = new Point(408, 12);
             gameConfigPnl.Name = "gameConfigPnl";
             gameConfigPnl.Size = new Size(390, 390);
             gameConfigPnl.TabIndex = 2;
             // 
-            // ticTacToePlayerScoresTracker
+            // resultPnl
             // 
-            ticTacToePlayerScoresTracker.Location = new Point(81, 187);
-            ticTacToePlayerScoresTracker.Name = "ticTacToePlayerScoresTracker";
-            ticTacToePlayerScoresTracker.Size = new Size(250, 200);
-            ticTacToePlayerScoresTracker.TabIndex = 2;
-            // 
-            // optionsBtn
-            // 
-            optionsBtn.AutoSize = true;
-            optionsBtn.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-            optionsBtn.Location = new Point(81, 69);
-            optionsBtn.Name = "optionsBtn";
-            optionsBtn.Size = new Size(252, 50);
-            optionsBtn.TabIndex = 3;
-            optionsBtn.Text = "Options";
-            optionsBtn.UseVisualStyleBackColor = true;
+            resultPnl.Controls.Add(resultLbl);
+            resultPnl.Location = new Point(81, 131);
+            resultPnl.Name = "resultPnl";
+            resultPnl.Size = new Size(252, 50);
+            resultPnl.TabIndex = 5;
             // 
             // resultLbl
             // 
@@ -101,13 +92,24 @@ namespace WinFormsTicTacToe
             resultLbl.TabIndex = 4;
             resultLbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // resultPnl
+            // settingsBtn
             // 
-            resultPnl.Controls.Add(resultLbl);
-            resultPnl.Location = new Point(81, 131);
-            resultPnl.Name = "resultPnl";
-            resultPnl.Size = new Size(252, 50);
-            resultPnl.TabIndex = 5;
+            settingsBtn.AutoSize = true;
+            settingsBtn.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            settingsBtn.Location = new Point(81, 69);
+            settingsBtn.Name = "settingsBtn";
+            settingsBtn.Size = new Size(252, 50);
+            settingsBtn.TabIndex = 3;
+            settingsBtn.Text = "Settings";
+            settingsBtn.UseVisualStyleBackColor = true;
+            settingsBtn.Click += OpenSettingsForm;
+            // 
+            // ticTacToeScoreBoard
+            // 
+            ticTacToeScoreBoard.Location = new Point(83, 184);
+            ticTacToeScoreBoard.Name = "ticTacToeScoreBoard";
+            ticTacToeScoreBoard.Size = new Size(250, 200);
+            ticTacToeScoreBoard.TabIndex = 6;
             // 
             // TicTacToeForm
             // 
@@ -118,6 +120,7 @@ namespace WinFormsTicTacToe
             Controls.Add(gameConfigPnl);
             Controls.Add(ticTacToeBoard);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "TicTacToeForm";
@@ -131,12 +134,12 @@ namespace WinFormsTicTacToe
 
         #endregion
 
-        private UserControls.TicTacToeBoard ticTacToeBoard;
+        private UserControls.TicTacToeBoardDisplay ticTacToeBoard;
         private Button resetGameBtn;
         private Panel gameConfigPnl;
-        private UserControls.TicTacToePlayerScoresTracker ticTacToePlayerScoresTracker;
         private Panel resultPnl;
         private Label resultLbl;
-        private Button optionsBtn;
+        private Button settingsBtn;
+        private UserControls.TicTacToeScoreBoard ticTacToeScoreBoard;
     }
 }

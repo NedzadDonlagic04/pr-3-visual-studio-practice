@@ -1,6 +1,6 @@
 ﻿namespace WinFormsTicTacToe.CustomControls
 {
-    partial class TicTacToeBoardPanel
+    partial class TicTacToeBoardTile
     {
         /// <summary> 
         /// Required designer variable.
