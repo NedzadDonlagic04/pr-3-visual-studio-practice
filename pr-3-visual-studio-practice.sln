@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsTicTacToe", "WinFor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsCalculator", "WinFormsCalculator\WinFormsCalculator.csproj", "{860AA316-EF46-4F53-B7C7-4F2EEA8DBC13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test.test", "test.test\test.test.csproj", "{A1C97D22-01A9-407F-910A-DDFED85303C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test.test", "test.test\test.test.csproj", "{A1C97D22-01A9-407F-910A-DDFED85303C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsTetris", "WinFormsTetris\WinFormsTetris.csproj", "{E5AA65DA-66B8-4CBC-A956-E5C6201391EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{A1C97D22-01A9-407F-910A-DDFED85303C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1C97D22-01A9-407F-910A-DDFED85303C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1C97D22-01A9-407F-910A-DDFED85303C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5AA65DA-66B8-4CBC-A956-E5C6201391EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5AA65DA-66B8-4CBC-A956-E5C6201391EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5AA65DA-66B8-4CBC-A956-E5C6201391EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5AA65DA-66B8-4CBC-A956-E5C6201391EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
