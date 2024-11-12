@@ -29,7 +29,7 @@ namespace WinFormsTicTacToe.Classes
 
                 ticTacToeBoard.PlaceSymbol(i);
 
-                int score = GetBestMoveRecursive(ticTacToeBoard, !isPlayingX);
+                int score = Minimax(ticTacToeBoard, !isPlayingX);
 
                 bestScore = isPlayingX ? Math.Max(bestScore, score) : Math.Min(bestScore, score);
 
@@ -60,7 +60,7 @@ namespace WinFormsTicTacToe.Classes
         /// <inheritdoc cref="GetScoreForGameState"/>
         /// <inheritdoc cref="TicTacToeBoard.PlaceSymbol"/>
         /// <inheritdoc cref="TicTacToeBoard.UndoLastSymbolPlace"/>
-        private int GetBestMoveRecursive(TicTacToeBoard ticTacToeBoard, bool isPlayingX, int depth = 0)
+        private int Minimax(TicTacToeBoard ticTacToeBoard, bool isPlayingX, int depth = 0)
         {
             TicTacToeGameState gameState = ticTacToeBoard.GameState;
             if (gameState != TicTacToeGameState.GameOngoing)
@@ -79,7 +79,7 @@ namespace WinFormsTicTacToe.Classes
 
                 ticTacToeBoard.PlaceSymbol(i);
 
-                int score = GetBestMoveRecursive(ticTacToeBoard, !isPlayingX, depth + 1);
+                int score = Minimax(ticTacToeBoard, !isPlayingX, depth + 1);
 
                 bestScore = isPlayingX ? Math.Max(bestScore, score) : Math.Min(bestScore, score);
 
