@@ -32,14 +32,8 @@ namespace WinFormsTicTacToe.UserControls
 
         #region Delegates and events
 
-        private EventHandler? _onGameOver;
-
         [Browsable(true)]
-        internal event EventHandler? OnGameOver
-        {
-            add => _onGameOver += value;
-            remove => _onGameOver -= value;
-        }
+        internal event EventHandler? OnGameOver;
 
         #endregion
 
@@ -158,7 +152,7 @@ namespace WinFormsTicTacToe.UserControls
                     DrawLine(_ticTacToeBoard.WinningPosition!);
                 }
 
-                _onGameOver?.Invoke(this, EventArgs.Empty);
+                OnGameOver?.Invoke(this, EventArgs.Empty);
             }
         }
 
