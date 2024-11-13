@@ -82,6 +82,8 @@ namespace WinFormsTicTacToe.UserControls
                     _ticTacToeBot = null;
                     break;
             }
+
+            ResetGame();
         }
 
         #endregion

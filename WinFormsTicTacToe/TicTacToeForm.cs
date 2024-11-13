@@ -90,8 +90,7 @@ namespace WinFormsTicTacToe
 
                 ticTacToeBoard.ApplySettings(settings);
                 ticTacToeScoreBoard.ResetScores();
-
-                resetGameBtn.PerformClick();
+                resultLbl.Text = "";
             }
         }
 
