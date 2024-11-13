@@ -55,12 +55,20 @@ namespace WinFormsTicTacToe.Classes
         /// </summary>
         /// <param name="ticTacToeBoard"></param>
         /// <param name="isPlayingX"></param>
+        /// <param name="alpha"></param>
+        /// <param name="beta"></param>
         /// <param name="depth"></param>
         /// <returns>The best move to make for a given board</returns>
         /// <inheritdoc cref="GetScoreForGameState"/>
         /// <inheritdoc cref="TicTacToeBoard.PlaceSymbol"/>
         /// <inheritdoc cref="TicTacToeBoard.UndoLastSymbolPlace"/>
-        private int Minimax(TicTacToeBoard ticTacToeBoard, bool isPlayingX, int depth = 0)
+        private int Minimax(
+            TicTacToeBoard ticTacToeBoard, 
+            bool isPlayingX, 
+            int alpha = int.MinValue, 
+            int beta = int.MaxValue, 
+            int depth = 0
+        )
         {
             TicTacToeGameState gameState = ticTacToeBoard.GameState;
             if (gameState != TicTacToeGameState.GameOngoing)
@@ -81,9 +89,23 @@ namespace WinFormsTicTacToe.Classes
 
                 int score = Minimax(ticTacToeBoard, !isPlayingX, depth + 1);
 
-                bestScore = isPlayingX ? Math.Max(bestScore, score) : Math.Min(bestScore, score);
-
                 ticTacToeBoard.UndoLastSymbolPlace();
+                
+                if (isPlayingX)
+                {
+                    bestScore = Math.Max(bestScore, score);
+                    alpha = Math.Max(alpha, score);
+                }
+                else
+                {
+                    bestScore = Math.Min(bestScore, score);
+                    beta = Math.Min(beta, score);
+                }
+
+                if (beta <= alpha)
+                {
+                    return bestScore;
+                }
             }
 
             return bestScore;
@@ -91,6 +113,7 @@ namespace WinFormsTicTacToe.Classes
 
         /// <summary>
         ///     Gets a score for the current state of the game
+        ///     Static evaluation function
         /// </summary>
         /// <param name="gameState"></param>
         /// <returns></returns>
