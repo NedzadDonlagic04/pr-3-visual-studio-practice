@@ -365,3 +365,4 @@ FodyWeavers.xsd
 # My own stuff to ignore below
 test/
 test.test/
+testWinforms/
