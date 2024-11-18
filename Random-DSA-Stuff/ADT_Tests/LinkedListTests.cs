@@ -16,7 +16,7 @@ namespace Random_DSA_Stuff.ADT_Tests
 
         internal static void RunTests()
         {
-            CallingAllMethodsRandomlyTest();
+            AreAllMethodsWorkingProperlyTest();
         }
 
         #endregion
@@ -33,7 +33,7 @@ namespace Random_DSA_Stuff.ADT_Tests
             Console.WriteLine();
         }
 
-        private static void CallingAllMethodsRandomlyTest()
+        private static void AreAllMethodsWorkingProperlyTest()
         {
             string methodName = System.Reflection.MethodBase.GetCurrentMethod()?.Name ?? "";
             string formattedTypeName = typeof(LinkedListType).GetFormattedName();
