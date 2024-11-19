@@ -51,6 +51,7 @@ namespace Random_DSA_Stuff
             SortingAlgorithmsTests<BubbleSortOptimized>.RunTests(new List<int>(list), descending, printList);
             SortingAlgorithmsTests<InsertionSort>.RunTests(new List<int>(list), descending, printList);
             SortingAlgorithmsTests<InsertionSortOptimized>.RunTests(new List<int>(list), descending, printList);
+            SortingAlgorithmsTests<SelectionSort>.RunTests(new List<int>(list), descending, printList);
         }
     }
 }
