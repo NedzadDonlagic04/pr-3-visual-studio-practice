@@ -38,7 +38,7 @@ namespace Random_DSA_Stuff
 
         private static void RunSortingAlgorithmTests()
         {
-            var list = GenerateRandomList(10_000);
+            var list = GenerateRandomList(100_000);
             bool descending = false;
             bool printList = false;
 
@@ -49,6 +49,8 @@ namespace Random_DSA_Stuff
 
             SortingAlgorithmsTests<BubbleSort>.RunTests(new List<int>(list), descending, printList);
             SortingAlgorithmsTests<BubbleSortOptimized>.RunTests(new List<int>(list), descending, printList);
+            SortingAlgorithmsTests<InsertionSort>.RunTests(new List<int>(list), descending, printList);
+            SortingAlgorithmsTests<InsertionSortOptimized>.RunTests(new List<int>(list), descending, printList);
         }
     }
 }
