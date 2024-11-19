@@ -4,7 +4,7 @@
     {
         #region Internal methods
 
-        internal static void PrintList<T>(string message, IEnumerable<T> list)
+        internal static void PrintIEnumerable<T>(string message, IEnumerable<T> list)
         {
             Console.WriteLine(message);
             foreach (var num in list)

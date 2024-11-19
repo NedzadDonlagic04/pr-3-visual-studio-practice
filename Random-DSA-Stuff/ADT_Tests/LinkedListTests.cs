@@ -38,40 +38,40 @@ namespace Random_DSA_Stuff.ADT_Tests
             Console.WriteLine("Initial list is empty");
 
             linkedList.AddFirst(2);
-            Utils.PrintList("AddFirst(2)       Called -> ", linkedList);
+            Utils.PrintIEnumerable("AddFirst(2)       Called -> ", linkedList);
 
             linkedList.AddFirst(4);
-            Utils.PrintList("AddFirst(4)       Called -> ", linkedList);
+            Utils.PrintIEnumerable("AddFirst(4)       Called -> ", linkedList);
 
             linkedList.AddLast(5);
-            Utils.PrintList("AddLast(5)        Called -> ", linkedList);
+            Utils.PrintIEnumerable("AddLast(5)        Called -> ", linkedList);
 
             linkedList.AddLast(7);
-            Utils.PrintList("AddLast(7)        Called -> ", linkedList);
+            Utils.PrintIEnumerable("AddLast(7)        Called -> ", linkedList);
 
             linkedList.AddLast(9);
-            Utils.PrintList("AddLast(9)        Called -> ", linkedList);
+            Utils.PrintIEnumerable("AddLast(9)        Called -> ", linkedList);
 
             linkedList.InsertAt(1, 1);
-            Utils.PrintList("InsertAt(1, 1)    Called -> ", linkedList);
+            Utils.PrintIEnumerable("InsertAt(1, 1)    Called -> ", linkedList);
 
             linkedList.InsertAt(3, 0);
-            Utils.PrintList("InsertAt(3, 0)    Called -> ", linkedList);
+            Utils.PrintIEnumerable("InsertAt(3, 0)    Called -> ", linkedList);
 
             linkedList.InsertAt(0, 5);
-            Utils.PrintList("InsertAt(0, 5)    Called -> ", linkedList);
+            Utils.PrintIEnumerable("InsertAt(0, 5)    Called -> ", linkedList);
 
             linkedList.RemoveLast();
-            Utils.PrintList("RemoveLast()      Called -> ", linkedList);
+            Utils.PrintIEnumerable("RemoveLast()      Called -> ", linkedList);
 
             linkedList.RemoveFirst();
-            Utils.PrintList("RemoveFirst()     Called -> ", linkedList);
+            Utils.PrintIEnumerable("RemoveFirst()     Called -> ", linkedList);
 
             linkedList.RemoveFirst();
-            Utils.PrintList("RemoveFirst()     Called -> ", linkedList);
+            Utils.PrintIEnumerable("RemoveFirst()     Called -> ", linkedList);
 
             linkedList.RemoveLast();
-            Utils.PrintList("RemoveLast()      Called -> ", linkedList);
+            Utils.PrintIEnumerable("RemoveLast()      Called -> ", linkedList);
 
             Console.WriteLine();
             Console.WriteLine($"{methodName} Method End For {formattedTypeName}");
