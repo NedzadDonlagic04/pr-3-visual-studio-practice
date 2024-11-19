@@ -1,4 +1,6 @@
 ﻿using Random_DSA_Stuff.ADT.Interfaces;
+
+using Random_DSA_Stuff.Classes;
 using Random_DSA_Stuff.Extensions;
 
 namespace Random_DSA_Stuff.ADT_Tests
@@ -23,16 +25,6 @@ namespace Random_DSA_Stuff.ADT_Tests
 
         #region Private methods
 
-        private static void PrintList(string message, LinkedListType linkedList)
-        {
-            Console.Write(message);
-            foreach (var value in linkedList)
-            {
-                Console.Write($"{value} ");
-            }
-            Console.WriteLine();
-        }
-
         private static void AreAllMethodsWorkingProperlyTest()
         {
             string methodName = System.Reflection.MethodBase.GetCurrentMethod()?.Name ?? "";
@@ -46,40 +38,40 @@ namespace Random_DSA_Stuff.ADT_Tests
             Console.WriteLine("Initial list is empty");
 
             linkedList.AddFirst(2);
-            PrintList("AddFirst(2)       Called -> ", linkedList);
+            Utils.PrintList("AddFirst(2)       Called -> ", linkedList);
 
             linkedList.AddFirst(4);
-            PrintList("AddFirst(4)       Called -> ", linkedList);
+            Utils.PrintList("AddFirst(4)       Called -> ", linkedList);
 
             linkedList.AddLast(5);
-            PrintList("AddLast(5)        Called -> ", linkedList);
+            Utils.PrintList("AddLast(5)        Called -> ", linkedList);
 
             linkedList.AddLast(7);
-            PrintList("AddLast(7)        Called -> ", linkedList);
+            Utils.PrintList("AddLast(7)        Called -> ", linkedList);
 
             linkedList.AddLast(9);
-            PrintList("AddLast(9)        Called -> ", linkedList);
+            Utils.PrintList("AddLast(9)        Called -> ", linkedList);
 
             linkedList.InsertAt(1, 1);
-            PrintList("InsertAt(1, 1)    Called -> ", linkedList);
+            Utils.PrintList("InsertAt(1, 1)    Called -> ", linkedList);
 
             linkedList.InsertAt(3, 0);
-            PrintList("InsertAt(3, 0)    Called -> ", linkedList);
+            Utils.PrintList("InsertAt(3, 0)    Called -> ", linkedList);
 
             linkedList.InsertAt(0, 5);
-            PrintList("InsertAt(0, 5)    Called -> ", linkedList);
+            Utils.PrintList("InsertAt(0, 5)    Called -> ", linkedList);
 
             linkedList.RemoveLast();
-            PrintList("RemoveLast()      Called -> ", linkedList);
+            Utils.PrintList("RemoveLast()      Called -> ", linkedList);
 
             linkedList.RemoveFirst();
-            PrintList("RemoveFirst()     Called -> ", linkedList);
+            Utils.PrintList("RemoveFirst()     Called -> ", linkedList);
 
             linkedList.RemoveFirst();
-            PrintList("RemoveFirst()     Called -> ", linkedList);
+            Utils.PrintList("RemoveFirst()     Called -> ", linkedList);
 
             linkedList.RemoveLast();
-            PrintList("RemoveLast()      Called -> ", linkedList);
+            Utils.PrintList("RemoveLast()      Called -> ", linkedList);
 
             Console.WriteLine();
             Console.WriteLine($"{methodName} Method End For {formattedTypeName}");
