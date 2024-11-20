@@ -108,7 +108,7 @@ namespace WinFormsTicTacToe.Classes
             }
             catch(JsonException ex)
             {
-                throw new Exception("Settings file is not valid, default settings have been loaded", ex);
+                throw new JsonException("Settings file is not valid, default settings have been loaded", ex.InnerException);
             }
             catch(Exception ex)
             {
@@ -132,7 +132,7 @@ namespace WinFormsTicTacToe.Classes
             string pathExtension = Path.GetExtension(filePath) ?? "";
             if (pathExtension != ".json")
             {
-                throw new Exception("Given file is not a JSON file");
+                throw new FileFormatException(new Uri(filePath), "Given file is not a JSON file");
             }
 
             string settingsAsJson = JsonSerializer.Serialize(this);
