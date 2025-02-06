@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsTetris", "WinFormsT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Random-DSA-Stuff", "Random-DSA-Stuff\Random-DSA-Stuff.csproj", "{D1C3770B-E4B7-47A4-9DDA-2AB8FA11CE2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TetrisGameLogic", "TetrisGameLogic\TetrisGameLogic.csproj", "{0FADDC4B-0E41-4745-AE1A-BC87CB532C8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerminalTetris", "TerminalTetris\TerminalTetris.csproj", "{D1D0CB38-BDAB-4C74-9F1E-B5E42555D9F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{D1C3770B-E4B7-47A4-9DDA-2AB8FA11CE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C3770B-E4B7-47A4-9DDA-2AB8FA11CE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C3770B-E4B7-47A4-9DDA-2AB8FA11CE2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FADDC4B-0E41-4745-AE1A-BC87CB532C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FADDC4B-0E41-4745-AE1A-BC87CB532C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FADDC4B-0E41-4745-AE1A-BC87CB532C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FADDC4B-0E41-4745-AE1A-BC87CB532C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1D0CB38-BDAB-4C74-9F1E-B5E42555D9F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D0CB38-BDAB-4C74-9F1E-B5E42555D9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1D0CB38-BDAB-4C74-9F1E-B5E42555D9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1D0CB38-BDAB-4C74-9F1E-B5E42555D9F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
