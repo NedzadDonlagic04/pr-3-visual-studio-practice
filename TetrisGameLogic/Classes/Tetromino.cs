@@ -7,8 +7,9 @@ namespace TetrisGameLogic.Classes
         #region Fields, properties and constants
         
         private int _rotationCounter;
+        private readonly short _id;
 
-        private byte[,] Shape { get; init; } = null!;
+        private short[,] Shape { get; init; } = null!;
         public TetrominoType Type { get; init; }
         
         public int Size => Shape.GetLength(0);
@@ -17,21 +18,22 @@ namespace TetrisGameLogic.Classes
 
         #region Public methods
 
-        public Tetromino(TetrominoType type)
+        public Tetromino(TetrominoType type, short id)
         {
             Shape = GetShapeForType(type);
             Type = type;
             _rotationCounter = 0;
+            _id = id;
         }
 
-        public byte this[int row, int col]
+        public short this[int row, int col]
         {
             get => _rotationCounter switch 
             { 
-                0 => Shape[row, col],
-                1 => Shape[Size - 1 - col, row],
-                2 => Shape[Size - 1 - row, Size - 1 - col],
-                3 => Shape[col, Size - 1 - row],
+                0 => Shape[row, col] == 1? _id : (short)0,
+                1 => Shape[Size - 1 - col, row] == 1? _id : (short)0,
+                2 => Shape[Size - 1 - row, Size - 1 - col] == 1? _id : (short)0,
+                3 => Shape[col, Size - 1 - row] == 1? _id : (short)0,
                 _ => throw new NotImplementedException(),
             };
         }
@@ -60,47 +62,47 @@ namespace TetrisGameLogic.Classes
 
         #region Private methods
 
-        private byte[,] GetShapeForType(TetrominoType type)
+        private short[,] GetShapeForType(TetrominoType type)
         {
             return type switch
             {
-                TetrominoType.I => new byte[,] 
+                TetrominoType.I => new short[,] 
                 { 
                     { 0, 0, 0, 0 }, 
                     { 1, 1, 1, 1 }, 
                     { 0, 0, 0, 0 }, 
                     { 0, 0, 0, 0 } 
                 },
-                TetrominoType.O => new byte[,]
+                TetrominoType.O => new short[,]
                 { 
                     { 1, 1 }, 
                     { 1, 1 }, 
                 },
-                TetrominoType.T => new byte[,]
+                TetrominoType.T => new short[,]
                 {
                     { 0, 1, 0 },
                     { 1, 1, 1 },
                     { 0, 0, 0 },
                 },
-                TetrominoType.J => new byte[,]
+                TetrominoType.J => new short[,]
                 {
                     { 1, 0, 0 },
                     { 1, 1, 1 },
                     { 0, 0, 0 },
                 },
-                TetrominoType.L => new byte[,]
+                TetrominoType.L => new short[,]
                 {
                     { 0, 0, 1 },
                     { 1, 1, 1 },
                     { 0, 0, 0 },
                 },
-                TetrominoType.S => new byte[,]
+                TetrominoType.S => new short[,]
                 {
                     { 0, 1, 1 },
                     { 1, 1, 0 },
                     { 0, 0, 0 },
                 },
-                TetrominoType.Z => new byte[,]
+                TetrominoType.Z => new short[,]
                 {
                     { 1, 1, 0 },
                     { 0, 1, 1 },
