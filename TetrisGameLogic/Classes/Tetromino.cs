@@ -58,6 +58,9 @@ namespace TetrisGameLogic.Classes
             }
         }
 
+        public void ResetRotation()
+            => _rotationCounter = 0;
+
         #endregion
 
         #region Private methods
