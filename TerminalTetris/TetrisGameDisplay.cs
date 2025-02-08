@@ -1,11 +1,16 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using TetrisGameLogic.Classes;
 
 namespace TerminalTetris
 {
     public class TetrisGameDisplay
     {
+        #region Fields and properties
+
+        public bool AreShadowsEnabled { get; set; }
+
+        #endregion
+
         #region Public methods
 
         public void ApplyConsoleSettings()
@@ -32,7 +37,7 @@ namespace TerminalTetris
                     {
                         bgColor = GetColorForBlock(tetrisGame.CurrentTetromino[i - playerPos.Y, ii - playerPos.X]);
                     }
-                    else if (tetrisGame.AreShadowsEnabled && IsValidTetrominoBlock(i, ii, shadowPos, tetrisGame.CurrentTetromino))
+                    else if (AreShadowsEnabled && IsValidTetrominoBlock(i, ii, shadowPos, tetrisGame.CurrentTetromino))
                     {
                         bgColor = GetColorForBlock(8); // Set shadow bg color
                     }

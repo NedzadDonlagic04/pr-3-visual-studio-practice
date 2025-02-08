@@ -26,14 +26,14 @@ namespace TetrisGameLogic.Classes
         private Point _shadowPos;
 
         public Point PlayerPos { get => _playerPos; }
+        public Point ShadowPos { get => _shadowPos; }
+
         public List<int> ClearedLines { get; init; } = new();
         public short[,] Board { get; init; } = new short[Rows, Cols];
         public bool IsGameOver { get; private set; }
-        public bool AreShadowsEnabled { get; set; }
 
         public Tetromino CurrentTetromino => _tetrominos[_currentTetrominoIndex];
         public Tetromino NextTetromino => _tetrominos[_nextTetrominoIndex];
-        public Point ShadowPos => AreShadowsEnabled? _shadowPos : throw new InvalidOperationException("Can't get shadow pos if shadows aren't enabled");
 
         #endregion
 

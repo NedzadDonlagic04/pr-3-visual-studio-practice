@@ -12,7 +12,6 @@ namespace TerminalTetris
             ConsoleKeyInfo input = new('\0', ConsoleKey.None, false, false, false);
 
             _tetrisGameDisplay.ApplyConsoleSettings();
-            _tetrisGame.AreShadowsEnabled = true;
             _tetrisGame.RestartGame();
 
             Task tetrisGameLoop = Task.Run(TetrisGameLoop);
@@ -63,6 +62,12 @@ namespace TerminalTetris
                         lock (_tetrisGame)
                         {
                             _tetrisGame.RotateTetrominoRight();
+                        }
+                        break;
+                    case ConsoleKey.T:
+                        lock (_tetrisGame)
+                        {
+                            _tetrisGameDisplay.AreShadowsEnabled = !_tetrisGameDisplay.AreShadowsEnabled;
                         }
                         break;
                 }
