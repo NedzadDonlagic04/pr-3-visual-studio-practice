@@ -7,11 +7,21 @@ namespace TerminalTetris
     {
         #region Fields and properties
 
+        private int _score;
+        private int _linesCleared;
+        private int _highScore;
+        private int _highLinesCleared;
+
         public bool AreShadowsEnabled { get; set; }
 
         #endregion
 
         #region Public methods
+
+        public TetrisGameDisplay()
+        {
+            (_highScore, _highLinesCleared) = GetHighScoreAndLinesCleared();
+        }
 
         public void ApplyConsoleSettings()
         {
@@ -73,6 +83,11 @@ namespace TerminalTetris
             };
         }
 
+        public void UpdateHighScoreAndLinesCleared()
+        {
+
+        }
+
         #endregion
 
         #region Private methods
@@ -104,6 +119,31 @@ namespace TerminalTetris
             Thread.Sleep(100);
 
             Console.BackgroundColor = GetColorForBlock(101);
+
+            UpdateScore(clearedLines.Count);
+        }
+
+        private void UpdateScore(int linesCleared)
+        {
+            _linesCleared += linesCleared;
+            _score += GetScoreForLinesCleared(linesCleared);
+        }
+
+        private int GetScoreForLinesCleared(int linesCleared)
+        {
+            return linesCleared switch
+            {
+                1 => 100,
+                2 => 200,
+                3 => 400,
+                4 => 800,
+                _ => throw new NotImplementedException($"No score for {linesCleared} lines cleared")
+            };
+        }
+
+        private (int, int) GetHighScoreAndLinesCleared()
+        {
+            return (5, 5);
         }
 
         #endregion

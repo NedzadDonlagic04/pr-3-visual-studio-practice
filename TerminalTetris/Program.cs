@@ -30,6 +30,7 @@ namespace TerminalTetris
                         if (tetrisGameLoop.IsCompleted)
                         {
                             _tetrisGame.RestartGame();
+                            _tetrisGameDisplay.UpdateHighScoreAndLinesCleared();
                             tetrisGameLoop = Task.Run(TetrisGameLoop);
                         }
                         input = new('\0', ConsoleKey.None, false, false, false);
