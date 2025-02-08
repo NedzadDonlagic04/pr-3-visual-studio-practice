@@ -26,14 +26,14 @@ namespace TetrisGameLogic.Classes
         private Point _shadowPos;
 
         public Point PlayerPos { get => _playerPos; }
-        public Point ShadowPos { get => _shadowPos; }
         public List<int> ClearedLines { get; init; } = new();
         public short[,] Board { get; init; } = new short[Rows, Cols];
         public bool IsGameOver { get; private set; }
-        public bool AreShadowsEnabled { get; private set; }
+        public bool AreShadowsEnabled { get; set; }
 
         public Tetromino CurrentTetromino => _tetrominos[_currentTetrominoIndex];
         public Tetromino NextTetromino => _tetrominos[_nextTetrominoIndex];
+        public Point ShadowPos => AreShadowsEnabled? _shadowPos : throw new InvalidOperationException("Can't get shadow pos if shadows aren't enabled");
 
         #endregion
 
@@ -45,55 +45,15 @@ namespace TetrisGameLogic.Classes
 
             _currentTetrominoIndex = 0;
             _nextTetrominoIndex = 1;
+
             _playerPos = StartingPlayerPos;
+            _shadowPos = FindHardDropPlayerPos();
 
             IsGameOver = false;
 
             foreach (var tetromino in _tetrominos)
             {
                 tetromino.ResetRotation();
-            }
-        }
-
-        public void MoveTetrominoLeft()
-        {
-            --_playerPos.X;
-
-            if (DoesTetrominoCollide())
-            { 
-                ++_playerPos.X;
-            }
-            else
-            {
-                UpdateShadows();
-            }
-        }
-
-        public void MoveTetrominoRight()
-        {
-            ++_playerPos.X;
-
-            if (DoesTetrominoCollide())
-            {
-                --_playerPos.X;
-            }
-            else
-            {
-                UpdateShadows();
-            }
-        }
-
-        public void MoveTetrominoDown()
-        {
-            ClearedLines.Clear();
-
-            ++_playerPos.Y;
-
-            if (DoesTetrominoCollide())
-            {
-                --_playerPos.Y;
-                LockTetrominoIn();
-                MoveToNextTetromino();
             }
         }
 
@@ -107,7 +67,7 @@ namespace TetrisGameLogic.Classes
             }
             else
             {
-                UpdateShadows();
+                _shadowPos = FindHardDropPlayerPos();
             }
         }
 
@@ -121,25 +81,56 @@ namespace TetrisGameLogic.Classes
             }
             else
             {
-                UpdateShadows();
+                _shadowPos = FindHardDropPlayerPos();
             }
         }
 
-        public void ToggleShadows()
+        public void MoveTetrominoLeft()
         {
-            AreShadowsEnabled = !AreShadowsEnabled;
+            --_playerPos.X;
+
+            if (DoesTetrominoCollide())
+            { 
+                ++_playerPos.X;
+            }
+            else
+            {
+                _shadowPos = FindHardDropPlayerPos();
+            }
+        }
+
+        public void MoveTetrominoRight()
+        {
+            ++_playerPos.X;
+
+            if (DoesTetrominoCollide())
+            {
+                --_playerPos.X;
+            }
+            else
+            {
+                _shadowPos = FindHardDropPlayerPos();
+            }
+        }
+
+        public void MoveTetrominoDown()
+        {
+            ClearedLines.Clear();
+
+            ++_playerPos.Y;
+
+            if (DoesTetrominoCollide())
+            {
+                --_playerPos.Y;
+
+                LockTetrominoIn();
+                MoveToNextTetromino();
+            }
         }
 
         public void HardDropTetromino()
         {
-            for (int i = Rows - 1; i >= 0; --i)
-            {
-                _playerPos.Y = i;
-                if (!DoesTetrominoCollide())
-                {
-                    break;
-                }
-            }
+            _playerPos = FindHardDropPlayerPos();
 
             LockTetrominoIn();
             MoveToNextTetromino();
@@ -174,7 +165,7 @@ namespace TetrisGameLogic.Classes
         private void LockTetrominoIn()
         {
             DrawTetromino();
-            ClearFullRows();    
+            ClearFullRows();
         }
 
         private void DrawTetromino()
@@ -195,19 +186,6 @@ namespace TetrisGameLogic.Classes
                     }
                 }
             }
-        }
-
-        private bool IsRowFull(int row)
-        {
-            for (int i = 0; i < Cols; ++i)
-            {
-                if (Board[row, i] == 0)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
 
         private void ClearFullRows()
@@ -238,26 +216,47 @@ namespace TetrisGameLogic.Classes
             }
         }
 
+        private bool IsRowFull(int row)
+        {
+            for (int i = 0; i < Cols; ++i)
+            {
+                if (Board[row, i] == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private Point FindHardDropPlayerPos()
+        {
+            Point temp = _playerPos;
+            _playerPos.Y = Rows - 1;
+
+            while (DoesTetrominoCollide() && _playerPos.Y > 0)
+            {
+                --_playerPos.Y;
+            }
+
+            (temp, _playerPos) = (_playerPos, temp);
+
+            return temp;
+        }
+
         private void MoveToNextTetromino()
         {
             _playerPos = StartingPlayerPos;
+
             _currentTetrominoIndex = _nextTetrominoIndex;
             _nextTetrominoIndex = (_nextTetrominoIndex + 1) % _tetrominos.Count;
+
+            _shadowPos = FindHardDropPlayerPos();
 
             if (DoesTetrominoCollide())
             {
                 IsGameOver = true; 
             }
-        }
-
-        private void UpdateShadows()
-        {
-            if (!AreShadowsEnabled)
-            {
-                return;
-            }
-
-
         }
 
         #endregion

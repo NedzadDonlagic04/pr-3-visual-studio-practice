@@ -20,7 +20,7 @@ namespace TerminalTetris
             Console.SetCursorPosition(0, 0);
 
             Point playerPos = tetrisGame.PlayerPos;
-            int tetrominoSize = tetrisGame.CurrentTetromino.Size;
+            Point shadowPos = tetrisGame.ShadowPos;
 
             for (int i = 0; i < TetrisGame.Rows; ++i)
             {
@@ -28,12 +28,13 @@ namespace TerminalTetris
                 {
                     ConsoleColor bgColor;
 
-                    bool isI_InRange = i >= playerPos.Y && i < playerPos.Y + tetrominoSize;
-                    bool isII_InRange = ii >= playerPos.X && ii < playerPos.X + tetrominoSize;
-
-                    if (isI_InRange && isII_InRange && tetrisGame.CurrentTetromino[i - playerPos.Y, ii - playerPos.X] != 0)
+                    if (IsValidTetrominoBlock(i, ii, playerPos, tetrisGame.CurrentTetromino))
                     {
                         bgColor = GetColorForBlock(tetrisGame.CurrentTetromino[i - playerPos.Y, ii - playerPos.X]);
+                    }
+                    else if (tetrisGame.AreShadowsEnabled && IsValidTetrominoBlock(i, ii, shadowPos, tetrisGame.CurrentTetromino))
+                    {
+                        bgColor = GetColorForBlock(8); // Set shadow bg color
                     }
                     else
                     {
@@ -43,8 +44,8 @@ namespace TerminalTetris
                     Console.BackgroundColor = bgColor;
                     Console.Write("  ");
                 }
+                Console.BackgroundColor = GetColorForBlock(101);    // Set bg color of terminal
                 Console.WriteLine();
-                Console.BackgroundColor = GetColorForBlock(101);
             }
         }
 
@@ -60,6 +61,7 @@ namespace TerminalTetris
                 5 => ConsoleColor.Cyan,
                 6 => ConsoleColor.DarkMagenta,
                 7 => ConsoleColor.DarkBlue,
+                8 => ConsoleColor.Black,
                 100 => ConsoleColor.White,      // Color used when animating cleared lines
                 101 => ConsoleColor.Black,       // Coloring the terminal outside game board
                 _ => throw new NotImplementedException(),
@@ -69,6 +71,15 @@ namespace TerminalTetris
         #endregion
 
         #region Private methods
+
+        private bool IsValidTetrominoBlock(int row, int col, Point pos, Tetromino tetromino)
+        {
+            int size = tetromino.Size;
+            bool isRowInRange = row >= pos.Y && row < pos.Y + size;
+            bool isColInRange = col >= pos.X && col < pos.X + size;
+
+            return isRowInRange && isColInRange && tetromino[row - pos.Y, col - pos.X] != 0;
+        }
 
         private void AnimateClearedLines(List<int> clearedLines)
         {

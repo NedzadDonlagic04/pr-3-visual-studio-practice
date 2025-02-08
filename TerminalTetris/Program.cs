@@ -4,21 +4,22 @@ namespace TerminalTetris
 {
     internal class Program
     {
-        private static TetrisGameDisplay _tetrisGameDisplay = new();
-        private static TetrisGame _tetrisGame = new();
+        private readonly static TetrisGameDisplay _tetrisGameDisplay = new();
+        private readonly static TetrisGame _tetrisGame = new();
 
         static void Main(string[] args)
         {
             ConsoleKeyInfo input = new('\0', ConsoleKey.None, false, false, false);
 
             _tetrisGameDisplay.ApplyConsoleSettings();
+            _tetrisGame.AreShadowsEnabled = true;
             _tetrisGame.RestartGame();
 
             Task tetrisGameLoop = Task.Run(TetrisGameLoop);
 
             while (true)
             {
-                while (!Console.KeyAvailable) ;
+                while (!Console.KeyAvailable);
                 input = Console.ReadKey(true);
 
                 switch (input.Key)
