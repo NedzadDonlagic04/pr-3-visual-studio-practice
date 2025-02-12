@@ -44,16 +44,6 @@ namespace TetrisGameLogic.Classes
         {
             Board.FillWith<short>(0);
 
-            Board[13, 0] = 1;
-            Board[13, 1] = 1;
-            Board[13, 2] = 1;
-            Board[13, 5] = 1;
-            Board[13, 6] = 1;
-            Board[13, 7] = 1;
-            Board[13, 8] = 1;
-            Board[13, 9] = 1;
-            Board[13, 10] = 1;
-
             _currentTetrominoIndex = 0;
             _nextTetrominoIndex = 1;
 
