@@ -27,10 +27,11 @@ namespace TetrisGameLogic.Classes
 
         public Point PlayerPos { get => _playerPos; }
         public Point ShadowPos { get => _shadowPos; }
-
         public List<int> ClearedLines { get; init; } = new();
         public short[,] Board { get; init; } = new short[Rows, Cols];
         public bool IsGameOver { get; private set; }
+        public int Score { get; private set; }
+        public int TotalClearedLines { get; private set; }
 
         public Tetromino CurrentTetromino => _tetrominos[_currentTetrominoIndex];
         public Tetromino NextTetromino => _tetrominos[_nextTetrominoIndex];
@@ -43,11 +44,25 @@ namespace TetrisGameLogic.Classes
         {
             Board.FillWith<short>(0);
 
+            Board[13, 0] = 1;
+            Board[13, 1] = 1;
+            Board[13, 2] = 1;
+            Board[13, 5] = 1;
+            Board[13, 6] = 1;
+            Board[13, 7] = 1;
+            Board[13, 8] = 1;
+            Board[13, 9] = 1;
+            Board[13, 10] = 1;
+
             _currentTetrominoIndex = 0;
             _nextTetrominoIndex = 1;
 
             _playerPos = StartingPlayerPos;
             _shadowPos = FindHardDropPlayerPos();
+
+            Score = 0;
+            TotalClearedLines = 0;
+            ClearedLines.Clear();
 
             IsGameOver = false;
 
@@ -61,7 +76,7 @@ namespace TetrisGameLogic.Classes
         {
             CurrentTetromino.RotateLeft();
 
-            if (DoesTetrominoCollide())
+            if (DoesTetrominoCollide(_playerPos))
             {
                 CurrentTetromino.RotateRight();
             }
@@ -75,7 +90,7 @@ namespace TetrisGameLogic.Classes
         {
             CurrentTetromino.RotateRight();
 
-            if (DoesTetrominoCollide())
+            if (DoesTetrominoCollide(_playerPos))
             {
                 CurrentTetromino.RotateLeft();
             }
@@ -89,7 +104,7 @@ namespace TetrisGameLogic.Classes
         {
             --_playerPos.X;
 
-            if (DoesTetrominoCollide())
+            if (DoesTetrominoCollide(_playerPos))
             { 
                 ++_playerPos.X;
             }
@@ -103,7 +118,7 @@ namespace TetrisGameLogic.Classes
         {
             ++_playerPos.X;
 
-            if (DoesTetrominoCollide())
+            if (DoesTetrominoCollide(_playerPos))
             {
                 --_playerPos.X;
             }
@@ -119,7 +134,7 @@ namespace TetrisGameLogic.Classes
 
             ++_playerPos.Y;
 
-            if (DoesTetrominoCollide())
+            if (DoesTetrominoCollide(_playerPos))
             {
                 --_playerPos.Y;
 
@@ -131,16 +146,13 @@ namespace TetrisGameLogic.Classes
         public void HardDropTetromino()
         {
             _playerPos = FindHardDropPlayerPos();
-
-            LockTetrominoIn();
-            MoveToNextTetromino();
         }
 
         #endregion
 
         #region Private methods
 
-        private bool DoesTetrominoCollide()
+        private bool DoesTetrominoCollide(Point pos)
         {
             int size = CurrentTetromino.Size;
 
@@ -148,8 +160,8 @@ namespace TetrisGameLogic.Classes
             {
                 for (int ii = 0; ii < size; ++ii)
                 {
-                    int x = _playerPos.X + ii;
-                    int y = _playerPos.Y + i;
+                    int x = pos.X + ii;
+                    int y = pos.Y + i;
                     bool isBlockOutOfBounds = x < 0 || x >= Cols || y < 0 || y >= Rows;
 
                     if (CurrentTetromino[i, ii] != 0 && (isBlockOutOfBounds || Board[y, x] != 0))
@@ -214,6 +226,11 @@ namespace TetrisGameLogic.Classes
                     }
                 }
             }
+
+            if (clearedLines != 0)
+            {
+                UpdateScore(clearedLines);
+            }
         }
 
         private bool IsRowFull(int row)
@@ -232,14 +249,13 @@ namespace TetrisGameLogic.Classes
         private Point FindHardDropPlayerPos()
         {
             Point temp = _playerPos;
-            _playerPos.Y = Rows - 1;
 
-            while (DoesTetrominoCollide() && _playerPos.Y > 0)
+            while (!DoesTetrominoCollide(temp) && temp.Y < Rows - 1)
             {
-                --_playerPos.Y;
+                ++temp.Y;
             }
 
-            (temp, _playerPos) = (_playerPos, temp);
+            --temp.Y;
 
             return temp;
         }
@@ -253,10 +269,28 @@ namespace TetrisGameLogic.Classes
 
             _shadowPos = FindHardDropPlayerPos();
 
-            if (DoesTetrominoCollide())
+            if (DoesTetrominoCollide(_playerPos))
             {
                 IsGameOver = true; 
             }
+        }
+
+        private void UpdateScore(int linesCleared)
+        {
+            TotalClearedLines += linesCleared;
+            Score += GetScoreForLinesCleared(linesCleared);
+        }
+
+        private int GetScoreForLinesCleared(int linesCleared)
+        {
+            return linesCleared switch
+            {
+                1 => 100,
+                2 => 200,
+                3 => 400,
+                4 => 800,
+                _ => throw new NotImplementedException($"No score for {linesCleared} lines cleared")
+            };
         }
 
         #endregion
