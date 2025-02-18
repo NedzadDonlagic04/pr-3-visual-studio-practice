@@ -42,24 +42,24 @@ namespace TetrisGameLogic.Classes
 
         public void RestartGame()
         {
+            IsGameOver = false;
+
             Board.FillWith<short>(0);
 
             _currentTetrominoIndex = 0;
             _nextTetrominoIndex = 1;
 
-            _playerPos = StartingPlayerPos;
-            _shadowPos = FindHardDropPlayerPos();
-
             Score = 0;
             TotalClearedLines = 0;
             ClearedLines.Clear();
-
-            IsGameOver = false;
 
             foreach (var tetromino in _tetrominos)
             {
                 tetromino.ResetRotation();
             }
+
+            _playerPos = StartingPlayerPos;
+            _shadowPos = FindHardDropPlayerPos();
         }
 
         public void RotateTetrominoLeft()
