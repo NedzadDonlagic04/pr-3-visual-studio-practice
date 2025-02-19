@@ -7,8 +7,10 @@ namespace TetrisGameLogic.Classes
     {
         #region Fields and properties
 
-        private List<PlayerHighScore> HighScores;
         private readonly string _pathToHighScores;
+        private const int MaxScores = 10;
+
+        public List<PlayerHighScore> HighScores { get; private set; }
 
         #endregion
 
@@ -54,7 +56,7 @@ namespace TetrisGameLogic.Classes
                 return;
             }
 
-            for (int i = moveIndex + 1; i < HighScores.Count; ++i)
+            for (int i = HighScores.Count - 1; i > moveIndex; --i)
             {
                 HighScores[i] = HighScores[i - 1];
             }
@@ -80,7 +82,7 @@ namespace TetrisGameLogic.Classes
 
         private void LoadDefaultScores()
         {
-            HighScores = new();
+            HighScores = Enumerable.Repeat(new PlayerHighScore(), MaxScores).ToList();
         }
 
         #endregion
