@@ -37,7 +37,7 @@
             // 
             // playBtn
             // 
-            playBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            playBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             playBtn.Location = new Point(227, 164);
             playBtn.Name = "playBtn";
             playBtn.Size = new Size(178, 49);
@@ -48,7 +48,7 @@
             // 
             // highScoresBtn
             // 
-            highScoresBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            highScoresBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             highScoresBtn.Location = new Point(227, 241);
             highScoresBtn.Name = "highScoresBtn";
             highScoresBtn.Size = new Size(178, 49);
@@ -59,7 +59,7 @@
             // 
             // quitBtn
             // 
-            quitBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            quitBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             quitBtn.Location = new Point(227, 316);
             quitBtn.Name = "quitBtn";
             quitBtn.Size = new Size(178, 49);
@@ -72,8 +72,8 @@
             // 
             tetrisLbl.AutoSize = true;
             tetrisLbl.BackColor = Color.Transparent;
-            tetrisLbl.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point);
-            tetrisLbl.ForeColor = Color.Silver;
+            tetrisLbl.Font = new Font("Segoe UI", 48F, FontStyle.Bold);
+            tetrisLbl.ForeColor = Color.WhiteSmoke;
             tetrisLbl.Location = new Point(192, 18);
             tetrisLbl.Name = "tetrisLbl";
             tetrisLbl.Size = new Size(249, 106);
