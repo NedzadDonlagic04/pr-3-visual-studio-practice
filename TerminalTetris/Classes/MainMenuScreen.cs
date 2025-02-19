@@ -52,18 +52,15 @@ namespace TerminalTetris.Classes
                     RefreshText();
                     break;
                 case ConsoleKey.Enter:
-                    if (_optionIndex == 0) // Play
+                    if (_optionIndex == _options.Count - 1)
                     {
-                        Console.Clear();
-                        PlayScreen playScreen = new();
-                        playScreen.Display();
-                        Console.Clear();
-                        RefreshText();
+                        break;
                     }
-                    else if (_optionIndex == 1) // High scores
-                    {
-
-                    }
+                    Console.Clear();
+                    Screen screen = (_optionIndex == 0)? new PlayScreen() : new HighScoresScreen();
+                    screen.Display();
+                    Console.Clear();
+                    RefreshText();
                     break;
             }
         }
