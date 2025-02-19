@@ -55,6 +55,11 @@ namespace TerminalTetris.Classes
 
         private void PrintTetrominoShadow(TetrisGame tetrisGame)
         {
+            if (!AreShadowsEnabled)
+            {
+                return;
+            }
+
             int x = tetrisGame.ShadowPos.X;
             int y = tetrisGame.ShadowPos.Y;
             Tetromino tetromino = tetrisGame.CurrentTetromino;

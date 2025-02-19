@@ -47,7 +47,7 @@ namespace TerminalTetris.Classes
         private void HandleKeyInput(ConsoleKey key)
         {
             bool isGameOver = _tetrisGame.IsGameOver;
-
+            
             switch (key)
             {
                 case ConsoleKey.A:
