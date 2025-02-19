@@ -1,6 +1,6 @@
 ﻿namespace WinFormsTetris
 {
-    partial class GameplayForm
+    partial class GameplayFrm
     {
         /// <summary>
         ///  Required designer variable.

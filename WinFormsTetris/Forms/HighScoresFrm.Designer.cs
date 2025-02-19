@@ -1,6 +1,6 @@
 ﻿namespace WinFormsTetris.Forms
 {
-    partial class HighScoresForm
+    partial class HighScoresFrm
     {
         /// <summary>
         /// Required designer variable.

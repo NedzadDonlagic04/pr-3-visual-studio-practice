@@ -1,8 +1,8 @@
 namespace WinFormsTetris
 {
-    public partial class GameplayForm : Form
+    public partial class GameplayFrm : Form
     {
-        public GameplayForm()
+        public GameplayFrm()
         {
             InitializeComponent();
         }

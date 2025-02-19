@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinFormsTetris.Forms
 {
-    public partial class HighScoresForm : Form
+    public partial class HighScoresFrm : Form
     {
-        public HighScoresForm()
+        public HighScoresFrm()
         {
             InitializeComponent();
         }
