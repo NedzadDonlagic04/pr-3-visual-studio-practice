@@ -1,4 +1,6 @@
-﻿namespace TetrisGameLogic.Structs
+﻿using System.Text.Json.Serialization;
+
+namespace TetrisGameLogic.Structs
 {
     public readonly struct PlayerHighScore
     {
@@ -12,6 +14,7 @@
 
         #region Public methods
 
+        [JsonConstructor]
         public PlayerHighScore(int score = 0, int linesCleared = 0, DateTime dateTime = default)
         {
             ValidateParams(score, linesCleared);
