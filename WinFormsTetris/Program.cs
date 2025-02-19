@@ -1,3 +1,5 @@
+using WinFormsTetris.Forms;
+
 namespace WinFormsTetris
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace WinFormsTetris
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new TetrisGameForm());
+            Application.Run(new MainMenuForm());
         }
     }
 }
