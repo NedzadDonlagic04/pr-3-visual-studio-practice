@@ -1,8 +1,9 @@
-﻿using TetrisGameLogic.Classes;
+﻿using TerminalTetris.Interfaces;
+using TetrisGameLogic.Classes;
 
 namespace TerminalTetris.Classes
 {
-    public class PlayScreen
+    public class PlayScreen : Screen
     {
         #region Fields and properties
 
