@@ -1,6 +1,8 @@
-﻿namespace TerminalTetris.Classes
+﻿using TerminalTetris.Interfaces;
+
+namespace TerminalTetris.Classes
 {
-    public class MainMenu
+    public class MainMenuScreen : Screen
     {
         #region Fields and properties
 

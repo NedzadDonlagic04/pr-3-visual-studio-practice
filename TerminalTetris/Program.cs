@@ -6,9 +6,9 @@ namespace TerminalTetris
     {
         static void Main(string[] args)
         {
-            MainMenu mainMenu = new();
+            MainMenuScreen mainMenuScreen = new();
 
-            mainMenu.Display();
+            mainMenuScreen.Display();
         }
     }
 }
