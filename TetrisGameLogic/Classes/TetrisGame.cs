@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using TetrisGameLogic.Extensions;
+using TetrisGameLogic.Structs;
 
 namespace TetrisGameLogic.Classes
 {
@@ -24,6 +25,7 @@ namespace TetrisGameLogic.Classes
         private static readonly Point StartingPlayerPos = new(3, 0);
         private Point _playerPos;
         private Point _shadowPos;
+        private readonly HighScoreManager _highScoreManager = new();
 
         public Point PlayerPos { get => _playerPos; }
         public Point ShadowPos { get => _shadowPos; }
@@ -261,7 +263,9 @@ namespace TetrisGameLogic.Classes
 
             if (DoesTetrominoCollide(_playerPos))
             {
-                IsGameOver = true; 
+                IsGameOver = true;
+                PlayerHighScore playerHighScore = new(Score, TotalClearedLines, DateTime.Now);
+                _highScoreManager.AddScore(playerHighScore);
             }
         }
 
