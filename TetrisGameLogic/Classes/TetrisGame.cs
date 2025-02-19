@@ -55,11 +55,6 @@ namespace TetrisGameLogic.Classes
             TotalClearedLines = 0;
             ClearedLines.Clear();
 
-            foreach (var tetromino in _tetrominos)
-            {
-                tetromino.ResetRotation();
-            }
-
             _playerPos = StartingPlayerPos;
             _shadowPos = FindHardDropPlayerPos();
         }
@@ -255,6 +250,8 @@ namespace TetrisGameLogic.Classes
         private void MoveToNextTetromino()
         {
             _playerPos = StartingPlayerPos;
+
+            CurrentTetromino.ResetRotation();
 
             _currentTetrominoIndex = _nextTetrominoIndex;
             _nextTetrominoIndex = (_nextTetrominoIndex + 1) % _tetrominos.Count;
