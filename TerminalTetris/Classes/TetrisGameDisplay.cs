@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using TetrisGameLogic.Classes;
+﻿using TetrisGameLogic.Classes;
 
 namespace TerminalTetris.Classes
 {
