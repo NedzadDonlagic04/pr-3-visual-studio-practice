@@ -22,24 +22,24 @@ namespace TerminalTetris.Classes
 
             Console.SetCursorPosition(0, 0);
 
-            PrintScore(tetrisGame.Score, tetrisGame.TotalClearedLines);
-            PrintBoard(tetrisGame);
-            PrintTetrominoShadow(tetrisGame);
-            PrintTetromino(tetrisGame);
+            DrawScore(tetrisGame.Score, tetrisGame.TotalClearedLines);
+            DrawBoard(tetrisGame);
+            DrawTetrominoShadow(tetrisGame);
+            DrawTetromino(tetrisGame);
         }
 
         #endregion
 
         #region Private methods
 
-        private void PrintScore(int score, int linesCleared)
+        private void DrawScore(int score, int linesCleared)
         {
             Console.BackgroundColor = GetColorForBlock(TerminalBgColor);    
             Console.WriteLine($"Score: {score}");
             Console.WriteLine($"Lines cleared: {linesCleared}");
         }
 
-        private void PrintBoard(TetrisGame tetrisGame)
+        private void DrawBoard(TetrisGame tetrisGame)
         {
             for (int i = 0; i < TetrisGame.Rows; ++i)
             {
@@ -53,7 +53,7 @@ namespace TerminalTetris.Classes
             }
         }
 
-        private void PrintTetrominoShadow(TetrisGame tetrisGame)
+        private void DrawTetrominoShadow(TetrisGame tetrisGame)
         {
             if (!AreShadowsEnabled)
             {
@@ -81,7 +81,7 @@ namespace TerminalTetris.Classes
             Console.BackgroundColor = GetColorForBlock(TerminalBgColor);    // Set bg color of terminal
         }
 
-        private void PrintTetromino(TetrisGame tetrisGame)
+        private void DrawTetromino(TetrisGame tetrisGame)
         { 
             int x = tetrisGame.PlayerPos.X;
             int y = tetrisGame.PlayerPos.Y;
