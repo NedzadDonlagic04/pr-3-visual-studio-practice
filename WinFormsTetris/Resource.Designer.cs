@@ -69,5 +69,15 @@ namespace WinFormsTetris {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] tetrominoDrop {
+            get {
+                object obj = ResourceManager.GetObject("tetrominoDrop", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-using System.Drawing;
+using NAudio.Wave;
 using TetrisGameLogic.Classes;
 
 namespace WinFormsTetris
@@ -15,6 +15,8 @@ namespace WinFormsTetris
         private readonly TetrisGame _tetrisGame = new();
         private readonly List<PictureBox> _boardTiles;
         private readonly List<PictureBox> _nextTetrominoTiles;
+        private WaveOutEvent _outputDevice;
+        private AudioFileReader _audioFile;
 
         #endregion
 
@@ -24,6 +26,11 @@ namespace WinFormsTetris
         {
             InitializeComponent();
 
+            string audioFilePath = Path.Combine(".", "Resources", "tetrominoDrop.mp3");
+            _audioFile = new AudioFileReader(audioFilePath);
+            _outputDevice = new WaveOutEvent();
+            _outputDevice.Init(_audioFile);
+
             // Because opening the Designer with 150+ picture boxes is suicide for VS
             // and changing the interval is something I do often for testing I will 
             // leave it here
@@ -31,11 +38,6 @@ namespace WinFormsTetris
 
             _boardTiles = gameTilesContainer.Controls.Cast<PictureBox>().ToList();
             _nextTetrominoTiles = nextTetrominoTilesContainer.Controls.Cast<PictureBox>().ToList();
-
-            foreach (var foo in _nextTetrominoTiles)
-            {
-                System.Diagnostics.Debug.WriteLine(foo.Name);
-            }
 
             RestartGame();
         }
@@ -69,13 +71,14 @@ namespace WinFormsTetris
 
         private void GameplayFrm_KeyDown(object sender, KeyEventArgs e)
         {
-            switch(e.KeyCode)
+            switch (e.KeyCode)
             {
                 case Keys.A:
                     _tetrisGame.MoveTetrominoLeft();
                     break;
                 case Keys.S:
                     _tetrisGame.HardDropTetromino();
+                    PlayHardDropSfx();
                     break;
                 case Keys.D:
                     _tetrisGame.MoveTetrominoRight();
@@ -90,6 +93,12 @@ namespace WinFormsTetris
                     _tetrisGame.RotateTetrominoRight();
                     break;
             }
+        }
+
+        private void PlayHardDropSfx()
+        {
+            _audioFile.Seek(0, SeekOrigin.Begin);
+            _outputDevice.Play();
         }
 
         private void GameTimerTick(object? sender, EventArgs e)
