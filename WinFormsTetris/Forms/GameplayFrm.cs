@@ -15,8 +15,8 @@ namespace WinFormsTetris
         private readonly TetrisGame _tetrisGame = new();
         private readonly List<PictureBox> _boardTiles;
         private readonly List<PictureBox> _nextTetrominoTiles;
-        private WaveOutEvent _outputDevice;
-        private AudioFileReader _audioFile;
+        private readonly WaveOutEvent _outputDevice;
+        private readonly AudioFileReader _audioFile;
 
         #endregion
 
