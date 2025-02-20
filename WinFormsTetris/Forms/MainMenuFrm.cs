@@ -23,7 +23,10 @@
 
         private void HighScoresBtnClick(object? sender, EventArgs e)
         {
-
+            using HighScoresFrm highScoresFrm = new();
+            Hide();
+            highScoresFrm.ShowDialog();
+            Show();
         }
 
         private void QuitBtnClick(object? sender, EventArgs e)
