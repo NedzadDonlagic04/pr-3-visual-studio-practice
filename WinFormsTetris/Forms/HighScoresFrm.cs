@@ -39,6 +39,8 @@ namespace WinFormsTetris.Forms
             highScoresDgv.AutoGenerateColumns = false;
             highScoresDgv.AllowUserToResizeColumns = false;
             highScoresDgv.AllowUserToResizeRows = false;
+
+            DateAndTime.DefaultCellStyle.Format = "HH:mm:ss dd.MM.yyyy";
         }
 
         private void LoadHighScoresIntoDgv()
