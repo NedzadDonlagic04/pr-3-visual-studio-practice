@@ -15,7 +15,10 @@
 
         private void PlayBtnClick(object? sender, EventArgs e)
         {
-
+            using GameplayFrm gameplayFrm = new();
+            Hide();
+            gameplayFrm.ShowDialog();
+            Show();
         }
 
         private void HighScoresBtnClick(object? sender, EventArgs e)
