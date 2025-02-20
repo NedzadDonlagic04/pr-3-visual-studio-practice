@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flpnlBlocks = new FlowLayoutPanel();
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameplayFrm));
+            gameTilesContainer = new FlowLayoutPanel();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
@@ -41,6 +43,7 @@
             pictureBox10 = new PictureBox();
             pictureBox11 = new PictureBox();
             pictureBox12 = new PictureBox();
+            pictureBox14 = new PictureBox();
             pictureBox15 = new PictureBox();
             pictureBox16 = new PictureBox();
             pictureBox17 = new PictureBox();
@@ -53,6 +56,7 @@
             pictureBox24 = new PictureBox();
             pictureBox25 = new PictureBox();
             pictureBox27 = new PictureBox();
+            pictureBox28 = new PictureBox();
             pictureBox29 = new PictureBox();
             pictureBox30 = new PictureBox();
             pictureBox31 = new PictureBox();
@@ -65,6 +69,7 @@
             pictureBox38 = new PictureBox();
             pictureBox40 = new PictureBox();
             pictureBox41 = new PictureBox();
+            pictureBox42 = new PictureBox();
             pictureBox43 = new PictureBox();
             pictureBox44 = new PictureBox();
             pictureBox45 = new PictureBox();
@@ -77,6 +82,7 @@
             pictureBox53 = new PictureBox();
             pictureBox54 = new PictureBox();
             pictureBox55 = new PictureBox();
+            pictureBox56 = new PictureBox();
             pictureBox57 = new PictureBox();
             pictureBox58 = new PictureBox();
             pictureBox59 = new PictureBox();
@@ -89,6 +95,7 @@
             pictureBox67 = new PictureBox();
             pictureBox68 = new PictureBox();
             pictureBox69 = new PictureBox();
+            pictureBox70 = new PictureBox();
             pictureBox71 = new PictureBox();
             pictureBox72 = new PictureBox();
             pictureBox73 = new PictureBox();
@@ -101,6 +108,7 @@
             pictureBox81 = new PictureBox();
             pictureBox82 = new PictureBox();
             pictureBox83 = new PictureBox();
+            pictureBox84 = new PictureBox();
             pictureBox85 = new PictureBox();
             pictureBox86 = new PictureBox();
             pictureBox87 = new PictureBox();
@@ -113,6 +121,7 @@
             pictureBox95 = new PictureBox();
             pictureBox96 = new PictureBox();
             pictureBox97 = new PictureBox();
+            pictureBox98 = new PictureBox();
             pictureBox99 = new PictureBox();
             pictureBox100 = new PictureBox();
             pictureBox101 = new PictureBox();
@@ -125,6 +134,7 @@
             pictureBox109 = new PictureBox();
             pictureBox110 = new PictureBox();
             pictureBox111 = new PictureBox();
+            pictureBox112 = new PictureBox();
             pictureBox113 = new PictureBox();
             pictureBox114 = new PictureBox();
             pictureBox115 = new PictureBox();
@@ -137,6 +147,7 @@
             pictureBox123 = new PictureBox();
             pictureBox124 = new PictureBox();
             pictureBox125 = new PictureBox();
+            pictureBox126 = new PictureBox();
             pictureBox127 = new PictureBox();
             pictureBox128 = new PictureBox();
             pictureBox129 = new PictureBox();
@@ -149,6 +160,7 @@
             pictureBox137 = new PictureBox();
             pictureBox138 = new PictureBox();
             pictureBox139 = new PictureBox();
+            pictureBox140 = new PictureBox();
             pictureBox141 = new PictureBox();
             pictureBox142 = new PictureBox();
             pictureBox144 = new PictureBox();
@@ -161,6 +173,7 @@
             pictureBox151 = new PictureBox();
             pictureBox152 = new PictureBox();
             pictureBox153 = new PictureBox();
+            pictureBox154 = new PictureBox();
             pictureBox155 = new PictureBox();
             pictureBox157 = new PictureBox();
             pictureBox158 = new PictureBox();
@@ -173,6 +186,7 @@
             pictureBox165 = new PictureBox();
             pictureBox166 = new PictureBox();
             pictureBox167 = new PictureBox();
+            pictureBox168 = new PictureBox();
             pictureBox170 = new PictureBox();
             pictureBox171 = new PictureBox();
             pictureBox172 = new PictureBox();
@@ -182,20 +196,7 @@
             pictureBox176 = new PictureBox();
             pictureBox177 = new PictureBox();
             pictureBox178 = new PictureBox();
-            pictureBox154 = new PictureBox();
-            pictureBox140 = new PictureBox();
-            pictureBox126 = new PictureBox();
-            pictureBox112 = new PictureBox();
-            pictureBox98 = new PictureBox();
-            pictureBox84 = new PictureBox();
-            pictureBox70 = new PictureBox();
-            pictureBox56 = new PictureBox();
-            pictureBox42 = new PictureBox();
-            pictureBox28 = new PictureBox();
-            pictureBox14 = new PictureBox();
-            pictureBox168 = new PictureBox();
-            flpnlNextTetromino = new FlowLayoutPanel();
-            lblNextTetromino = new Label();
+            nextTetrominoTilesContainer = new FlowLayoutPanel();
             pictureBox13 = new PictureBox();
             pictureBox26 = new PictureBox();
             pictureBox39 = new PictureBox();
@@ -212,13 +213,16 @@
             pictureBox179 = new PictureBox();
             pictureBox180 = new PictureBox();
             pictureBox181 = new PictureBox();
-            lblCurrentScoreMsg = new Label();
-            lblHighScoreMsg = new Label();
-            lblCurrentScore = new Label();
-            lblHighScore = new Label();
-            btnToggleShadows = new Button();
-            btnResetGame = new Button();
-            flpnlBlocks.SuspendLayout();
+            nextTetrominoLbl = new Label();
+            scoreMsgLbl = new Label();
+            clearedLinesMsgLbl = new Label();
+            scoreLbl = new Label();
+            clearedLinesLbl = new Label();
+            toggleShadowsBtn = new Button();
+            restartGameBtn = new Button();
+            gameTmr = new System.Windows.Forms.Timer(components);
+            gameOverLbl = new Label();
+            gameTilesContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -231,6 +235,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox16).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox17).BeginInit();
@@ -243,6 +248,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox24).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox25).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox31).BeginInit();
@@ -255,6 +261,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox38).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox40).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox41).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox42).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox43).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox44).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox45).BeginInit();
@@ -267,6 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox53).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox54).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox55).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox56).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox57).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox58).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox59).BeginInit();
@@ -279,6 +287,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox67).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox68).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox69).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox70).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox71).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox72).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox73).BeginInit();
@@ -291,6 +300,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox81).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox82).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox83).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox84).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox85).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox86).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox87).BeginInit();
@@ -303,6 +313,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox95).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox96).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox97).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox98).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox99).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox100).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox101).BeginInit();
@@ -315,6 +326,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox109).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox110).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox111).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox112).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox113).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox114).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox115).BeginInit();
@@ -327,6 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox123).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox124).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox125).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox126).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox127).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox128).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox129).BeginInit();
@@ -339,6 +352,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox137).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox138).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox139).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox140).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox141).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox142).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox144).BeginInit();
@@ -351,6 +365,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox151).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox152).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox153).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox154).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox155).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox157).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox158).BeginInit();
@@ -363,6 +378,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox165).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox166).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox167).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox168).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox170).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox171).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox172).BeginInit();
@@ -372,19 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox176).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox177).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox178).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox154).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox140).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox126).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox112).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox98).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox84).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox70).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox56).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox42).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox168).BeginInit();
-            flpnlNextTetromino.SuspendLayout();
+            nextTetrominoTilesContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox26).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox39).BeginInit();
@@ -403,179 +407,179 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox181).BeginInit();
             SuspendLayout();
             // 
-            // flpnlBlocks
+            // gameTilesContainer
             // 
-            flpnlBlocks.BackColor = Color.FromArgb(64, 64, 64);
-            flpnlBlocks.Controls.Add(pictureBox1);
-            flpnlBlocks.Controls.Add(pictureBox2);
-            flpnlBlocks.Controls.Add(pictureBox3);
-            flpnlBlocks.Controls.Add(pictureBox4);
-            flpnlBlocks.Controls.Add(pictureBox5);
-            flpnlBlocks.Controls.Add(pictureBox6);
-            flpnlBlocks.Controls.Add(pictureBox7);
-            flpnlBlocks.Controls.Add(pictureBox8);
-            flpnlBlocks.Controls.Add(pictureBox9);
-            flpnlBlocks.Controls.Add(pictureBox10);
-            flpnlBlocks.Controls.Add(pictureBox11);
-            flpnlBlocks.Controls.Add(pictureBox12);
-            flpnlBlocks.Controls.Add(pictureBox14);
-            flpnlBlocks.Controls.Add(pictureBox15);
-            flpnlBlocks.Controls.Add(pictureBox16);
-            flpnlBlocks.Controls.Add(pictureBox17);
-            flpnlBlocks.Controls.Add(pictureBox18);
-            flpnlBlocks.Controls.Add(pictureBox19);
-            flpnlBlocks.Controls.Add(pictureBox20);
-            flpnlBlocks.Controls.Add(pictureBox21);
-            flpnlBlocks.Controls.Add(pictureBox22);
-            flpnlBlocks.Controls.Add(pictureBox23);
-            flpnlBlocks.Controls.Add(pictureBox24);
-            flpnlBlocks.Controls.Add(pictureBox25);
-            flpnlBlocks.Controls.Add(pictureBox27);
-            flpnlBlocks.Controls.Add(pictureBox28);
-            flpnlBlocks.Controls.Add(pictureBox29);
-            flpnlBlocks.Controls.Add(pictureBox30);
-            flpnlBlocks.Controls.Add(pictureBox31);
-            flpnlBlocks.Controls.Add(pictureBox32);
-            flpnlBlocks.Controls.Add(pictureBox33);
-            flpnlBlocks.Controls.Add(pictureBox34);
-            flpnlBlocks.Controls.Add(pictureBox35);
-            flpnlBlocks.Controls.Add(pictureBox36);
-            flpnlBlocks.Controls.Add(pictureBox37);
-            flpnlBlocks.Controls.Add(pictureBox38);
-            flpnlBlocks.Controls.Add(pictureBox40);
-            flpnlBlocks.Controls.Add(pictureBox41);
-            flpnlBlocks.Controls.Add(pictureBox42);
-            flpnlBlocks.Controls.Add(pictureBox43);
-            flpnlBlocks.Controls.Add(pictureBox44);
-            flpnlBlocks.Controls.Add(pictureBox45);
-            flpnlBlocks.Controls.Add(pictureBox46);
-            flpnlBlocks.Controls.Add(pictureBox47);
-            flpnlBlocks.Controls.Add(pictureBox48);
-            flpnlBlocks.Controls.Add(pictureBox49);
-            flpnlBlocks.Controls.Add(pictureBox50);
-            flpnlBlocks.Controls.Add(pictureBox51);
-            flpnlBlocks.Controls.Add(pictureBox53);
-            flpnlBlocks.Controls.Add(pictureBox54);
-            flpnlBlocks.Controls.Add(pictureBox55);
-            flpnlBlocks.Controls.Add(pictureBox56);
-            flpnlBlocks.Controls.Add(pictureBox57);
-            flpnlBlocks.Controls.Add(pictureBox58);
-            flpnlBlocks.Controls.Add(pictureBox59);
-            flpnlBlocks.Controls.Add(pictureBox60);
-            flpnlBlocks.Controls.Add(pictureBox61);
-            flpnlBlocks.Controls.Add(pictureBox62);
-            flpnlBlocks.Controls.Add(pictureBox63);
-            flpnlBlocks.Controls.Add(pictureBox64);
-            flpnlBlocks.Controls.Add(pictureBox66);
-            flpnlBlocks.Controls.Add(pictureBox67);
-            flpnlBlocks.Controls.Add(pictureBox68);
-            flpnlBlocks.Controls.Add(pictureBox69);
-            flpnlBlocks.Controls.Add(pictureBox70);
-            flpnlBlocks.Controls.Add(pictureBox71);
-            flpnlBlocks.Controls.Add(pictureBox72);
-            flpnlBlocks.Controls.Add(pictureBox73);
-            flpnlBlocks.Controls.Add(pictureBox74);
-            flpnlBlocks.Controls.Add(pictureBox75);
-            flpnlBlocks.Controls.Add(pictureBox76);
-            flpnlBlocks.Controls.Add(pictureBox77);
-            flpnlBlocks.Controls.Add(pictureBox79);
-            flpnlBlocks.Controls.Add(pictureBox80);
-            flpnlBlocks.Controls.Add(pictureBox81);
-            flpnlBlocks.Controls.Add(pictureBox82);
-            flpnlBlocks.Controls.Add(pictureBox83);
-            flpnlBlocks.Controls.Add(pictureBox84);
-            flpnlBlocks.Controls.Add(pictureBox85);
-            flpnlBlocks.Controls.Add(pictureBox86);
-            flpnlBlocks.Controls.Add(pictureBox87);
-            flpnlBlocks.Controls.Add(pictureBox88);
-            flpnlBlocks.Controls.Add(pictureBox89);
-            flpnlBlocks.Controls.Add(pictureBox90);
-            flpnlBlocks.Controls.Add(pictureBox92);
-            flpnlBlocks.Controls.Add(pictureBox93);
-            flpnlBlocks.Controls.Add(pictureBox94);
-            flpnlBlocks.Controls.Add(pictureBox95);
-            flpnlBlocks.Controls.Add(pictureBox96);
-            flpnlBlocks.Controls.Add(pictureBox97);
-            flpnlBlocks.Controls.Add(pictureBox98);
-            flpnlBlocks.Controls.Add(pictureBox99);
-            flpnlBlocks.Controls.Add(pictureBox100);
-            flpnlBlocks.Controls.Add(pictureBox101);
-            flpnlBlocks.Controls.Add(pictureBox102);
-            flpnlBlocks.Controls.Add(pictureBox103);
-            flpnlBlocks.Controls.Add(pictureBox105);
-            flpnlBlocks.Controls.Add(pictureBox106);
-            flpnlBlocks.Controls.Add(pictureBox107);
-            flpnlBlocks.Controls.Add(pictureBox108);
-            flpnlBlocks.Controls.Add(pictureBox109);
-            flpnlBlocks.Controls.Add(pictureBox110);
-            flpnlBlocks.Controls.Add(pictureBox111);
-            flpnlBlocks.Controls.Add(pictureBox112);
-            flpnlBlocks.Controls.Add(pictureBox113);
-            flpnlBlocks.Controls.Add(pictureBox114);
-            flpnlBlocks.Controls.Add(pictureBox115);
-            flpnlBlocks.Controls.Add(pictureBox116);
-            flpnlBlocks.Controls.Add(pictureBox118);
-            flpnlBlocks.Controls.Add(pictureBox119);
-            flpnlBlocks.Controls.Add(pictureBox120);
-            flpnlBlocks.Controls.Add(pictureBox121);
-            flpnlBlocks.Controls.Add(pictureBox122);
-            flpnlBlocks.Controls.Add(pictureBox123);
-            flpnlBlocks.Controls.Add(pictureBox124);
-            flpnlBlocks.Controls.Add(pictureBox125);
-            flpnlBlocks.Controls.Add(pictureBox126);
-            flpnlBlocks.Controls.Add(pictureBox127);
-            flpnlBlocks.Controls.Add(pictureBox128);
-            flpnlBlocks.Controls.Add(pictureBox129);
-            flpnlBlocks.Controls.Add(pictureBox131);
-            flpnlBlocks.Controls.Add(pictureBox132);
-            flpnlBlocks.Controls.Add(pictureBox133);
-            flpnlBlocks.Controls.Add(pictureBox134);
-            flpnlBlocks.Controls.Add(pictureBox135);
-            flpnlBlocks.Controls.Add(pictureBox136);
-            flpnlBlocks.Controls.Add(pictureBox137);
-            flpnlBlocks.Controls.Add(pictureBox138);
-            flpnlBlocks.Controls.Add(pictureBox139);
-            flpnlBlocks.Controls.Add(pictureBox140);
-            flpnlBlocks.Controls.Add(pictureBox141);
-            flpnlBlocks.Controls.Add(pictureBox142);
-            flpnlBlocks.Controls.Add(pictureBox144);
-            flpnlBlocks.Controls.Add(pictureBox145);
-            flpnlBlocks.Controls.Add(pictureBox146);
-            flpnlBlocks.Controls.Add(pictureBox147);
-            flpnlBlocks.Controls.Add(pictureBox148);
-            flpnlBlocks.Controls.Add(pictureBox149);
-            flpnlBlocks.Controls.Add(pictureBox150);
-            flpnlBlocks.Controls.Add(pictureBox151);
-            flpnlBlocks.Controls.Add(pictureBox152);
-            flpnlBlocks.Controls.Add(pictureBox153);
-            flpnlBlocks.Controls.Add(pictureBox154);
-            flpnlBlocks.Controls.Add(pictureBox155);
-            flpnlBlocks.Controls.Add(pictureBox157);
-            flpnlBlocks.Controls.Add(pictureBox158);
-            flpnlBlocks.Controls.Add(pictureBox159);
-            flpnlBlocks.Controls.Add(pictureBox160);
-            flpnlBlocks.Controls.Add(pictureBox161);
-            flpnlBlocks.Controls.Add(pictureBox162);
-            flpnlBlocks.Controls.Add(pictureBox163);
-            flpnlBlocks.Controls.Add(pictureBox164);
-            flpnlBlocks.Controls.Add(pictureBox165);
-            flpnlBlocks.Controls.Add(pictureBox166);
-            flpnlBlocks.Controls.Add(pictureBox167);
-            flpnlBlocks.Controls.Add(pictureBox168);
-            flpnlBlocks.Controls.Add(pictureBox170);
-            flpnlBlocks.Controls.Add(pictureBox171);
-            flpnlBlocks.Controls.Add(pictureBox172);
-            flpnlBlocks.Controls.Add(pictureBox173);
-            flpnlBlocks.Controls.Add(pictureBox174);
-            flpnlBlocks.Controls.Add(pictureBox175);
-            flpnlBlocks.Controls.Add(pictureBox176);
-            flpnlBlocks.Controls.Add(pictureBox177);
-            flpnlBlocks.Controls.Add(pictureBox178);
-            flpnlBlocks.Location = new Point(12, 12);
-            flpnlBlocks.Name = "flpnlBlocks";
-            flpnlBlocks.Padding = new Padding(40);
-            flpnlBlocks.Size = new Size(520, 680);
-            flpnlBlocks.TabIndex = 0;
+            gameTilesContainer.BackColor = Color.FromArgb(64, 64, 64);
+            gameTilesContainer.Controls.Add(pictureBox1);
+            gameTilesContainer.Controls.Add(pictureBox2);
+            gameTilesContainer.Controls.Add(pictureBox3);
+            gameTilesContainer.Controls.Add(pictureBox4);
+            gameTilesContainer.Controls.Add(pictureBox5);
+            gameTilesContainer.Controls.Add(pictureBox6);
+            gameTilesContainer.Controls.Add(pictureBox7);
+            gameTilesContainer.Controls.Add(pictureBox8);
+            gameTilesContainer.Controls.Add(pictureBox9);
+            gameTilesContainer.Controls.Add(pictureBox10);
+            gameTilesContainer.Controls.Add(pictureBox11);
+            gameTilesContainer.Controls.Add(pictureBox12);
+            gameTilesContainer.Controls.Add(pictureBox14);
+            gameTilesContainer.Controls.Add(pictureBox15);
+            gameTilesContainer.Controls.Add(pictureBox16);
+            gameTilesContainer.Controls.Add(pictureBox17);
+            gameTilesContainer.Controls.Add(pictureBox18);
+            gameTilesContainer.Controls.Add(pictureBox19);
+            gameTilesContainer.Controls.Add(pictureBox20);
+            gameTilesContainer.Controls.Add(pictureBox21);
+            gameTilesContainer.Controls.Add(pictureBox22);
+            gameTilesContainer.Controls.Add(pictureBox23);
+            gameTilesContainer.Controls.Add(pictureBox24);
+            gameTilesContainer.Controls.Add(pictureBox25);
+            gameTilesContainer.Controls.Add(pictureBox27);
+            gameTilesContainer.Controls.Add(pictureBox28);
+            gameTilesContainer.Controls.Add(pictureBox29);
+            gameTilesContainer.Controls.Add(pictureBox30);
+            gameTilesContainer.Controls.Add(pictureBox31);
+            gameTilesContainer.Controls.Add(pictureBox32);
+            gameTilesContainer.Controls.Add(pictureBox33);
+            gameTilesContainer.Controls.Add(pictureBox34);
+            gameTilesContainer.Controls.Add(pictureBox35);
+            gameTilesContainer.Controls.Add(pictureBox36);
+            gameTilesContainer.Controls.Add(pictureBox37);
+            gameTilesContainer.Controls.Add(pictureBox38);
+            gameTilesContainer.Controls.Add(pictureBox40);
+            gameTilesContainer.Controls.Add(pictureBox41);
+            gameTilesContainer.Controls.Add(pictureBox42);
+            gameTilesContainer.Controls.Add(pictureBox43);
+            gameTilesContainer.Controls.Add(pictureBox44);
+            gameTilesContainer.Controls.Add(pictureBox45);
+            gameTilesContainer.Controls.Add(pictureBox46);
+            gameTilesContainer.Controls.Add(pictureBox47);
+            gameTilesContainer.Controls.Add(pictureBox48);
+            gameTilesContainer.Controls.Add(pictureBox49);
+            gameTilesContainer.Controls.Add(pictureBox50);
+            gameTilesContainer.Controls.Add(pictureBox51);
+            gameTilesContainer.Controls.Add(pictureBox53);
+            gameTilesContainer.Controls.Add(pictureBox54);
+            gameTilesContainer.Controls.Add(pictureBox55);
+            gameTilesContainer.Controls.Add(pictureBox56);
+            gameTilesContainer.Controls.Add(pictureBox57);
+            gameTilesContainer.Controls.Add(pictureBox58);
+            gameTilesContainer.Controls.Add(pictureBox59);
+            gameTilesContainer.Controls.Add(pictureBox60);
+            gameTilesContainer.Controls.Add(pictureBox61);
+            gameTilesContainer.Controls.Add(pictureBox62);
+            gameTilesContainer.Controls.Add(pictureBox63);
+            gameTilesContainer.Controls.Add(pictureBox64);
+            gameTilesContainer.Controls.Add(pictureBox66);
+            gameTilesContainer.Controls.Add(pictureBox67);
+            gameTilesContainer.Controls.Add(pictureBox68);
+            gameTilesContainer.Controls.Add(pictureBox69);
+            gameTilesContainer.Controls.Add(pictureBox70);
+            gameTilesContainer.Controls.Add(pictureBox71);
+            gameTilesContainer.Controls.Add(pictureBox72);
+            gameTilesContainer.Controls.Add(pictureBox73);
+            gameTilesContainer.Controls.Add(pictureBox74);
+            gameTilesContainer.Controls.Add(pictureBox75);
+            gameTilesContainer.Controls.Add(pictureBox76);
+            gameTilesContainer.Controls.Add(pictureBox77);
+            gameTilesContainer.Controls.Add(pictureBox79);
+            gameTilesContainer.Controls.Add(pictureBox80);
+            gameTilesContainer.Controls.Add(pictureBox81);
+            gameTilesContainer.Controls.Add(pictureBox82);
+            gameTilesContainer.Controls.Add(pictureBox83);
+            gameTilesContainer.Controls.Add(pictureBox84);
+            gameTilesContainer.Controls.Add(pictureBox85);
+            gameTilesContainer.Controls.Add(pictureBox86);
+            gameTilesContainer.Controls.Add(pictureBox87);
+            gameTilesContainer.Controls.Add(pictureBox88);
+            gameTilesContainer.Controls.Add(pictureBox89);
+            gameTilesContainer.Controls.Add(pictureBox90);
+            gameTilesContainer.Controls.Add(pictureBox92);
+            gameTilesContainer.Controls.Add(pictureBox93);
+            gameTilesContainer.Controls.Add(pictureBox94);
+            gameTilesContainer.Controls.Add(pictureBox95);
+            gameTilesContainer.Controls.Add(pictureBox96);
+            gameTilesContainer.Controls.Add(pictureBox97);
+            gameTilesContainer.Controls.Add(pictureBox98);
+            gameTilesContainer.Controls.Add(pictureBox99);
+            gameTilesContainer.Controls.Add(pictureBox100);
+            gameTilesContainer.Controls.Add(pictureBox101);
+            gameTilesContainer.Controls.Add(pictureBox102);
+            gameTilesContainer.Controls.Add(pictureBox103);
+            gameTilesContainer.Controls.Add(pictureBox105);
+            gameTilesContainer.Controls.Add(pictureBox106);
+            gameTilesContainer.Controls.Add(pictureBox107);
+            gameTilesContainer.Controls.Add(pictureBox108);
+            gameTilesContainer.Controls.Add(pictureBox109);
+            gameTilesContainer.Controls.Add(pictureBox110);
+            gameTilesContainer.Controls.Add(pictureBox111);
+            gameTilesContainer.Controls.Add(pictureBox112);
+            gameTilesContainer.Controls.Add(pictureBox113);
+            gameTilesContainer.Controls.Add(pictureBox114);
+            gameTilesContainer.Controls.Add(pictureBox115);
+            gameTilesContainer.Controls.Add(pictureBox116);
+            gameTilesContainer.Controls.Add(pictureBox118);
+            gameTilesContainer.Controls.Add(pictureBox119);
+            gameTilesContainer.Controls.Add(pictureBox120);
+            gameTilesContainer.Controls.Add(pictureBox121);
+            gameTilesContainer.Controls.Add(pictureBox122);
+            gameTilesContainer.Controls.Add(pictureBox123);
+            gameTilesContainer.Controls.Add(pictureBox124);
+            gameTilesContainer.Controls.Add(pictureBox125);
+            gameTilesContainer.Controls.Add(pictureBox126);
+            gameTilesContainer.Controls.Add(pictureBox127);
+            gameTilesContainer.Controls.Add(pictureBox128);
+            gameTilesContainer.Controls.Add(pictureBox129);
+            gameTilesContainer.Controls.Add(pictureBox131);
+            gameTilesContainer.Controls.Add(pictureBox132);
+            gameTilesContainer.Controls.Add(pictureBox133);
+            gameTilesContainer.Controls.Add(pictureBox134);
+            gameTilesContainer.Controls.Add(pictureBox135);
+            gameTilesContainer.Controls.Add(pictureBox136);
+            gameTilesContainer.Controls.Add(pictureBox137);
+            gameTilesContainer.Controls.Add(pictureBox138);
+            gameTilesContainer.Controls.Add(pictureBox139);
+            gameTilesContainer.Controls.Add(pictureBox140);
+            gameTilesContainer.Controls.Add(pictureBox141);
+            gameTilesContainer.Controls.Add(pictureBox142);
+            gameTilesContainer.Controls.Add(pictureBox144);
+            gameTilesContainer.Controls.Add(pictureBox145);
+            gameTilesContainer.Controls.Add(pictureBox146);
+            gameTilesContainer.Controls.Add(pictureBox147);
+            gameTilesContainer.Controls.Add(pictureBox148);
+            gameTilesContainer.Controls.Add(pictureBox149);
+            gameTilesContainer.Controls.Add(pictureBox150);
+            gameTilesContainer.Controls.Add(pictureBox151);
+            gameTilesContainer.Controls.Add(pictureBox152);
+            gameTilesContainer.Controls.Add(pictureBox153);
+            gameTilesContainer.Controls.Add(pictureBox154);
+            gameTilesContainer.Controls.Add(pictureBox155);
+            gameTilesContainer.Controls.Add(pictureBox157);
+            gameTilesContainer.Controls.Add(pictureBox158);
+            gameTilesContainer.Controls.Add(pictureBox159);
+            gameTilesContainer.Controls.Add(pictureBox160);
+            gameTilesContainer.Controls.Add(pictureBox161);
+            gameTilesContainer.Controls.Add(pictureBox162);
+            gameTilesContainer.Controls.Add(pictureBox163);
+            gameTilesContainer.Controls.Add(pictureBox164);
+            gameTilesContainer.Controls.Add(pictureBox165);
+            gameTilesContainer.Controls.Add(pictureBox166);
+            gameTilesContainer.Controls.Add(pictureBox167);
+            gameTilesContainer.Controls.Add(pictureBox168);
+            gameTilesContainer.Controls.Add(pictureBox170);
+            gameTilesContainer.Controls.Add(pictureBox171);
+            gameTilesContainer.Controls.Add(pictureBox172);
+            gameTilesContainer.Controls.Add(pictureBox173);
+            gameTilesContainer.Controls.Add(pictureBox174);
+            gameTilesContainer.Controls.Add(pictureBox175);
+            gameTilesContainer.Controls.Add(pictureBox176);
+            gameTilesContainer.Controls.Add(pictureBox177);
+            gameTilesContainer.Controls.Add(pictureBox178);
+            gameTilesContainer.Location = new Point(12, 12);
+            gameTilesContainer.Name = "gameTilesContainer";
+            gameTilesContainer.Padding = new Padding(40);
+            gameTilesContainer.Size = new Size(520, 680);
+            gameTilesContainer.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -697,6 +701,16 @@
             pictureBox12.TabIndex = 11;
             pictureBox12.TabStop = false;
             // 
+            // pictureBox14
+            // 
+            pictureBox14.BackColor = Color.White;
+            pictureBox14.Location = new Point(80, 80);
+            pictureBox14.Margin = new Padding(0);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(40, 40);
+            pictureBox14.TabIndex = 13;
+            pictureBox14.TabStop = false;
+            // 
             // pictureBox15
             // 
             pictureBox15.BackColor = Color.White;
@@ -816,6 +830,16 @@
             pictureBox27.Size = new Size(40, 40);
             pictureBox27.TabIndex = 26;
             pictureBox27.TabStop = false;
+            // 
+            // pictureBox28
+            // 
+            pictureBox28.BackColor = Color.White;
+            pictureBox28.Location = new Point(160, 120);
+            pictureBox28.Margin = new Padding(0);
+            pictureBox28.Name = "pictureBox28";
+            pictureBox28.Size = new Size(40, 40);
+            pictureBox28.TabIndex = 27;
+            pictureBox28.TabStop = false;
             // 
             // pictureBox29
             // 
@@ -937,6 +961,16 @@
             pictureBox41.TabIndex = 40;
             pictureBox41.TabStop = false;
             // 
+            // pictureBox42
+            // 
+            pictureBox42.BackColor = Color.White;
+            pictureBox42.Location = new Point(240, 160);
+            pictureBox42.Margin = new Padding(0);
+            pictureBox42.Name = "pictureBox42";
+            pictureBox42.Size = new Size(40, 40);
+            pictureBox42.TabIndex = 41;
+            pictureBox42.TabStop = false;
+            // 
             // pictureBox43
             // 
             pictureBox43.BackColor = Color.White;
@@ -1056,6 +1090,16 @@
             pictureBox55.Size = new Size(40, 40);
             pictureBox55.TabIndex = 54;
             pictureBox55.TabStop = false;
+            // 
+            // pictureBox56
+            // 
+            pictureBox56.BackColor = Color.White;
+            pictureBox56.Location = new Point(320, 200);
+            pictureBox56.Margin = new Padding(0);
+            pictureBox56.Name = "pictureBox56";
+            pictureBox56.Size = new Size(40, 40);
+            pictureBox56.TabIndex = 55;
+            pictureBox56.TabStop = false;
             // 
             // pictureBox57
             // 
@@ -1177,6 +1221,16 @@
             pictureBox69.TabIndex = 68;
             pictureBox69.TabStop = false;
             // 
+            // pictureBox70
+            // 
+            pictureBox70.BackColor = Color.White;
+            pictureBox70.Location = new Point(400, 240);
+            pictureBox70.Margin = new Padding(0);
+            pictureBox70.Name = "pictureBox70";
+            pictureBox70.Size = new Size(40, 40);
+            pictureBox70.TabIndex = 69;
+            pictureBox70.TabStop = false;
+            // 
             // pictureBox71
             // 
             pictureBox71.BackColor = Color.White;
@@ -1296,6 +1350,16 @@
             pictureBox83.Size = new Size(40, 40);
             pictureBox83.TabIndex = 82;
             pictureBox83.TabStop = false;
+            // 
+            // pictureBox84
+            // 
+            pictureBox84.BackColor = Color.White;
+            pictureBox84.Location = new Point(40, 320);
+            pictureBox84.Margin = new Padding(0);
+            pictureBox84.Name = "pictureBox84";
+            pictureBox84.Size = new Size(40, 40);
+            pictureBox84.TabIndex = 83;
+            pictureBox84.TabStop = false;
             // 
             // pictureBox85
             // 
@@ -1417,6 +1481,16 @@
             pictureBox97.TabIndex = 96;
             pictureBox97.TabStop = false;
             // 
+            // pictureBox98
+            // 
+            pictureBox98.BackColor = Color.White;
+            pictureBox98.Location = new Point(120, 360);
+            pictureBox98.Margin = new Padding(0);
+            pictureBox98.Name = "pictureBox98";
+            pictureBox98.Size = new Size(40, 40);
+            pictureBox98.TabIndex = 97;
+            pictureBox98.TabStop = false;
+            // 
             // pictureBox99
             // 
             pictureBox99.BackColor = Color.White;
@@ -1536,6 +1610,16 @@
             pictureBox111.Size = new Size(40, 40);
             pictureBox111.TabIndex = 110;
             pictureBox111.TabStop = false;
+            // 
+            // pictureBox112
+            // 
+            pictureBox112.BackColor = Color.White;
+            pictureBox112.Location = new Point(200, 400);
+            pictureBox112.Margin = new Padding(0);
+            pictureBox112.Name = "pictureBox112";
+            pictureBox112.Size = new Size(40, 40);
+            pictureBox112.TabIndex = 111;
+            pictureBox112.TabStop = false;
             // 
             // pictureBox113
             // 
@@ -1657,6 +1741,16 @@
             pictureBox125.TabIndex = 124;
             pictureBox125.TabStop = false;
             // 
+            // pictureBox126
+            // 
+            pictureBox126.BackColor = Color.White;
+            pictureBox126.Location = new Point(280, 440);
+            pictureBox126.Margin = new Padding(0);
+            pictureBox126.Name = "pictureBox126";
+            pictureBox126.Size = new Size(40, 40);
+            pictureBox126.TabIndex = 125;
+            pictureBox126.TabStop = false;
+            // 
             // pictureBox127
             // 
             pictureBox127.BackColor = Color.White;
@@ -1776,6 +1870,16 @@
             pictureBox139.Size = new Size(40, 40);
             pictureBox139.TabIndex = 138;
             pictureBox139.TabStop = false;
+            // 
+            // pictureBox140
+            // 
+            pictureBox140.BackColor = Color.White;
+            pictureBox140.Location = new Point(360, 480);
+            pictureBox140.Margin = new Padding(0);
+            pictureBox140.Name = "pictureBox140";
+            pictureBox140.Size = new Size(40, 40);
+            pictureBox140.TabIndex = 139;
+            pictureBox140.TabStop = false;
             // 
             // pictureBox141
             // 
@@ -1897,6 +2001,16 @@
             pictureBox153.TabIndex = 152;
             pictureBox153.TabStop = false;
             // 
+            // pictureBox154
+            // 
+            pictureBox154.BackColor = Color.White;
+            pictureBox154.Location = new Point(440, 520);
+            pictureBox154.Margin = new Padding(0);
+            pictureBox154.Name = "pictureBox154";
+            pictureBox154.Size = new Size(40, 40);
+            pictureBox154.TabIndex = 153;
+            pictureBox154.TabStop = false;
+            // 
             // pictureBox155
             // 
             pictureBox155.BackColor = Color.White;
@@ -2017,6 +2131,16 @@
             pictureBox167.TabIndex = 166;
             pictureBox167.TabStop = false;
             // 
+            // pictureBox168
+            // 
+            pictureBox168.BackColor = Color.White;
+            pictureBox168.Location = new Point(80, 600);
+            pictureBox168.Margin = new Padding(0);
+            pictureBox168.Name = "pictureBox168";
+            pictureBox168.Size = new Size(40, 40);
+            pictureBox168.TabIndex = 167;
+            pictureBox168.TabStop = false;
+            // 
             // pictureBox170
             // 
             pictureBox170.BackColor = Color.White;
@@ -2107,161 +2231,30 @@
             pictureBox178.TabIndex = 177;
             pictureBox178.TabStop = false;
             // 
-            // pictureBox154
+            // nextTetrominoTilesContainer
             // 
-            pictureBox154.BackColor = Color.White;
-            pictureBox154.Location = new Point(440, 520);
-            pictureBox154.Margin = new Padding(0);
-            pictureBox154.Name = "pictureBox154";
-            pictureBox154.Size = new Size(40, 40);
-            pictureBox154.TabIndex = 153;
-            pictureBox154.TabStop = false;
-            // 
-            // pictureBox140
-            // 
-            pictureBox140.BackColor = Color.White;
-            pictureBox140.Location = new Point(360, 480);
-            pictureBox140.Margin = new Padding(0);
-            pictureBox140.Name = "pictureBox140";
-            pictureBox140.Size = new Size(40, 40);
-            pictureBox140.TabIndex = 139;
-            pictureBox140.TabStop = false;
-            // 
-            // pictureBox126
-            // 
-            pictureBox126.BackColor = Color.White;
-            pictureBox126.Location = new Point(280, 440);
-            pictureBox126.Margin = new Padding(0);
-            pictureBox126.Name = "pictureBox126";
-            pictureBox126.Size = new Size(40, 40);
-            pictureBox126.TabIndex = 125;
-            pictureBox126.TabStop = false;
-            // 
-            // pictureBox112
-            // 
-            pictureBox112.BackColor = Color.White;
-            pictureBox112.Location = new Point(200, 400);
-            pictureBox112.Margin = new Padding(0);
-            pictureBox112.Name = "pictureBox112";
-            pictureBox112.Size = new Size(40, 40);
-            pictureBox112.TabIndex = 111;
-            pictureBox112.TabStop = false;
-            // 
-            // pictureBox98
-            // 
-            pictureBox98.BackColor = Color.White;
-            pictureBox98.Location = new Point(120, 360);
-            pictureBox98.Margin = new Padding(0);
-            pictureBox98.Name = "pictureBox98";
-            pictureBox98.Size = new Size(40, 40);
-            pictureBox98.TabIndex = 97;
-            pictureBox98.TabStop = false;
-            // 
-            // pictureBox84
-            // 
-            pictureBox84.BackColor = Color.White;
-            pictureBox84.Location = new Point(40, 320);
-            pictureBox84.Margin = new Padding(0);
-            pictureBox84.Name = "pictureBox84";
-            pictureBox84.Size = new Size(40, 40);
-            pictureBox84.TabIndex = 83;
-            pictureBox84.TabStop = false;
-            // 
-            // pictureBox70
-            // 
-            pictureBox70.BackColor = Color.White;
-            pictureBox70.Location = new Point(400, 240);
-            pictureBox70.Margin = new Padding(0);
-            pictureBox70.Name = "pictureBox70";
-            pictureBox70.Size = new Size(40, 40);
-            pictureBox70.TabIndex = 69;
-            pictureBox70.TabStop = false;
-            // 
-            // pictureBox56
-            // 
-            pictureBox56.BackColor = Color.White;
-            pictureBox56.Location = new Point(320, 200);
-            pictureBox56.Margin = new Padding(0);
-            pictureBox56.Name = "pictureBox56";
-            pictureBox56.Size = new Size(40, 40);
-            pictureBox56.TabIndex = 55;
-            pictureBox56.TabStop = false;
-            // 
-            // pictureBox42
-            // 
-            pictureBox42.BackColor = Color.White;
-            pictureBox42.Location = new Point(240, 160);
-            pictureBox42.Margin = new Padding(0);
-            pictureBox42.Name = "pictureBox42";
-            pictureBox42.Size = new Size(40, 40);
-            pictureBox42.TabIndex = 41;
-            pictureBox42.TabStop = false;
-            // 
-            // pictureBox28
-            // 
-            pictureBox28.BackColor = Color.White;
-            pictureBox28.Location = new Point(160, 120);
-            pictureBox28.Margin = new Padding(0);
-            pictureBox28.Name = "pictureBox28";
-            pictureBox28.Size = new Size(40, 40);
-            pictureBox28.TabIndex = 27;
-            pictureBox28.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            pictureBox14.BackColor = Color.White;
-            pictureBox14.Location = new Point(80, 80);
-            pictureBox14.Margin = new Padding(0);
-            pictureBox14.Name = "pictureBox14";
-            pictureBox14.Size = new Size(40, 40);
-            pictureBox14.TabIndex = 13;
-            pictureBox14.TabStop = false;
-            // 
-            // pictureBox168
-            // 
-            pictureBox168.BackColor = Color.White;
-            pictureBox168.Location = new Point(80, 600);
-            pictureBox168.Margin = new Padding(0);
-            pictureBox168.Name = "pictureBox168";
-            pictureBox168.Size = new Size(40, 40);
-            pictureBox168.TabIndex = 167;
-            pictureBox168.TabStop = false;
-            // 
-            // flpnlNextTetromino
-            // 
-            flpnlNextTetromino.BackColor = Color.FromArgb(64, 64, 64);
-            flpnlNextTetromino.Controls.Add(pictureBox13);
-            flpnlNextTetromino.Controls.Add(pictureBox26);
-            flpnlNextTetromino.Controls.Add(pictureBox39);
-            flpnlNextTetromino.Controls.Add(pictureBox52);
-            flpnlNextTetromino.Controls.Add(pictureBox65);
-            flpnlNextTetromino.Controls.Add(pictureBox78);
-            flpnlNextTetromino.Controls.Add(pictureBox91);
-            flpnlNextTetromino.Controls.Add(pictureBox104);
-            flpnlNextTetromino.Controls.Add(pictureBox117);
-            flpnlNextTetromino.Controls.Add(pictureBox130);
-            flpnlNextTetromino.Controls.Add(pictureBox143);
-            flpnlNextTetromino.Controls.Add(pictureBox156);
-            flpnlNextTetromino.Controls.Add(pictureBox169);
-            flpnlNextTetromino.Controls.Add(pictureBox179);
-            flpnlNextTetromino.Controls.Add(pictureBox180);
-            flpnlNextTetromino.Controls.Add(pictureBox181);
-            flpnlNextTetromino.Location = new Point(586, 62);
-            flpnlNextTetromino.Name = "flpnlNextTetromino";
-            flpnlNextTetromino.Padding = new Padding(10);
-            flpnlNextTetromino.Size = new Size(180, 180);
-            flpnlNextTetromino.TabIndex = 1;
-            // 
-            // lblNextTetromino
-            // 
-            lblNextTetromino.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblNextTetromino.ForeColor = Color.FromArgb(224, 224, 224);
-            lblNextTetromino.Location = new Point(586, 12);
-            lblNextTetromino.Name = "lblNextTetromino";
-            lblNextTetromino.Size = new Size(184, 47);
-            lblNextTetromino.TabIndex = 2;
-            lblNextTetromino.Text = "Next:";
-            lblNextTetromino.TextAlign = ContentAlignment.MiddleLeft;
+            nextTetrominoTilesContainer.BackColor = Color.FromArgb(64, 64, 64);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox13);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox26);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox39);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox52);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox65);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox78);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox91);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox104);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox117);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox130);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox143);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox156);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox169);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox179);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox180);
+            nextTetrominoTilesContainer.Controls.Add(pictureBox181);
+            nextTetrominoTilesContainer.Location = new Point(586, 62);
+            nextTetrominoTilesContainer.Name = "nextTetrominoTilesContainer";
+            nextTetrominoTilesContainer.Padding = new Padding(10);
+            nextTetrominoTilesContainer.Size = new Size(180, 180);
+            nextTetrominoTilesContainer.TabIndex = 1;
             // 
             // pictureBox13
             // 
@@ -2423,93 +2416,129 @@
             pictureBox181.TabIndex = 35;
             pictureBox181.TabStop = false;
             // 
-            // lblCurrentScoreMsg
+            // nextTetrominoLbl
             // 
-            lblCurrentScoreMsg.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCurrentScoreMsg.ForeColor = Color.FromArgb(224, 224, 224);
-            lblCurrentScoreMsg.Location = new Point(586, 264);
-            lblCurrentScoreMsg.Name = "lblCurrentScoreMsg";
-            lblCurrentScoreMsg.Size = new Size(274, 47);
-            lblCurrentScoreMsg.TabIndex = 3;
-            lblCurrentScoreMsg.Text = "Current score:";
-            lblCurrentScoreMsg.TextAlign = ContentAlignment.MiddleLeft;
+            nextTetrominoLbl.BackColor = Color.Transparent;
+            nextTetrominoLbl.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold);
+            nextTetrominoLbl.ForeColor = Color.WhiteSmoke;
+            nextTetrominoLbl.Location = new Point(586, 12);
+            nextTetrominoLbl.Name = "nextTetrominoLbl";
+            nextTetrominoLbl.Size = new Size(184, 47);
+            nextTetrominoLbl.TabIndex = 2;
+            nextTetrominoLbl.Text = "Next:";
+            nextTetrominoLbl.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblHighScoreMsg
+            // scoreMsgLbl
             // 
-            lblHighScoreMsg.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHighScoreMsg.ForeColor = Color.FromArgb(224, 224, 224);
-            lblHighScoreMsg.Location = new Point(586, 372);
-            lblHighScoreMsg.Name = "lblHighScoreMsg";
-            lblHighScoreMsg.Size = new Size(274, 53);
-            lblHighScoreMsg.TabIndex = 4;
-            lblHighScoreMsg.Text = "High score:";
-            lblHighScoreMsg.TextAlign = ContentAlignment.MiddleLeft;
+            scoreMsgLbl.BackColor = Color.Transparent;
+            scoreMsgLbl.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold);
+            scoreMsgLbl.ForeColor = Color.WhiteSmoke;
+            scoreMsgLbl.Location = new Point(586, 264);
+            scoreMsgLbl.Name = "scoreMsgLbl";
+            scoreMsgLbl.Size = new Size(274, 47);
+            scoreMsgLbl.TabIndex = 3;
+            scoreMsgLbl.Text = "Score:";
+            scoreMsgLbl.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblCurrentScore
+            // clearedLinesMsgLbl
             // 
-            lblCurrentScore.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCurrentScore.ForeColor = Color.FromArgb(224, 224, 224);
-            lblCurrentScore.Location = new Point(586, 311);
-            lblCurrentScore.Name = "lblCurrentScore";
-            lblCurrentScore.Size = new Size(349, 47);
-            lblCurrentScore.TabIndex = 5;
-            lblCurrentScore.Text = "000 000 000 000 000";
-            lblCurrentScore.TextAlign = ContentAlignment.MiddleLeft;
+            clearedLinesMsgLbl.BackColor = Color.Transparent;
+            clearedLinesMsgLbl.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold);
+            clearedLinesMsgLbl.ForeColor = Color.WhiteSmoke;
+            clearedLinesMsgLbl.Location = new Point(586, 372);
+            clearedLinesMsgLbl.Name = "clearedLinesMsgLbl";
+            clearedLinesMsgLbl.Size = new Size(274, 53);
+            clearedLinesMsgLbl.TabIndex = 4;
+            clearedLinesMsgLbl.Text = "Cleared lines:";
+            clearedLinesMsgLbl.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblHighScore
+            // scoreLbl
             // 
-            lblHighScore.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHighScore.ForeColor = Color.FromArgb(224, 224, 224);
-            lblHighScore.Location = new Point(586, 425);
-            lblHighScore.Name = "lblHighScore";
-            lblHighScore.Size = new Size(349, 47);
-            lblHighScore.TabIndex = 6;
-            lblHighScore.Text = "000 000 000 000 000";
-            lblHighScore.TextAlign = ContentAlignment.MiddleLeft;
+            scoreLbl.BackColor = Color.Transparent;
+            scoreLbl.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            scoreLbl.ForeColor = Color.WhiteSmoke;
+            scoreLbl.Location = new Point(586, 311);
+            scoreLbl.Name = "scoreLbl";
+            scoreLbl.Size = new Size(349, 47);
+            scoreLbl.TabIndex = 5;
+            scoreLbl.Text = "000 000 000 000 000";
+            scoreLbl.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btnToggleShadows
+            // clearedLinesLbl
             // 
-            btnToggleShadows.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnToggleShadows.Location = new Point(586, 503);
-            btnToggleShadows.Name = "btnToggleShadows";
-            btnToggleShadows.Size = new Size(349, 69);
-            btnToggleShadows.TabIndex = 7;
-            btnToggleShadows.Text = "Toggle shadows";
-            btnToggleShadows.UseVisualStyleBackColor = true;
+            clearedLinesLbl.BackColor = Color.Transparent;
+            clearedLinesLbl.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            clearedLinesLbl.ForeColor = Color.WhiteSmoke;
+            clearedLinesLbl.Location = new Point(586, 425);
+            clearedLinesLbl.Name = "clearedLinesLbl";
+            clearedLinesLbl.Size = new Size(349, 47);
+            clearedLinesLbl.TabIndex = 6;
+            clearedLinesLbl.Text = "000 000 000 000 000";
+            clearedLinesLbl.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btnResetGame
+            // toggleShadowsBtn
             // 
-            btnResetGame.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnResetGame.Location = new Point(586, 592);
-            btnResetGame.Name = "btnResetGame";
-            btnResetGame.Size = new Size(349, 69);
-            btnResetGame.TabIndex = 8;
-            btnResetGame.Text = "Reset game";
-            btnResetGame.UseVisualStyleBackColor = true;
+            toggleShadowsBtn.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold);
+            toggleShadowsBtn.Location = new Point(586, 503);
+            toggleShadowsBtn.Name = "toggleShadowsBtn";
+            toggleShadowsBtn.Size = new Size(349, 69);
+            toggleShadowsBtn.TabIndex = 7;
+            toggleShadowsBtn.Text = "Toggle shadows";
+            toggleShadowsBtn.UseVisualStyleBackColor = true;
+            toggleShadowsBtn.Click += ToggleShadowsBtnClick;
             // 
-            // TetrisGameForm
+            // restartGameBtn
+            // 
+            restartGameBtn.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold);
+            restartGameBtn.Location = new Point(586, 592);
+            restartGameBtn.Name = "restartGameBtn";
+            restartGameBtn.Size = new Size(349, 69);
+            restartGameBtn.TabIndex = 8;
+            restartGameBtn.Text = "Restart game";
+            restartGameBtn.UseVisualStyleBackColor = true;
+            restartGameBtn.Click += RestartGameBtnClick;
+            // 
+            // gameOverLbl
+            // 
+            gameOverLbl.BackColor = Color.Black;
+            gameOverLbl.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold);
+            gameOverLbl.ForeColor = Color.WhiteSmoke;
+            gameOverLbl.Location = new Point(100, 250);
+            gameOverLbl.Name = "gameOverLbl";
+            gameOverLbl.Size = new Size(342, 119);
+            gameOverLbl.TabIndex = 9;
+            gameOverLbl.Text = "Game Over";
+            gameOverLbl.TextAlign = ContentAlignment.MiddleCenter;
+            gameOverLbl.Visible = false;
+            // 
+            // GameplayFrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
-            ClientSize = new Size(947, 697);
-            Controls.Add(btnResetGame);
-            Controls.Add(btnToggleShadows);
-            Controls.Add(lblHighScore);
-            Controls.Add(lblCurrentScore);
-            Controls.Add(lblHighScoreMsg);
-            Controls.Add(lblCurrentScoreMsg);
-            Controls.Add(lblNextTetromino);
-            Controls.Add(flpnlNextTetromino);
-            Controls.Add(flpnlBlocks);
+            BackgroundImage = Resource.tetris_bg_purple;
+            ClientSize = new Size(959, 697);
+            Controls.Add(gameOverLbl);
+            Controls.Add(restartGameBtn);
+            Controls.Add(toggleShadowsBtn);
+            Controls.Add(clearedLinesLbl);
+            Controls.Add(scoreLbl);
+            Controls.Add(clearedLinesMsgLbl);
+            Controls.Add(scoreMsgLbl);
+            Controls.Add(nextTetrominoLbl);
+            Controls.Add(nextTetrominoTilesContainer);
+            Controls.Add(gameTilesContainer);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "TetrisGameForm";
+            Name = "GameplayFrm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tetris";
-            flpnlBlocks.ResumeLayout(false);
+            KeyDown += GameplayFrm_KeyDown;
+            gameTilesContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -2522,6 +2551,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox15).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox16).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox17).EndInit();
@@ -2534,6 +2564,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox24).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox25).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox29).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox30).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox31).EndInit();
@@ -2546,6 +2577,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox38).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox40).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox41).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox42).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox43).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox44).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox45).EndInit();
@@ -2558,6 +2590,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox53).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox54).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox55).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox56).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox57).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox58).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox59).EndInit();
@@ -2570,6 +2603,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox67).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox68).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox69).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox70).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox71).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox72).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox73).EndInit();
@@ -2582,6 +2616,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox81).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox82).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox83).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox84).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox85).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox86).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox87).EndInit();
@@ -2594,6 +2629,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox95).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox96).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox97).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox98).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox99).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox100).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox101).EndInit();
@@ -2606,6 +2642,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox109).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox110).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox111).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox112).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox113).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox114).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox115).EndInit();
@@ -2618,6 +2655,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox123).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox124).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox125).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox126).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox127).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox128).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox129).EndInit();
@@ -2630,6 +2668,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox137).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox138).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox139).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox140).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox141).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox142).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox144).EndInit();
@@ -2642,6 +2681,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox151).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox152).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox153).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox154).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox155).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox157).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox158).EndInit();
@@ -2654,6 +2694,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox165).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox166).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox167).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox168).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox170).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox171).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox172).EndInit();
@@ -2663,19 +2704,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox176).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox177).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox178).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox154).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox140).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox126).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox112).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox98).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox84).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox70).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox56).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox42).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox168).EndInit();
-            flpnlNextTetromino.ResumeLayout(false);
+            nextTetrominoTilesContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox26).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox39).EndInit();
@@ -2697,7 +2726,7 @@
 
         #endregion
 
-        private FlowLayoutPanel flpnlBlocks;
+        private FlowLayoutPanel gameTilesContainer;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
@@ -2863,8 +2892,8 @@
         private PictureBox pictureBox176;
         private PictureBox pictureBox177;
         private PictureBox pictureBox178;
-        private FlowLayoutPanel flpnlNextTetromino;
-        private Label lblNextTetromino;
+        private FlowLayoutPanel nextTetrominoTilesContainer;
+        private Label nextTetrominoLbl;
         private PictureBox pictureBox13;
         private PictureBox pictureBox26;
         private PictureBox pictureBox39;
@@ -2881,11 +2910,13 @@
         private PictureBox pictureBox179;
         private PictureBox pictureBox180;
         private PictureBox pictureBox181;
-        private Label lblCurrentScoreMsg;
-        private Label lblHighScoreMsg;
-        private Label lblCurrentScore;
-        private Label lblHighScore;
-        private Button btnToggleShadows;
-        private Button btnResetGame;
+        private Label scoreMsgLbl;
+        private Label clearedLinesMsgLbl;
+        private Label scoreLbl;
+        private Label clearedLinesLbl;
+        private Button toggleShadowsBtn;
+        private Button restartGameBtn;
+        private System.Windows.Forms.Timer gameTmr;
+        private Label gameOverLbl;
     }
 }

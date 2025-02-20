@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TerminalTetris\TerminalTetris.csproj" />
+    <ProjectReference Include="..\WinFormsTodoList\WinFormsTodoList.csproj" />
   </ItemGroup>
 
   <ItemGroup>
