@@ -156,7 +156,6 @@ namespace WinFormsTetris
                 _ => throw new NotImplementedException()
             };
         }
-
         private void DrawGameBoard()
         {
             AnimateClearedLines(_tetrisGame.ClearedLines);

@@ -102,6 +102,9 @@
             ClientSize = new Size(800, 476);
             Controls.Add(highScoresDgv);
             Controls.Add(highScoresLbl);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "HighScoresFrm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "High Scores";
